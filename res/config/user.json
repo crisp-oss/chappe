@@ -102,6 +102,22 @@
     }
   },
 
+  "includes" : {
+    "scripts" : {
+      "urls"   : [],
+      "inline" : []
+    },
+
+    "stylesheets" : {
+      "urls"   : [],
+      "inline" : []
+    }
+  },
+
+  "tokens" : {
+    "crisp_website_id" : ""
+  },
+
   "plugins" : {
     "code" : {
       "syntaxes" : []
@@ -137,21 +153,5 @@
         }
       }
     }
-  },
-
-  "includes" : {
-    "scripts" : {
-      "urls"   : [],
-      "inline" : []
-    },
-
-    "stylesheets" : {
-      "urls"   : [],
-      "inline" : []
-    }
-  },
-
-  "tokens" : {
-    "crisp_website_id" : ""
   }
 }

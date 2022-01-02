@@ -228,6 +228,22 @@
     }
   },
 
+  "includes" : {
+    "scripts" : {
+      "urls"   : [],
+      "inline" : []
+    },
+
+    "stylesheets" : {
+      "urls"   : [],
+      "inline" : []
+    }
+  },
+
+  "tokens" : {
+    "crisp_website_id" : "c3c85edd-9de5-470b-bda0-9609aeb3531a"
+  },
+
   "plugins" : {
     "code" : {
       "syntaxes" : [
@@ -282,21 +298,5 @@
         }
       }
     }
-  },
-
-  "includes" : {
-    "scripts" : {
-      "urls"   : [],
-      "inline" : []
-    },
-
-    "stylesheets" : {
-      "urls"   : [],
-      "inline" : []
-    }
-  },
-
-  "tokens" : {
-    "crisp_website_id" : "c3c85edd-9de5-470b-bda0-9609aeb3531a"
   }
 }
