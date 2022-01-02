@@ -1,0 +1,25 @@
+//- chappe
+//-
+//- Copyright 2021, Valerian Saliou
+//- Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+meta(
+  property="og:locale",
+  content="#{LOCALE.CODE}"
+)
+
+meta(
+  property="og:site_name",
+  content="#{(SITE.identity.title || $_.COMMON.METAS.SITE_NAME)}"
+)
+
+meta(
+  property="og:type",
+  content="website"
+)
+
+if SITE.images.metas.opengraph
+  meta(
+    property="og:image",
+    content="#{SITE.urls.base}/static/user/#{SITE.images.metas.opengraph}"
+  )

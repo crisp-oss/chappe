@@ -1,0 +1,28 @@
+//- chappe
+//-
+//- Copyright 2021, Valerian Saliou
+//- Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+
+mixin references-sidebar-context(reference)
+  - var context_icon = (SITE.images.categories.references[reference.segments[0]] || null);
+
+  .context
+    .context-name.font-sans-semibold
+      span.context-icon(
+        style=((context_icon !== null) ? ("background-image: url('/static/user/" + context_icon + "');") : null)
+      )
+
+      | #{reference.title}
+
+
+mixin references-content-details(reference, has_sidebar_right)
+  .details(
+    class=(has_sidebar_right ? "details--with-sidebar-right" : null)
+  )
+    .details-inner
+      h1.details-title.text-ellipsis.font-sans-bold
+        | #{reference.title}
+
+      span.details-updated
+        | #{$_.REFERENCES.MARKDOWN.DETAILS.UPDATED} #{reference.updated.toLocaleDateString(FORMAT.DATES.LOCALE_DATE_STRING.AREA, FORMAT.DATES.LOCALE_DATE_STRING.OPTIONS)}

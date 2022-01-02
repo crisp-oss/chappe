@@ -1,0 +1,59 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+body
+  font-family: "Chappe Proxima Nova Regular", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-size: $font-size-base
+  background: rgba($color-base, .65) !important
+
+*
+  font-weight: normal !important
+  +font-smoothing(subpixel-antialiased)
+  margin: 0
+  padding: 0
+
+.wrapper
+  padding: 0 $wrapper-default-padding-sides
+
+a
+  text-decoration: none
+
++selection
+  background-color: $color-selection-default
+
+.text-ellipsis
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+.title-group-anchor:hover .title-anchor,
+.title-anchor:hover
+  text-decoration: underline !important
+  text-decoration-color: $color-grey-dark !important
+
+
+//- Media Queries
+
+// For screens below defined widths
+
+@media screen and (max-width: $screen-medium-width-breakpoint)
+  .wrapper
+    padding-left: $wrapper-medium-padding-sides
+    padding-right: $wrapper-medium-padding-sides
+
+@media screen and (max-width: $screen-small-width-breakpoint)
+  .wrapper
+    padding-left: $wrapper-small-padding-sides
+    padding-right: $wrapper-small-padding-sides
+
+@media screen and (max-width: $screen-tiny-width-breakpoint)
+  .wrapper
+    padding-left: $wrapper-tiny-padding-sides
+    padding-right: $wrapper-tiny-padding-sides
+
+@media screen and (max-width: $screen-lilliput-width-breakpoint)
+  .wrapper
+    padding-left: $wrapper-lilliput-padding-sides
+    padding-right: $wrapper-lilliput-padding-sides

@@ -1,0 +1,53 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+.badge
+  border: 1px solid $color-badge-black
+  color: $color-badge-black
+  +font-size(10.5px)
+  user-select: none
+  text-transform: uppercase
+  line-height: $badge-default-height
+  height: $badge-default-height
+  padding: 0 5px
+  display: inline-block
+  border-radius: 1px
+
+  &.badge--special-value
+    background-color: rgba(#e8f5fa, .15)
+    border-color: rgba($color-white, .25)
+    color: #dde4e8
+    +font-size(11.5px)
+    user-select: text
+    text-transform: lowercase
+    line-height: $badge-special-value-height
+    height: $badge-special-value-height
+    border-radius: 2px
+
+  &.badge--small
+    +font-size(10px)
+    line-height: $badge-small-height
+    height: $badge-small-height
+    padding: 0 3px
+
+  &.badge--white
+    border-color: $color-badge-white
+    color: $color-badge-white
+
+  &.badge--blue
+    border-color: $color-badge-blue
+    color: $color-badge-blue
+
+  &.badge--green
+    border-color: $color-badge-green
+    color: $color-badge-green
+
+  &.badge--yellow
+    border-color: $color-badge-yellow
+    color: $color-badge-yellow
+
+  &.badge--red
+    border-color: $color-badge-red
+    color: $color-badge-red

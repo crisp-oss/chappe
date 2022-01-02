@@ -1,0 +1,393 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+.markdown
+  font-family: "Chappe Proxima Nova Regular", sans-serif
+
+  *
+    &:first-child
+      margin-top: 0 !important
+
+    &:last-child
+      margin-bottom: 0 !important
+
+  h1,
+  h2,
+  h3
+    font-family: "Chappe Proxima Nova Bold", sans-serif
+
+  h4,
+  h5,
+  h6
+    font-family: "Chappe Proxima Nova Semibold", sans-serif
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    a
+      font-family: inherit
+      color: inherit
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    margin-top: 20px
+    margin-bottom: 14px
+
+  h3,
+  h4,
+  h5,
+  h6
+    color: #44566b
+
+  h1,
+  h2
+    color: $color-black
+
+  h1
+    +font-size(20px)
+    margin-top: 42px
+    margin-bottom: 20px
+
+  h2
+    +font-size(18px)
+
+  h3
+    +font-size(17.5px)
+
+  h4
+    +font-size(17px)
+
+  h5
+    +font-size(16.5px)
+
+  h6
+    +font-size(16px)
+
+  p,
+  ul,
+  ol,
+  blockquote,
+  .emphasis
+    +font-size(14.5px)
+    line-height: 22px
+
+  p
+    margin-bottom: .9em
+
+  a
+    color: $color-blue
+
+    &:hover
+      text-decoration: underline
+
+  hr
+    background-color: $color-grey-light
+    border: 0 none
+    height: 1px
+    margin: 28px auto 30px
+
+  img
+    width: 100%
+    margin: 16px auto
+
+  em
+    font-style: italic
+
+  strong,
+  a,
+  table thead,
+  figure figcaption,
+  .embed .embed-caption
+    font-family: "Chappe Proxima Nova Semibold", sans-serif
+
+  ul,
+  ol
+    list-style-type: none
+    margin: 18px 0
+
+    li
+      line-height: 20px
+      margin-bottom: 8px
+      padding-left: 24px
+      position: relative
+
+      &:last-of-type
+        margin-bottom: 0
+
+      ul,
+      ol
+        &,
+        &:first-child,
+        &:last-child
+          margin-top: 12px !important
+          margin-bottom: 18px !important
+
+      ul
+        li
+          padding-left: 20px
+
+          &:before
+            background-color: $color-black
+            width: 4px
+            height: 4px
+            margin-top: 1px
+            border-radius: 0
+
+  ul
+    li
+      &:before
+        content: ""
+        background-color: #44566b
+        width: 7px
+        height: 7px
+        border-radius: 100%
+        position: absolute
+        top: 7px
+        left: 10px
+
+  ol
+    counter-reset: list-counter
+
+    li
+      counter-increment: list-counter
+
+      &:before
+        content: counter(list-counter) "."
+        text-align: right
+        min-width: 19px
+        position: absolute
+        top: 0
+        left: 0
+
+  figure,
+  .embed
+    margin: 36px auto 32px
+
+  figure figcaption,
+  .embed .embed-caption
+    +font-size(14px)
+    color: #879aad
+    text-align: center
+    line-height: 18px
+    margin-top: 10px
+    display: block
+
+  figure
+    text-align: center
+    max-width: 70%
+    display: block
+
+    img
+      border: 1px solid rgba($color-grey, .9)
+      width: auto
+      max-width: 100%
+      margin: 0 auto
+      display: block
+
+  code
+    font-family: "Chappe Hack Regular", sans-serif
+    font-size: .8em
+    background-color: #e8f5fa
+    border: 1px solid #a9c6dd
+    color: #275190
+    hyphens: auto
+    word-break: break-all
+    margin: 0 1px
+    padding: 2px 6px
+    display: inline
+    border-radius: 2px
+
+  pre
+    margin: 22px auto
+
+    code
+      background-color: #1f2224
+      border: 0 none
+      color: $color-white
+      line-height: 19px
+      text-align: left
+      white-space: pre
+      word-spacing: normal
+      word-break: normal
+      word-wrap: normal
+      tab-size: 4
+      hyphens: none
+      margin: 0
+      padding: 11px 15px
+      overflow-x: auto
+      overflow-y: hidden
+      display: block
+
+    +selection
+      background-color: rgba($color-selection-code, .25)
+
+  table
+    border-collapse: collapse
+    +font-size(13px)
+    text-align: left
+    width: 100%
+    margin: 26px 0 34px
+
+    thead
+      background-color: $color-base
+      color: #44566b
+      letter-spacing: .1px
+      user-select: none
+
+    th,
+    td
+      border: 1px solid rgba(#c1ccd8, .65)
+      line-height: 18px
+      word-break: break-word
+      hyphens: auto
+      padding: 6px 10px 6px 16px
+
+  blockquote,
+  .emphasis
+    $emphasis-margin-top-bottom-base: 26px
+
+    margin: $emphasis-margin-top-bottom-base 0
+    padding: 14px 20px 14px 28px
+    position: relative
+    overflow: hidden
+    border-radius: 2px
+
+    & + blockquote,
+    & + .emphasis
+      margin-top: ((-1 * $emphasis-margin-top-bottom-base) + 9px)
+
+    &:before
+      content: ""
+      width: 4px
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+
+  blockquote
+    background-color: $color-base
+    color: #44566b
+    font-style: italic
+
+    &:before
+      background-color: #c0cedd
+
+  .emphasis
+    &.emphasis--warning
+      background-color: #fff4e1
+
+      &:before
+        background-color: #f49c0b
+
+    &.emphasis--info
+      background-color: #fffcd9
+
+      &:before
+        background-color: #f4e200
+
+    &.emphasis--notice
+      background-color: #e2ffdd
+
+      &:before
+        background-color: #48cc30
+
+  .embed
+    &[data-loaded="true"]
+      .embed-wrap
+        .embed-frame
+          opacity: 1
+          z-index: 2
+
+        .embed-preview
+          opacity: 0
+
+          &:after
+            display: none
+
+    .embed-wrap
+      height: 420px
+      width: 100%
+      max-width: 680px
+      margin: 0 auto
+      position: relative
+
+      .embed-preview,
+      .embed-frame,
+      .embed-frame iframe
+        background-color: $color-black
+
+      .embed-preview,
+      .embed-frame
+        width: 100%
+        height: 100%
+        transition: opacity ease-in-out 600ms
+
+      .embed-preview
+        +background-image-fill($display: false)
+        cursor: pointer
+        opacity: 1
+        position: relative
+        z-index: 1
+
+        &:hover
+          &:after
+            opacity: 1
+
+        &:active
+          &:after
+            opacity: .95
+
+        &:after
+          $icon-size: 68px
+
+          content: ""
+          +background-image-internal-fill("common/markdown/embed-preview-play.svg")
+          width: $icon-size
+          height: $icon-size
+          position: absolute
+          top: 50%
+          left: 50%
+          opacity: .9
+          transition: opacity ease-in-out 300ms
+          transform: translate(-50%, -50%)
+
+      .embed-frame
+        opacity: 0
+        position: absolute
+        top: 0
+        left: 0
+
+        iframe
+          width: 100%
+          height: 100%
+
+
+//- Media Queries
+
+// For screens below defined widths
+
+@media screen and (max-width: $screen-small-width-breakpoint)
+  .markdown
+    figure
+      max-width: 80%
+
+    .embed
+      .embed-wrap
+        height: 380px
+
+@media screen and (max-width: $screen-tiny-width-breakpoint)
+  .markdown
+    figure
+      max-width: none
+
+    .embed
+      .embed-wrap
+        height: 280px

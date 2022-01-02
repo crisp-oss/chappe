@@ -1,0 +1,363 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+#header
+  background-color: rgba($color-white, .85)
+  border-bottom: $header-border-size solid rgba($color-grey, .65)
+  height: $header-height
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 100
+  box-shadow: 0 2px 6px 0 rgba($color-black, .06)
+  +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
+
+  .wrapper
+    &,
+    .left,
+    .right
+      height: 100%
+      display: flex
+      flex-direction: row
+
+    .left,
+    .right
+      align-items: center
+
+    .left
+      flex: 1
+
+    .right
+      flex: 0 0 auto
+      padding-left: 12px
+
+  .logo
+    color: $color-black
+    margin-right: 60px
+
+    .logo-image
+      height: 24px
+      display: none
+
+      &.logo-image--full
+        display: block
+
+  .menu,
+  .extras
+    height: 100%
+    display: flex
+    align-items: center
+    flex-direction: row
+
+  .menu .menu-item,
+  .extras .extras-item
+    user-select: none
+    height: 100%
+    padding: 0 2px
+    display: flex
+    align-items: center
+    flex-direction: row
+    position: relative
+
+  .menu .menu-item,
+  .extras .extras-item
+    &:after
+      content: ""
+      background-color: $color-grey
+      height: 0
+      position: absolute
+      left: 0
+      right: 0
+      bottom: -1px
+      transition: none
+
+  .menu .menu-item .menu-link,
+  .extras .extras-item .extras-link
+    height: 100%
+    display: flex
+    align-items: center
+
+  .menu .menu-item:hover,
+  .menu .menu-item.menu-item--active,
+  .extras .extras-item.extras-item--active
+    &:after
+      height: 3px
+      transition: height linear 100ms
+
+  .menu .menu-item.menu-item--active,
+  .extras .extras-item.extras-item--active
+    &:after
+      background-color: $color-blue
+
+  .dropdown
+    $dropdown-padding-edges: 8px
+    $dropdown-link-padding-sides: 8px
+
+    background-color: $color-white
+    border: 1px solid rgba($color-grey, .65)
+    padding: ($header-height - 15px) $dropdown-padding-edges $dropdown-padding-edges
+    display: none
+    position: absolute
+    z-index: 1
+    top: 7px
+    left: (-1 * ($dropdown-padding-edges + $dropdown-link-padding-sides))
+    box-shadow: 0 3px 5px 0 rgba($color-black, .05)
+    border-radius: 3px
+
+    .dropdown-link
+      color: $color-black
+      +font-size(13.5px)
+      line-height: 28px
+      letter-spacing: -.1px
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
+      margin-bottom: 2px
+      padding: 0 32px 0 ($dropdown-link-padding-sides + 1px)
+      display: block
+      border-radius: 3px
+
+      &:hover,
+      &:active
+        color: $color-white
+
+      &:hover
+        background-color: $color-blue
+
+        &:active
+          transition: background-color linear 100ms
+
+      &:active
+        background-color: darken($color-blue, 5%)
+
+      &:last-of-type
+        margin-bottom: 0
+
+      &.dropdown-link--multiple
+        line-height: 18px
+        padding-top: 6px
+        padding-bottom: 6px
+
+        .dropdown-link-label
+          margin-top: 1px
+
+      &.dropdown-link--external
+        padding-right: 42px
+        position: relative
+
+        &:after
+          $icon-size: 12px
+
+          content: ""
+          +background-image-internal-fill("common/header/actions-dropdown-external-default.svg")
+          width: $icon-size
+          height: $icon-size
+          margin-top: (-1 * ($icon-size / 2))
+          opacity: .3
+          position: absolute
+          right: ($dropdown-link-padding-sides + 1px)
+          top: 50%
+
+        &:hover,
+        &:active
+          &:after
+            +background-image-internal("common/header/actions-dropdown-external-active.svg")
+            opacity: 1
+
+      .dropdown-link-title,
+      .dropdown-link-label
+        display: block
+
+      .dropdown-link-label
+        +font-size(13px)
+        opacity: .8
+
+  .menu
+    .menu-item
+      margin-right: 28px
+      position: relative
+
+      &:hover
+        .dropdown
+          display: block
+
+      &:last-of-type
+        margin-right: 0
+
+      .menu-link
+        color: $color-black
+        +font-size(14px)
+
+        &.menu-link--dropdown
+          position: relative
+          z-index: 2
+
+          &:after
+            content: ""
+            +background-image-internal-fill("common/header/menu-arrow.svg")
+            width: 8px
+            height: 5px
+            margin-top: 1px
+            margin-left: 5px
+            opacity: .35
+
+  .extras
+    .extras-item
+      .extras-link
+        color: $color-blue
+        +font-size(13px)
+        letter-spacing: -.09px
+
+  .search
+    background: $color-base
+    border: 1px solid $color-grey-dark
+    box-shadow: 0 1px 0 0 rgba($color-grey-dark, .25)
+    height: 32px
+    margin-left: 18px
+    padding: 0 10px 0 12px
+    display: flex
+    align-items: center
+    user-select: none
+    border-radius: 3px
+    transition: border-color linear 100ms
+
+    &:hover
+      border-color: darken($color-grey-dark, 10%)
+      cursor: pointer
+
+    &:active
+      border-color: darken($color-grey-dark, 14%)
+
+    .search-placeholder
+      color: #607282
+      +font-size(13px)
+      letter-spacing: -.1px
+
+      &:before
+        content: ""
+        +background-image-internal-fill("common/header/search-icon.svg")
+        width: 14px
+        height: 14px
+        margin-top: -2px
+        margin-right: 10px
+        vertical-align: middle
+
+    .search-shortcut
+      background: $color-white
+      border: 1px solid #D5DADF
+      color: #A2AEB9
+      +font-size(12px)
+      letter-spacing: -.2px
+      text-align: center
+      height: 20px
+      line-height: 21px
+      margin-left: 20px
+      padding: 0 5px
+      box-shadow: 0 1px 0 0 #E4E9ED
+      border-radius: 3px
+
+  .actions
+    margin-left: 42px
+
+    .action
+      position: relative
+
+      &:hover
+        .dropdown
+          display: block
+
+        .action-button
+          &.button
+            background-color: transparent !important
+            color: $color-black !important
+            box-shadow: none !important
+            transition: none !important
+
+          &:after
+            +background-image-internal("common/header/actions-arrow-active.svg")
+
+      .dropdown
+        left: auto
+        right: -5px
+        top: -5px
+
+      .action-button
+        position: relative
+        z-index: 2
+
+        &:active
+          transform: none
+
+        &:after
+          content: ""
+          +background-image-internal-fill("common/header/actions-arrow-default.svg")
+          width: 8px
+          height: 5px
+          margin-left: 7px
+          margin-right: -3px
+          vertical-align: middle
+          opacity: .55
+          transition: opacity linear 100ms
+
+
+//- Media Queries
+
+// For screens below defined widths
+
+@media screen and (max-width: $screen-medium-width-breakpoint)
+  #header
+    .logo
+      margin-right: 42px
+
+    .actions
+      margin-left: 24px
+
+@media screen and (max-width: $screen-small-width-breakpoint)
+  #header
+    .logo
+      margin-right: 32px
+
+    .menu
+      .menu-item
+        margin-right: 20px
+
+        &:last-of-type
+          margin-right: 0
+
+    .search
+      margin-left: 12px
+      padding: 0 11px
+
+      .search-placeholder-text,
+      .search-shortcut
+        display: none
+
+      .search-placeholder
+        &:before
+          margin-right: 0
+
+    .actions
+      margin-left: 10px
+
+@media screen and (max-width: $screen-tiny-width-breakpoint)
+  #header
+    .logo
+      margin-top: 1px
+      margin-right: 28px
+
+      .logo-image
+        &.logo-image--full
+          display: none
+
+        &.logo-image--short
+          display: block
+
+    .search
+      margin-left: 0
+
+    .extras,
+    .actions
+      display: none

@@ -1,0 +1,95 @@
+//- chappe
+//-
+//- Copyright 2021, Valerian Saliou
+//- Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+#footer
+  .inner
+    .wrapper
+      .navigation
+        .left
+          if SITE.links.footer.navigation.length > 0
+            ul.links
+              each link in SITE.links.footer.navigation
+                li.link
+                  a.link-target(
+                    href="#{link.target}",
+                    rel="noopener"
+                  )
+                    | #{link.label}
+
+        .right
+          span.copyright
+            | © #{DATE.YEAR}
+
+            if SITE.identity.copyright
+              |  #{SITE.identity.copyright}
+
+      .metadata
+        .left
+          .brand
+            if SITE.images.logos.footer
+              img.logo(
+                src="/static/user/#{SITE.images.logos.footer}",
+                alt=""
+              )
+
+              span.separator
+
+            span.engine
+              | #{$_.COMMON.FOOTER.ENGINE.GENERATED_BY}
+
+              +text-space
+
+              a.font-sans-semibold(
+                href="#{PACKAGE.homepage}",
+                target="_blank"
+              )
+                | Chappe
+
+              | , #{$_.COMMON.FOOTER.ENGINE.PROJECT_FROM}
+
+              +text-space
+
+              a.font-sans-semibold(
+                href="#{URLS.CRISP_WEB}",
+                target="_blank"
+              )
+                | Crisp
+
+              | .
+
+        .right
+          if SITE.urls.vigil
+            .status(
+              data-status="none"
+            )
+              a.status-wrapped(
+                href="#{SITE.urls.vigil}",
+                target="_blank"
+              )
+                span.status-icon
+
+                span.status-text
+                  span.status-state.font-sans-semibold
+                    span.status-state-variant.status-state-variant--failure
+                      | #{$_.COMMON.FOOTER.STATUS.LABEL_FAILURE}
+
+                    span.status-state-variant.status-state-variant--healthy
+                      | #{$_.COMMON.FOOTER.STATUS.LABEL_HEALTHY}
+
+                    span.status-state-variant.status-state-variant--sick
+                      | #{$_.COMMON.FOOTER.STATUS.LABEL_SICK}
+
+                    span.status-state-variant.status-state-variant--dead
+                      | #{$_.COMMON.FOOTER.STATUS.LABEL_DEAD}
+
+                  span.status-time
+                    | #{$_.COMMON.FOOTER.STATUS.TIME_LAST}
+
+                    +text-space
+
+                    span.status-time-seconds
+                      | 0
+
+                    | s #{$_.COMMON.FOOTER.STATUS.TIME_AGO}.

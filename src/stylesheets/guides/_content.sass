@@ -1,0 +1,92 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+#guides
+  .details
+    border-bottom: 1px solid rgba($color-grey, .65)
+    padding-bottom: 18px
+
+    .details-upper,
+    .details-lower
+      display: flex
+      flex-direction: row
+      align-items: center
+
+    .details-upper .details-category,
+    .details-lower .details-title
+      flex: 1
+
+    .details-upper .details-feedback,
+    .details-lower .details-updated
+      +font-size(13.5px)
+      flex: 0 0 auto
+      padding-left: 8px
+
+    .details-upper .details-category,
+    .details-lower .details-updated
+      color: #44566b
+
+    .details-upper
+      .details-category
+        +font-size(16px)
+        line-height: 18px
+        margin-left: -2px
+
+        .details-icon
+          +background-image-fill
+          width: 19px
+          height: 19px
+          margin-top: -3px
+          margin-right: 4px
+          vertical-align: middle
+
+      .details-feedback
+        color: $color-blue
+        user-select: none
+
+        &:hover
+          text-decoration: underline
+
+    .details-lower
+      margin-top: 10px
+
+      .details-title
+        color: $color-black
+        +font-size(23px)
+        line-height: 24px
+
+  .article
+    padding-top: 40px
+
+
+//- Media Queries
+
+// For screens below defined widths
+
+@media screen and (max-width: $screen-small-width-breakpoint)
+  #guides
+    .details
+      .details-upper
+        padding-left: 48px
+
+@media screen and (max-width: $screen-tiny-width-breakpoint)
+  #guides
+    .details
+      padding-left: 40px
+      padding-right: 10px
+
+      .details-upper .details-category,
+      .details-lower .details-title
+        text-align: center
+
+      .details-upper .details-feedback,
+      .details-lower .details-updated
+        display: none
+
+      .details-upper
+        padding-left: 0
+
+    .article
+      padding-top: 30px

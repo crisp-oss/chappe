@@ -1,0 +1,235 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+@import "../_bootstrap"
+
+#changes
+  position: relative
+
+  .navigate
+    user-select: none
+    position: absolute
+    right: 0
+    top: 70px
+    z-index: 1
+
+    &:before
+      content: ""
+      background-color: $color-grey-light
+      width: 2px
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      z-index: 2
+
+    .navigate-item
+      margin-bottom: 4px
+
+      &:last-of-type
+        margin-bottom: 0
+
+      &.navigate-item--active
+        &,
+        &:hover,
+        &:active
+          .navigate-link
+            color: $color-white
+            background-color: $color-blue
+            z-index: 3
+
+      &,
+      .navigate-link
+        display: block
+
+      .navigate-link
+        background-color: transparent
+        color: $color-black
+        +font-size(14px)
+        letter-spacing: -.12px
+        text-align: left
+        line-height: 24px
+        padding-left: 17px
+        padding-right: 12px
+        border-top-right-radius: 3px
+        border-bottom-right-radius: 3px
+        transition: background-color linear 75ms
+        position: relative
+        z-index: 1
+
+        &:hover
+          background-color: lighten($color-grey-light, 6%)
+
+        &:active
+          background-color: lighten($color-grey-light, 4%)
+
+  .content
+    width: 100%
+    max-width: 860px
+    margin: 0 auto
+    padding-top: 30px
+    padding-bottom: 126px
+
+    .title
+      color: $color-black
+      +font-size(22px)
+
+    .notice
+      background: $color-base
+      margin-top: 18px
+      padding: 18px 28px
+      overflow: hidden
+      position: relative
+      border-radius: 2px
+
+      &:before
+        content: ""
+        background-color: $color-grey-light
+        width: 5px
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+
+    .timeline
+      .month
+        margin-top: 52px
+
+        .month-name
+          color: $color-black
+          +font-size(22px)
+
+        .month-events
+          margin-top: 25px
+
+          .month-event
+            $event-default-padding-top-bottom: 4px
+            $event-deprecated-padding-top-bottom: 10px
+
+            border-bottom: 1px solid rgba($color-grey, .65)
+            margin-bottom: 14px
+            padding-bottom: 14px
+            display: flex
+            flex-direction: row
+
+            &.month-event--deprecated
+              .month-event-group
+                color: $color-red
+                padding-top: $event-deprecated-padding-top-bottom
+
+              .month-event-text
+                background-color: #fdeaee
+                border-color: $color-red
+                padding-top: $event-deprecated-padding-top-bottom
+                padding-bottom: $event-deprecated-padding-top-bottom
+                padding-right: 8px
+
+            &:last-child
+              border-bottom: 0 none
+              margin-bottom: 0
+              padding-bottom: 0
+
+            .month-event-group,
+            .month-event-text
+              +font-size(14px)
+              line-height: 20px
+
+            .month-event-group
+              color: #607282
+              line-height: 22px
+              width: 120px
+              padding-top: $event-default-padding-top-bottom
+              padding-right: 8px
+              flex: 0 0 auto
+
+            .month-event-text
+              border-color: $color-grey
+              border-width: 0 0 0 2px
+              border-style: solid
+              padding: $event-default-padding-top-bottom 0 $event-default-padding-top-bottom 14px
+              flex: 1
+
+
+//- Media Queries
+
+// For screens below defined widths
+
+@media screen and (max-width: 1140px)
+  #changes
+    .content
+      .content-aside
+        padding-right: 80px
+
+@media screen and (max-width: $screen-tiny-width-breakpoint)
+  #changes
+    .navigate
+      text-align: center
+      margin-top: 14px
+      position: static
+
+      &:before
+        display: none
+
+      .navigate-item
+        margin-right: 1px
+
+        &:last-of-type
+          margin-right: 0
+
+        &,
+        .navigate-link
+          display: inline-block
+
+        .navigate-link
+          padding: 0 10px
+          border-radius: 3px
+
+    .content
+      padding-top: 22px
+      padding-bottom: 74px
+
+      .content-aside
+        padding-right: 0
+
+      .title,
+      .timeline .month .month-name
+        text-align: center
+
+      .notice
+        padding: 14px 24px
+
+      .timeline
+        .month
+          margin-top: 36px
+
+          .month-events
+            .month-event
+              border-bottom: 0 none
+              margin-bottom: 20px
+              padding-bottom: 0
+              display: block
+
+              &,
+              &.month-event--deprecated
+                .month-event-group
+                  padding: 0 0 2px
+
+                .month-event-text
+                  padding-top: 6px
+                  padding-top: 6px
+
+              &.month-event--deprecated
+                .month-event-text
+                  padding-left: 10px
+                  padding-right: 10px
+
+              .month-event-group
+                text-align: center
+                width: 100%
+
+              .month-event-text
+                border-width: 2px 0 0
+                padding-left: 2px
+                padding-right: 2px

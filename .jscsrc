@@ -1,0 +1,35 @@
+{
+  "maximumLineLength": 80,
+
+  "validateIndentation": 2,
+  "validateQuoteMarks": "\"",
+
+  "disallowTrailingComma": true,
+  "disallowTrailingWhitespace": true,
+  "disallowNewlineBeforeBlockStatements": true,
+  "disallowMixedSpacesAndTabs": true,
+  "disallowMultipleLineStrings": true,
+  "disallowNamedUnassignedFunctions": true,
+  "disallowQuotedKeysInObjects": true,
+  "disallowSpacesInsideParentheses": true,
+  "disallowKeywordsOnNewLine": ["else"],
+  "disallowIdentifierNames": ["console"],
+
+  "requireCurlyBraces": true,
+  "requireDotNotation": true,
+  "requireSemicolons": true,
+  "requireSpaceBeforeObjectValues": true,
+  "requireSpaceBetweenArguments": true,
+  "requireSpacesInForStatement": true,
+  "requireSpaceAfterObjectKeys": true,
+  "requireSpaceBeforeBinaryOperators": true,
+  "requireSpaceBeforeBlockStatements": true,
+  "requireSpacesInConditionalExpression": true,
+  "requireBlocksOnNewline": true,
+  "requireCommaBeforeLineBreak": true,
+  "requireLineFeedAtFileEnd": true,
+  "requirePaddingNewLineAfterVariableDeclaration": true,
+  "requirePaddingNewLinesAfterUseStrict": true,
+  "requirePaddingNewLinesBeforeExport": true,
+  "requirePaddingNewLinesInObjects": true
+}

@@ -1,0 +1,180 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+.code
+  border: 1px solid transparent
+  margin: 24px
+  user-select: none
+  overflow: hidden
+  border-radius: 6px
+  transition: border-color linear 75ms
+  box-shadow: 0 2px 1px 0 rgba($color-black, .03)
+
+  &[data-copy-state="copied"]
+    .code-header
+      .code-actions
+        .code-action
+          &.code-action--copy
+            +background-image-internal("common/code/header-action-copied.svg")
+            width: 13px
+            height: 16px
+            margin-top: 1px
+            opacity: 1
+
+  &[data-has-request="false"]
+    .code-header
+      .code-actions
+        .code-action
+          &.code-action--copy
+            display: none
+
+  &:hover
+    border-color: rgba($color-white, .25)
+
+    .code-header
+      background-color: #0c0c0d
+
+  .code-header,
+  .code-section .code-metas,
+  .code-section .code-content
+    padding: 0 14px
+
+  .code-data
+    display: none
+
+  .code-header
+    background-color: #151517
+    height: 40px
+    display: flex
+    transition: background-color linear 75ms
+
+    .code-language,
+    .code-actions
+      display: flex
+      align-items: center
+
+    .code-language
+      color: rgba($color-white, .6)
+      +font-size(12.5px)
+      flex: 1
+
+    .code-actions
+      flex: 0 0 auto
+      padding-left: 8px
+
+      .code-action
+        +background-image-fill
+        margin-right: 15px
+        opacity: .65
+        cursor: pointer
+        transition: opacity linear 100ms
+
+        &:last-of-type
+          margin-right: 0
+
+        &:hover
+          opacity: .85
+
+        &:active
+          opacity: 1
+
+        &.code-action--copy
+          +background-image-internal("common/code/header-action-copy.svg")
+          width: 13px
+          height: 15px
+
+  .code-section
+    .code-metas
+      background-color: #1e1e20
+      line-height: 16px
+      height: 33px
+      display: flex
+      flex-direction: row
+      align-items: center
+
+      .code-meta-name,
+      .code-meta-picker,
+      .code-meta-type
+        margin-top: -1px
+
+      .code-meta-name,
+      .code-meta-type
+        +font-size(12.5px)
+        letter-spacing: .1px
+        min-width: 80px
+        flex: 0 0 auto
+
+      .code-meta-name,
+      .code-meta-picker
+        border-right: 1px solid rgba($color-white, .06)
+
+      .code-meta-name
+        color: rgba($color-white, .8)
+        text-align: left
+        padding-right: 8px
+        margin-right: 10px
+
+      .code-meta-picker
+        flex: 1
+        padding-right: 10px
+        margin-right: 8px
+
+      .code-meta-type
+        color: rgba($color-white, .4)
+        text-align: right
+
+    .code-content
+      background-color: #222628
+      color: rgba($color-white, .4)
+      +font-size(11px)
+      line-height: 16px
+      white-space: pre
+      user-select: none
+      overflow: auto
+      max-height: 640px
+      padding-top: 10px
+      padding-bottom: 12px
+
+      code
+        color: $color-white
+        user-select: text
+
+    +selection
+      background-color: rgba($color-selection-code, .3)
+
+  select
+    $select-padding-sides: 8px
+
+    background: transparent
+    color: rgba($color-white, .5)
+    border: 1px solid rgba($color-white, .075)
+    +background-image-internal("common/code/select-arrow.svg")
+    background-repeat: no-repeat
+    background-position-x: calc(100% - 8px)
+    background-position-y: 50%
+    +font-size(13px)
+    line-height: 23px
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    width: 100%
+    padding-left: $select-padding-sides
+    padding-right: ($select-padding-sides + 8px)
+    outline: none
+    cursor: pointer
+    border-radius: 3px
+    +appearance(none)
+    transition: all linear 75ms
+    transition-property: color, border-color
+
+    &:hover
+      color: rgba($color-white, .8)
+      border-color: rgba($color-white, .15)
+
+      option
+        color: initial
+
+    option
+      color: initial

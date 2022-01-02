@@ -1,0 +1,617 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+$part-chunk-padding-sides: 24px
+
+#references
+  .content
+    position: relative
+
+    .sidebar
+      &.sidebar--right
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        z-index: 0
+
+  .details,
+  .introduction
+    position: relative
+    z-index: 2
+
+  .details
+    margin-bottom: 32px
+
+    &.details--with-sidebar-right
+      padding-left: $part-chunk-padding-sides
+
+    .details-inner
+      border-bottom: 1px solid rgba($color-grey, .65)
+      padding-bottom: 18px
+      display: flex
+      flex-direction: row
+      align-items: center
+
+      .details-title
+        color: $color-black
+        +font-size(21px)
+        line-height: 22px
+        margin: 0
+        flex: 1
+
+      .details-updated
+        color: #44566b
+        +font-size(13.5px)
+        flex: 0 0 auto
+        padding-left: 8px
+
+  .group,
+  .introduction,
+  .parts .specification
+    padding: 0 $part-chunk-padding-sides
+
+  .group,
+  .introduction,
+  .details.details--with-sidebar-right
+    padding-right: ($content-sidebar-right-default-width + $part-chunk-padding-sides)
+
+  .group
+    margin-bottom: 26px
+
+    &,
+    .group-anchor
+      color: $color-black
+      +font-size(19px)
+      line-height: 20px
+
+    .group-anchor
+      .group-origin
+        color: #44566b
+        margin-left: 9px
+
+  .introduction
+    margin-bottom: 38px
+
+  .parts
+    position: relative
+    z-index: 1
+
+    &:last-of-type
+      .part
+        &:last-of-type
+          margin-bottom: 0
+          padding-bottom: 0
+
+          &:before,
+          &:after
+            display: none
+
+    .part
+      display: flex
+      flex-direction: row
+      margin-bottom: 28px
+      padding-bottom: 32px
+      position: relative
+
+      &:last-of-type
+        margin-bottom: 38px
+
+      &.part--method-get,
+      &.part--method-head
+        .specification
+          .request-specification
+            border-color: $color-method-get-head-light
+
+            .request-target
+              background-color: $color-method-get-head-light
+
+              .request-target-method
+                background-color: $color-method-get-head-dark
+
+      &.part--method-post
+        .specification
+          .request-specification
+            border-color: $color-method-post-light
+
+            .request-target
+              background-color: $color-method-post-light
+
+              .request-target-method
+                background-color: $color-method-post-dark
+
+      &.part--method-put,
+      &.part--method-patch
+        .specification
+          .request-specification
+            border-color: $color-method-put-patch-light
+
+            .request-target
+              background-color: $color-method-put-patch-light
+
+              .request-target-method
+                background-color: $color-method-put-patch-dark
+
+      &.part--method-delete
+        .specification
+          .request-specification
+            border-color: $color-method-delete-light
+
+            .request-target
+              background-color: $color-method-delete-light
+
+              .request-target-method
+                background-color: $color-method-delete-dark
+
+      &:before,
+      &:after
+        content: ""
+        height: 1px
+        position: absolute
+        bottom: 0
+
+      &:before
+        background-color: rgba($color-grey, .65)
+        left: $part-chunk-padding-sides
+        right: $content-sidebar-right-default-width
+
+      &:after
+        background-color: rgba($color-grey, .15)
+        width: $content-sidebar-right-default-width
+        right: 0
+
+      .specification
+        $specification-max-width-outer-offset: ($content-sidebar-right-default-width + (2 * $part-chunk-padding-sides))
+
+        max-width: calc(100% - #{$specification-max-width-outer-offset})
+        flex: 1
+
+        .request-title
+          margin-bottom: 10px
+
+          &,
+          .request-title-anchor
+            color: $color-black
+            +font-size(17.5px)
+
+        .request-specification
+          border: 1px solid $color-grey
+          margin-top: 12px
+          border-radius: 3px
+
+          .request-target,
+          .request-format
+            padding: 0 12px
+
+          .request-target
+            background-color: $color-grey
+            height: 42px
+            display: flex
+            align-items: center
+
+            .request-target-method,
+            .request-target-url
+              line-height: 28px
+
+            .request-target-method
+              background-color: $color-black
+              color: $color-white
+              +font-size(13px)
+              letter-spacing: -.1px
+              user-select: none
+              padding: 0 10px
+              border-radius: 2px
+              flex: 0 0 auto
+
+            .request-target-url
+              background: $color-base
+              border: 1px solid #c6d2e0
+              margin-left: 12px
+              padding: 0 11px 0 9px
+              display: flex
+              align-items: center
+              cursor: pointer
+              overflow: hidden
+              border-radius: 2px
+              flex: 1
+              transition: border-color linear 75ms
+
+              &[data-copy-state="copied"]
+                .request-target-copy
+                  +background-image-internal("references/content/request-target-copied.svg")
+                  width: 14px
+                  height: 11px
+                  margin-right: -1px
+
+              &:hover
+                border-color: #aab9ca
+
+                .request-target-copy
+                  opacity: .85
+
+              &:active
+                border-color: #8e99a6
+
+                .request-target-copy
+                  opacity: 1
+
+              .request-target-copy
+                content: ""
+                +background-image-internal-fill("references/content/request-target-copy.svg")
+                width: 11px
+                height: 12px
+                margin-left: 5px
+                opacity: .7
+                flex: 0 0 auto
+                transition: opacity linear 100ms
+
+            .request-target-path
+              color: $color-black
+              +font-size(12px)
+              text-overflow: ellipsis
+              white-space: nowrap
+              overflow: hidden
+              flex: 1
+
+          .request-format
+            line-height: 18px
+            padding-top: 14px
+            padding-bottom: 14px
+            overflow: hidden
+
+            .markdown
+              hyphens: auto
+              word-break: break-word
+
+              p
+                line-height: 20px
+
+              pre
+                margin: 10px auto
+
+              .emphasis
+                $emphasis-margin-top-bottom: 12px
+
+                margin: $emphasis-margin-top-bottom 0
+                padding-left: 22px
+
+                & + .emphasis
+                  margin-top: ((-1 * $emphasis-margin-top-bottom) + 8px)
+
+            .request-format-title
+              border-bottom: 1px solid rgba($color-grey, .65)
+              color: $color-black
+              +font-size(15px)
+              user-select: none
+              margin-top: 18px
+              margin-bottom: 11px
+              padding-bottom: 6px
+
+            .request-format-keys
+              +font-size(13.5px)
+
+              .request-format-key
+                margin-bottom: 6px
+
+                &:last-of-type
+                  margin-bottom: 0
+
+                .request-format-keys
+                  border-left: 2px solid $color-grey-light
+                  margin: 7px 0
+                  padding-left: 12px
+
+                  &[data-depth]
+                    border-left-color: darken($color-grey-light, 15%)
+
+                  &[data-depth="0"]
+                    border-left-color: lighten($color-grey-light, 10%)
+
+                  &[data-depth="1"]
+                    border-left-color: lighten($color-grey-light, 5%)
+
+                  &[data-depth="2"]
+                    border-left-color: $color-grey-light
+
+                  &[data-depth="3"]
+                    border-left-color: darken($color-grey-light, 5%)
+
+                  &[data-depth="4"]
+                    border-left-color: darken($color-grey-light, 10%)
+
+            .request-format-parts
+              .request-format-type,
+              .request-format-required,
+              .request-format-optional
+                margin-left: 8px
+
+              .request-format-path,
+              .request-format-type,
+              .request-format-required,
+              .request-format-optional
+                text-transform: lowercase
+                flex: 0 0 auto
+
+              .request-format-type
+                color: #44566b
+                user-select: none
+                min-width: 58px
+
+              .request-format-required,
+              .request-format-optional
+                margin-left: 4px
+
+              .request-format-required
+                color: #eb4e3a
+
+              .request-format-optional
+                color: #a2a8b0
+
+              .request-format-head
+                display: flex
+                flex-direction: row
+
+              .request-format-label
+                color: #717982
+                hyphens: auto
+                word-break: break-all
+                margin-top: 1px
+                flex: 1
+
+                &.markdown
+                  *
+                    font-size: inherit
+                    line-height: inherit
+
+                  code
+                    +font-size(11.5px)
+                    padding: 1px 4px
+
+                  p
+                    margin-bottom: 5px
+
+                    &:last-of-type
+                      margin-bottom: 0
+
+                  ul
+                    +font-size(12px)
+                    line-height: 14px
+                    margin-top: 6px !important
+                    margin-bottom: 12px !important
+                    padding-left: 5px !important
+
+                    li
+                      padding-left: 15px
+
+                      &:before
+                        background-color: $color-black
+                        width: 4px
+                        height: 4px
+                        top: 5px
+                        left: 4px
+                        border-radius: 0
+
+            .request-format-toggle-button
+              color: $color-black
+              background-color: $color-white
+              border: 1px solid darken($color-grey-dark, 8%)
+              line-height: 25px
+              white-space: nowrap
+              height: auto
+              margin-top: 7px
+              margin-bottom: 5px
+              padding: 0 10px
+              cursor: pointer
+              user-select: none
+              display: inline-flex
+              align-items: center
+              border-radius: 2px
+              box-shadow: 0 2px 1px 0 rgba($color-grey-dark, .25)
+
+              &:hover
+                &:before
+                  opacity: .85
+
+              &:active
+                box-shadow: none
+
+              &:before
+                content: ""
+                +background-image-internal-fill("references/content/request-format-toggle-button-arrow.svg")
+                width: 8px
+                height: 6px
+                margin-right: 9px
+                opacity: .55
+                flex: 0 0 auto
+                transition: all linear .15s
+                transition-property: transform, opacity
+
+              .request-format-toggle-label
+                text-align: center
+                text-overflow: ellipsis
+                overflow: hidden
+                flex: 1
+
+              .request-format-toggle-count
+                $toggle-count-footprint: 12px
+
+                color: lighten($color-black, 12.5%)
+                background-color: lighten($color-grey-light, 2%)
+                +font-size(10px)
+                text-align: center
+                line-height: $toggle-count-footprint
+                min-width: $toggle-count-footprint
+                margin-left: 8px
+                padding: 2px
+                flex: 0 0 auto
+                border-radius: 100%
+
+            .request-format-toggle-checkbox,
+            .request-format-toggle-checkbox:not(:checked) ~ .request-format-keys,
+            .request-format-toggle-checkbox:not(:checked) ~ .request-format-toggle-button .request-format-toggle-label--hide,
+            .request-format-toggle-checkbox:checked ~ .request-format-toggle-button .request-format-toggle-label--show
+              display: none
+
+            .request-format-toggle-checkbox:checked ~ .request-format-toggle-button
+              &:before
+                transform: rotate(-180deg)
+
+            .request-format-toggle-checkbox:checked ~ .request-format-keys
+              +animation-name(references-content-request-format-keys-animation)
+              +animation-duration(.35s)
+              +animation-fill-mode(both)
+
+      .examples
+        width: $content-sidebar-right-default-width
+        flex: 0 0 auto
+
+        .examples-wrap
+          padding: 34px 16px 0
+
+        .examples-details
+          .examples-detail
+            margin-bottom: 7px
+            display: flex
+            flex-direction: row
+            align-items: center
+
+            &:last-of-type
+              margin-bottom: 0
+
+            +selection
+              background-color: rgba($color-selection-code, .2)
+              color: $color-white
+
+            .examples-detail-label
+              min-width: 65px
+              text-align: right
+              flex: 0 0 auto
+
+            .examples-detail-value
+              color: #858b8e
+              +font-size(13.5px)
+              line-height: 16px
+              word-break: break-word
+              margin-left: 12px
+              flex: 1
+
+              .badge
+                margin-right: 5px
+
+                &:last-of-type
+                  margin-right: 0
+
+              .examples-detail-segment
+                color: #dde4e8
+
+              .examples-detail-parameter
+                color: #c2ee65
+
+        .code
+          margin: 24px 0 0
+
+
+//- Media Queries
+
+// For screens below defined widths
+
+@media screen and (max-width: $screen-large-width-breakpoint)
+  #content
+    .group,
+    .introduction,
+    .details.details--with-sidebar-right
+      padding-right: ($content-sidebar-right-large-width + $part-chunk-padding-sides)
+
+    .parts
+      .part
+        .specification
+          $specification-max-width-outer-offset: ($content-sidebar-right-large-width + (2 * $part-chunk-padding-sides))
+
+          max-width: calc(100% - #{$specification-max-width-outer-offset})
+
+        .examples
+          width: $content-sidebar-right-large-width
+
+        &:before
+          right: $content-sidebar-right-large-width
+
+        &:after
+          width: $content-sidebar-right-large-width
+
+@media screen and (max-width: $screen-medium-width-breakpoint)
+  #content
+    .group,
+    .introduction,
+    .details.details--with-sidebar-right
+      padding: 0 $part-chunk-padding-sides
+
+    .parts
+      .part
+        .specification
+          $specification-max-width-outer-offset: (2 * $part-chunk-padding-sides)
+
+          max-width: calc(100% - #{$specification-max-width-outer-offset})
+
+        &:after,
+        .examples
+          display: none
+
+        &:before
+          right: $part-chunk-padding-sides
+
+@media screen and (max-width: $screen-small-width-breakpoint)
+  #content
+    .details
+      .details-inner
+        padding-left: 50px
+
+    .group,
+    .introduction,
+    .details.details--with-sidebar-right,
+    .parts .specification
+      padding: 0 $wrapper-small-padding-sides
+
+    .parts
+      .part
+        &:before
+          left: $wrapper-small-padding-sides
+          right: $wrapper-small-padding-sides
+
+        .specification
+          $specification-max-width-outer-offset: (2 * $wrapper-small-padding-sides)
+
+          max-width: calc(100% - #{$specification-max-width-outer-offset})
+
+@media screen and (max-width: $screen-tiny-width-breakpoint)
+  #content
+    .details
+      .details-inner
+        padding-left: 40px
+        padding-right: 10px
+
+        .details-title
+          text-align: center
+
+        .details-updated
+          display: none
+
+    .parts
+      .part
+        .specification
+          .request-specification
+            .request-format
+              .request-format-toggle-button
+                margin-bottom: 9px
+                display: flex
+
+
+//- Keyframes
+
++keyframes-fix(references-content-request-format-keys-animation)
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1

@@ -1,0 +1,30 @@
+// chappe
+//
+// Copyright 2021, Valerian Saliou
+// Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+#guides
+  .panes
+    .sidebar
+      &.sidebar--left
+        .nest
+          .nest-category
+            .nest-icon
+              +background-image-fill
+
+
+//- Media Queries
+
+// For screens below defined widths
+
+@media screen and (max-width: $screen-small-width-breakpoint)
+  #guides
+    .panes
+      .sidebar-toggler
+        margin-top: 24px
+
+@media screen and (max-width: $screen-tiny-width-breakpoint)
+  #guides
+    .panes
+      .sidebar-toggler
+        margin-top: 30px

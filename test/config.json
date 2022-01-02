@@ -1,0 +1,271 @@
+{
+  "identity" : {
+    "title"     : "Crisp Developer Hub",
+    "copyright" : "Crisp IM SARL"
+  },
+
+  "urls" : {
+    "base"  : "http://chappe.local",
+    "vigil" : "https://status.crisp.chat"
+  },
+
+  "favicons" : {
+    "main"  : "favicons/favicon.ico",
+
+    "sizes" : {
+      "default" : "favicons/favicon.png",
+      "512x512" : "favicons/favicon-512x512.png",
+      "256x256" : "favicons/favicon-256x256.png",
+      "128x128" : "favicons/favicon-128x128.png",
+      "32x32"   : "favicons/favicon-32x32.png"
+    }
+  },
+
+  "images" : {
+    "illustrations" : {
+      "home"      : "images/illustrations/home.gif",
+      "not_found" : "images/illustrations/not-found.gif"
+    },
+
+    "logos" : {
+      "header_full"  : "images/logos/logo-header-full.svg",
+      "header_short" : "images/logos/logo-header-short.svg",
+      "footer"       : "images/logos/logo-footer.svg"
+    },
+
+    "metas" : {
+      "opengraph" : "images/metas/opengraph.png"
+    },
+
+    "categories" : {
+      "guides" : {
+        "hello-world" : "images/categories/guides/hello-world.svg"
+      },
+
+      "references" : {
+        "rest-api" : "images/categories/references/rest-api.svg",
+        "rtm-api"  : "images/categories/references/rtm-api.svg",
+        "website"  : "images/categories/references/website.svg"
+      }
+    }
+  },
+
+  "colors" : {
+    "changes" : {
+      "groups" : {
+        "rest_api"       : "#d34040",
+        "rtm_api"        : "#dc9b37",
+        "web_hooks"      : "#ba40d3",
+        "chatbox_sdk"    : "#1a71f5",
+        "widget_sdk_js"  : "#33cc6f",
+        "widget_schemas" : "#a6cc33"
+      }
+    }
+  },
+
+  "texts" : {
+    "home" : {
+      "title" : "Welcome to the Crisp Developer Hub",
+      "label" : "Build apps for 200k+ Crisp users, or just for your own private use."
+    },
+
+    "changes" : {
+      "groups" : {
+        "rest_api"       : "REST API",
+        "rtm_api"        : "RTM API",
+        "web_hooks"      : "Web Hooks",
+        "chatbox_sdk"    : "Chatbox SDK",
+        "widget_sdk_js"  : "Widget JS SDK",
+        "widget_schemas" : "Widget Schemas",
+        "other"          : "Other"
+      },
+
+      "titles" : {
+        "feed"   : "Crisp Platform Changes",
+        "latest" : "Latest Platform Changes",
+        "year"   : "Platform Changes In"
+      },
+
+      "notice" : "**The Crisp Platform is updated every day with improvements and new features.** This page is a ledger of all notable changes that occured over time, and which may impact your integrations.\n\n**Note that breaking changes appear in red.** We are committed in avoiding the introduction of such changes, knowing the negative impact that they can have on your integrations.\n\nIf you would like to monitor those changes, an RSS feed is available at: [`changes.rss`](/changes.rss)"
+    }
+  },
+
+  "links" : {
+    "header" : {
+      "navigation" : [
+        {
+          "route" : ["guides"],
+          "label" : "Guides"
+        },
+
+        {
+          "route"    : ["references"],
+          "label"    : "References",
+
+          "dropdown" : [
+            {
+              "route" : ["rest-api", "v1"],
+              "label" : "REST API Reference"
+            },
+
+            {
+              "route" : ["rtm-api", "v1"],
+              "label" : "RTM API Reference"
+            }
+          ]
+        }
+      ],
+
+      "actions" : [
+        {
+          "label"    : "Sign Up",
+
+          "dropdown" : [
+            {
+              "title"    : "Sign Up to Crisp",
+              "subtitle" : "Create your Crisp user account.",
+              "target"   : "https://app.crisp.chat/"
+            },
+
+            {
+              "title"    : "Sign Up to Marketplace",
+              "subtitle" : "Start building Crisp plugins.",
+              "target"   : "https://marketplace.crisp.chat/"
+            }
+          ]
+        }
+      ]
+    },
+
+    "footer" : {
+      "navigation" : [
+        {
+          "label"  : "Crisp Website",
+          "target" : "https://crisp.chat/"
+        },
+
+        {
+          "label"  : "Terms of Use",
+          "target" : "https://crisp.chat/terms/"
+        },
+
+        {
+          "label"  : "Privacy Policy",
+          "target" : "https://crisp.chat/privacy/"
+        },
+
+        {
+          "label"  : "About Us",
+          "target" : "https://crisp.chat/about/"
+        },
+
+        {
+          "label"  : "Read our Blog",
+          "target" : "https://crisp.chat/blog/"
+        }
+      ]
+    }
+  },
+
+  "actions" : {
+    "home" : [
+      {
+        "route" : ["guides"],
+        "label" : "Build your First Plugin in Minutes"
+      }
+    ]
+  },
+
+  "bulletpoints" : {
+    "home" : {
+      "quickstart" : {
+        "description" : "Start building on the top of the Crisp Platform in a matter of minutes.",
+
+        "actions"     : [
+          {
+            "route" : ["guides"],
+            "label" : "Start building"
+          }
+        ]
+      },
+
+      "guides" : {
+        "description" : "Guides & tutorials on how to integrate Crisp with your systems.",
+
+        "actions"     : [
+          {
+            "route" : ["guides", "rest-api", "api-libraries"],
+            "label" : "API Libraries"
+          },
+
+          {
+            "route" : ["guides", "chatbox-sdks"],
+            "label" : "Chatbox SDKs"
+          }
+        ]
+      },
+
+      "references" : {
+        "description" : "In-depth technical references of all available Crisp APIs.",
+
+        "actions"     : [
+          {
+            "route" : ["references", "rest-api", "v1"],
+            "label" : "REST API"
+          },
+
+          {
+            "route" : ["references", "rtm-api", "v1"],
+            "label" : "RTM API"
+          },
+
+          {
+            "route" : ["references", "plugin-widgets", "v1"],
+            "label" : "Widget API"
+          }
+        ]
+      }
+    }
+  },
+
+  "plugins" : {
+    "code" : {
+      "syntaxes" : [
+        "markup",
+        "markup-templating",
+        "css",
+        "clike",
+        "c",
+        "javascript",
+        "bash",
+        "go",
+        "java",
+        "groovy",
+        "json",
+        "objectivec",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "swift",
+        "objectivec"
+      ]
+    }
+  },
+
+  "includes" : {
+    "scripts" : {
+      "urls"   : [],
+      "inline" : []
+    },
+
+    "stylesheets" : {
+      "urls"   : [],
+      "inline" : []
+    }
+  },
+
+  "tokens" : {
+    "crisp_website_id" : "c3c85edd-9de5-470b-bda0-9609aeb3531a"
+  }
+}

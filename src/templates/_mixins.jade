@@ -1,0 +1,183 @@
+//- chappe
+//-
+//- Copyright 2021, Valerian Saliou
+//- Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+
+mixin text-space
+  | <span> </span>
+
+
+mixin sidebar-toggler
+  .sidebar-toggler(
+    data-toggled="false"
+  )
+
+
+mixin head-metas-page(title, description, url_path)
+  meta(
+    property="og:url",
+    content="#{SITE.urls.base}#{url_path}"
+  )
+
+  meta(
+    property="og:title",
+    content="#{title}"
+  )
+
+  meta(
+    property="og:description",
+    content="#{description}"
+  )
+
+  meta(
+    name="description",
+    content="#{description}"
+  )
+
+
+mixin nest(origin, category, parent_id)
+  .nest
+    .nest-category.font-sans-semibold(
+      class=((category.id === subpage) ? "nest-category--active" : null)
+    )
+      - var link_icon_category = (SITE.images.categories[origin][category.id] || null);
+      - var link_url_category  = (category.segments ? ("/" + page + "/" + category.segments.join("/") + "/") : null);
+
+      span.nest-icon(
+        style=((link_icon_category !== null) ? ("background-image: url('/static/user/" + link_icon_category + "');") : null)
+      )
+
+      if link_url_category
+        a.nest-category-link(
+          href="#{link_url_category}"
+        )
+          | #{category.title}
+
+      else
+        span.nest-category-link
+          | #{category.title}
+
+    .nest-navigate
+      each item in category.subtrees
+        - var is_slice = ((item.subtrees.length > 0) ? true : false);
+
+        .nest-navigate-level.nest-navigate-level--first(
+          data-expanded=(is_slice ? ((parent_id || "").startsWith(item.id) ? "true" : "false") : null)
+        )
+          - var link_url_item = (item.segments ? ("/" + page + "/" + item.segments.join("/") + "/") : ("#" + item.id));
+
+          if is_slice
+            .nest-navigate-link.nest-navigate-link--slice(
+              data-active=((item.id === subpage) ? "true" : null),
+              data-anchor="#{link_url_item}"
+            )
+              a.nest-navigate-slice.font-sans-semibold(
+                href="#{link_url_item}"
+              )
+                | #{item.title}
+
+              span.nest-navigate-toggle
+
+            .nest-navigate-level.nest-navigate-level--second.font-sans-regular
+              each slice in item.subtrees
+                - var link_url_slice = (slice.segments ? ("/" + page + "/" + slice.segments.join("/") + "/") : ("#" + slice.id));
+
+                +nest-navigate-link(link_url_slice, slice.id, slice.title, slice.badge, subpage, false)
+
+              if item.links
+                each link, index in item.links
+                  +nest-navigate-links-external(link, index, item)
+
+          else
+            +nest-navigate-link(link_url_item, item.id, item.title, item.badge, subpage, false)
+
+      if category.links
+        each link, index in category.links
+          .nest-navigate-level.nest-navigate-level--first
+            +nest-navigate-links-external(link, index, category)
+
+
+mixin nest-navigate-link(href, id, label, badge, id_active, is_external)
+  - var is_active = ((id === id_active) ? true : false);
+
+  a.nest-navigate-link(
+    href="#{href}",
+    target=(is_external ? "_blank" : null),
+    class=(is_external ? "nest-navigate-link--external font-sans-semibold" : ""),
+    data-active=(is_active ? "true" : null),
+    data-starred=(label.startsWith("⭐") ? "true" : null),
+    data-anchor="#{href}"
+  )
+    span.nest-navigate-link-text
+      | #{label}
+
+    if badge && badge[0]
+      span.nest-navigate-link-objects
+        span.badge.badge--small.font-sans-bold(
+          class=("badge--" + (badge[1] || "black"))
+        )
+          | #{badge[0]}
+
+
+mixin nest-navigate-links-external(link, index, item)
+  +nest-navigate-link(link.url, (item.id + "_link_" + index), link.name, null, null, true)
+
+
+mixin code(language, flows, request_options, response_options)
+  .code.copy(
+    data-was-loaded="false",
+    data-has-request="false"
+  )
+    input.code-data(
+      name="data",
+      type="hidden",
+      value="#{JSON.stringify(flows)}"
+    )
+
+    .code-header
+      .code-language
+        | #{language}
+
+      .code-actions
+        each action in ["copy"]
+          span.code-action(
+            class=(("code-action--" + action) + ((action === "copy") ? " copy-button" : ""))
+          )
+
+    .code-section.code-section--request
+      +code-metas($_.COMMON.CODE.META_NAME_REQUEST, request_options)
+      +code-content
+
+    .code-section.code-section--response
+      +code-metas($_.COMMON.CODE.META_NAME_RESPONSE, response_options)
+      +code-content
+
+
+mixin code-metas(label, options)
+  .code-metas
+    .code-meta-name.font-sans-semibold
+      | #{label}
+
+    .code-meta-picker
+      +code-select("group", options, ((options || [])[0] || [])[0])
+
+    .code-meta-type
+
+
+mixin code-content
+  pre.code-content.font-code-regular
+    | #{$_.COMMON.CODE.CONTENT_LOADING}
+
+
+mixin code-select(name, options, selected)
+  select.font-sans-regular(
+    name="#{name}",
+    autocomplete="off"
+  )
+    each option in options
+      option(
+        value="#{option[0]}",
+        selected=((selected && option[0] === selected) ? "" : null)
+      )
+        | #{option[1]}

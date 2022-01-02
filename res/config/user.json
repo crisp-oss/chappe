@@ -1,0 +1,126 @@
+{
+  "identity" : {
+    "title"     : "",
+    "copyright" : ""
+  },
+
+  "urls" : {
+    "base"  : "",
+    "vigil" : ""
+  },
+
+  "favicons" : {
+    "main"  : "",
+
+    "sizes" : {
+      "default" : "",
+      "512x512" : "",
+      "256x256" : "",
+      "128x128" : "",
+      "32x32"   : ""
+    }
+  },
+
+  "images" : {
+    "illustrations" : {
+      "home"      : "",
+      "not_found" : ""
+    },
+
+    "logos" : {
+      "header_full"  : "",
+      "header_short" : "",
+      "footer"       : ""
+    },
+
+    "metas" : {
+      "opengraph" : ""
+    },
+
+    "categories" : {
+      "guides"     : {},
+      "references" : {}
+    }
+  },
+
+  "colors" : {
+    "changes" : {
+      "groups" : {}
+    }
+  },
+
+  "texts" : {
+    "home" : {
+      "title" : "",
+      "label" : ""
+    },
+
+    "changes" : {
+      "groups" : {},
+
+      "titles" : {
+        "feed"   : "",
+        "latest" : "",
+        "year"   : ""
+      },
+
+      "notice" : ""
+    }
+  },
+
+  "links" : {
+    "header" : {
+      "navigation" : [],
+      "actions"    : []
+    },
+
+    "footer" : {
+      "navigation" : []
+    }
+  },
+
+  "actions" : {
+    "home" : []
+  },
+
+  "bulletpoints" : {
+    "home" : {
+      "quickstart" : {
+        "description" : "",
+        "actions"     : []
+      },
+
+      "guides" : {
+        "description" : "",
+        "actions"     : []
+      },
+
+      "references" : {
+        "description" : "",
+        "actions"     : []
+      }
+    }
+  },
+
+  "plugins" : {
+    "code" : {
+      "syntaxes" : []
+    }
+  },
+
+  "includes" : {
+    "scripts" : {
+      "urls"   : [],
+      "inline" : []
+    },
+
+    "stylesheets" : {
+      "urls"   : [],
+      "inline" : []
+    }
+  },
+
+  "tokens" : {
+    "crisp_website_id" : ""
+  }
+}

@@ -1,0 +1,16 @@
+//- chappe
+//-
+//- Copyright 2021, Valerian Saliou
+//- Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+include ../_mixins
+
+.sidebar.sidebar--left
+  span.sidebar-toggler-retract
+
+  +references-sidebar-context(reference)
+
+  each category in reference.categories
+    +nest("references", category)
+
++sidebar-toggler

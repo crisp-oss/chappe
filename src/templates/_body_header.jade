@@ -1,0 +1,85 @@
+//- chappe
+//-
+//- Copyright 2021, Valerian Saliou
+//- Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+#header
+  .wrapper
+    .left
+      a.logo.font-sans-bold(
+        href="/"
+      )
+        if SITE.images.logos.header_full && SITE.images.logos.header_short
+          each variant in ["full", "short"]
+            img.logo-image(
+              class="logo-image--#{variant}"
+              src="/static/user/#{SITE.images.logos['header_' + variant]}",
+              alt=""
+            )
+
+        else
+          | #{(SITE.identity.title || $_.COMMON.METAS.SITE_NAME)}
+
+      if SITE.links.header.navigation.length > 0
+        ul.menu
+          each item in SITE.links.header.navigation
+            li.menu-item(
+              class=((item.route[0] === page) ? "menu-item--active" : null)
+            )
+              - var item_href = ("/" + item.route.join("/") + "/");
+
+              if (item.dropdown || []).length > 0
+                span.menu-link.menu-link--dropdown.font-sans-semibold
+                  | #{item.label}
+
+                .dropdown
+                  each subitem in item.dropdown
+                    a.dropdown-link(
+                      href="#{item_href}#{subitem.route.join('/')}/"
+                    )
+                      | #{subitem.label}
+
+              else
+                a.menu-link.font-sans-semibold(
+                  href="#{item_href}"
+                )
+                  | #{item.label}
+
+    .right
+      ul.extras
+        each extra in ["changes"]
+          li.extras-item(
+            class=((extra === page) ? "extras-item--active" : null)
+          )
+            a.extras-link(
+              href="/#{extra}/"
+            )
+              | #{$_.COMMON.HEADER.EXTRAS[extra.toUpperCase()]}
+
+      .search
+        span.search-placeholder
+          span.search-placeholder-text
+            | #{$_.COMMON.HEADER.SEARCH.PLACEHOLDER}
+
+        span.search-shortcut
+          | ⌘F
+
+      if SITE.links.header.actions.length > 0
+        .actions
+          each action in SITE.links.header.actions
+            .action
+              .action-button.button.button--small.button--icon
+                span.button-text
+                  | #{action.label}
+
+              .dropdown
+                each subaction in action.dropdown
+                  a.dropdown-link.dropdown-link--multiple.dropdown-link--external(
+                    href="#{subaction.target}",
+                    target="_blank"
+                  )
+                    span.dropdown-link-title.font-sans-semibold
+                      | #{subaction.title}
+
+                    span.dropdown-link-label
+                      | #{subaction.subtitle}

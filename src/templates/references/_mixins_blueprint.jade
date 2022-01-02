@@ -1,0 +1,274 @@
+//- chappe
+//-
+//- Copyright 2021, Valerian Saliou
+//- Author: Valerian Saliou <valerian@valeriansaliou.name>
+
+
+mixin references-blueprint-group(content, meta, baseline)
+  .parts
+    - var id = "";
+
+    if meta.title
+      - id = METHODS.slug(meta.title.content);
+
+    each entry in content
+      if entry.element === "resource"
+        +references-blueprint-group-title(entry.meta, meta, id)
+
+        each part in entry.content
+          if part.element === "transition"
+            +references-blueprint-part(part.content, part.meta, part.attributes, reference.examples, baseline)
+
+
+mixin references-blueprint-group-title(meta, origin_meta, origin_id)
+  if meta.title
+    - var id = METHODS.slug(meta.title.content);
+
+    if origin_id
+      - id = (origin_id + "-" + id);
+
+    h1.group.font-sans-bold(
+      id="#{id}"
+    )
+      a.group-anchor.title-group-anchor(
+        href="\##{id}"
+      )
+        span.title-anchor
+          | #{meta.title.content}
+
+        if origin_meta && origin_meta.title
+          span.group-origin.font-sans-regular
+            | #{$_.REFERENCES.BLUEPRINT.GROUP.ORIGIN_IN} #{origin_meta.title.content}
+
+
+mixin references-blueprint-introduction(content)
+  .introduction.markdown
+    != METHODS.marked(content)
+
+
+mixin references-blueprint-part(content, meta, attrs, examples, baseline)
+  - var id          = (meta.title ? METHODS.slug(meta.title.content) : "");
+  - var http_method = ((examples[id] || {}).method || "none");
+
+  .part(
+    class="part--method-#{http_method}"
+  )
+    .specification
+      if meta.title
+        h2.request-title.font-sans-bold(
+          id="#{id}"
+        )
+          a.request-title-anchor.title-anchor(
+            href="\##{id}"
+          )
+            | #{meta.title.content}
+
+      +references-blueprint-part-specification(id, content, meta, attrs, baseline, http_method)
+
+    +references-blueprint-part-examples(id, examples, baseline)
+
+
+mixin references-blueprint-part-specification(id, content, meta, attrs, baseline, http_method)
+  - var data_source = ((["head", "get"].includes(http_method) === true) ? "response" : "request");
+
+  .request-specification
+    .request-target
+      .request-target-method.font-sans-semibold
+        | #{http_method.toUpperCase()}
+
+      .request-target-url.copy.copy-button
+        span.request-target-path.copy-value.font-code-regular
+          | #{(attrs.href ? (baseline.host.path + attrs.href.content) : "--")}
+
+        span.request-target-copy
+
+    .request-format
+      //- Collapse deeper for data coming from response (due to nesting in 'data')
+      - var collapse_depth = ((data_source === "response") ? 1 : 0);
+
+      each entry in content
+        if entry.element === "copy"
+          .markdown
+            != METHODS.marked(entry.content)
+
+      if attrs.hrefVariables && attrs.hrefVariables.content
+        .request-format-title.font-sans-bold
+          | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_TITLES.URI_PARAMETERS}
+
+        +references-blueprint-request-format-keys(id, http_method, 0, attrs.hrefVariables.content, collapse_depth, false)
+
+      if attrs.data && attrs.data.content && attrs.data.content.content
+        .request-format-title.font-sans-bold
+          | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_TITLES["DATA_" + data_source.toUpperCase()]}
+
+        +references-blueprint-request-format-keys(id, http_method, 0, attrs.data.content.content, collapse_depth, true)
+
+
+mixin references-blueprint-part-examples(id, examples, baseline)
+  - var example = (examples[id] || null);
+
+  if example
+    .examples
+      .examples-wrap
+        ul.examples-details
+          li.examples-detail
+            span.examples-detail-label
+              span.badge.badge--white.font-sans-semibold
+                | #{(example.method || "none").toUpperCase()}
+
+            span.examples-detail-value
+              | #{baseline.host.url}
+
+              each part in example.url.parts
+                span(
+                  class="examples-detail-#{part.type}"
+                )
+                  | #{part.value}
+
+          if example.tiers.length > 0
+            li.examples-detail
+              span.examples-detail-label
+                span.badge.badge--white.font-sans-semibold
+                  | #{$_.REFERENCES.BLUEPRINT.EXAMPLES.DETAILS.TIERS}
+
+              span.examples-detail-value
+                each tier in example.tiers
+                  span.badge.badge--special-value
+                    | #{tier}
+
+          if example.scopes.length > 0
+            li.examples-detail
+              span.examples-detail-label
+                span.badge.badge--white.font-sans-semibold
+                  | #{$_.REFERENCES.BLUEPRINT.EXAMPLES.DETAILS.SCOPES}
+
+              span.examples-detail-value
+                each scope in example.scopes
+                  span.badge.badge--special-value
+                    | #{scope}
+
+        if example.flows
+          - var flow_keys = Object.keys(example.flows);
+
+          if flow_keys.length > 0
+            - var first_flow       = example.flows[flow_keys[0]];
+
+            - var request_options  = flow_keys.map(function(key) { return [key, example.flows[key].request.name] });
+            - var response_options = first_flow.responses.map(function(response, index) { return [("" + index), response.name] });
+
+            +code("HTTP", example.flows, request_options, response_options)
+
+
+mixin references-blueprint-request-format-keys(id, http_method, depth, content, collapse_depth, with_children)
+  //- Generate keys tree from API Blueprint 'data' object
+  .request-format-keys(
+    data-depth="#{depth}"
+  )
+    each data_level in content
+      if data_level.element === "member"
+        - var key = {};
+
+        //- Push main data
+        - key.key  = data_level.content.key.content;
+        - key.type = data_level.content.value.element;
+
+        //- Parse label?
+        if data_level.meta && data_level.meta.description
+          - key.label = data_level.meta.description.content;
+
+        //- Begin array content type?
+        if data_level.content.value.element === "array" && data_level.content.value.content
+          - key.type += ("[" + ((data_level.content.value.content[0] || {}).element || ""));
+
+        //- Parse enumeration members?
+        - var enumeration_attributes = data_level.content.value.attributes;
+
+        if data_level.content.value.element === "array" && data_level.content.value.content
+          //- Flatten enumeration members from array (only for array[enum[*]])
+          - enumeration_attributes = (data_level.content.value.content[0] || {}).attributes;
+
+        if enumeration_attributes && enumeration_attributes.enumerations && enumeration_attributes.enumerations.content && enumeration_attributes.enumerations.content.length > 0
+          - key.type += ("[" + enumeration_attributes.enumerations.content[0].element + "]");
+
+          //- Append all enumeration member values to label (using Markdown)
+          - var members = "";
+
+          each enumeration in enumeration_attributes.enumerations.content
+            if enumeration.content
+              - members += ("* `" + enumeration.content + "`\n");
+
+          if members
+            - key.label = ((key.label || "") + "\n\n**" + $_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_MEMBERS + "**\n" + members.trim());
+
+        //- End array content type?
+        if data_level.content.value.element === "array" && data_level.content.value.content
+          - key.type += "]";
+
+        //- Parse required and optional attributes?
+        if data_level.attributes && data_level.attributes.typeAttributes && data_level.attributes.typeAttributes.content
+          each type_attribute in data_level.attributes.typeAttributes.content
+            if !key.attribute
+              - key.attribute = type_attribute.content;
+
+        //- Parse children? (if children parsing is enabled)
+        if with_children === true && data_level.content.value.content
+          //- Unwind array? (first item only for array[object])
+          if data_level.content.value.element === "array"
+            - key.children = (data_level.content.value.content[0] || {}).content;
+          else
+            - key.children = data_level.content.value.content;
+
+        .request-format-key
+          +references-blueprint-request-format-parts(key.key, key.type, key.label, key.attribute)
+
+          if key.children && key.children.length > 0
+            if with_children === true && depth >= collapse_depth
+              +references-blueprint-request-format-toggle(id, http_method, key.key, key.children.length, depth)
+
+            +references-blueprint-request-format-keys(id, http_method, (depth + 1), key.children, collapse_depth, with_children)
+
+
+mixin references-blueprint-request-format-parts(key_name, type, label, attribute)
+  .request-format-parts
+    .request-format-head
+      .request-format-path.font-sans-semibold
+        | #{key_name}
+
+      .request-format-type
+        | #{(type || "?")}
+
+        case attribute
+          when "required"
+            span.request-format-required.font-sans-semibold
+              | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_REQUIRED}
+
+          when "optional"
+            span.request-format-optional
+              | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_OPTIONAL}
+
+    if label
+      .request-format-label.markdown
+        != METHODS.marked(label)
+
+
+mixin references-blueprint-request-format-toggle(id, http_method, key_name, children_count, depth)
+  - var toggle_parts = [http_method, id, ("z" + depth), key_name];
+  - var toggle_id    = ("toggle_" + toggle_parts.join("-").toLowerCase());
+
+  input.request-format-toggle-checkbox(
+    type="checkbox",
+    id="#{toggle_id}",
+    name="#{toggle_id}"
+  )
+
+  label.request-format-toggle-button.button.button--small(
+    for="#{toggle_id}"
+  )
+    span.request-format-toggle-label.request-format-toggle-label--show
+      | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_TOGGLE_SHOW}
+
+    span.request-format-toggle-label.request-format-toggle-label--hide
+      | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_TOGGLE_HIDE}
+
+    span.request-format-toggle-count.font-sans-semibold
+      | #{children_count}
