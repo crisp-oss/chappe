@@ -29,7 +29,7 @@
     "build": "gulp --config=./test/config.json --assets=./test/assets --data=./test/data",
     "clean": "gulp clean:reset --config=./test/config.json --assets=./test/assets --data=./test/data",
     "dev": "gulp --config=./test/config.json --assets=./test/assets --data=./test/data && gulp watch --config=./test/config.json --assets=./test/assets --data=./test/data",
-    "test": "check-build",
+    "test": "check-build && gulp lint --config=./test/config.json --assets=./test/assets --data=./test/data",
     "preinstall": "npm-force-resolutions"
   },
   "resolutions": {
@@ -40,7 +40,6 @@
     "babel-preset-es2015": "6.9.0",
     "del": "2.2.1",
     "glob": "7.1.7",
-    "git-rev-sync": "1.6.0",
     "compass-importer": "0.4.1",
     "node-sass": "6.0.0",
     "gulp": "3.9.1",

@@ -12,7 +12,6 @@ var path                 = require("path");
 var lodash               = require("lodash");
 var del                  = require("del");
 var args                 = require("yargs").argv;
-var git_rev_sync         = require("git-rev-sync");
 var glob                 = require("glob");
 var merge                = require("merge-stream");
 var compass_importer     = require("compass-importer");
@@ -145,7 +144,9 @@ gulp.task("get_configuration", function(next) {
     (CONTEXT.IS_PRODUCTION === true) ? "production" : "development"
   );
 
-  CONTEXT.CONFIG.REVISION = git_rev_sync.short();
+  CONTEXT.CONFIG.REVISION = (
+    "v" + (package.version || "0.0.0")
+  );
 
   next();
 });
