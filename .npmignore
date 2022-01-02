@@ -1,0 +1,7 @@
+.*
+
+bower_components/
+
+lib/*
+build/*
+test/*
