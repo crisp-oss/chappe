@@ -108,6 +108,37 @@
     }
   },
 
+  "rules" : {
+    "build_size" : {
+      "fail"  : true,
+
+      "sizes" : {
+        "references" : {
+          "pages" : {
+            "gzip_maximum" : 100000
+          }
+        },
+
+        "guides" : {
+          "pages" : {
+            "gzip_maximum" : 50000
+          },
+
+          "images" : {
+            "maximum" : 1000000
+          }
+        },
+
+        "data" : {
+          "objects" : {
+            "maximum"      : 200000,
+            "gzip_maximum" : 50000
+          }
+        }
+      }
+    }
+  },
+
   "includes" : {
     "scripts" : {
       "urls"   : [],

@@ -1158,6 +1158,10 @@ gulp.task("build_banner", [
 gulp.task("build_size", ["minisearch_consolidate"], function() {
   var _stream = merge();
 
+  // Acquire sizes
+  var _fail  = (CONTEXT.CONFIG.SITE.rules.build_size.fail || false),
+      _sizes = CONTEXT.CONFIG.SITE.rules.build_size.sizes;
+
   // Map all sources and options
   var _sources = [
     {
@@ -1169,11 +1173,10 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
         production : {
           gzip  : true,
           total : true,
-          fail  : true,
+          fail  : _fail,
 
           "*"   : {
-            // 80KB maximum
-            maxGzippedSize : 80000
+            maxGzippedSize : _sizes.references.pages.gzip_maximum
           }
         }
       }
@@ -1188,11 +1191,10 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
         production : {
           gzip  : true,
           total : true,
-          fail  : true,
+          fail  : _fail,
 
           "*"   : {
-            // 25KB maximum
-            maxGzippedSize : 25000
+            maxGzippedSize : _sizes.guides.pages.gzip_maximum
           }
         }
       }
@@ -1207,11 +1209,10 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
       options : {
         production : {
           total : true,
-          fail  : true,
+          fail  : _fail,
 
           "*"   : {
-            // 500KB maximum
-            maxSize : 500000
+            maxSize : _sizes.guides.images.maximum
           }
         }
       }
@@ -1226,14 +1227,11 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
         production : {
           gzip  : true,
           total : true,
-          fail  : true,
+          fail  : _fail,
 
           "*"   : {
-            // 140KB maximum
-            maxSize : 140000,
-
-            // 25KB maximum
-            maxGzippedSize : 25000
+            maxSize        : _sizes.data.objects.maximum,
+            maxGzippedSize : _sizes.data.objects.gzip_maximum
           }
         }
       }

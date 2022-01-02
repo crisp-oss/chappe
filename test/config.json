@@ -253,6 +253,37 @@
     }
   },
 
+  "rules" : {
+    "build_size" : {
+      "fail"  : true,
+
+      "sizes" : {
+        "references" : {
+          "pages" : {
+            "gzip_maximum" : 80000
+          }
+        },
+
+        "guides" : {
+          "pages" : {
+            "gzip_maximum" : 25000
+          },
+
+          "images" : {
+            "maximum" : 500000
+          }
+        },
+
+        "data" : {
+          "objects" : {
+            "maximum"      : 140000,
+            "gzip_maximum" : 25000
+          }
+        }
+      }
+    }
+  },
+
   "includes" : {
     "scripts" : {
       "urls"   : [],
