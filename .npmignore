@@ -3,5 +3,5 @@
 bower_components/
 
 lib/*
-build/*
+dist/*
 test/*

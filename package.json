@@ -26,10 +26,10 @@
     "node": ">= 12.0.0"
   },
   "scripts": {
-    "build": "gulp --config=./test/config.json --assets=./test/assets --data=./test/data",
-    "clean": "gulp clean:reset --config=./test/config.json --assets=./test/assets --data=./test/data",
-    "dev": "gulp --config=./test/config.json --assets=./test/assets --data=./test/data && gulp watch --config=./test/config.json --assets=./test/assets --data=./test/data",
-    "test": "check-build && gulp lint --config=./test/config.json --assets=./test/assets --data=./test/data",
+    "build": "gulp --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
+    "clean": "gulp clean:reset --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
+    "dev": "gulp --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data && gulp watch --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
+    "test": "check-build && gulp lint --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
     "preinstall": "if [ ! -f ./package-lock.json ]; then npm install --package-lock-only --ignore-scripts --no-audit; fi && npm-force-resolutions"
   },
   "resolutions": {

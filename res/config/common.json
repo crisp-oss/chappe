@@ -115,8 +115,8 @@
     "LIBRARIES" : "./lib",
 
     "BUILD" : {
-      "PAGES" : "./build",
-      "ASSETS" : "./build/static"
+      "PAGES" : "./dist",
+      "ASSETS" : "./dist/static"
     }
   }
 }
