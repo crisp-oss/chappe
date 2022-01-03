@@ -333,12 +333,39 @@ _👉 Note that this only works if you are using the Crisp Chatbox integration, 
 
 ### How to write references?
 
+References are stored within `references` in your data directory. A reference is stored either as an API Blueprint or Markdown file named for example `v1.md` for the API version, in a sub-directory corresponding to the name of the API, eg. `rest-api`. The sub-directory structure directly maps to the final URL that you get: for instance `references/rest-api/v1.md` results in eg. `http://docs.acme.com/references/rest-api/v1/`.
+
 #### API Blueprint references
 
-TODO: special metas MUST BE PREPENDED BEFORE api blueprint metas
-TODO: then, its just blueprint as usual
-TODO: tell about mapping from section images to config
-TODO: provide example URL
+API Blueprint-formatted references are used to specify an HTTP REST API.
+
+Each reference written with API Blueprint **must** start with a meta-data header, which holds information on:
+
+* `TYPE`: The type of the reference
+  * Value: `API Blueprint`
+* `TITLE`: The reference title (with its version number)
+  * Example: `TITLE: REST API Reference (V1)`
+* `UPDATED`: The date at which the reference has been updated
+  * Example: `UPDATED: 2021-12-22`
+
+Immediately following, come API Blueprint meta-datas:
+
+* `FORMAT`: The API Blueprint format (ie. syntax version)
+  * Value: `1A`
+* `HOST`: The HTTP API host URL
+  * Example: `https://api.crisp.chat/v1`
+
+Then, a title with the following mandatory content:
+
+```markdown
+# Reference
+```
+
+After that, you can defined all your HTTP REST API routes in API Blueprint as normal.
+
+Also, note that as done with guides, reference sections can have their own icon images. Section icons are defined in the `config.json` configuration file, within `images.categories.references`.
+
+An example of a full API Blueprint code for a reference is available at: [examples/crisp-docs/data/references/rest-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/references/rest-api/v1.md)
 
 #### Markdown references
 
