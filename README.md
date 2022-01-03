@@ -388,10 +388,35 @@ An example of a full Markdown code for a reference is available at: [examples/cr
 
 ### How to write changelogs?
 
-TODO: define json structure
-TODO: specify all allowed values
-TODO: tell about mapping from groups to config
-TODO: provide example URL
+Changes are stored within `changes` in your data directory. They are organized in JSON files for each year, eg. `2021.json`.
+
+#### Structure of a changelog file
+
+A changelog file for a year contains an array of all individual change entries. Think of it as a yearly feed of all dated changes.
+
+For instance, with a single change for 2021:
+
+```json
+[
+  {
+    "group" : "rest_api",
+    "type"  : "change",
+    "date"  : "2021-12-03",
+    "text"  : "Markdown-formatted text for this change on the REST API."
+  }
+]
+```
+
+An example of a full changelog file is available at: [examples/crisp-docs/data/changes/2021.json](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/changes/2021.json)
+
+#### Allowed values for a change
+
+A change is structured as such:
+
+* `group`: the category of this change — _define your custom categories labels in `texts.changes.groups` and colors in `colors.changes.groups` within your `config.json`_;
+* `type`: the type of the change (either: `change` or `deprecation`);
+* `date`: a date for the change (formatted as: `YYYY-MM-DD`);
+* `text`: the description text for the change, Markdown-formatted — _make sure that any URL you define there is a full URL, as this is also used in RSS feeds_
 
 ## Common questions
 
