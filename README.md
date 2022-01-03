@@ -10,15 +10,15 @@ Developer Docs builder. Write guides in Markdown and references in API Blueprint
 
 **👉 See a live demo of Chappe on [Crisp Developer Hub](https://docs.crisp.chat/).**
 
-Chappe can generate your REST API references:
+1️⃣ Chappe can generate your REST API references:
 
 [![Chappe References](https://valeriansaliou.github.io/chappe/images/screenshot-references.gif)](https://docs.crisp.chat/references/rest-api/v1/)
 
-Write Markdown-based developer guides:
+2️⃣ Write Markdown-based developer guides:
 
 [![Chappe Guides](https://valeriansaliou.github.io/chappe/images/screenshot-guides.gif)](https://docs.crisp.chat/guides/rest-api/rate-limits/)
 
-Let your users search anything in your Developer Docs:
+3️⃣ Let your users search anything in your Developer Docs:
 
 ![Chappe Search](https://valeriansaliou.github.io/chappe/images/screenshot-search.gif)
 
