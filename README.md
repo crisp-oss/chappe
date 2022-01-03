@@ -190,10 +190,18 @@ Guides are stored within `guides` in your data directory. A guide is stored as a
 
 Each guide Markdown file **must** start with a meta-data header, which olds information on:
 
-* `TITLE`: The guide article name (_required_) (eg. `TITLE: Hello World`)
-* `INDEX`: Number used to position the article relative to others in the navigation sidebar (_required_) (eg. `INDEX: 1`)
-* `UPDATED`: The date at which the guide article has been updated (_required_) (eg. `UPDATED: 2021-09-22`)
-* `LINK`: Additional navigation links to be added in the navigation sidebar (_optional_, _multiple possible_) (eg. `LINK: Reference -> /references/rest-api/v1/`)
+* `TITLE`: The guide article name
+  * Comments: _Required_
+  * Example: `TITLE: Hello World`
+* `INDEX`: Number used to position the article relative to others in the navigation sidebar
+  * Comments: _Required_
+  * Example: `INDEX: 1`
+* `UPDATED`: The date at which the guide article has been updated
+  * Comments: _Required_
+  * Example: `UPDATED: 2021-09-22`
+* `LINK`: Additional navigation links to be added in the navigation sidebar
+  * Comments: _Optional_, _Multiple possible_
+  * Example: `LINK: Reference -> /references/rest-api/v1/`
 
 Right after the header is defined, you can start writing Markdown for your guide, as normal.
 
