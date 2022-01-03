@@ -53,7 +53,7 @@ The version history can be found in the [CHANGELOG.md](https://github.com/valeri
 
 ## Features
 
-* **Simple & fast**: generate a Developer Docs into optimized static assets. No runtime
+* **Simple & fast**: generate a Developer Docs with optimized static assets. No runtime
 * **Guides**: write developer guides in Markdown (rich content support: images, videos, tables, etc.)
 * **References**: document your HTTP REST API specification using API Blueprint
 * **Changes**: maintain a changelog of your platform (eg. your REST API, your SDKs)
@@ -67,7 +67,7 @@ The version history can be found in the [CHANGELOG.md](https://github.com/valeri
 _The following optional features can also be enabled:_
 
 * **Chatbox**: integrate with the [Crisp Chatbox](https://crisp.chat/en/livechat/) to handle tech support and collect user feedback
-* **Status page**: integrate with your [Vigil](https://github.com/valeriansaliou/vigil) status page to report live system status
+* **Status page**: integrate with your [Vigil](https://github.com/valeriansaliou/vigil) status page to show live system status
 
 ## How to use it?
 
