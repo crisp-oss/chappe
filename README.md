@@ -350,9 +350,9 @@ Each reference written with API Blueprint **must** start with a meta-data header
 
 Immediately following, come API Blueprint meta-datas:
 
-* `FORMAT`: The API Blueprint format (ie. syntax version)
+* `FORMAT`: The API Blueprint format (_do not change this_)
   * Value: `1A`
-* `HOST`: The HTTP API host URL
+* `HOST`: The HTTP REST API host URL
   * Example: `https://api.crisp.chat/v1`
 
 Then, a title with the following mandatory content:
