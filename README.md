@@ -212,7 +212,67 @@ An example of a full Markdown code for a guide is available at: [examples/crisp-
 
 #### List of special Markdown elements
 
-TODO: more on Chappe special MD elements
+While the Markdown specification defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
+
+###### Video embeds
+
+To embed a video in a page, use the following Markdown syntax:
+
+```markdown
+${provider}[title](target)
+```
+
+Supported providers: `youtube`
+
+Example:
+
+```markdown
+${youtube}[In-depth Introduction to the Crisp RTM API](vS-h6k2ML6M)
+```
+
+###### Text emphasis (notice, info or warning blocks)
+
+To insert text in an emphasis block, use one of the following Markdown syntaxes:
+
+```markdown
+! This is a notice text.
+!! This is an info text.
+!!! This is a warning text.
+```
+
+###### Image with caption
+
+To insert an image with a caption, use the following Markdown syntax:
+
+```markdown
+$[Caption Text](![Image Title](image-path.png))
+```
+
+Example:
+
+```markdown
+$[Copy your Website ID](![](copy-website-id.png))
+```
+
+###### Navigation links
+
+To insert a navigation block, with one or multiple links to other pages, use the following Markdown syntax:
+
+```markdown
++ Navigation
+  | Link Title 1: Link Description -> ./link/target/1/
+  | Link Title 2: Link Description -> ./link/target/2/
+```
+
+Example:
+
+```markdown
++ Navigation
+  | Quickstart: Learn how to use the REST API in minutes. -> ./quickstart/
+  | Authentication: Read how to authenticate to the REST API. -> ./authentication/
+  | Rate-Limits: Learn about request rate-limits. -> ./rate-limits/
+  | API Libraries: Libraries for your programming language. -> ./api-libraries/
+```
 
 ### How to write references?
 
