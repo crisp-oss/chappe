@@ -212,7 +212,7 @@ An example of a full Markdown code for a guide is available at: [examples/crisp-
 
 #### List of special Markdown elements
 
-While the Markdown specification defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
+While the [Markdown specification](https://daringfireball.net/projects/markdown/syntax) defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
 
 ##### Video embeds
 
