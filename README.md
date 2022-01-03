@@ -74,7 +74,24 @@ _The following optional features can also be enabled:_
 
 ### Installation
 
-TODO
+To install Chappe, please follow those steps:
+
+1. Create a new, empty Git repository;
+2. Create a `package.json` file with the following content:
+
+```json
+{
+  "dependencies": {
+    "chappe": "1.x.x"
+  }
+}
+```
+
+3. Run: `npm install`;
+4. Copy the `test/` folder contents from the Chappe repository into your project in `src/`;
+5. Write your Markdown guides and references in the `data/` directory;
+6. Run: `npx chappe --config=./src/config.json --assets./src/assets --data=./src/data` to build the docs;
+7. Upload the contents of the `build/` folder to your Web server (at the root);
 
 ### Configuration
 
