@@ -327,11 +327,7 @@ You can easily deploy your own custom stylesheet on your docs domain, along with
 
 ```json
 {
-  /* (...) */
-
   "includes" : {
-    /* (...) */
-
     "stylesheets" : {
       "urls"   : [
         "/overrides/style.css"
@@ -339,9 +335,7 @@ You can easily deploy your own custom stylesheet on your docs domain, along with
 
       "inline" : []
     }
-  },
-
-  /* (...) */
+  }
 }
 ```
 
@@ -353,8 +347,6 @@ Add a new entry to the `urls` and `inline` array, separately, giving eg.:
 
 ```json
 {
-  /* (...) */
-
   "includes" : {
     "scripts" : {
       "urls"   : [
@@ -364,12 +356,8 @@ Add a new entry to the `urls` and `inline` array, separately, giving eg.:
       "inline" : [
         "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag(\"js\", new Date());\ngtag(\"config\", \"{YOUR_GTM_ID}\");"
       ]
-    },
-
-    /* (...) */
-  },
-
-  /* (...) */
+    }
+  }
 }
 ```
 
