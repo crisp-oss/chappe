@@ -225,7 +225,7 @@ function setup_gulp_logging(instance) {
     process.exit(1);
   });
 
-  instance.on("task_not_found", function() {
+  instance.on("task_not_found", function(event) {
     console.log(
       "Task not found: '" + event.task + "'"
     );

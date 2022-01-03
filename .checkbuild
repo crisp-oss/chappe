@@ -5,9 +5,15 @@
     "allowFailures": false
   },
   "jshint": {
-    "args": ["src/javascripts/**/*.js"]
+    "args": [
+      "bin/*.js",
+      "src/javascripts/**/*.js"
+    ]
   },
   "jscs": {
-    "args": ["src/javascripts/**/*.js"]
+    "args": [
+      "bin/*.js",
+      "src/javascripts/**/*.js"
+    ]
   }
 }

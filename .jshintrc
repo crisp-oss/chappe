@@ -7,7 +7,6 @@
     "define",
     "escape",
     "Buffer",
-    "console",
     "module"
   ]
 }
