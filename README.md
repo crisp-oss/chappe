@@ -120,4 +120,10 @@ TODO
 
 ### What does Chappe mean?
 
-TODO + author
+Chappe was named after [Claude Chappe](https://en.wikipedia.org/wiki/Claude_Chappe), a French inventor, pioneer in long-distance communications. He invented the [optical telegraph](https://en.wikipedia.org/wiki/Optical_telegraph) (semaphore telegraph), later replaced by the [electrical telegraph](https://en.wikipedia.org/wiki/Electrical_telegraph). Those technologies were the founding blocks of what took over the world next: analog and digital telecommunications.
+
+Quoting from his page on Wikipedia:
+
+> This [the optical telegraph] was the first practical telecommunications system of the industrial age, and was used until the 1850s when electric telegraph systems replaced it.
+
+_Credits to [Baptiste Jamin](https://github.com/baptistejamin) for the name idea._
