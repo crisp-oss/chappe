@@ -55,7 +55,20 @@ The version history can be found in the [CHANGELOG.md](https://github.com/valeri
 
 ## Features
 
-TODO
+* Generate a Developer Docs into optimized static assets. No runtime
+* Write developer guides in Markdown (rich content support: images, videos, tables, etc.)
+* Document your HTTP REST API specification using API Blueprint
+* Maintain a changelog of your platform (eg. your REST API, your SDKs)
+* Users can subscribe to your changelog over an RSS feed
+* Built-in instant search engine, the index is generated during build and is hosted locally
+* SEO-friendly: a deep sitemap is generated for search engines
+* Sharing-friendly: support for the Open Graph protocol
+* Mark any guide or reference as private or unlisted (prefix its name with `_`)
+
+_The following optional features can also be enabled:_
+
+* Integrate with the [Crisp Chatbox](https://crisp.chat/en/livechat/) to handle tech support and collect user feedback
+* Integrate with your [Vigil](https://github.com/valeriansaliou/vigil) status page to report live system status
 
 ## How to use it?
 
