@@ -197,7 +197,7 @@ Each guide Markdown file **must** start with a meta-data header, which olds info
 
 Right after the header is defined, you can start writing Markdown for your guide, as normal.
 
-An example of the full Markdown code for a guide is available at: [https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md](examples/crisp-docs/data/guides/hello-world/index.md)
+An example of the full Markdown code for a guide is available at: [examples/crisp-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md)
 
 ###### List of special Markdown elements
 
