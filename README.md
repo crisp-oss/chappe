@@ -86,7 +86,9 @@ To install Chappe, please follow those steps:
 
 ### Configuration
 
-TODO
+The configuration of your Chappe docs is stored in a single JSON file, usually named `config.json`. Your configuration file will make references to images, such as your docs logo, which are stored in the `assets/` folder.
+
+An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json)
 
 ### CLI usage
 
@@ -106,7 +108,13 @@ _👉 If the `chappe` command is not found, make sure to add `chappe` to your `p
 
 ### Writing docs
 
-TODO
+Docs can be either: `guides`, `references` or `changes`. The corresponding folders are stored in the `data/` directory, which is passed to the Chappe CLI whenever building your docs.
+
+`guides` are articles that walk your users through using your systems ([exemple here](https://docs.crisp.chat/guides/rest-api/rate-limits/)). They are written in Markdown, and are organized in sub-folders if deep nesting of guides in several sections is required. Chappe will auto-generate the navigation sidebar for you, based on this folder hierarchy.
+
+`references` are formal specifications of your systems (exemples of: [API Blueprint](https://docs.crisp.chat/references/rest-api/v1/) and [Markdown](https://docs.crisp.chat/references/rtm-api/v1/)). They are written in [API Blueprint](https://apiblueprint.org/) for your HTTP REST API (a pseudo-Markdown format), or traditional Markdown for other systems (eg. a WebSocket server).
+
+`changes` is a timeline of updates that you made to your systems ([exemple here](https://docs.crisp.chat/changes/)). They are defined in a JSON format. In addition to the timeline, an RSS feed also gets generated at the `/changes.rss` URL.
 
 ### Deploying your docs
 
