@@ -196,7 +196,7 @@ For example:
 
 #### List of special Markdown syntax
 
-While the [Markdown specification](https://daringfireball.net/projects/markdown/syntax) defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
+While the [Markdown specification](https://daringfireball.net/projects/markdown/syntax) defines most of the syntax that we need to build a full-featured Developer Docs (text formatting, images, tables, etc.), some non-standard elements had to be defined in Chappe.
 
 ---
 
