@@ -90,7 +90,7 @@ The configuration of your Chappe docs is stored in a single JSON file, usually n
 
 An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json) (if you copy-paste it, **make sure** to change all of its contents).
 
-_👇 Notes on certain configuration rules can be found later in the README._
+_👇 Notes on certain configuration rules can be found in the [Advanced settings](#%EF%B8%8F-advanced-settings) section._
 
 ### Chappe CLI usage
 
