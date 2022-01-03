@@ -468,9 +468,9 @@ The `urls` property will include the JavaScript at the provided URL on all pages
 
 ### How can I deploy my docs to GitHub Pages?
 
-To build your docs to GitHub Pages, you will first need to host your docs project as a GitHub repository. Then, make sure that GitHub Actions are configured and running.
+To build your docs to GitHub Pages, you will first need to host your docs project as a GitHub repository. Then, make sure that GitHub Actions is configured and running for your project.
 
-You can use the [deploy-to-github-pages](https://github.com/marketplace/actions/deploy-to-github-pages) action to proceed with building your docs via `npx chappe` and then deploying the `dist/` folder to GitHub Pages.
+You can then use the [deploy-to-github-pages](https://github.com/marketplace/actions/deploy-to-github-pages) action to proceed with building your docs via `npx chappe` and then deploying the `dist/` folder to GitHub Pages.
 
 ### Where does the Chappe name come from?
 
