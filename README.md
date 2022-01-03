@@ -350,7 +350,7 @@ Changes are stored within `changes/` in your data directory. They are organized 
 
 A changelog file for a year contains an array of all individual change entries. Think of it as a yearly feed of all dated changes.
 
-For instance, with a single change for 2021:
+For instance, a `2021.json` file with a single change would contain:
 
 ```json
 [
