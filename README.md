@@ -94,7 +94,34 @@ Notes on certain configuration rules can be found below.
 
 ##### Available code coloring:
 
-TODO: list them all
+Code coloring rules for programming languages must be added manually, for each syntax you intend use. As the rules are quite heavy for each syntax, Chappe includes none by default. For instance, if you need to show examples of Java code, you'd need to add the `java` code coloring rule in `plugins.code.syntaxes` in your `config.json`. Chappe uses [Prism](https://github.com/PrismJS/prism) for code coloring.
+
+Most used syntaxes are listed below:
+
+```
+markup
+markup-templating
+css
+clike
+c
+javascript
+bash
+go
+java
+groovy
+json
+objectivec
+php
+python
+ruby
+rust
+swift
+objectivec
+```
+
+All Prism rules available can be found [here](https://github.com/PrismJS/prism/tree/master/components).
+
+_👉 Note that some rules depend on others. For instance, `objectivec` requires that the `c` rule is also included. If you do not get code coloring for a certain syntax after including it here, then it probably means that one of its dependency is missing. Please refer to the list of Prism components for more details._
 
 ##### Check file sizes during build:
 
