@@ -2,8 +2,6 @@
 Thumbs.db
 npm-debug.log
 
-package-lock.json
-
 node_modules/
 bower_components/
 .sass-cache/
