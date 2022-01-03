@@ -92,11 +92,11 @@ An empty definition of the Chappe configuration file is available in: [res/confi
 
 Notes on certain configuration rules can be found below.
 
-###### Available code coloring:
+##### Available code coloring:
 
 TODO: list them all
 
-###### Check file sizes during build:
+##### Check file sizes during build:
 
 TODO
 
