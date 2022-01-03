@@ -94,9 +94,11 @@ _👇 Notes on certain configuration rules can be found below._
 
 #### Available code coloring
 
-Code coloring rules for programming languages must be added manually, for each syntax you intend use. As the rules are quite heavy for each syntax, Chappe includes none by default. For instance, if you need to show examples of Java code, you'd need to add the `java` code coloring rule in `plugins.code.syntaxes` in your `config.json`. Chappe uses [Prism](https://github.com/PrismJS/prism) for code coloring.
+Code coloring rules for programming languages must be added manually, for each syntax that you intend use. As the rules are quite heavy for each syntax, Chappe includes none by default.
 
-Most used syntaxes are listed below:
+For instance, if you need to show examples of Java code, you'd need to add the `java` code coloring rule in `plugins.code.syntaxes` in your `config.json`. Chappe runs on [Prism](https://github.com/PrismJS/prism) for code coloring.
+
+Most often used syntaxes are listed below (pick yours!):
 
 ```
 markup
