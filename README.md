@@ -188,7 +188,7 @@ Guides are stored within `guides` in your data directory. A guide is stored as a
 
 #### Structure of a guide file
 
-Each guide Markdown file **must** start with a meta-data header, which olds information on:
+Each guide Markdown file **must** start with a meta-data header, which holds information on:
 
 * `TITLE`: The guide article name
   * Example: `TITLE: Hello World`
