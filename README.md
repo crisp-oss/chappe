@@ -214,6 +214,8 @@ An example of a full Markdown code for a guide is available at: [examples/crisp-
 
 While the [Markdown specification](https://daringfireball.net/projects/markdown/syntax) defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
 
+---
+
 ##### Video embeds
 
 To embed a video in a page, use the following Markdown syntax:
@@ -298,6 +300,8 @@ If you have any question on this guide, please [contact our chat support](#crisp
 ```
 
 _👉 Note that this only works if you are using the Crisp Chatbox integration, and if the Crisp Chatbox is appearing on your docs._
+
+---
 
 ### How to write references?
 
