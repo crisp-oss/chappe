@@ -8,13 +8,15 @@ Developer Docs builder. Write guides in Markdown and references in API Blueprint
 
 **👉 See a live demo of Chappe on [Crisp Developer Hub](https://docs.crisp.chat/).**
 
-[![Chappe](https://valeriansaliou.github.io/chappe/images/chappe.png)](https://docs.crisp.chat/)
+[![Chappe References](https://valeriansaliou.github.io/chappe/images/screenshot-references.png)](https://docs.crisp.chat/references/rest-api/v1/)
+[![Chappe Guides](https://valeriansaliou.github.io/chappe/images/screenshot-guides.png)](https://docs.crisp.chat/guides/rest-api/rate-limits/)
+[![Chappe Search](https://valeriansaliou.github.io/chappe/images/screenshot-search.png)](https://docs.crisp.chat/)
 
 ## Who uses it?
 
 <table>
 <tr>
-<td align="center"><a href="https://crisp.chat/"><img src="https://valeriansaliou.github.io/chappe/images/crisp-icon.png" width="64" /></a></td>
+<td align="center"><a href="https://crisp.chat/"><img src="https://valeriansaliou.github.io/chappe/images/logo-crisp.png" width="64" /></a></td>
 </tr>
 <tr>
 <td align="center">Crisp</td>
