@@ -145,9 +145,17 @@ It supports the following parameters, with a default value if not set:
 * `--data` (path to directory, _default value:_ `./data`)
 * `--env` (`development` or `production`, _default value:_ `production`)
 
-To build your docs, you can call Chappe CLI as such:
+To build your docs, you can call the Chappe CLI as such:
 
-`npx chappe --config=./config.json --assets=./assets --data=./data`
+```bash
+npx chappe --config=./config.json --assets=./assets --data=./data
+```
+
+You can also call the Chappe CLI without any argument, in which case defaults will be used:
+
+```bash
+npx chappe
+```
 
 By default, docs are built for `production`, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
 
