@@ -77,25 +77,31 @@ _The following optional features can also be enabled:_
 To install Chappe, please follow those steps:
 
 1. Create a new, empty Git repository;
-2. Create a `package.json` file with the following content:
-
-```json
-{
-  "dependencies": {
-    "chappe": "1.x.x"
-  }
-}
-```
-
+2. Copy the `examples/crisp-docs/` folder contents from the Chappe repository into your project root;
 3. Run: `npm install`;
-4. Copy the `test/` folder contents from the Chappe repository into your project in `src/`;
-5. Write your Markdown guides and references in the `data/` directory;
-6. Run: `npx chappe --config=./src/config.json --assets./src/assets --data=./src/data` to build the docs;
-7. Upload the contents of the `build/` folder to your Web server (at the root);
+4. Write your Markdown guides and references in the `data/` directory;
+5. Run: `npx chappe` to build the docs;
+6. Upload the contents of the `dist/` folder to your Web server (at the root);
 
 ### Configuration
 
 TODO
+
+### CLI usage
+
+Chappe provides you with the `chappe` command, that builds your docs.
+
+It supports the following parameters, with a default value if not set:
+
+* `--config` (_default:_ `./config.json`)
+* `--assets` (_default:_ `./assets`)
+* `--data` (_default:_ `./data`)
+
+To build your docs, you can call `chappe` as such:
+
+`npx chappe --config=./config.json --assets=./assets --data=./data`
+
+_👉 If the `chappe` command is not found, make sure to add `chappe` to your `package.json` and call `npm install`._
 
 ### Writing docs
 
@@ -104,6 +110,8 @@ TODO
 ### Deploying your docs
 
 TODO
+
+TODO: note about how to configure NGINX for 404 et al
 
 ## Syntax guide
 
