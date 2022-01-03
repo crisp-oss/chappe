@@ -30,7 +30,7 @@
     "clean": "gulp clean:reset --config=./test/config.json --assets=./test/assets --data=./test/data",
     "dev": "gulp --config=./test/config.json --assets=./test/assets --data=./test/data && gulp watch --config=./test/config.json --assets=./test/assets --data=./test/data",
     "test": "check-build && gulp lint --config=./test/config.json --assets=./test/assets --data=./test/data",
-    "preinstall": "npm-force-resolutions"
+    "preinstall": "if [ ! -f ./package-lock.json ]; then npm install --package-lock-only --ignore-scripts --no-audit; fi && npm-force-resolutions"
   },
   "resolutions": {
     "graceful-fs": "4.2.8"
