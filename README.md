@@ -77,15 +77,15 @@ TODO
 
 ## Syntax guide
 
-### Syntax to write guides
+### How to write guides?
 
 TODO
 
-### Syntax to write references
+### How to write references?
 
 TODO
 
-### Syntax to write changelogs
+### How to write changelogs?
 
 TODO
 
