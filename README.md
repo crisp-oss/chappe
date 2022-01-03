@@ -218,6 +218,26 @@ Right after the header is defined, you can start writing Markdown for your guide
 
 An example of a full Markdown code for a guide is available at: [examples/crisp-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md)
 
+#### Adding icons to guide sections
+
+Each guide main section can have its icon shown in the navigation sidebar (first-level sections only).
+
+Section icons are defined in the `config.json` configuration file, within `images.categories.guides`. The section folder name, eg. `hello-world`, should be added to the `guides` object, associated to an SVG icon image from your `assets/` folder.
+
+For example:
+
+```json
+{
+  "images" : {
+    "categories" : {
+      "guides" : {
+        "hello-world" : "images/categories/guides/hello-world.svg"
+      }
+    }
+  }
+}
+```
+
 #### List of special Markdown syntax
 
 While the [Markdown specification](https://daringfireball.net/projects/markdown/syntax) defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
@@ -315,15 +335,24 @@ _👉 Note that this only works if you are using the Crisp Chatbox integration, 
 
 #### API Blueprint references
 
-TODO
+TODO: special metas MUST BE PREPENDED BEFORE api blueprint metas
+TODO: then, its just blueprint as usual
+TODO: tell about mapping from section images to config
+TODO: provide example URL
 
 #### Markdown references
 
-TODO
+TODO: defined metas
+TODO: markdown as usual
+TODO: tell about mapping from section images to config
+TODO: provide example URL
 
 ### How to write changelogs?
 
-TODO
+TODO: define json structure
+TODO: specify all allowed values
+TODO: tell about mapping from groups to config
+TODO: provide example URL
 
 ## Common questions
 
