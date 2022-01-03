@@ -90,35 +90,7 @@ The configuration of your Chappe docs is stored in a single JSON file, usually n
 
 An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json)
 
-Common configuration needs are covered below.
-
-###### Customize your docs favicons:
-
-TODO
-
-###### Set an illustration on the homepage:
-
-TODO
-
-###### Configure the header menus & navigation links:
-
-TODO
-
-###### Set icons for `guides` and `references` categories:
-
-TODO
-
-###### Define categories for `changes`:
-
-TODO
-
-###### Configure the URL of your Vigil status page:
-
-TODO
-
-###### Enable the Crisp Chatbox:
-
-TODO
+Notes on certain configuration rules can be found below.
 
 ###### Available code coloring:
 
@@ -202,7 +174,7 @@ Each guide Markdown file **must** start with a meta-data header, which holds inf
 
 Right after the header is defined, you can start writing Markdown for your guide, as normal.
 
-An example of the full Markdown code for a guide is available at: [examples/crisp-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md)
+An example of a full Markdown code for a guide is available at: [examples/crisp-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md)
 
 #### List of special Markdown elements
 
