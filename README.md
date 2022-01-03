@@ -68,8 +68,8 @@ The version history can be found in the [CHANGELOG.md](https://github.com/valeri
 
 _The following optional features can also be enabled:_
 
-* Integrate with the [Crisp Chatbox](https://crisp.chat/en/livechat/) to handle tech support and collect user feedback
-* Integrate with your [Vigil](https://github.com/valeriansaliou/vigil) status page to report live system status
+* **Chatbox**: integrate with the [Crisp Chatbox](https://crisp.chat/en/livechat/) to handle tech support and collect user feedback
+* **Status page**: integrate with your [Vigil](https://github.com/valeriansaliou/vigil) status page to report live system status
 
 ## How to use it?
 
