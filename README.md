@@ -12,9 +12,7 @@ The reason behind why we made Chappe is the following: while looking for a Devel
 
 1. Writing all your docs in Markdown;
 2. Building your docs in a single command;
-3. Finally, deploying static build assets to your Web servers (or GitHub Pages, Cloudflare Pages, etc.);
-
-_👉 Did you know that you could automate step 2 and 3 with GitHub Actions? Push your changes, and watch them be automatically deployed live._
+3. Finally, deploying static build assets to your Web servers (or GitHub Pages, Cloudflare Pages, etc. — _this can be automated under GitHub Actions_);
 
 **🇵🇪 Crafted in Lima, Peru.**
 
