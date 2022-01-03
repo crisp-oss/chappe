@@ -143,7 +143,7 @@ To build your docs, you can call Chappe CLI as such:
 
 `npx chappe --config=./config.json --assets=./assets --data=./data`
 
-By default, docs are built in `production` environment, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
+By default, docs are built for `production`, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
 
 _👉 If the `chappe` command is not found, make sure to add `chappe` to your `package.json` and call `npm install`._
 
