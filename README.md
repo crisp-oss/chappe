@@ -134,11 +134,11 @@ Chappe provides you with the `chappe` command, that builds your docs.
 
 It supports the following parameters, with a default value if not set:
 
-* `--config` (_default:_ `./config.json`)
-* `--assets` (_default:_ `./assets`)
-* `--data` (_default:_ `./data`)
+* `--config` (_default value:_ `./config.json`)
+* `--assets` (_default value:_ `./assets`)
+* `--data` (_default value:_ `./data`)
 
-To build your docs, you can call `chappe` as such:
+To build your docs, you can call Chappe CLI as such:
 
 `npx chappe --config=./config.json --assets=./assets --data=./data`
 
