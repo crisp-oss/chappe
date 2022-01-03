@@ -195,11 +195,55 @@ TODO
 
 ### How can I customize my docs style?
 
-TODO
+In order to customize your docs style — ie. override the default Chappe style past what can already be customized in the `config.json` configuration file — open `config.json` and look for the `includes` property (that contains `stylesheets`, that contains `urls` and `inline`).
 
-### How can I add scripts like Google Analytics?
+You can easily deploy your own custom stylesheet on your docs domain, along with Chappe, with CSS classes overriding Chappe default styles:
 
-TODO
+```json
+// (...)
+
+"includes" : {
+  // (...)
+
+  "stylesheets" : {
+    "urls"   : [
+      "/overrides/style.css"
+    ],
+
+    "inline" : []
+  }
+},
+
+// (...)
+```
+
+### How can I add scripts like Google Tag Manager?
+
+To add inline scripts such as Google Tag Manager, open your `config.json` configuration file for Chappe, and look for the `includes` property (that contains `scripts`, that contains `urls` and `inline`).
+
+Add a new entry to the `urls` and `inline` array, separately, giving eg.:
+
+```json
+// (...)
+
+"includes" : {
+  "scripts" : {
+    "urls"   : [
+      "https://www.googletagmanager.com/gtag/js?id={YOUR_GTM_ID}"
+    ],
+
+    "inline" : [
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag(\"js\", new Date());\ngtag(\"config\", \"{YOUR_GTM_ID}\");"
+    ]
+  },
+
+  // (...)
+},
+
+// (...)
+```
+
+The `urls` property will include the JavaScript at the provided URL on all pages, while the `inline` property will append the inline JavaScript in a `script` element on all pages.
 
 ### How can I deploy my docs to GitHub Pages?
 
