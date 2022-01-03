@@ -14,7 +14,7 @@ Developer Docs builder. Write guides in Markdown and references in API Blueprint
 
 <table>
 <tr>
-<td align="center"><a href="https://crisp.chat/"><img src="https://valeriansaliou.github.io/chappe/images/crisp.png" width="64" /></a></td>
+<td align="center"><a href="https://crisp.chat/"><img src="https://valeriansaliou.github.io/chappe/images/crisp-icon.png" width="64" /></a></td>
 </tr>
 <tr>
 <td align="center">Crisp</td>
