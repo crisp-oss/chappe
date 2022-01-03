@@ -200,10 +200,10 @@ In order to customize your docs style — ie. override the default Chappe style 
 You can easily deploy your own custom stylesheet on your docs domain, along with Chappe, with CSS classes overriding Chappe default styles:
 
 ```json
-// (...)
+/* (...) */
 
 "includes" : {
-  // (...)
+  /* (...) */
 
   "stylesheets" : {
     "urls"   : [
@@ -214,7 +214,7 @@ You can easily deploy your own custom stylesheet on your docs domain, along with
   }
 },
 
-// (...)
+/* (...) */
 ```
 
 ### How can I add scripts like Google Tag Manager?
@@ -224,7 +224,7 @@ To add inline scripts such as Google Tag Manager, open your `config.json` config
 Add a new entry to the `urls` and `inline` array, separately, giving eg.:
 
 ```json
-// (...)
+/* (...) */
 
 "includes" : {
   "scripts" : {
@@ -237,10 +237,10 @@ Add a new entry to the `urls` and `inline` array, separately, giving eg.:
     ]
   },
 
-  // (...)
+  /* (...) */
 },
 
-// (...)
+/* (...) */
 ```
 
 The `urls` property will include the JavaScript at the provided URL on all pages, while the `inline` property will append the inline JavaScript in a `script` element on all pages.
