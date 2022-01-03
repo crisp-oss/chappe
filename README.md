@@ -75,6 +75,20 @@ TODO
 
 TODO
 
+## Syntax guide
+
+### Syntax to write guides
+
+TODO
+
+### Syntax to write references
+
+TODO
+
+### Syntax to write changelogs
+
+TODO
+
 ## Common questions
 
 ### How can I customize my docs style?
