@@ -154,7 +154,7 @@ _👉 Note that if possible, you should make sure that you have a rule to catch 
 
 ### How to write guides?
 
-Guides are stored within `guides` in your data directory. A guide is stored as a Markdown file named `index.md` in a sub-directory with the guide name eg. `hello-world`. The sub-directory structure directly maps to the final URL that you get: for instance `guides/hello-world/index.md` results in eg. `http://docs.acme.com/guides/hello-world/`.
+Guides are stored within `guides/` in your data directory. A guide is stored as a Markdown file named `index.md` in a sub-directory with the guide name eg. `hello-world`. The sub-directory structure directly maps to the final URL that you get: for instance `guides/hello-world/index.md` results in eg. `http://docs.acme.com/guides/hello-world/`.
 
 #### Structure of a guide file
 
@@ -289,7 +289,7 @@ _👉 Note that this only works if you are using the Crisp Chatbox integration, 
 
 ### How to write references?
 
-References are stored within `references` in your data directory. A reference is stored either as an API Blueprint or Markdown file named for example `v1.md` for the API version, in a sub-directory corresponding to the name of the API, eg. `rest-api`. The sub-directory structure directly maps to the final URL that you get: for instance `references/rest-api/v1.md` results in eg. `http://docs.acme.com/references/rest-api/v1/`.
+References are stored within `references/` in your data directory. A reference is stored either as an API Blueprint or Markdown file named for example `v1.md` for the API version, in a sub-directory corresponding to the name of the API, eg. `rest-api`. The sub-directory structure directly maps to the final URL that you get: for instance `references/rest-api/v1.md` results in eg. `http://docs.acme.com/references/rest-api/v1/`.
 
 #### API Blueprint references
 
@@ -344,7 +344,7 @@ An example of a full Markdown code for a reference is available at: [examples/cr
 
 ### How to write changelogs?
 
-Changes are stored within `changes` in your data directory. They are organized in JSON files for each year, eg. `2021.json`.
+Changes are stored within `changes/` in your data directory. They are organized in JSON files for each year, eg. `2021.json`.
 
 #### Structure of a changelog file
 
