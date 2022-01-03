@@ -71,9 +71,9 @@ _The following optional features can also be enabled:_
 
 ## How to use it?
 
-### Installation
+### Installation & Overview
 
-To install Chappe, please follow those steps:
+To install and use Chappe, please follow those steps:
 
 1. Create a new, empty Git repository;
 2. Copy the `examples/crisp-docs/` folder contents from the Chappe repository into your project root;
@@ -81,6 +81,8 @@ To install Chappe, please follow those steps:
 4. Write your Markdown guides and references in the `data/` directory;
 5. Run: `npx chappe` to build the docs;
 6. Upload the contents of the `dist/` folder to your Web server (at the root);
+
+Please refer to sections below for more details on how to write docs, customize Chappe, and deploy your docs to your Web server.
 
 ### Configuration
 
