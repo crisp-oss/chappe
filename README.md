@@ -121,7 +121,7 @@ swift
 objectivec
 ```
 
-All Prism rules available can be found [here](https://github.com/PrismJS/prism/tree/master/components).
+All available Prism rules can be found [here](https://github.com/PrismJS/prism/tree/master/components).
 
 _👉 Note that some rules depend on others. For instance, `objectivec` requires the `c` rule to be also included. If you do not get code coloring for a certain syntax after including it, then it probably means that one of its dependency is missing. Please refer to the list of Prism components for more details._
 
