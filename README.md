@@ -12,15 +12,15 @@ The reason behind why we made Chappe is the following: while looking for a Devel
 
 1. Writing all your docs in Markdown;
 2. Building your docs in a single command;
-3. Finally, deploying static build assets to your Web servers (or GitHub Pages, Cloudflare Pages, etc. — _this can be automated under GitHub Actions_);
+3. Finally, deploying static build assets to your Web servers (or GitHub Pages, Cloudflare Pages, etc. — _this can be automated via GitHub Actions_);
 
 **🇵🇪 Crafted in Lima, Peru.**
 
 ## Screenshots & Demo
 
-**👉 See a live demo of Chappe on [Crisp Developer Hub](https://docs.crisp.chat/).**
+**👉 See a live demo of Chappe on the [Crisp Developer Hub](https://docs.crisp.chat/).**
 
-1️⃣ Chappe can generate your REST API references:
+1️⃣ Chappe can generate your REST API reference:
 
 [![Chappe References](https://valeriansaliou.github.io/chappe/images/screenshot-references.gif)](https://docs.crisp.chat/references/rest-api/v1/)
 
@@ -32,7 +32,7 @@ The reason behind why we made Chappe is the following: while looking for a Devel
 
 [![Chappe Search](https://valeriansaliou.github.io/chappe/images/screenshot-search.gif)](https://docs.crisp.chat/)
 
-_👉 Note that the search engine feature is local. This means that it does not run on an external service like [Algolia](https://www.algolia.com/), though it provides similar search performance and results. The search index is generated at build time as a JSON file, which gets loaded on-demand when the search box gets opened._
+_👉 Note that the search engine feature is 100% local. This means that it does not run on an external service like [Algolia](https://www.algolia.com/), though it does provides similar search performance and results. The search index is generated at build time as a JSON file, which gets loaded on-demand when the search box gets opened._
 
 ## Who uses it?
 
@@ -418,7 +418,7 @@ A change is structured as such:
 * `date`: a date for the change (formatted as: `YYYY-MM-DD`);
 * `text`: the description text for the change, Markdown-formatted — _make sure that any URL you define there is a full URL, as this is also used in RSS feeds_
 
-## Common questions
+## 🙋 Common questions
 
 ### How can I customize my docs style?
 
