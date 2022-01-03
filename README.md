@@ -230,6 +230,8 @@ Example:
 ${youtube}[In-depth Introduction to the Crisp RTM API](vS-h6k2ML6M)
 ```
 
+---
+
 ##### Text emphasis (notice, info or warning blocks)
 
 To insert text in an emphasis block, use one of the following Markdown syntaxes:
@@ -239,6 +241,8 @@ To insert text in an emphasis block, use one of the following Markdown syntaxes:
 !! This is an info text.
 !!! This is a warning text.
 ```
+
+---
 
 ##### Image with caption
 
@@ -253,6 +257,8 @@ Example:
 ```markdown
 $[Copy your Website ID](![](copy-website-id.png))
 ```
+
+---
 
 ##### Navigation links
 
@@ -273,6 +279,8 @@ Example:
   | Rate-Limits: Learn about request rate-limits. -> ./rate-limits/
   | API Libraries: Libraries for your programming language. -> ./api-libraries/
 ```
+
+---
 
 ##### Interact with the Crisp Chatbox
 
