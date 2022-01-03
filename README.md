@@ -32,7 +32,7 @@ _👉 Did you know that you could automate step 2 and 3 with GitHub Actions? Pus
 
 3️⃣ Oh, and it also lets your users search anything in your Developer Docs:
 
-![Chappe Search](https://valeriansaliou.github.io/chappe/images/screenshot-search.gif)
+[![Chappe Search](https://valeriansaliou.github.io/chappe/images/screenshot-search.gif)](https://docs.crisp.chat/)
 
 _👉 Note that the search engine feature is local. This means that it does not run on an external service like [Algolia](https://www.algolia.com/), though it provides similar search performance and results. The search index is generated at build time as a JSON file, which gets loaded on-demand when the search box gets opened._
 
@@ -53,6 +53,8 @@ _👋 You use Chappe and you want to be listed there? [Contact me](https://valer
 
 The version history can be found in the [CHANGELOG.md](https://github.com/valeriansaliou/chappe/blob/master/CHANGELOG.md) file.
 
-## Whats in the name?
+## Miscellaneous
+
+### What does Chappe mean?
 
 TODO + author
