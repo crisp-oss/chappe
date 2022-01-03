@@ -205,7 +205,7 @@ While the [Markdown specification](https://daringfireball.net/projects/markdown/
 To embed a video in a page, use the following Markdown syntax:
 
 ```markdown
-${provider}[title](target)
+${provider}[Video Title](video-id)
 ```
 
 Supported providers: `youtube`
