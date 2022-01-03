@@ -123,11 +123,9 @@ _👉 If the `chappe` command is not found, make sure to add `chappe` to your `p
 
 Docs can be either: `guides`, `references` or `changes`. The corresponding folders are stored in the `data/` directory, which is passed to the Chappe CLI whenever building your docs.
 
-`guides` are articles that walk your users through using your systems ([example here](https://docs.crisp.chat/guides/rest-api/rate-limits/)). They are written in Markdown, and are organized in sub-folders if deep nesting of guides in several sections is required. Chappe will auto-generate the navigation sidebar for you, based on this folder hierarchy.
-
-`references` are formal specifications of your systems (examples of: [API Blueprint](https://docs.crisp.chat/references/rest-api/v1/) and [Markdown](https://docs.crisp.chat/references/rtm-api/v1/)). They are written in [API Blueprint](https://apiblueprint.org/) for your HTTP REST API (a pseudo-Markdown format), or traditional Markdown for other systems (eg. a WebSocket server).
-
-`changes` is a timeline of updates that you made to your systems ([example here](https://docs.crisp.chat/changes/)). They are defined in a JSON format. In addition to the timeline, an RSS feed also gets generated at the `/changes.rss` URL.
+* `guides` are articles that walk your users through using your systems ([example here](https://docs.crisp.chat/guides/rest-api/rate-limits/)). They are written in Markdown, and are organized in sub-folders if deep nesting of guides in several sections is required. Chappe will auto-generate the navigation sidebar for you, based on this folder hierarchy.
+* `references` are formal specifications of your systems (examples of: [API Blueprint](https://docs.crisp.chat/references/rest-api/v1/) and [Markdown](https://docs.crisp.chat/references/rtm-api/v1/)). They are written in [API Blueprint](https://apiblueprint.org/) for your HTTP REST API (a pseudo-Markdown format), or traditional Markdown for other systems (eg. a WebSocket server).
+* `changes` is a timeline of updates that you made to your systems ([example here](https://docs.crisp.chat/changes/)). They are defined in a JSON format. In addition to the timeline, an RSS feed also gets generated at the `/changes.rss` URL.
 
 ### Deploying your docs
 
