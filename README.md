@@ -53,6 +53,42 @@ _👋 You use Chappe and you want to be listed there? [Contact me](https://valer
 
 The version history can be found in the [CHANGELOG.md](https://github.com/valeriansaliou/chappe/blob/master/CHANGELOG.md) file.
 
+## Features
+
+TODO
+
+## How to use it?
+
+### Installation
+
+TODO
+
+### Configuration
+
+TODO
+
+### Writing docs
+
+TODO
+
+### Deploying your docs
+
+TODO
+
+## Common questions
+
+### How can I customize my docs style?
+
+TODO
+
+### How can I add scripts like Google Analytics?
+
+TODO
+
+### How can I deploy my docs to GitHub Pages?
+
+TODO
+
 ## Miscellaneous
 
 ### What does Chappe mean?
