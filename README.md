@@ -115,7 +115,7 @@ You can also call the Chappe CLI without any argument, in which case defaults wi
 npx chappe
 ```
 
-By default, docs are built for `production`, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
+By default, docs are built for a `production` target, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
 
 _👉 If the `chappe` command is not found, make sure to add `chappe` to your `package.json` and call `npm install`._
 
