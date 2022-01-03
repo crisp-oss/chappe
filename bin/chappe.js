@@ -14,7 +14,6 @@
 // IMPORTS
 
 var version  = require("../package.json").version;
-
 var args     = require("yargs").argv;
 
 
@@ -46,7 +45,7 @@ var ACTIONS_AVAILABLE = [
   "build",
   "clean",
   "watch",
-  "test"
+  "lint"
 ];
 
 var ENV_AVAILABLE     = [

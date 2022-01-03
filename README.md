@@ -101,7 +101,7 @@ It supports the following actions, defaulting to `build` if none is specified:
 * `build` to build docs
 * `clean` to clean `dist/`
 * `watch` to watch for changes and re-build (useful while writing docs)
-* `test` to run self-tests
+* `lint` to run lints on Chappe internal resources
 
 It supports the following parameters, with a default value if not set:
 

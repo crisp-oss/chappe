@@ -38,7 +38,7 @@
     "build": "./bin/chappe.js build --example=crisp-docs",
     "clean": "./bin/chappe.js clean --example=crisp-docs",
     "dev": "./bin/chappe.js build --example=crisp-docs && ./bin/chappe.js watch --example=crisp-docs",
-    "test": "check-build && ./bin/chappe.js test --example=crisp-docs",
+    "test": "check-build && ./bin/chappe.js lint --example=crisp-docs",
     "preinstall": "if [ ! -f ./package-lock.json ]; then npm install --package-lock-only --ignore-scripts --no-audit; fi && npm-force-resolutions"
   },
   "resolutions": {
