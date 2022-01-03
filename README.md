@@ -90,6 +90,42 @@ The configuration of your Chappe docs is stored in a single JSON file, usually n
 
 An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json)
 
+###### Customize your docs favicons
+
+TODO
+
+###### Set an illustration on the homepage
+
+TODO
+
+###### Configure the header menus & navigation links
+
+TODO
+
+###### Set icons for `guides` and `references` categories
+
+TODO
+
+###### Define categories for `changes`
+
+TODO
+
+###### Configure the URL of your Vigil status page
+
+TODO
+
+###### Enable the Crisp Chatbox
+
+TODO
+
+###### Available code coloring
+
+TODO: list them all
+
+###### Check file sizes during build
+
+TODO
+
 ### CLI usage
 
 Chappe provides you with the `chappe` command, that builds your docs.
