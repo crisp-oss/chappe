@@ -134,9 +134,10 @@ Chappe provides you with the `chappe` command, that builds your docs.
 
 It supports the following parameters, with a default value if not set:
 
-* `--config` (_default value:_ `./config.json`)
-* `--assets` (_default value:_ `./assets`)
-* `--data` (_default value:_ `./data`)
+* `--config` (path to JSON file, _default value:_ `./config.json`)
+* `--assets` (path to directory, _default value:_ `./assets`)
+* `--data` (path to directory, _default value:_ `./data`)
+* `--env` (`development` or `production`, _default value:_ `production`)
 
 To build your docs, you can call Chappe CLI as such:
 
