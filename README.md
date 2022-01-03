@@ -77,7 +77,7 @@ To install and use Chappe, please follow those steps:
 
 1. Create a new, empty Git repository;
 2. Copy the `examples/crisp-docs/` folder contents from the Chappe repository into your project root;
-3. Run: `npm install`;
+3. Run: `npm install` (make sure that you have a recent NodeJS version installed);
 4. Write your Markdown guides and references in the `data/` directory;
 5. Run: `npx chappe` to build the docs;
 6. Upload the contents of the `dist/` folder to your Web server (at the root);
