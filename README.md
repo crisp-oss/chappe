@@ -418,13 +418,13 @@ In the event a build size rule threshold is reached, the Chappe CLI will error o
 To adjust size thresholds or disable this checker rule, open your `config.json` file and refer to the `rules.build_size` property:
 
 * To circumvent build failure when a file is over-sized, set the `fail` property to `false`;
-* Maximum sizes can be adjusted where relevant with the `sizes` property (note that sizes are in bytes, so 10KB is `10000`);
+* Maximum sizes can be adjusted where relevant with the `sizes` property (note that sizes are in bytes, so 10KB is about `10000`);
 
 ## 🙋 Common questions
 
 ### How can I customize my docs style?
 
-In order to customize your docs style — ie. override the default Chappe style past what can already be customized in the `config.json` configuration file — open `config.json` and look for the `includes` property (that contains `stylesheets`, that contains `urls` and `inline`).
+In order to customize your docs style — _ie. override the default Chappe style past what can already be customized in the `config.json` configuration file_ — open `config.json` and look for the `includes` property (that contains `stylesheets`, that contains `urls` and `inline`).
 
 You can easily deploy your own custom stylesheet on your docs domain, along with Chappe, with CSS classes overriding Chappe default styles:
 
