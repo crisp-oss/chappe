@@ -133,7 +133,7 @@ To deploy your docs, first, create a Virtual Host on your Web server, using a de
 
 Then, after you built Chappe (on your local computer or a CI/CD runner such as GitHub Actions), copy the contents of the `dist/` folder to your server folder for your docs Virtual Host (eg. `/var/www/docs.acme.com`).
 
-⚠️ Chappe **must** be hosted at the root of your docs domain, it **will not** work if hosted in a sub-directory!
+⚠️ Chappe **must** be hosted at the root of your docs domain — it **will not** work if hosted in a sub-directory!
 
 Here is an example configuration file for NGINX on the Virtual Host `docs.acme.com`:
 
