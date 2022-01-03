@@ -79,7 +79,7 @@ To install and use Chappe, please follow those steps:
 2. Copy the `examples/crisp-docs/` folder contents from the Chappe repository into your project root;
 3. Run: `npm install` (make sure that you have a recent NodeJS version installed);
 4. Write your Markdown guides and references in the `data/` directory;
-5. Run: `npx chappe` to build the docs;
+5. Run: `npx chappe build` to build the docs;
 6. Upload the contents of the `dist/` folder to your Web server (at the root);
 
 Please refer to sections below for more details on how to write docs, customize Chappe, and deploy your docs to your Web server.
@@ -96,6 +96,13 @@ _👇 Notes on certain configuration rules can be found in the [Advanced setting
 
 Chappe provides you with the `chappe` command, that builds your docs.
 
+It supports the following actions, defaulting to `build` if none is specified:
+
+* `build` to build docs
+* `clean` to clean `dist/`
+* `watch` to watch for changes and re-build (useful while writing docs)
+* `test` to run self-tests
+
 It supports the following parameters, with a default value if not set:
 
 * `--config` (path to the configuration file, _default value:_ `./config.json`)
@@ -106,13 +113,13 @@ It supports the following parameters, with a default value if not set:
 To build your docs, you can call the Chappe CLI as such:
 
 ```bash
-npx chappe --config=./config.json --assets=./assets --data=./data
+npx chappe build --config=./config.json --assets=./assets --data=./data
 ```
 
 You can also call the Chappe CLI without any argument, in which case defaults will be used:
 
 ```bash
-npx chappe
+npx chappe build
 ```
 
 By default, docs are built for a `production` target, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
@@ -470,7 +477,7 @@ The `urls` property will include the JavaScript at the provided URL on all pages
 
 To build your docs to GitHub Pages, you will first need to host your docs project as a GitHub repository. Then, make sure that GitHub Actions is configured and running for your project.
 
-You can then use the [deploy-to-github-pages](https://github.com/marketplace/actions/deploy-to-github-pages) action to proceed with building your docs via `npx chappe` and then deploying the `dist/` folder to GitHub Pages.
+You can then use the [deploy-to-github-pages](https://github.com/marketplace/actions/deploy-to-github-pages) action to proceed with building your docs via `npx chappe build` and then deploying the `dist/` folder to GitHub Pages.
 
 ### Where does the Chappe name come from?
 

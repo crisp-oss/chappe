@@ -61,16 +61,25 @@ var marked_extensions    = {
 
 // Global context
 
-var CONTEXT = {
+var PARENT_CONTEXT = (
+  (typeof global.CONTEXT !== "undefined") ? global.CONTEXT : {}
+);
+
+var CONTEXT        = {
   // Data
   CONFIG        : {},
   SEARCH_INDEX  : null,
 
   // Configurations
-  PATH_CONFIG   : (args.config || null),
-  PATH_ASSETS   : (args.assets || null),
-  PATH_DATA     : (args.data   || null),
-  IS_PRODUCTION : (args.production !== undefined),
+  PATH_CONFIG   : (args.config || PARENT_CONTEXT.config || null),
+  PATH_ASSETS   : (args.assets || PARENT_CONTEXT.assets || null),
+  PATH_DATA     : (args.data   || PARENT_CONTEXT.data   || null),
+
+  IS_PRODUCTION : (
+    ((args.production !== undefined) || (PARENT_CONTEXT.env === "production")) ?
+      true : false
+  ),
+
   IS_WATCH      : false
 };
 
@@ -250,7 +259,8 @@ gulp.task("concat_libraries_javascripts", ["bower"], function() {
 
     if (fs.existsSync(_syntax_path) !== true) {
       throw new Error(
-        "Unsupported code syntax plugin provided: " + syntax
+        "Unsupported code syntax plugin provided: " + syntax + " at path: "  +
+          _syntax_path
       );
     }
 
@@ -1288,19 +1298,6 @@ gulp.task("lint_sass_stylesheets", function() {
 
 
 /*
-  Cleans all build files
-*/
-gulp.task("clean:reset", ["get_configuration"], function() {
-  return del([
-    (CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/*"),
-    (CONTEXT.CONFIG.ENV.BUILD.PAGES + "/*"),
-    (CONTEXT.CONFIG.ENV.LIBRARIES + "/*"),
-    "bower_components/"
-  ]);
-});
-
-
-/*
   Lints project built code
 */
 gulp.task("lint", ["get_configuration"], function() {
@@ -1308,6 +1305,19 @@ gulp.task("lint", ["get_configuration"], function() {
     "lint_jade_templates",
     "lint_sass_stylesheets"
   );
+});
+
+
+/*
+  Cleans all build files
+*/
+gulp.task("clean", ["get_configuration"], function() {
+  return del([
+    (CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/*"),
+    (CONTEXT.CONFIG.ENV.BUILD.PAGES + "/*"),
+    (CONTEXT.CONFIG.ENV.LIBRARIES + "/*"),
+    "bower_components/"
+  ]);
 });
 
 

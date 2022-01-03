@@ -4,11 +4,20 @@
   "version": "0.0.1",
   "homepage": "https://github.com/valeriansaliou/chappe",
   "license": "MIT",
+  "bin": {
+    "chappe": "bin/chappe"
+  },
   "author": {
     "name": "Valerian Saliou",
     "email": "valerian@valeriansaliou.name",
     "url": "https://valeriansaliou.name/"
   },
+  "contributors": [
+    {
+      "name": "Baptiste Jamin",
+      "url": "https://jam.in/"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/valeriansaliou/chappe.git"
@@ -26,10 +35,10 @@
     "node": ">= 12.0.0"
   },
   "scripts": {
-    "build": "gulp --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
-    "clean": "gulp clean:reset --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
-    "dev": "gulp --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data && gulp watch --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
-    "test": "check-build && gulp lint --config=./examples/crisp-docs/config.json --assets=./examples/crisp-docs/assets --data=./examples/crisp-docs/data",
+    "build": "./bin/chappe.js build --example=crisp-docs",
+    "clean": "./bin/chappe.js clean --example=crisp-docs",
+    "dev": "./bin/chappe.js build --example=crisp-docs && ./bin/chappe.js watch --example=crisp-docs",
+    "test": "check-build && ./bin/chappe.js test --example=crisp-docs",
     "preinstall": "if [ ! -f ./package-lock.json ]; then npm install --package-lock-only --ignore-scripts --no-audit; fi && npm-force-resolutions"
   },
   "resolutions": {
