@@ -355,7 +355,7 @@ Immediately following, come API Blueprint meta-datas:
 * `HOST`: The HTTP REST API host URL
   * Example: `https://api.crisp.chat/v1`
 
-Then, a title with the following mandatory content:
+Then, a main title with the following mandatory content:
 
 ```markdown
 # Reference
@@ -363,7 +363,7 @@ Then, a title with the following mandatory content:
 
 After that, you can defined all your HTTP REST API routes in API Blueprint as normal.
 
-Also, note that as done with guides, reference sections can have their own icon images. Section icons are defined in the `config.json` configuration file, within `images.categories.references`.
+Also, note that as done with guides above, reference sections can have their own icon images. Section icons are defined in the `config.json` configuration file, within `images.categories.references`.
 
 An example of a full API Blueprint code for a reference is available at: [examples/crisp-docs/data/references/rest-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/references/rest-api/v1.md)
 
