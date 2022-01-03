@@ -6,7 +6,7 @@
 
 Chappe is a Developer Docs builder, that produces static assets. No runtime, just lightweight static files. It was built to address SaaS companies needs, and can serve as a first-class modern alternative to hosted services such as [ReadMe](https://readme.com/).
 
-The reason behind why we made Chappe is the following: while looking for a Developer Docs builder at [Crisp](https://crisp.chat/en/), all that we could find were either outdated open-source projects, or commercial documentation builders. We wanted a modern Developer Docs website hosted on our premises, as pure-static assets (the latter is especially important, as we do not want to rely on a plethora of external services that can go down anytime).
+The reason behind why we made Chappe is the following: while looking for a Developer Docs builder at [Crisp](https://crisp.chat/en/), all that we could find were either outdated open-source projects, or commercial documentation builders. We wanted a modern Developer Docs website hosted on our premises, as pure-static assets. The latter is especially important, as we do not want to rely on a plethora of external services that can go down anytime.
 
 **Using Chappe is as easy as:**
 
