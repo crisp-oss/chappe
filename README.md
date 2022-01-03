@@ -156,9 +156,26 @@ Docs can be either: `guides`, `references` or `changes`. The corresponding folde
 
 ### Deploying your docs
 
-TODO
+To deploy your docs, first, create a Virtual Host on your Web server, using a dedicated domain, eg. `docs.acme.com`.
 
-TODO: note about how to configure NGINX for 404 et al
+Then, after you built Chappe (on your local computer or a CI/CD runner such as GitHub Actions), copy the contents of the `dist/` folder to your server folder for your docs Virtual Host (eg. `/var/www/docs.acme.com`).
+
+⚠️ Chappe **must** be hosted at the root of your docs domain, it **will not** work if hosted in a sub-directory!
+
+Here is an example configuration file for NGINX on the Virtual Host `docs.acme.com`:
+
+```
+server {
+  listen 443;
+  server_name docs.acme.com;
+
+  root /var/www/docs.acme.com;
+
+  error_page 404 /not_found/;
+}
+```
+
+_👉 Note that if possible, you should make sure that you have a rule to catch 404 errors and show the `not_found` page (as the NGINX configuration file above shows)._
 
 ## Syntax guide
 
