@@ -417,8 +417,8 @@ In the event a build size rule threshold is reached, the Chappe CLI will error o
 
 To adjust size thresholds or disable this checker rule, open your `config.json` file and refer to the `rules.build_size` property:
 
-* To circumvent build failure when a file is over-sized, change `fail` to `false`;
-* Maximum sizes can be adjusted where relevant in `sizes` (note that sizes are in bytes, so 10KB is `10000`);
+* To circumvent build failure when a file is over-sized, set the `fail` property to `false`;
+* Maximum sizes can be adjusted where relevant with the `sizes` property (note that sizes are in bytes, so 10KB is `10000`);
 
 ## 🙋 Common questions
 
