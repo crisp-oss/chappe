@@ -121,11 +121,18 @@ objectivec
 
 All Prism rules available can be found [here](https://github.com/PrismJS/prism/tree/master/components).
 
-_👉 Note that some rules depend on others. For instance, `objectivec` requires that the `c` rule is also included. If you do not get code coloring for a certain syntax after including it here, then it probably means that one of its dependency is missing. Please refer to the list of Prism components for more details._
+_👉 Note that some rules depend on others. For instance, `objectivec` requires the `c` rule to be also included. If you do not get code coloring for a certain syntax after including it, then it probably means that one of its dependency is missing. Please refer to the list of Prism components for more details._
 
 #### Check file sizes during build
 
-TODO
+Once Chappe is done building your docs, it checks for all built files sizes against maximum build size rules. This is done to ensure that you do not get bad surprises, especially when including images in guides, about your Developer Docs users experiencing slow load times.
+
+In the event a build size rule threshold is reached, the Chappe CLI will error out, informing you which file is over-sized.
+
+To adjust thresholds or disable this checker rule, open your `config.json` file and refer to the `rules.build_size` property:
+
+* To circumvent build failure when a file is over-sized, change `fail` to `false`;
+* Maximum sizes can be adjusted where relevant in `sizes` (note that sizes are in bytes, so 10KB is `10000`);
 
 ### Chappe CLI usage
 
