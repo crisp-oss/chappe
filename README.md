@@ -411,7 +411,7 @@ _👉 Note that some rules depend on others. For instance, `objectivec` requires
 
 ### Check file sizes during build
 
-Once Chappe is done building your docs, it checks for all built files sizes against maximum build size rules. This is done to ensure that you do not get bad surprises about your Developer Docs users experiencing slow load times, especially when you including a lot of heavy images in guides.
+Once Chappe is done building your docs, it checks for all built files sizes against maximum build size rules. This is done to ensure that you do not get bad surprises about your Developer Docs users experiencing slow load times, especially when including a lot of heavy images in guides.
 
 In the event a build size rule threshold is reached, the Chappe CLI will error out, informing you which file is over-sized.
 
