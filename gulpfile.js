@@ -1377,6 +1377,7 @@ gulp.task("watch", [
 ], function() {
   CONTEXT.IS_WATCH = true;
 
+  // Internal files
   gulp.watch("config/*", [
     "get_configuration"
   ]);
@@ -1410,6 +1411,40 @@ gulp.task("watch", [
   gulp.watch("src/javascripts/**/*", [
     "replace_javascripts"
   ]);
+
+  // External files (data)
+  gulp.watch(
+    (CONTEXT.PATH_DATA + "/guides/**/*.{jpg,jpeg,png,gif}"),
+
+    [
+      "copy_images_guides"
+    ]
+  );
+
+  gulp.watch(
+    (CONTEXT.PATH_DATA + "/guides/**/*.md"),
+
+    [
+      "replace_templates_guides"
+    ]
+  );
+
+  gulp.watch(
+    (CONTEXT.PATH_DATA + "/references/**/*.md"),
+
+    [
+      "jade_templates_references"
+    ]
+  );
+
+  gulp.watch(
+    (CONTEXT.PATH_DATA + "/changes/**/*.json"),
+
+    [
+      "jade_templates_changes",
+      "feed_changes"
+    ]
+  );
 });
 
 
