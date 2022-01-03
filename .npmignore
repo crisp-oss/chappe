@@ -2,6 +2,6 @@
 
 bower_components/
 
-lib/*
-dist/*
-test/*
+lib/**
+dist/**
+examples/**
