@@ -276,7 +276,7 @@ Example:
 
 ##### Interact with the Crisp Chatbox
 
-If you need to interact with the Crisp Chatbox from your Markdown code, you can include a traditional Markdown link with an URL pointing to a `#crisp-chat-` anchor.
+If you need to interact with the Crisp Chatbox from your Markdown code, you can include a traditional Markdown link with an URL pointing to special anchors.
 
 The following anchors are available:
 
