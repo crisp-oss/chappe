@@ -26,13 +26,15 @@ _👉 Did you know that you could automate step 2 and 3 with GitHub Actions? Pus
 
 [![Chappe References](https://valeriansaliou.github.io/chappe/images/screenshot-references.gif)](https://docs.crisp.chat/references/rest-api/v1/)
 
-2️⃣ Write Markdown-based developer guides:
+2️⃣ It also generates Markdown-based developer guides:
 
 [![Chappe Guides](https://valeriansaliou.github.io/chappe/images/screenshot-guides.gif)](https://docs.crisp.chat/guides/rest-api/rate-limits/)
 
-3️⃣ Let your users search anything in your Developer Docs:
+3️⃣ Oh, and it also lets your users search anything in your Developer Docs:
 
 ![Chappe Search](https://valeriansaliou.github.io/chappe/images/screenshot-search.gif)
+
+_👉 Note that the search engine feature is local. This means that it does not run on an external service like [Algolia](https://www.algolia.com/), though it provides similar search performance and results. The search index is generated at build time as a JSON file, which gets loaded on-demand when the search box gets opened._
 
 ## Who uses it?
 
