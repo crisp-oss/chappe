@@ -426,7 +426,7 @@ To adjust size thresholds or disable this checker rule, open your `config.json` 
 
 In order to customize your docs style — _ie. override the default Chappe style past what can already be customized in the `config.json` configuration file_ — open `config.json` and look for the `includes` property (that contains `stylesheets`, that contains `urls` and `inline`).
 
-You can easily deploy your own custom stylesheet on your docs domain, along with Chappe, with CSS classes overriding Chappe default styles:
+You can easily deploy your own custom stylesheet on your docs domain, along with Chappe-generated `dist/` assets, with CSS classes overriding Chappe default styles:
 
 ```json
 {
