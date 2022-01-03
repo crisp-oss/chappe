@@ -55,15 +55,16 @@ The version history can be found in the [CHANGELOG.md](https://github.com/valeri
 
 ## Features
 
-* Generate a Developer Docs into optimized static assets. No runtime
-* Write developer guides in Markdown (rich content support: images, videos, tables, etc.)
-* Document your HTTP REST API specification using API Blueprint
-* Maintain a changelog of your platform (eg. your REST API, your SDKs)
-* Users can subscribe to your changelog over an RSS feed
-* Built-in instant search engine, the index is generated during build and is hosted locally
-* SEO-friendly: a deep sitemap is generated for search engines
-* Sharing-friendly: support for the Open Graph protocol
-* Mark any guide or reference as private or unlisted (prefix its name with `_`)
+* **Simple & fast**: generate a Developer Docs into optimized static assets. No runtime
+* **Guides**: write developer guides in Markdown (rich content support: images, videos, tables, etc.)
+* **References**: document your HTTP REST API specification using API Blueprint
+* **Changes**: maintain a changelog of your platform (eg. your REST API, your SDKs)
+* **RSS feed**: users can subscribe to your changelog over RSS
+* **Built-in search engine**: the index is generated during build and is hosted locally
+* **Fully responsive**: full support of desktop, tablet and phone screens
+* **SEO-friendly**: a deep sitemap is generated for search engines
+* **Sharing-friendly**: support for the Open Graph protocol
+* **Private pages support**: mark any guide or reference as private or unlisted (prefix its name with `_`)
 
 _The following optional features can also be enabled:_
 
