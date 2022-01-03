@@ -74,6 +74,10 @@ function run() {
 function run_help() {
   console.log(
     "Builds given Chappe documentation resources into static assets.\n\n"  +
+
+    "Available actions:\n"                                                 +
+      (help_actions(ACTIONS_AVAILABLE) + "\n\n")                           +
+
     "Available arguments:\n"                                               +
       (help_argument("config") + "\n")                                     +
       (help_argument("assets") + "\n")                                     +
@@ -112,6 +116,14 @@ function run_default() {
 
   // Build docs
   gulp.start(_task);
+}
+
+function help_actions(actions) {
+  var _actions = actions.map(function(action) {
+    return (" " + action);
+  });
+
+  return _actions.join("\n");
 }
 
 function help_argument(name) {
