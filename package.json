@@ -1,7 +1,7 @@
 {
   "name": "chappe",
   "description": "Developer Docs builder. Write guides in Markdown and references in API Blueprint. Comes with a built-in search engine.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/valeriansaliou/chappe",
   "license": "MIT",
   "bin": {
@@ -45,7 +45,9 @@
     "graceful-fs": "4.2.8"
   },
   "devDependencies": {
-    "check-build": "2.8.2",
+    "check-build": "2.8.2"
+  },
+  "dependencies": {
     "babel-preset-es2015": "6.9.0",
     "del": "2.2.1",
     "glob": "7.1.7",
