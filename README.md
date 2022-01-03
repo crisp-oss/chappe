@@ -186,7 +186,7 @@ _👉 Note that if possible, you should make sure that you have a rule to catch 
 
 Guides are stored within `guides` in your data directory. A guide is stored as a Markdown file named `index.md` in a sub-directory with the guide name eg. `hello-world`. The sub-directory structure directly maps to the final URL that you get: for instance `guides/hello-world/index.md` results in eg. `http://docs.acme.com/guides/hello-world/`.
 
-###### Structure of a guide file
+#### Structure of a guide file
 
 Each guide Markdown file **must** start with a meta-data header, which olds information on:
 
@@ -199,7 +199,7 @@ Right after the header is defined, you can start writing Markdown for your guide
 
 An example of the full Markdown code for a guide is available at: [examples/crisp-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md)
 
-###### List of special Markdown elements
+#### List of special Markdown elements
 
 TODO: more on Chappe special MD elements
 
