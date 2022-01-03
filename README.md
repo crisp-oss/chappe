@@ -210,7 +210,7 @@ Right after the header is defined, you can start writing Markdown for your guide
 
 An example of a full Markdown code for a guide is available at: [examples/crisp-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md)
 
-#### List of special Markdown elements
+#### List of special Markdown syntax
 
 While the [Markdown specification](https://daringfireball.net/projects/markdown/syntax) defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
 
@@ -273,6 +273,23 @@ Example:
   | Rate-Limits: Learn about request rate-limits. -> ./rate-limits/
   | API Libraries: Libraries for your programming language. -> ./api-libraries/
 ```
+
+##### Interact with the Crisp Chatbox
+
+If you need to interact with the Crisp Chatbox from your Markdown code, you can include a traditional Markdown link with an URL pointing to a `#crisp-chat-` anchor.
+
+The following anchors are available:
+
+* Pop open the chatbox: `#crisp-chat-open`
+* Prompt to submit feedback on the current page: `#crisp-chat-feedback`
+
+Example:
+
+```markdown
+If you have any question on this guide, please [contact our chat support](#crisp-chat-open).
+```
+
+_👉 Note that this only works if you are using the Crisp Chatbox integration, and if the Crisp Chatbox is appearing on your docs._
 
 ### How to write references?
 
