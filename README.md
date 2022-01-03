@@ -376,9 +376,9 @@ A change is structured as such:
 * `date`: a date for the change (formatted as: `YYYY-MM-DD`);
 * `text`: the description text for the change, Markdown-formatted — _make sure that any URL you define there is a full URL, as this is also used in RSS feeds_
 
-## ⚛️ Advanced configurations
+## ⚛️ Advanced settings
 
-#### Available code coloring
+### Available code coloring
 
 Code coloring rules for programming languages must be added manually, for each syntax that you intend use. As the rules are quite heavy for each syntax, Chappe includes none by default.
 
@@ -411,7 +411,7 @@ All available Prism rules can be found [here](https://github.com/PrismJS/prism/t
 
 _👉 Note that some rules depend on others. For instance, `objectivec` requires the `c` rule to be also included. If you do not get code coloring for a certain syntax after including it, then it probably means that one of its dependency is missing. Please refer to the list of Prism components for more details._
 
-#### Check file sizes during build
+### Check file sizes during build
 
 Once Chappe is done building your docs, it checks for all built files sizes against maximum build size rules. This is done to ensure that you do not get bad surprises about your Developer Docs users experiencing slow load times, especially when you including a lot of heavy images in guides.
 
