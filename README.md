@@ -90,51 +90,7 @@ The configuration of your Chappe docs is stored in a single JSON file, usually n
 
 An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json) (if you copy-paste it, **make sure** to change all of its contents).
 
-_👇 Notes on certain configuration rules can be found below._
-
-#### Available code coloring
-
-Code coloring rules for programming languages must be added manually, for each syntax that you intend use. As the rules are quite heavy for each syntax, Chappe includes none by default.
-
-For instance, if you need to show examples of Java code, you'd need to add the `java` code coloring rule in `plugins.code.syntaxes` in your `config.json`. Chappe runs on [Prism](https://github.com/PrismJS/prism) for code coloring.
-
-Most often used syntaxes are listed below (pick yours!):
-
-```
-markup
-markup-templating
-css
-clike
-c
-javascript
-bash
-go
-java
-groovy
-json
-objectivec
-php
-python
-ruby
-rust
-swift
-objectivec
-```
-
-All available Prism rules can be found [here](https://github.com/PrismJS/prism/tree/master/components).
-
-_👉 Note that some rules depend on others. For instance, `objectivec` requires the `c` rule to be also included. If you do not get code coloring for a certain syntax after including it, then it probably means that one of its dependency is missing. Please refer to the list of Prism components for more details._
-
-#### Check file sizes during build
-
-Once Chappe is done building your docs, it checks for all built files sizes against maximum build size rules. This is done to ensure that you do not get bad surprises about your Developer Docs users experiencing slow load times, especially when you including a lot of heavy images in guides.
-
-In the event a build size rule threshold is reached, the Chappe CLI will error out, informing you which file is over-sized.
-
-To adjust size thresholds or disable this checker rule, open your `config.json` file and refer to the `rules.build_size` property:
-
-* To circumvent build failure when a file is over-sized, change `fail` to `false`;
-* Maximum sizes can be adjusted where relevant in `sizes` (note that sizes are in bytes, so 10KB is `10000`);
+_👇 Notes on certain configuration rules can be found later in the README._
 
 ### Chappe CLI usage
 
@@ -419,6 +375,52 @@ A change is structured as such:
 * `type`: the type of the change (either: `change` or `deprecation`);
 * `date`: a date for the change (formatted as: `YYYY-MM-DD`);
 * `text`: the description text for the change, Markdown-formatted — _make sure that any URL you define there is a full URL, as this is also used in RSS feeds_
+
+## ⚛️ Advanced configurations
+
+#### Available code coloring
+
+Code coloring rules for programming languages must be added manually, for each syntax that you intend use. As the rules are quite heavy for each syntax, Chappe includes none by default.
+
+For instance, if you need to show examples of Java code, you'd need to add the `java` code coloring rule in `plugins.code.syntaxes` in your `config.json`. Chappe runs on [Prism](https://github.com/PrismJS/prism) for code coloring.
+
+Most often used syntaxes are listed below (pick yours!):
+
+```
+markup
+markup-templating
+css
+clike
+c
+javascript
+bash
+go
+java
+groovy
+json
+objectivec
+php
+python
+ruby
+rust
+swift
+objectivec
+```
+
+All available Prism rules can be found [here](https://github.com/PrismJS/prism/tree/master/components).
+
+_👉 Note that some rules depend on others. For instance, `objectivec` requires the `c` rule to be also included. If you do not get code coloring for a certain syntax after including it, then it probably means that one of its dependency is missing. Please refer to the list of Prism components for more details._
+
+#### Check file sizes during build
+
+Once Chappe is done building your docs, it checks for all built files sizes against maximum build size rules. This is done to ensure that you do not get bad surprises about your Developer Docs users experiencing slow load times, especially when you including a lot of heavy images in guides.
+
+In the event a build size rule threshold is reached, the Chappe CLI will error out, informing you which file is over-sized.
+
+To adjust size thresholds or disable this checker rule, open your `config.json` file and refer to the `rules.build_size` property:
+
+* To circumvent build failure when a file is over-sized, change `fail` to `false`;
+* Maximum sizes can be adjusted where relevant in `sizes` (note that sizes are in bytes, so 10KB is `10000`);
 
 ## 🙋 Common questions
 
