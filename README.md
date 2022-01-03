@@ -2,7 +2,19 @@
 
 [![Test and Build](https://github.com/valeriansaliou/chappe/workflows/Test%20and%20Build/badge.svg?branch=master)](https://github.com/valeriansaliou/chappe/actions?query=workflow%3A%22Test+and+Build%22) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe) [![Buy Me A Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/valeriansaliou)
 
-Developer Docs builder. Write guides in Markdown and references in API Blueprint. Comes with a built-in search engine.
+**Developer Docs builder. Write guides in Markdown and references in API Blueprint. Comes with a built-in search engine.**
+
+Chappe is a Developer Docs builder, that produces static assets. No runtime, just lightweight static files. It was built to address SaaS companies needs, and can serve as a first-class modern alternative to services such as [ReadMe](https://readme.com/).
+
+The reason behind why we made Chappe is the following: while looking for a Developer Docs builder at Crisp, all that we could find were either outdated open-source projects, or commercial documentation builders. We wanted a modern Developer Docs website hosted on our premises, as pure-static assets (the latter is especially important, as we do not want to rely on a plethora of external services that can go down anytime).
+
+**Using Chappe is as easy as:**
+
+1. Writing all your docs in Markdown;
+2. Building your docs in a single command;
+3. Finally, deploying static build assets to your Web servers (or GitHub Pages, Cloudflare Pages, etc.);
+
+_👉 Did you know that you could automate step 2 and 3 with GitHub Actions? Push your changes, and watch them be automatically deployed live._
 
 **🇵🇪 Crafted in Lima, Peru.**
 
