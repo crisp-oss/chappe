@@ -88,7 +88,7 @@ Please refer to sections below for more details on how to write docs, customize 
 
 The configuration of your Chappe docs is stored in a single JSON file, usually named `config.json`. Your configuration file will make references to images, such as your docs logo, which are stored in the `assets/` folder.
 
-An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json)
+An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json) (if you copy-paste it, **make sure** to change all of its contents)
 
 Notes on certain configuration rules can be found below.
 
