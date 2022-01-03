@@ -128,7 +128,7 @@ TODO: list them all
 
 TODO
 
-### CLI usage
+### Chappe CLI usage
 
 Chappe provides you with the `chappe` command, that builds your docs.
 
