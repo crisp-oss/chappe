@@ -139,7 +139,7 @@ Here is an example configuration file for NGINX on the Virtual Host `docs.acme.c
 
 ```
 server {
-  listen 443;
+  listen 443 ssl http2;
   server_name docs.acme.com;
 
   root /var/www/docs.acme.com;
