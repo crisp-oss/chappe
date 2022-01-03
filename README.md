@@ -214,7 +214,7 @@ An example of a full Markdown code for a guide is available at: [examples/crisp-
 
 While the Markdown specification defines most syntaxes we need to build a docs (text formatting, images, tables, etc.), some more advanced syntaxes had to be defined in Chappe.
 
-###### Video embeds
+##### Video embeds
 
 To embed a video in a page, use the following Markdown syntax:
 
@@ -230,7 +230,7 @@ Example:
 ${youtube}[In-depth Introduction to the Crisp RTM API](vS-h6k2ML6M)
 ```
 
-###### Text emphasis (notice, info or warning blocks)
+##### Text emphasis (notice, info or warning blocks)
 
 To insert text in an emphasis block, use one of the following Markdown syntaxes:
 
@@ -240,7 +240,7 @@ To insert text in an emphasis block, use one of the following Markdown syntaxes:
 !!! This is a warning text.
 ```
 
-###### Image with caption
+##### Image with caption
 
 To insert an image with a caption, use the following Markdown syntax:
 
@@ -254,7 +254,7 @@ Example:
 $[Copy your Website ID](![](copy-website-id.png))
 ```
 
-###### Navigation links
+##### Navigation links
 
 To insert a navigation block, with one or multiple links to other pages, use the following Markdown syntax:
 
