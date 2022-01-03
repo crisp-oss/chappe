@@ -185,6 +185,12 @@ TODO
 
 ### How to write references?
 
+##### API Blueprint references
+
+TODO
+
+##### Markdown references
+
 TODO
 
 ### How to write changelogs?
