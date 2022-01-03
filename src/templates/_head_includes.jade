@@ -16,7 +16,8 @@ each script_inline in SITE.includes.scripts.inline
 
 each script_url in SITE.includes.scripts.urls
   script(
-    src="#{script_url}"
+    src="#{script_url}",
+    defer
   )
 
 each stylesheet_inline in SITE.includes.stylesheets.inline
