@@ -185,11 +185,11 @@ TODO
 
 ### How to write references?
 
-##### API Blueprint references
+#### API Blueprint references
 
 TODO
 
-##### Markdown references
+#### Markdown references
 
 TODO
 
