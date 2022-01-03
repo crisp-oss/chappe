@@ -26,3 +26,7 @@ _👋 You use Chappe and you want to be listed there? [Contact me](https://valer
 ## Last changes
 
 The version history can be found in the [CHANGELOG.md](https://github.com/valeriansaliou/chappe/blob/master/CHANGELOG.md) file.
+
+## Whats in the name?
+
+TODO + author
