@@ -1,7 +1,4 @@
 .*
 
-bower_components/
-
-lib/**
 dist/**
 examples/**

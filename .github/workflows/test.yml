@@ -30,8 +30,8 @@ jobs:
         with:
           path: |
             ~/.npm
+            .chappe
             node_modules
-            bower_components
           key: ${{ runner.os }}-node-${{ matrix.node-version }}
 
       - name: Install global dependencies

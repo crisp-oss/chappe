@@ -73,8 +73,11 @@ var CONTEXT        = {
   PATH_CONFIG       : (PARENT_CONTEXT.config || null),
   PATH_ASSETS       : (PARENT_CONTEXT.assets || null),
   PATH_DATA         : (PARENT_CONTEXT.data   || null),
+  PATH_TEMP         : (PARENT_CONTEXT.temp   || null),
   PATH_DIST         : (PARENT_CONTEXT.dist   || null),
 
+  PATH_SOURCES      : null,
+  PATH_LIBRARIES    : null,
   PATH_BUILD_PAGES  : null,
   PATH_BUILD_ASSETS : null,
 
@@ -128,7 +131,7 @@ gulp.task("get_configuration", function(next) {
 
   // Initialize final source paths
   CONTEXT.PATH_SOURCES   = path.join(__dirname, "./src");
-  CONTEXT.PATH_LIBRARIES = path.join(__dirname, "./lib");
+  CONTEXT.PATH_LIBRARIES = path.join(CONTEXT.PATH_TEMP, "./lib");
 
   // Initialize final build paths
   CONTEXT.PATH_BUILD_PAGES  = CONTEXT.PATH_DIST;
@@ -172,10 +175,10 @@ gulp.task("get_configuration", function(next) {
   Installs bower packages
 */
 gulp.task("bower", function() {
-  return gulp_bower()
-    .pipe(
-      gulp.dest(CONTEXT.PATH_LIBRARIES)
-    );
+  return gulp_bower({
+    directory : CONTEXT.PATH_LIBRARIES,
+    cwd       : __dirname
+  });
 });
 
 
@@ -1319,7 +1322,7 @@ gulp.task("clean", ["get_configuration"], function() {
     (CONTEXT.PATH_BUILD_ASSETS + "/*"),
     (CONTEXT.PATH_BUILD_PAGES + "/*"),
     (CONTEXT.PATH_LIBRARIES + "/*"),
-    "bower_components/"
+    CONTEXT.PATH_TEMP
   ]);
 });
 
