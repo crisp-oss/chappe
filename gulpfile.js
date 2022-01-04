@@ -111,14 +111,16 @@ marked.use({
 gulp.task("get_configuration", function(next) {
   // Assert that the config and data paths are set
   if (CONTEXT.PATH_CONFIG === null || CONTEXT.PATH_ASSETS === null  ||
-        CONTEXT.PATH_DATA === null || CONTEXT.PATH_DIST === null) {
+        CONTEXT.PATH_DATA === null || CONTEXT.PATH_TEMP === null    ||
+        CONTEXT.PATH_DIST === null) {
     throw new Error(
       "A build path was not passed properly, please pass them as globals"
     );
   }
 
   // Make sure that the config and data paths exist
-  // Notice: do not check the 'dist' path, as it will get auto-created
+  // Notice: do not check the 'temp' and 'dist' path, as they will get \
+  //   auto-created.
   if (fs.existsSync(CONTEXT.PATH_CONFIG) !== true) {
     throw new Error("The configuration path provided does not exist!");
   }
