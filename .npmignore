@@ -4,3 +4,5 @@ package-lock.json
 
 dist/**
 examples/**
+
+!.banner

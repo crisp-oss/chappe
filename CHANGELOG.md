@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 (2022-01-04)
+
+### Bug Fixes
+
+* Fixed the NPMJS distribution package, that was missing the `.banner` file.
+
 ## 1.1.0 (2022-01-04)
 
 ### Non-Breaking Changes
