@@ -1,8 +1,8 @@
-.*
-
 package-lock.json
+
+.github/
+.chappe/
 
 dist/**
 examples/**
 
-!.banner
