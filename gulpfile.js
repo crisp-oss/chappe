@@ -11,7 +11,6 @@ var path                 = require("path");
 
 var lodash               = require("lodash");
 var del                  = require("del");
-var args                 = require("yargs").argv;
 var glob                 = require("glob");
 var merge                = require("merge-stream");
 var compass_importer     = require("compass-importer");
@@ -71,16 +70,16 @@ var CONTEXT        = {
   SEARCH_INDEX  : null,
 
   // Configurations
-  PATH_CONFIG   : (args.config || PARENT_CONTEXT.config || null),
-  PATH_ASSETS   : (args.assets || PARENT_CONTEXT.assets || null),
-  PATH_DATA     : (args.data   || PARENT_CONTEXT.data   || null),
+  PATH_CONFIG       : (PARENT_CONTEXT.config || null),
+  PATH_ASSETS       : (PARENT_CONTEXT.assets || null),
+  PATH_DATA         : (PARENT_CONTEXT.data   || null),
+  PATH_DIST         : (PARENT_CONTEXT.dist   || null),
 
-  IS_PRODUCTION : (
-    ((args.production !== undefined) || (PARENT_CONTEXT.env === "production")) ?
-      true : false
-  ),
+  PATH_BUILD_PAGES  : null,
+  PATH_BUILD_ASSETS : null,
 
-  IS_WATCH      : false
+  IS_PRODUCTION     : ((PARENT_CONTEXT.env === "production") ? true : false),
+  IS_WATCH          : false
 };
 
 
@@ -109,14 +108,14 @@ marked.use({
 gulp.task("get_configuration", function(next) {
   // Assert that the config and data paths are set
   if (CONTEXT.PATH_CONFIG === null || CONTEXT.PATH_ASSETS === null  ||
-        CONTEXT.PATH_DATA === null) {
+        CONTEXT.PATH_DATA === null || CONTEXT.PATH_DIST === null) {
     throw new Error(
-      "Configuration or data path not set, please pass them as arguments: "  +
-        "--config --assets --data"
+      "A build path was not passed properly, please pass them as globals"
     );
   }
 
   // Make sure that the config and data paths exist
+  // Notice: do not check the 'dist' path, as it will get auto-created
   if (fs.existsSync(CONTEXT.PATH_CONFIG) !== true) {
     throw new Error("The configuration path provided does not exist!");
   }
@@ -126,6 +125,10 @@ gulp.task("get_configuration", function(next) {
   if (fs.existsSync(CONTEXT.PATH_DATA) !== true) {
     throw new Error("The data path provided does not exist!");
   }
+
+  // Initialize final build paths
+  CONTEXT.PATH_BUILD_PAGES  = CONTEXT.PATH_DIST;
+  CONTEXT.PATH_BUILD_ASSETS = (CONTEXT.PATH_DIST + "/static");
 
   // Read configurations (merge them together)
   var _merge_pipeline = [
@@ -181,7 +184,7 @@ gulp.task("copy_user_assets", function() {
   )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/user"
+        CONTEXT.PATH_BUILD_ASSETS + "/user"
       )
     );
 });
@@ -205,7 +208,7 @@ gulp.task("copy_images_base", function() {
   )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/images"
+        CONTEXT.PATH_BUILD_ASSETS + "/images"
       )
     );
 });
@@ -220,7 +223,7 @@ gulp.task("copy_images_guides", function() {
   )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/images/guides/content"
+        CONTEXT.PATH_BUILD_ASSETS + "/images/guides/content"
       )
     );
 });
@@ -235,7 +238,7 @@ gulp.task("copy_fonts", function() {
   )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/fonts"
+        CONTEXT.PATH_BUILD_ASSETS + "/fonts"
       )
     );
 });
@@ -278,7 +281,7 @@ gulp.task("concat_libraries_javascripts", ["bower"], function() {
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/javascripts"
+        CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
 });
@@ -298,7 +301,7 @@ gulp.task("concat_libraries_stylesheets", ["bower"], function() {
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/stylesheets"
+        CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
     );
 });
@@ -345,7 +348,7 @@ gulp.task("minisearch_consolidate", [
   )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/data"
+        CONTEXT.PATH_BUILD_ASSETS + "/data"
       )
     );
 });
@@ -376,7 +379,7 @@ gulp.task("jade_templates_base", function() {
         })
           .pipe(
             gulp.dest(
-              CONTEXT.CONFIG.ENV.BUILD.PAGES
+              CONTEXT.PATH_BUILD_PAGES
             )
           )
       );
@@ -459,7 +462,7 @@ gulp.task("jade_templates_guides", function() {
           )
             .pipe(
               gulp.dest(
-                CONTEXT.CONFIG.ENV.BUILD.PAGES
+                CONTEXT.PATH_BUILD_PAGES
               )
             )
         );
@@ -563,7 +566,7 @@ gulp.task("jade_templates_references", function() {
           )
             .pipe(
               gulp.dest(
-                CONTEXT.CONFIG.ENV.BUILD.PAGES
+                CONTEXT.PATH_BUILD_PAGES
               )
             )
         );
@@ -706,7 +709,7 @@ gulp.task("jade_templates_changes", function() {
           )
             .pipe(
               gulp.dest(
-                CONTEXT.CONFIG.ENV.BUILD.PAGES
+                CONTEXT.PATH_BUILD_PAGES
               )
             )
         );
@@ -757,7 +760,7 @@ gulp.task("sass", function() {
     })
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/stylesheets"
+        CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
     );
 });
@@ -768,16 +771,16 @@ gulp.task("sass", function() {
 */
 gulp.task("css_inline_images", ["sass"], function() {
   return gulp.src((
-    CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/stylesheets/**/*.css"
+    CONTEXT.PATH_BUILD_ASSETS + "/stylesheets/**/*.css"
   ), {
-    base : (CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/images")
+    base : (CONTEXT.PATH_BUILD_ASSETS + "/images")
   })
     .pipe(
       gulp_inline_image()
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/stylesheets"
+        CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
     );
 });
@@ -814,7 +817,7 @@ gulp.task("babel", function() {
     })
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/javascripts"
+        CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
 });
@@ -834,7 +837,7 @@ gulp.task("replace_templates_all", [
 */
 gulp.task("replace_templates_guides", ["jade_templates_guides"], function() {
   return gulp.src(
-    CONTEXT.CONFIG.ENV.BUILD.PAGES + "/guides/**/*.html"
+    CONTEXT.PATH_BUILD_PAGES + "/guides/**/*.html"
   )
     .pipe(
       gulp_replace(
@@ -864,7 +867,7 @@ gulp.task("replace_templates_guides", ["jade_templates_guides"], function() {
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.PAGES + "/guides"
+        CONTEXT.PATH_BUILD_PAGES + "/guides"
       )
     );
 });
@@ -877,7 +880,7 @@ gulp.task("replace_javascripts", [
   "babel", "concat_libraries_javascripts"
 ], function() {
   return gulp.src(
-    CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/javascripts/**/*.js"
+    CONTEXT.PATH_BUILD_ASSETS + "/javascripts/**/*.js"
   )
     .pipe(
       gulp_replace(
@@ -908,7 +911,7 @@ gulp.task("replace_javascripts", [
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/javascripts"
+        CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
 });
@@ -1006,7 +1009,7 @@ gulp.task("feed_changes", function() {
   )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.PAGES
+        CONTEXT.PATH_BUILD_PAGES
       )
     );
 });
@@ -1020,15 +1023,15 @@ gulp.task("sitemap", ["jade_templates_all"], function() {
   //   pages (ie. those starting w/ '_')
   return gulp.src([
     (
-      "!" + CONTEXT.CONFIG.ENV.BUILD.PAGES + "/not_found/index.html"
+      "!" + CONTEXT.PATH_BUILD_PAGES + "/not_found/index.html"
     ),
 
     (
-      "!" + CONTEXT.CONFIG.ENV.BUILD.PAGES + "/**/_*/index.html"
+      "!" + CONTEXT.PATH_BUILD_PAGES + "/**/_*/index.html"
     ),
 
     (
-      CONTEXT.CONFIG.ENV.BUILD.PAGES + "/**/*.html"
+      CONTEXT.PATH_BUILD_PAGES + "/**/*.html"
     )
   ])
     .pipe(
@@ -1052,7 +1055,7 @@ gulp.task("sitemap", ["jade_templates_all"], function() {
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.PAGES
+        CONTEXT.PATH_BUILD_PAGES
       )
     );
 });
@@ -1077,7 +1080,7 @@ gulp.task("robots", function() {
   )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.PAGES
+        CONTEXT.PATH_BUILD_PAGES
       )
     );
 });
@@ -1091,14 +1094,14 @@ gulp.task("cssmin", [
 ],
   function() {
     return gulp.src(
-      CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/stylesheets/**/*.css"
+      CONTEXT.PATH_BUILD_ASSETS + "/stylesheets/**/*.css"
     )
       .pipe(
         gulp_cssmin()
       )
       .pipe(
         gulp.dest(
-          CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/stylesheets"
+          CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
         )
       );
   }
@@ -1110,14 +1113,14 @@ gulp.task("cssmin", [
 */
 gulp.task("uglify", ["replace_javascripts"], function() {
   return gulp.src(
-    CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/javascripts/**/*.js"
+    CONTEXT.PATH_BUILD_ASSETS + "/javascripts/**/*.js"
   )
     .pipe(
       gulp_uglify()
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/javascripts"
+        CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
 });
@@ -1146,7 +1149,7 @@ gulp.task("build_banner", [
   ].join("\n");
 
   return gulp.src(
-    CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/**/*.{css,js}"
+    CONTEXT.PATH_BUILD_ASSETS + "/**/*.{css,js}"
   )
     .pipe(
       gulp_header(banner, {
@@ -1156,7 +1159,7 @@ gulp.task("build_banner", [
     )
     .pipe(
       gulp.dest(
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS
+        CONTEXT.PATH_BUILD_ASSETS
       )
     );
 });
@@ -1176,7 +1179,7 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
   var _sources = [
     {
       glob    : (
-        CONTEXT.CONFIG.ENV.BUILD.PAGES + "/references/**/*.html"
+        CONTEXT.PATH_BUILD_PAGES + "/references/**/*.html"
       ),
 
       options : {
@@ -1194,7 +1197,7 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
 
     {
       glob    : (
-        CONTEXT.CONFIG.ENV.BUILD.PAGES + "/guides/**/*.html"
+        CONTEXT.PATH_BUILD_PAGES + "/guides/**/*.html"
       ),
 
       options : {
@@ -1212,7 +1215,7 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
 
     {
       glob    : (
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/images/guides/content/**/"  +
+        CONTEXT.PATH_BUILD_ASSETS + "/images/guides/content/**/"  +
           "*.{jpg,jpeg,png,gif}"
       ),
 
@@ -1230,7 +1233,7 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
 
     {
       glob    : (
-        CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/data/**/*.json"
+        CONTEXT.PATH_BUILD_ASSETS + "/data/**/*.json"
       ),
 
       options : {
@@ -1313,8 +1316,8 @@ gulp.task("lint", ["get_configuration"], function() {
 */
 gulp.task("clean", ["get_configuration"], function() {
   return del([
-    (CONTEXT.CONFIG.ENV.BUILD.ASSETS + "/*"),
-    (CONTEXT.CONFIG.ENV.BUILD.PAGES + "/*"),
+    (CONTEXT.PATH_BUILD_ASSETS + "/*"),
+    (CONTEXT.PATH_BUILD_PAGES + "/*"),
     (CONTEXT.CONFIG.ENV.LIBRARIES + "/*"),
     "bower_components/"
   ]);

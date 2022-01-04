@@ -112,11 +112,6 @@
 
   "ENV" : {
     "SOURCES" : "./src",
-    "LIBRARIES" : "./lib",
-
-    "BUILD" : {
-      "PAGES" : "./dist",
-      "ASSETS" : "./dist/static"
-    }
+    "LIBRARIES" : "./lib"
   }
 }

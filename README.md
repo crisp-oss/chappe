@@ -108,12 +108,13 @@ It supports the following parameters, with a default value if not set:
 * `--config` (path to the configuration file, _default value:_ `./config.json`)
 * `--assets` (path to the assets directory, _default value:_ `./assets`)
 * `--data` (path to the data directory, _default value:_ `./data`)
+* `--dist` (path where to write built resources, _default value:_ `./dist`)
 * `--env` (environment, either `development` or `production`, _default value:_ `production`)
 
 To build your docs, you can call the Chappe CLI as such:
 
 ```bash
-npx chappe build --config=./config.json --assets=./assets --data=./data
+npx chappe build --config=./config.json --assets=./assets --data=./data --dist=./dist
 ```
 
 You can also call the Chappe CLI without any argument, in which case defaults will be used:
