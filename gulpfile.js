@@ -181,7 +181,8 @@ var get_configuration = function(next) {
 var bower = function() {
   return gulp_bower({
     directory : CONTEXT.PATH_LIBRARIES,
-    cwd       : CONTEXT.PATH_CHAPPE
+    cwd       : CONTEXT.PATH_CHAPPE,
+    verbosity : 1
   });
 };
 

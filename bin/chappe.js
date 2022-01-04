@@ -13,11 +13,13 @@
 
 // IMPORTS
 
-var fs       = require("fs");
-var path     = require("path");
+var fs        = require("fs");
+var path      = require("path");
 
-var version  = require("../package.json").version;
-var args     = require("yargs").argv;
+var ora       = require("ora");
+
+var version   = require("../package.json").version;
+var args      = require("yargs").argv;
 
 
 // CONSTANTS
@@ -50,6 +52,23 @@ var ACTIONS_AVAILABLE = [
   "watch",
   "lint"
 ];
+
+var SPINNER_SUCCESSES = {
+  default : {
+    method : "succeed",
+    text   : "Success!"
+  },
+
+  build   : {
+    method : "succeed",
+    text   : "Done!"
+  },
+
+  watch   : {
+    method : "start",
+    text   : "Watching..."
+  }
+};
 
 var PATH_EXPAND_KEYS  = [
   "config",
@@ -122,24 +141,36 @@ function run_default() {
       (dump_context(global.CONTEXT) + "\n")
   );
 
-  // Import Gulp
-  var gulp = require("gulp");
+  // Setup spinner
+  var spinner = ora({
+    text  : "Working...\n",
+    color : "cyan"
+  });
 
-  // Configure Gulp logging
-  setup_gulp_logging(gulp);
+  // Setup error traps
+  setup_error_traps(spinner);
 
   // Import the Gulpfile
   var gulpfile = require("../gulpfile.js");
+
+  // Start spinner
+  spinner.start();
 
   // Build docs
   gulpfile[_task](function(error) {
     // Any error occured?
     if (error) {
-      console.log(
-        "An error occured:", error
-      );
+      spinner.fail("Error:");
+
+      console.log(error);
 
       process.exit(1);
+    } else {
+      var _success_rules = (
+        SPINNER_SUCCESSES[_task] || SPINNER_SUCCESSES.default
+      );
+
+      spinner[_success_rules.method](_success_rules.text);
     }
   });
 }
@@ -235,30 +266,12 @@ function acquire_context() {
   return _context;
 }
 
-function setup_gulp_logging(instance) {
-  instance.on("task_start", function(event) {
-    console.log(
-      "Starting '" + event.task + "'..."
-    );
-  });
+function setup_error_traps(spinner) {
+  process.on("uncaughtException", function(error) {
+    spinner.fail("Failed:");
 
-  instance.on("task_stop", function(event) {
     console.log(
-      "Finished '" + event.task + "'"
-    );
-  });
-
-  instance.on("task_err", function(event) {
-    console.log(
-      ("Error in: '" + event.task + "'"), event
-    );
-
-    process.exit(1);
-  });
-
-  instance.on("task_not_found", function(event) {
-    console.log(
-      "Task not found: '" + event.task + "'"
+      (error && error.context) ? error.context : error
     );
 
     process.exit(1);
