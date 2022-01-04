@@ -1,4 +1,6 @@
 .*
 
+package-lock.json
+
 dist/**
 examples/**
