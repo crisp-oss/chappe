@@ -193,9 +193,12 @@ function acquire_context() {
   var _base_path = process.cwd();
 
   PATH_EXPAND_KEYS.forEach(function(key) {
-    _context[key] = (
-      path.join(_base_path, _context[key])
-    );
+    // Path is not already in absolute format? (convert to absolute)
+    if (path.isAbsolute(_context[key]) !== true) {
+      _context[key] = (
+        path.join(_base_path, _context[key])
+      );
+    }
   });
 
   return _context;
