@@ -1489,8 +1489,8 @@ var watch = function() {
 /*
   Export all public tasks
 */
-exports.lint = lint;
-exports.clean = clean;
-exports.watch = watch;
-exports.build = build;
+exports.lint    = lint;
+exports.clean   = clean;
+exports.watch   = watch;
+exports.build   = build;
 exports.default = build;
