@@ -77,6 +77,7 @@ var CONTEXT        = {
   PATH_TEMP         : (PARENT_CONTEXT.temp   || null),
   PATH_DIST         : (PARENT_CONTEXT.dist   || null),
 
+  PATH_CHAPPE       : null,
   PATH_SOURCES      : null,
   PATH_LIBRARIES    : null,
   PATH_BUILD_PAGES  : null,
@@ -133,7 +134,8 @@ gulp.task("get_configuration", function(next) {
   }
 
   // Initialize final source paths
-  CONTEXT.PATH_SOURCES   = path.join(__dirname, "./src");
+  CONTEXT.PATH_CHAPPE    = __dirname;
+  CONTEXT.PATH_SOURCES   = path.join(CONTEXT.PATH_CHAPPE, "./src");
   CONTEXT.PATH_LIBRARIES = path.join(CONTEXT.PATH_TEMP, "./lib");
 
   // Initialize final build paths
@@ -177,9 +179,9 @@ gulp.task("get_configuration", function(next) {
 /*
   Prints the Chappe banner
 */
-gulp.task("print_banner", function() {
+gulp.task("print_banner", ["get_configuration"], function() {
   return gulp.src(
-    "./.banner"
+    path.join(CONTEXT.PATH_CHAPPE, "./.banner")
   )
     .pipe(
       gulp_cat()
@@ -193,7 +195,7 @@ gulp.task("print_banner", function() {
 gulp.task("bower", function() {
   return gulp_bower({
     directory : CONTEXT.PATH_LIBRARIES,
-    cwd       : __dirname
+    cwd       : CONTEXT.PATH_CHAPPE
   });
 });
 
