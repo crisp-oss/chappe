@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 (2022-01-04)
+
+### Non-Breaking Changes
+
+* Moved the build pipeline to Gulp 4.
+* Improved the Chappe CLI with terminal spinners.
+
 ## 1.0.3 (2022-01-04)
 
 ### Non-Breaking Changes
