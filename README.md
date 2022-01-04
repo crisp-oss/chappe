@@ -109,6 +109,7 @@ It supports the following parameters, with a default value if not set:
 * `--assets` (path to the assets directory, _default value:_ `./assets`)
 * `--data` (path to the data directory, _default value:_ `./data`)
 * `--dist` (path where to write built resources, _default value:_ `./dist`)
+* `--temp` (path where to write temporary files, _default value:_ `./.chappe`)
 * `--env` (environment, either `development` or `production`, _default value:_ `production`)
 
 To build your docs, you can call the Chappe CLI as such:

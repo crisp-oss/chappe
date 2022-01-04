@@ -31,6 +31,7 @@ var CONTEXT_DEFAULTS  = {
     assets : "./assets",
     data   : "./data",
     dist   : "./dist",
+    temp   : "./.chappe",
     env    : "production"
   },
 
@@ -40,6 +41,7 @@ var CONTEXT_DEFAULTS  = {
       assets : "./examples/crisp-docs/assets",
       data   : "./examples/crisp-docs/data",
       dist   : "./dist",
+      temp   : "./.chappe",
       env    : "development"
     }
   }
@@ -56,7 +58,8 @@ var PATH_EXPAND_KEYS  = [
   "config",
   "assets",
   "data",
-  "dist"
+  "dist",
+  "temp"
 ];
 
 var ENV_AVAILABLE     = [
@@ -94,6 +97,7 @@ function run_help() {
       (help_argument("assets") + "\n")                                     +
       (help_argument("data")   + "\n")                                     +
       (help_argument("dist")   + "\n")                                     +
+      (help_argument("temp")   + "\n")                                     +
       help_argument("env")
   );
 
@@ -179,6 +183,7 @@ function acquire_context() {
     assets : (args.assets || _defaults.assets),
     data   : (args.data   || _defaults.data),
     dist   : (args.dist   || _defaults.dist),
+    temp   : (args.temp   || _defaults.temp),
     env    : (args.env    || _defaults.env)
   };
 
