@@ -55,6 +55,7 @@
     "node-sass": "6.0.0",
     "gulp": "3.9.1",
     "gulp-bower": "0.0.13",
+    "gulp-cat": "0.3.3",
     "gulp-file": "0.3.0",
     "gulp-jade": "1.1.0",
     "gulp-babel": "6.1.2",
