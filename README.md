@@ -1,4 +1,4 @@
-# chappe
+# Chappe
 
 [![Test and Build](https://github.com/valeriansaliou/chappe/workflows/Test%20and%20Build/badge.svg?branch=master)](https://github.com/valeriansaliou/chappe/actions?query=workflow%3A%22Test+and+Build%22) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe) [![Buy Me A Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/valeriansaliou)
 
