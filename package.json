@@ -38,11 +38,7 @@
     "build": "./bin/chappe.js build --example=crisp-docs",
     "clean": "./bin/chappe.js clean --example=crisp-docs",
     "dev": "./bin/chappe.js build --example=crisp-docs && ./bin/chappe.js watch --example=crisp-docs",
-    "test": "check-build && ./bin/chappe.js lint --example=crisp-docs",
-    "preinstall": "if [ ! -f ./package-lock.json ]; then npm install --package-lock-only --ignore-scripts --no-audit; fi && npm-force-resolutions"
-  },
-  "resolutions": {
-    "graceful-fs": "4.2.8"
+    "test": "check-build && ./bin/chappe.js lint --example=crisp-docs"
   },
   "devDependencies": {
     "check-build": "2.8.2"
@@ -53,9 +49,9 @@
     "glob": "7.1.7",
     "compass-importer": "0.4.1",
     "node-sass": "6.0.0",
-    "gulp": "3.9.1",
-    "gulp-bower": "0.0.13",
-    "gulp-file": "0.3.0",
+    "gulp": "4.0.2",
+    "gulp-bower": "0.0.15",
+    "gulp-file": "0.4.0",
     "gulp-jade": "1.1.0",
     "gulp-babel": "6.1.2",
     "gulp-sass": "5.0.0",

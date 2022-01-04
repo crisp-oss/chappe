@@ -109,7 +109,7 @@ marked.use({
 /*
   Acquires the configuration
 */
-gulp.task("get_configuration", function(next) {
+var get_configuration = function(next) {
   // Assert that the config and data paths are set
   if (CONTEXT.PATH_CONFIG === null || CONTEXT.PATH_ASSETS === null  ||
         CONTEXT.PATH_DATA === null || CONTEXT.PATH_TEMP === null    ||
@@ -172,24 +172,24 @@ gulp.task("get_configuration", function(next) {
   );
 
   next();
-});
+};
 
 
 /*
   Installs bower packages
 */
-gulp.task("bower", function() {
+var bower = function() {
   return gulp_bower({
     directory : CONTEXT.PATH_LIBRARIES,
     cwd       : CONTEXT.PATH_CHAPPE
   });
-});
+};
 
 
 /*
   Copies all user assets
 */
-gulp.task("copy_user_assets", function() {
+var copy_user_assets = function() {
   return gulp.src(
     CONTEXT.PATH_ASSETS + "/**/*"
   )
@@ -198,22 +198,13 @@ gulp.task("copy_user_assets", function() {
         CONTEXT.PATH_BUILD_ASSETS + "/user"
       )
     );
-});
-
-
-/*
-  Copies all images (shell task to aggregate sub-tasks)
-*/
-gulp.task("copy_images_all", [
-  "copy_images_base",
-  "copy_images_guides"
-]);
+};
 
 
 /*
   Copies images (base images)
 */
-gulp.task("copy_images_base", function() {
+var copy_images_base = function() {
   return gulp.src(
     CONTEXT.PATH_SOURCES + "/images/**/*"
   )
@@ -222,13 +213,13 @@ gulp.task("copy_images_base", function() {
         CONTEXT.PATH_BUILD_ASSETS + "/images"
       )
     );
-});
+};
 
 
 /*
   Copies images (guides images)
 */
-gulp.task("copy_images_guides", function() {
+var copy_images_guides = function() {
   return gulp.src(
     CONTEXT.PATH_DATA + "/guides/**/*.{jpg,jpeg,png,gif}"
   )
@@ -237,13 +228,24 @@ gulp.task("copy_images_guides", function() {
         CONTEXT.PATH_BUILD_ASSETS + "/images/guides/content"
       )
     );
-});
+};
+
+
+/*
+  Copies all images (shell task to aggregate sub-tasks)
+*/
+var copy_images_all = function() {
+  return gulp.parallel(
+    copy_images_base,
+    copy_images_guides
+  );
+}();
 
 
 /*
   Copies fonts
 */
-gulp.task("copy_fonts", function() {
+var copy_fonts = function() {
   return gulp.src(
     CONTEXT.PATH_SOURCES + "/fonts/**/*"
   )
@@ -252,13 +254,13 @@ gulp.task("copy_fonts", function() {
         CONTEXT.PATH_BUILD_ASSETS + "/fonts"
       )
     );
-});
+};
 
 
 /*
   Concats javascript libraries
 */
-gulp.task("concat_libraries_javascripts", ["bower"], function() {
+var concat_libraries_javascripts = function() {
   // Acquire targets
   // Notice: append user-defined syntaxes for code coloring (from 'prism.js')
   var _targets = CONTEXT.CONFIG.LIBRARIES.JAVASCRIPTS.map(function(library) {
@@ -294,13 +296,13 @@ gulp.task("concat_libraries_javascripts", ["bower"], function() {
         CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
-});
+};
 
 
 /*
   Concats stylesheet libraries
 */
-gulp.task("concat_libraries_stylesheets", ["bower"], function() {
+var concat_libraries_stylesheets = function() {
   return gulp.src(
     CONTEXT.CONFIG.LIBRARIES.STYLESHEETS.map(function(library) {
       return (CONTEXT.PATH_LIBRARIES + "/" + library);
@@ -314,39 +316,26 @@ gulp.task("concat_libraries_stylesheets", ["bower"], function() {
         CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
     );
-});
-
-
-/*
-  Compiles all Jade templates (shell task to aggregate sub-tasks)
-*/
-gulp.task("jade_templates_all", [
-  "jade_templates_base",
-  "jade_templates_guides",
-  "jade_templates_references",
-  "jade_templates_changes"
-]);
+};
 
 
 /*
   Prepares Minisearch search index (before it gets populated)
 */
-gulp.task("minisearch_prepare", ["get_configuration"], function(next) {
+var minisearch_prepare = function(next) {
   // Initialize search index
   CONTEXT.SEARCH_INDEX = new MiniSearch(
     CONTEXT.CONFIG.SEARCH.OPTIONS.BASE
   );
 
   next();
-});
+};
 
 
 /*
   Consolidates Minisearch search index (after it was populated)
 */
-gulp.task("minisearch_consolidate", [
-  "jade_templates_guides", "jade_templates_references"
-], function() {
+var minisearch_consolidate = function() {
   // Generate search index data
   return gulp_file(
     ("./" + CONTEXT.CONFIG.SEARCH.INDEX),
@@ -361,13 +350,13 @@ gulp.task("minisearch_consolidate", [
         CONTEXT.PATH_BUILD_ASSETS + "/data"
       )
     );
-});
+};
 
 
 /*
   Compiles Jade templates (base templates)
 */
-gulp.task("jade_templates_base", function() {
+var jade_templates_base = function() {
   var _stream = merge();
 
   gulp_jade_templates.list_config_locales(CONTEXT, package, marked)
@@ -396,13 +385,13 @@ gulp.task("jade_templates_base", function() {
     });
 
   return _stream;
-});
+};
 
 
 /*
   Compiles Jade templates (guides templates)
 */
-gulp.task("jade_templates_guides", function() {
+var jade_templates_guides = function() {
   var _stream = merge();
 
   // Acquire the guides meta-data
@@ -480,13 +469,13 @@ gulp.task("jade_templates_guides", function() {
     });
 
   return _stream;
-});
+};
 
 
 /*
   Compiles Jade templates (references templates)
 */
-gulp.task("jade_templates_references", function() {
+var jade_templates_references = function() {
   var _stream = merge();
 
   // Acquire the parsed references content
@@ -581,13 +570,13 @@ gulp.task("jade_templates_references", function() {
     });
 
   return _stream;
-});
+};
 
 
 /*
   Compiles Jade templates (changes templates)
 */
-gulp.task("jade_templates_changes", function() {
+var jade_templates_changes = function() {
   var _stream = merge();
 
   // Acquire the change years data
@@ -724,13 +713,26 @@ gulp.task("jade_templates_changes", function() {
     });
 
   return _stream;
-});
+};
+
+
+/*
+  Compiles all Jade templates (shell task to aggregate sub-tasks)
+*/
+var jade_templates_all = function() {
+  return gulp.parallel(
+    jade_templates_base,
+    jade_templates_guides,
+    jade_templates_references,
+    jade_templates_changes
+  );
+}();
 
 
 /*
   Compiles SASS stylesheets
 */
-gulp.task("sass", function() {
+var sass = function() {
   return gulp.src(
     CONTEXT.CONFIG.SOURCES.STYLESHEETS.map(function(stylesheet) {
       return (CONTEXT.PATH_SOURCES + "/stylesheets/" + stylesheet);
@@ -770,13 +772,13 @@ gulp.task("sass", function() {
         CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
     );
-});
+};
 
 
 /*
   Imports inline images in stylesheets
 */
-gulp.task("css_inline_images", ["sass"], function() {
+var css_inline_images = function() {
   return gulp.src((
     CONTEXT.PATH_BUILD_ASSETS + "/stylesheets/**/*.css"
   ), {
@@ -790,13 +792,13 @@ gulp.task("css_inline_images", ["sass"], function() {
         CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
     );
-});
+};
 
 
 /*
   Compiles Babel templates
 */
-gulp.task("babel", function() {
+var babel = function() {
   return gulp.src(
     CONTEXT.CONFIG.SOURCES.JAVASCRIPTS.map(function(javascript) {
       return (CONTEXT.PATH_SOURCES + "/javascripts/" + javascript);
@@ -827,22 +829,13 @@ gulp.task("babel", function() {
         CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
-});
-
-
-/*
-  Replaces values from all template files (shell task to aggregate sub-tasks)
-*/
-gulp.task("replace_templates_all", [
-  "jade_templates_all",
-  "replace_templates_guides"
-]);
+};
 
 
 /*
   Replaces values from template files (guides templates)
 */
-gulp.task("replace_templates_guides", ["jade_templates_guides"], function() {
+var replace_templates_guides = function() {
   return gulp.src(
     CONTEXT.PATH_BUILD_PAGES + "/guides/**/*.html"
   )
@@ -877,15 +870,13 @@ gulp.task("replace_templates_guides", ["jade_templates_guides"], function() {
         CONTEXT.PATH_BUILD_PAGES + "/guides"
       )
     );
-});
+};
 
 
 /*
   Replaces values from javascript files
 */
-gulp.task("replace_javascripts", [
-  "babel", "concat_libraries_javascripts"
-], function() {
+var replace_javascripts = function() {
   return gulp.src(
     CONTEXT.PATH_BUILD_ASSETS + "/javascripts/**/*.js"
   )
@@ -921,21 +912,13 @@ gulp.task("replace_javascripts", [
         CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
-});
-
-
-/*
-  Compiles all feeds (shell task to aggregate sub-tasks)
-*/
-gulp.task("feed_all", [
-  "feed_changes"
-]);
+};
 
 
 /*
   Compiles feeds (changes templates)
 */
-gulp.task("feed_changes", function() {
+var feed_changes = function() {
   var _title_maximum_length = 80;
 
   // Acquire paths for the last 3 years (sort by last year first)
@@ -1019,13 +1002,13 @@ gulp.task("feed_changes", function() {
         CONTEXT.PATH_BUILD_PAGES
       )
     );
-});
+};
 
 
 /*
   Generates sitemap
 */
-gulp.task("sitemap", ["jade_templates_all"], function() {
+var sitemap = function() {
   // Scan all templates, while ignoring the 'not_found' page and all private \
   //   pages (ie. those starting w/ '_')
   return gulp.src([
@@ -1065,13 +1048,13 @@ gulp.task("sitemap", ["jade_templates_all"], function() {
         CONTEXT.PATH_BUILD_PAGES
       )
     );
-});
+};
 
 
 /*
   Generates robots
 */
-gulp.task("robots", function() {
+var robots = function() {
   return gulp_file(
     "robots.txt",
 
@@ -1090,35 +1073,31 @@ gulp.task("robots", function() {
         CONTEXT.PATH_BUILD_PAGES
       )
     );
-});
+};
 
 
 /*
   Minifies stylesheet files
 */
-gulp.task("cssmin", [
-  "css_inline_images", "concat_libraries_stylesheets"
-],
-  function() {
-    return gulp.src(
-      CONTEXT.PATH_BUILD_ASSETS + "/stylesheets/**/*.css"
+var cssmin = function() {
+  return gulp.src(
+    CONTEXT.PATH_BUILD_ASSETS + "/stylesheets/**/*.css"
+  )
+    .pipe(
+      gulp_cssmin()
     )
-      .pipe(
-        gulp_cssmin()
+    .pipe(
+      gulp.dest(
+        CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
-      .pipe(
-        gulp.dest(
-          CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
-        )
-      );
-  }
-);
+    );
+};
 
 
 /*
   Minifies javascript files
 */
-gulp.task("uglify", ["replace_javascripts"], function() {
+var uglify = function() {
   return gulp.src(
     CONTEXT.PATH_BUILD_ASSETS + "/javascripts/**/*.js"
   )
@@ -1130,15 +1109,13 @@ gulp.task("uglify", ["replace_javascripts"], function() {
         CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
     );
-});
+};
 
 
 /*
   Insert banner in build files
 */
-gulp.task("build_banner", [
-  "uglify", "cssmin", "replace_templates_all"
-], function() {
+var build_banner = function() {
   var date   = new Date();
 
   var today  = (
@@ -1169,13 +1146,13 @@ gulp.task("build_banner", [
         CONTEXT.PATH_BUILD_ASSETS
       )
     );
-});
+};
 
 
 /*
   Shows final build size
 */
-gulp.task("build_size", ["minisearch_consolidate"], function() {
+var build_size = function() {
   var _stream = merge();
 
   // Acquire sizes
@@ -1264,7 +1241,7 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
       gulp.src(source.glob)
         .pipe(
           gulp_sizereport(
-            CONTEXT.IS_PRODUCTION ? source.options.production : (
+            (CONTEXT.IS_PRODUCTION === true) ? source.options.production : (
               source.options.production.default || {
                 total : true
               }
@@ -1275,26 +1252,39 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
   });
 
   return _stream;
-});
+};
+
+
+/*
+  Cleans all build files
+*/
+var build_clean = function() {
+  return del([
+    (CONTEXT.PATH_BUILD_ASSETS + "/*"),
+    (CONTEXT.PATH_BUILD_PAGES + "/*"),
+    (CONTEXT.PATH_LIBRARIES + "/*"),
+    CONTEXT.PATH_TEMP
+  ]);
+};
 
 
 /*
   Lints Jade templates
 */
-gulp.task("lint_jade_templates", function() {
+var lint_jade_templates = function() {
   return gulp.src(
     CONTEXT.PATH_SOURCES + "/templates/**/*.jade"
   )
     .pipe(
       gulp_pug_lint()
     );
-});
+};
 
 
 /*
   Lints SASS stylesheets
 */
-gulp.task("lint_sass_stylesheets", function() {
+var lint_sass_stylesheets = function() {
   return gulp.src(
     CONTEXT.PATH_SOURCES + "/stylesheets/**/*.sass"
   )
@@ -1304,163 +1294,202 @@ gulp.task("lint_sass_stylesheets", function() {
     .pipe(
       gulp_sass_lint.format()
     );
-});
+};
 
 
 /*
   Lints project built code
 */
-gulp.task("lint", ["get_configuration"], function() {
-  gulp.start(
-    "lint_jade_templates",
-    "lint_sass_stylesheets"
+var lint = function() {
+  return gulp.series(
+    get_configuration,
+
+    gulp.parallel(
+      lint_jade_templates,
+      lint_sass_stylesheets
+    )
   );
-});
+}();
 
 
 /*
   Cleans all build files
 */
-gulp.task("clean", ["get_configuration"], function() {
-  return del([
-    (CONTEXT.PATH_BUILD_ASSETS + "/*"),
-    (CONTEXT.PATH_BUILD_PAGES + "/*"),
-    (CONTEXT.PATH_LIBRARIES + "/*"),
-    CONTEXT.PATH_TEMP
-  ]);
-});
+var clean = function() {
+  return gulp.series(
+    get_configuration,
+    build_clean
+  )
+}();
 
 
 /*
   Builds project
 */
-gulp.task("build", [
-  "get_configuration", "minisearch_prepare"
-], function() {
-  gulp.start(
-    "bower"
-  );
+var build = function() {
+  // Generate main series
+  var _series = [
+    get_configuration,
+    minisearch_prepare,
 
-  gulp.start(
-    "concat_libraries_stylesheets",
-    "concat_libraries_javascripts"
-  );
+    gulp.parallel(
+      robots,
+      feed_changes,
 
-  gulp.start(
-    "copy_user_assets",
-    "copy_images_all",
-    "copy_fonts"
-  );
+      copy_user_assets,
+      copy_images_all,
+      copy_fonts,
 
-  gulp.start(
-    "replace_templates_all",
-    "css_inline_images",
-    "replace_javascripts"
-  );
+      gulp.series(
+        bower,
 
-  gulp.start(
-    "sitemap",
-    "robots",
-    "feed_all",
-    "minisearch_consolidate"
-  );
+        gulp.parallel(
+          concat_libraries_stylesheets,
 
-  if (CONTEXT.IS_PRODUCTION) {
-    gulp.start(
-      "cssmin",
-      "uglify"
-    );
+          gulp.series(
+            gulp.parallel(
+              concat_libraries_javascripts,
+              babel
+            ),
 
-    gulp.start(
-      "build_banner",
-      "build_size"
+            replace_javascripts
+          )
+        )
+      ),
+
+      gulp.series(
+        sass,
+        css_inline_images
+      ),
+
+      gulp.series(
+        jade_templates_all,
+
+        gulp.parallel(
+          replace_templates_guides,
+          minisearch_consolidate,
+          sitemap
+        )
+      )
+    )
+  ];
+
+  // Append production final tasks?
+  if (CONTEXT.IS_PRODUCTION === true) {
+    _series.push(
+      gulp.parallel(
+        cssmin,
+        uglify
+      ),
+
+      build_banner,
+      build_size
     );
   }
-});
+
+  return gulp.series(_series);
+}();
 
 
 /*
   Watches for project changes
 */
-gulp.task("watch", [
-  "get_configuration", "minisearch_prepare"
-], function() {
-  CONTEXT.IS_WATCH = true;
+var watch = function() {
+  return gulp.series(
+    get_configuration,
+    minisearch_prepare,
 
-  // Internal files
-  gulp.watch("config/*", [
-    "get_configuration"
-  ]);
+    function(next) {
+      CONTEXT.IS_WATCH = true;
 
-  gulp.watch("bower.json", [
-    "bower"
-  ]);
+      // Internal files (Chappe files)
+      gulp.watch("bower.json", bower);
+      gulp.watch("res/config/*", get_configuration);
+      gulp.watch("src/images/**/*", copy_images_base);
+      gulp.watch("src/fonts/**/*", copy_fonts);
 
-  gulp.watch("src/images/**/*", [
-    "copy_images_base"
-  ]);
+      gulp.watch(
+        "src/locales/**/*",
 
-  gulp.watch("src/fonts/**/*", [
-    "copy_fonts"
-  ]);
+        gulp.series(
+          jade_templates_all,
+          replace_templates_guides
+        )
+      );
 
-  gulp.watch("src/locales/**/*", [
-    "replace_templates_all",
-    "sitemap"
-  ]);
+      gulp.watch(
+        "src/templates/**/*",
 
-  gulp.watch("src/templates/**/*", [
-    "replace_templates_all",
-    "sitemap"
-  ]);
+        gulp.series(
+          jade_templates_all,
 
-  gulp.watch("src/stylesheets/**/*", [
-    "css_inline_images"
-  ]);
+          gulp.parallel(
+            replace_templates_guides,
+            sitemap
+          )
+        )
+      );
 
-  gulp.watch("src/javascripts/**/*", [
-    "replace_javascripts"
-  ]);
+      gulp.watch(
+        "src/stylesheets/**/*",
 
-  // External files (data)
-  gulp.watch(
-    (CONTEXT.PATH_DATA + "/guides/**/*.{jpg,jpeg,png,gif}"),
+        gulp.series(
+          sass,
+          css_inline_images
+        )
+      );
 
-    [
-      "copy_images_guides"
-    ]
-  );
+      gulp.watch(
+        "src/javascripts/**/*",
 
-  gulp.watch(
-    (CONTEXT.PATH_DATA + "/guides/**/*.md"),
+        gulp.series(
+          babel,
+          replace_javascripts
+        )
+      );
 
-    [
-      "replace_templates_guides"
-    ]
-  );
+      // External files (user files)
+      gulp.watch(CONTEXT.PATH_CONFIG, get_configuration);
 
-  gulp.watch(
-    (CONTEXT.PATH_DATA + "/references/**/*.md"),
+      gulp.watch(
+        (CONTEXT.PATH_DATA + "/guides/**/*.{jpg,jpeg,png,gif}"),
+        copy_images_guides
+      );
 
-    [
-      "jade_templates_references"
-    ]
-  );
+      gulp.watch(
+        (CONTEXT.PATH_DATA + "/guides/**/*.md"),
 
-  gulp.watch(
-    (CONTEXT.PATH_DATA + "/changes/**/*.json"),
+        gulp.series(
+          jade_templates_guides,
+          replace_templates_guides
+        )
+      );
 
-    [
-      "jade_templates_changes",
-      "feed_changes"
-    ]
-  );
-});
+      gulp.watch(
+        (CONTEXT.PATH_DATA + "/references/**/*.md"),
+        jade_templates_references
+      );
+
+      gulp.watch(
+        (CONTEXT.PATH_DATA + "/changes/**/*.json"),
+
+        gulp.parallel(
+          jade_templates_changes,
+          feed_changes
+        )
+      );
+
+      next();
+    }
+  )
+}();
 
 
 /*
-  Entry point (default task)
+  Export all public tasks
 */
-gulp.task("default", [
-  "build"
-]);
+exports.lint = lint;
+exports.clean = clean;
+exports.watch = watch;
+exports.build = build;
+exports.default = build;

@@ -34,10 +34,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-node-${{ matrix.node-version }}
 
-      - name: Install global dependencies
-        run: npm install -g npm-force-resolutions
-
-      - name: Install local dependencies
+      - name: Install dependencies
         run: npm install
 
       - name: Run tests
