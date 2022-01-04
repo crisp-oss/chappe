@@ -112,6 +112,10 @@ It supports the following parameters, with a default value if not set:
 * `--temp` (path where to write temporary files, _default value:_ `./.chappe`)
 * `--env` (environment, either `development` or `production`, _default value:_ `production`)
 
+Some more rarely-used parameters are available:
+
+* `--example` (name of the Chappe docs example to build, useful for Chappe developers and quick tests)
+
 To build your docs, you can call the Chappe CLI as such:
 
 ```bash
