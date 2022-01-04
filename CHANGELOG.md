@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.3 (2022-01-04)
+
+### Non-Breaking Changes
+
+* Now showing a Chappe logo when calling the Chappe CLI.
+* Better temporary files management.
+
+### Bug Fixes
+
+* All internal paths are now absolute (this fixes some build environments).
+
 ## 1.0.2 (2022-01-03)
 
 ### Bug Fixes
