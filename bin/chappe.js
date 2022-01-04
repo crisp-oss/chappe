@@ -13,6 +13,8 @@
 
 // IMPORTS
 
+var path     = require("path");
+
 var version  = require("../package.json").version;
 var args     = require("yargs").argv;
 
@@ -46,6 +48,12 @@ var ACTIONS_AVAILABLE = [
   "clean",
   "watch",
   "lint"
+];
+
+var PATH_EXPAND_KEYS  = [
+  "config",
+  "assets",
+  "data"
 ];
 
 var ENV_AVAILABLE     = [
@@ -175,6 +183,15 @@ function acquire_context() {
       "Environment value not recognized: " + _context.env
     );
   }
+
+  // Expand context paths
+  var _base_path = process.cwd();
+
+  PATH_EXPAND_KEYS.forEach(function(key) {
+    _context[key] = (
+      path.join(_base_path, _context[key])
+    );
+  });
 
   return _context;
 }
