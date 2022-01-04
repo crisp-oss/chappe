@@ -14,7 +14,7 @@ var lodash             = require("lodash");
 var glob               = require("glob");
 var slug               = require("slug");
 var drafter            = require("drafter");
-var toc                = require("marked-toc");
+var toc                = require("markdown-toc");
 var truncate_text      = require("trunc-text");
 var remove_markdown    = require("@tommoor/remove-markdown");
 var http_status_codes  = require("http-status-codes");
@@ -674,14 +674,14 @@ module.exports = {
     var _self = this;
 
     // Generate navigation menu from Markdown
-    var _navigation = toc.raw(data, {
-      maxDepth : 3,
+    var _navigation = toc(data, {
+      maxdepth : 3,
       firsth1  : true
     });
 
     // Generate navigation tree (based on indent levels)
     return (
-      _self.transduce_references_markdown_categories_tree(_navigation.data)
+      _self.transduce_references_markdown_categories_tree(_navigation.json)
     );
   },
 
@@ -689,10 +689,6 @@ module.exports = {
     var _self = this;
 
     level = (level || 1);
-
-    // Compute current depth string (eg. if level is 1, then depth string is \
-    //   '', if level is 2 then it is '  ', etc.)
-    var _depth_current = " ".repeat((level - 1) * 2);
 
     // Append entries to tree
     var _tree           = [],
@@ -703,7 +699,7 @@ module.exports = {
       var _item = (items[_i] || null);
 
       // Scanning is finished as we have overflown? Or are we still scanning?
-      if (_item === null || _item.depth === _depth_current) {
+      if (_item === null || _item.lvl === level) {
         // Push last current entry before, if any
         if (_current_entry !== null) {
           // Transduce eventual children from the stack
@@ -723,8 +719,8 @@ module.exports = {
         // Start a new current entry?
         if (_item !== null) {
           _current_entry = {
-            id       : _item.url,
-            title    : _item.heading,
+            id       : _item.slug,
+            title    : _item.content,
             subtrees : []
           };
         }

@@ -73,7 +73,7 @@
     "gulp-sizereport": "1.2.1",
     "gulp-notify": "2.2.0",
     "marked": "3.0.4",
-    "marked-toc": "0.3.0",
+    "markdown-toc": "1.2.0",
     "drafter": "2.0.0",
     "feed": "4.2.2",
     "minisearch": "3.1.0",
