@@ -62,10 +62,9 @@ module.exports = {
       };
 
       // Assign locale strings
-      jade_config_lang.data.$_ = JSON.parse(
-        fs.readFileSync(
+      jade_config_lang.data.$_ = require(
+        "../../../"  +
           (context.CONFIG.ENV.SOURCES + "/locales/" + lang + ".json")
-        )
       );
 
       return {
