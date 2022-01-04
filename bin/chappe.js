@@ -13,6 +13,7 @@
 
 // IMPORTS
 
+var fs       = require("fs");
 var path     = require("path");
 
 var version  = require("../package.json").version;
@@ -114,11 +115,15 @@ function run_default() {
   // Acquire task from action
   var _task = acquire_action();
 
+  // Dump banner
+  console.log(dump_banner());
+
   // Acquire context
   global.CONTEXT = acquire_context();
 
   console.log(
-    ("Chappe will " + _task + " docs with context:"), global.CONTEXT
+    ("Chappe will " + _task + " docs with context:\n")  +
+      (dump_context(global.CONTEXT) + "\n")
   );
 
   // Import Gulp
@@ -146,6 +151,22 @@ function help_argument(name) {
   return (
     " --" + name + "  (defaults to: '" + CONTEXT_DEFAULTS.default[name] + "')"
   );
+}
+
+function dump_banner() {
+  var _buffer = (
+    fs.readFileSync(path.join(__dirname, "../.banner"))
+  );
+
+  return _buffer.toString();
+}
+
+function dump_context(context) {
+  var _context = Object.keys(context).map(function(key) {
+    return (" " + key + " -> " + context[key]);
+  });
+
+  return _context.join("\n");
 }
 
 function acquire_action() {

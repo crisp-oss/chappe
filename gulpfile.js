@@ -21,7 +21,6 @@ var Feed                 = require("feed").Feed;
 
 var gulp                 = require("gulp");
 
-var gulp_cat             = require("gulp-cat");
 var gulp_file            = require("gulp-file");
 var gulp_bower           = require("gulp-bower");
 var gulp_jade            = require("gulp-jade");
@@ -173,19 +172,6 @@ gulp.task("get_configuration", function(next) {
   );
 
   next();
-});
-
-
-/*
-  Prints the Chappe banner
-*/
-gulp.task("print_banner", ["get_configuration"], function() {
-  return gulp.src(
-    path.join(CONTEXT.PATH_CHAPPE, "./.banner")
-  )
-    .pipe(
-      gulp_cat()
-    );
 });
 
 
@@ -1349,7 +1335,7 @@ gulp.task("clean", ["get_configuration"], function() {
   Builds project
 */
 gulp.task("build", [
-  "print_banner", "get_configuration", "minisearch_prepare"
+  "get_configuration", "minisearch_prepare"
 ], function() {
   gulp.start(
     "bower"
