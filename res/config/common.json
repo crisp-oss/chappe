@@ -108,10 +108,5 @@
         }
       }
     }
-  },
-
-  "ENV" : {
-    "SOURCES" : "./src",
-    "LIBRARIES" : "./lib"
   }
 }

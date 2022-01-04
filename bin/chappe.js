@@ -226,6 +226,12 @@ function setup_gulp_logging(instance) {
     }
   });
 
+  process.on("uncaughtException", function(error) {
+    console.log(error);
+
+    process.exit(1);
+  });
+
   instance.on("err", function() {
     STATES.failed = true;
   });

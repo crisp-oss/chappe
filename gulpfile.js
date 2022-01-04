@@ -126,6 +126,10 @@ gulp.task("get_configuration", function(next) {
     throw new Error("The data path provided does not exist!");
   }
 
+  // Initialize final source paths
+  CONTEXT.PATH_SOURCES   = path.join(__dirname, "./src");
+  CONTEXT.PATH_LIBRARIES = path.join(__dirname, "./lib");
+
   // Initialize final build paths
   CONTEXT.PATH_BUILD_PAGES  = CONTEXT.PATH_DIST;
   CONTEXT.PATH_BUILD_ASSETS = (CONTEXT.PATH_DIST + "/static");
@@ -170,7 +174,7 @@ gulp.task("get_configuration", function(next) {
 gulp.task("bower", function() {
   return gulp_bower()
     .pipe(
-      gulp.dest(CONTEXT.CONFIG.ENV.LIBRARIES)
+      gulp.dest(CONTEXT.PATH_LIBRARIES)
     );
 });
 
@@ -204,7 +208,7 @@ gulp.task("copy_images_all", [
 */
 gulp.task("copy_images_base", function() {
   return gulp.src(
-    CONTEXT.CONFIG.ENV.SOURCES + "/images/**/*"
+    CONTEXT.PATH_SOURCES + "/images/**/*"
   )
     .pipe(
       gulp.dest(
@@ -234,7 +238,7 @@ gulp.task("copy_images_guides", function() {
 */
 gulp.task("copy_fonts", function() {
   return gulp.src(
-    CONTEXT.CONFIG.ENV.SOURCES + "/fonts/**/*"
+    CONTEXT.PATH_SOURCES + "/fonts/**/*"
   )
     .pipe(
       gulp.dest(
@@ -251,13 +255,12 @@ gulp.task("concat_libraries_javascripts", ["bower"], function() {
   // Acquire targets
   // Notice: append user-defined syntaxes for code coloring (from 'prism.js')
   var _targets = CONTEXT.CONFIG.LIBRARIES.JAVASCRIPTS.map(function(library) {
-    return (CONTEXT.CONFIG.ENV.LIBRARIES + "/" + library);
+    return (CONTEXT.PATH_LIBRARIES + "/" + library);
   });
 
   CONTEXT.CONFIG.SITE.plugins.code.syntaxes.forEach(function(syntax) {
     var _syntax_path = (
-      CONTEXT.CONFIG.ENV.LIBRARIES + "/prism.js/components/"  +
-        "prism-" + syntax + ".js"
+      CONTEXT.PATH_LIBRARIES + "/prism.js/components/prism-" + syntax + ".js"
     );
 
     if (fs.existsSync(_syntax_path) !== true) {
@@ -293,7 +296,7 @@ gulp.task("concat_libraries_javascripts", ["bower"], function() {
 gulp.task("concat_libraries_stylesheets", ["bower"], function() {
   return gulp.src(
     CONTEXT.CONFIG.LIBRARIES.STYLESHEETS.map(function(library) {
-      return (CONTEXT.CONFIG.ENV.LIBRARIES + "/" + library);
+      return (CONTEXT.PATH_LIBRARIES + "/" + library);
     })
   )
     .pipe(
@@ -366,11 +369,11 @@ gulp.task("jade_templates_base", function() {
         gulp_jade_templates.pipe_commons(CONTEXT, jade_data.locale, function() {
           return gulp.src(
             CONTEXT.CONFIG.SOURCES.TEMPLATES.map(function(template) {
-              return (CONTEXT.CONFIG.ENV.SOURCES + "/templates/" + template);
+              return (CONTEXT.PATH_SOURCES + "/templates/" + template);
             }),
 
             {
-              base : (CONTEXT.CONFIG.ENV.SOURCES + "/templates")
+              base : (CONTEXT.PATH_SOURCES + "/templates")
             }
           )
             .pipe(
@@ -442,10 +445,10 @@ gulp.task("jade_templates_guides", function() {
           gulp_jade_templates.pipe_commons(
             CONTEXT, jade_data.locale, function() {
               return gulp.src(
-                (CONTEXT.CONFIG.ENV.SOURCES + "/templates/guides/index.jade"),
+                (CONTEXT.PATH_SOURCES + "/templates/guides/index.jade"),
 
                 {
-                  base : (CONTEXT.CONFIG.ENV.SOURCES + "/templates")
+                  base : (CONTEXT.PATH_SOURCES + "/templates")
                 }
               )
                 .pipe(
@@ -543,13 +546,10 @@ gulp.task("jade_templates_references", function() {
           gulp_jade_templates.pipe_commons(
             CONTEXT, jade_data.locale, function() {
               return gulp.src(
-                (
-                  CONTEXT.CONFIG.ENV.SOURCES  +
-                    "/templates/references/index.jade"
-                ),
+                (CONTEXT.PATH_SOURCES + "/templates/references/index.jade"),
 
                 {
-                  base : (CONTEXT.CONFIG.ENV.SOURCES + "/templates")
+                  base : (CONTEXT.PATH_SOURCES + "/templates")
                 }
               )
                 .pipe(
@@ -687,10 +687,10 @@ gulp.task("jade_templates_changes", function() {
           gulp_jade_templates.pipe_commons(
             CONTEXT, jade_data.locale, function() {
               return gulp.src(
-                (CONTEXT.CONFIG.ENV.SOURCES + "/templates/changes/index.jade"),
+                (CONTEXT.PATH_SOURCES + "/templates/changes/index.jade"),
 
                 {
-                  base : (CONTEXT.CONFIG.ENV.SOURCES + "/templates")
+                  base : (CONTEXT.PATH_SOURCES + "/templates")
                 }
               )
                 .pipe(
@@ -726,11 +726,11 @@ gulp.task("jade_templates_changes", function() {
 gulp.task("sass", function() {
   return gulp.src(
     CONTEXT.CONFIG.SOURCES.STYLESHEETS.map(function(stylesheet) {
-      return (CONTEXT.CONFIG.ENV.SOURCES + "/stylesheets/" + stylesheet);
+      return (CONTEXT.PATH_SOURCES + "/stylesheets/" + stylesheet);
     }),
 
     {
-      base : (CONTEXT.CONFIG.ENV.SOURCES + "/stylesheets")
+      base : (CONTEXT.PATH_SOURCES + "/stylesheets")
     }
   )
     .pipe(
@@ -792,11 +792,11 @@ gulp.task("css_inline_images", ["sass"], function() {
 gulp.task("babel", function() {
   return gulp.src(
     CONTEXT.CONFIG.SOURCES.JAVASCRIPTS.map(function(javascript) {
-      return (CONTEXT.CONFIG.ENV.SOURCES + "/javascripts/" + javascript);
+      return (CONTEXT.PATH_SOURCES + "/javascripts/" + javascript);
     }),
 
     {
-      base : (CONTEXT.CONFIG.ENV.SOURCES + "/javascripts")
+      base : (CONTEXT.PATH_SOURCES + "/javascripts")
     }
   )
     .pipe(
@@ -1276,7 +1276,7 @@ gulp.task("build_size", ["minisearch_consolidate"], function() {
 */
 gulp.task("lint_jade_templates", function() {
   return gulp.src(
-    CONTEXT.CONFIG.ENV.SOURCES + "/templates/**/*.jade"
+    CONTEXT.PATH_SOURCES + "/templates/**/*.jade"
   )
     .pipe(
       gulp_pug_lint()
@@ -1289,7 +1289,7 @@ gulp.task("lint_jade_templates", function() {
 */
 gulp.task("lint_sass_stylesheets", function() {
   return gulp.src(
-    CONTEXT.CONFIG.ENV.SOURCES + "/stylesheets/**/*.sass"
+    CONTEXT.PATH_SOURCES + "/stylesheets/**/*.sass"
   )
     .pipe(
       gulp_sass_lint()
@@ -1318,7 +1318,7 @@ gulp.task("clean", ["get_configuration"], function() {
   return del([
     (CONTEXT.PATH_BUILD_ASSETS + "/*"),
     (CONTEXT.PATH_BUILD_PAGES + "/*"),
-    (CONTEXT.CONFIG.ENV.LIBRARIES + "/*"),
+    (CONTEXT.PATH_LIBRARIES + "/*"),
     "bower_components/"
   ]);
 });
