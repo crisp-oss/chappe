@@ -99,7 +99,7 @@ Chappe provides you with the `chappe` command, that builds your docs.
 It supports the following actions, defaulting to `build` if none is specified:
 
 * `build` to build docs
-* `clean` to clean `dist/`
+* `clean` to clean `dist/` and all temporary files
 * `watch` to watch for changes and re-build (useful while writing docs)
 * `lint` to run lints on Chappe internal resources
 
