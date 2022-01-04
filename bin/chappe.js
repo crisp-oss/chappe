@@ -22,10 +22,6 @@ var args     = require("yargs").argv;
 
 // CONSTANTS
 
-var STATES            = {
-  failed : false
-};
-
 var CONTEXT_DEFAULTS  = {
   default : {
     config : "./config.json",
@@ -133,10 +129,19 @@ function run_default() {
   setup_gulp_logging(gulp);
 
   // Import the Gulpfile
-  require("../gulpfile.js");
+  var gulpfile = require("../gulpfile.js");
 
   // Build docs
-  gulp.start(_task);
+  gulpfile[_task](function(error) {
+    // Any error occured?
+    if (error) {
+      console.log(
+        "An error occured:", error
+      );
+
+      process.exit(1);
+    }
+  });
 }
 
 function help_actions(actions) {
@@ -231,37 +236,6 @@ function acquire_context() {
 }
 
 function setup_gulp_logging(instance) {
-  process.once("exit", function(code) {
-    switch (code) {
-      case 0: {
-        // Re-exit with forced error
-        if (STATES.failed === true) {
-          process.exit(1);
-        }
-
-        break;
-      }
-
-      case 1: {
-        // Self-kill, because apparently event if calling process.exit(1), the \
-        //   process stays active and sticky in certain cases.
-        process.kill(process.pid, "SIGINT");
-
-        break;
-      }
-    }
-  });
-
-  process.on("uncaughtException", function(error) {
-    console.log(error);
-
-    process.exit(1);
-  });
-
-  instance.on("err", function() {
-    STATES.failed = true;
-  });
-
   instance.on("task_start", function(event) {
     console.log(
       "Starting '" + event.task + "'..."
