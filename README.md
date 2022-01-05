@@ -14,10 +14,6 @@ The reason behind why we made Chappe is the following: while looking for a Devel
 2. Building your docs in a single command;
 3. Finally, deploying static build assets to your Web servers (or GitHub Pages, Cloudflare Pages, etc. — _this can be automated via GitHub Actions_);
 
-Copyright 2021 Crisp IM SARL. See [LICENSE](https://github.com/crisp-oss/chappe/blob/master/LICENSE) for copying information.
-
-* **😘 Maintainer**: [@valeriansaliou](https://github.com/valeriansaliou)
-
 ## Screenshots & Demo
 
 **👉 See a live demo of Chappe on the [Crisp Developer Hub](https://docs.crisp.chat/).**
