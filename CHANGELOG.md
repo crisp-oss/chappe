@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0 (2022-01-05)
+
+### Non-Breaking Changes
+
+* Moved the project to a dedicated GitHub organization: [Crisp OSS](https://github.com/crisp-oss).
+
 ## 1.3.2 (2022-01-05)
 
 ### Non-Breaking Changes
