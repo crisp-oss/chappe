@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 (2022-01-05)
+
+### New Features
+
+* The Chappe CLI `--config` argument now accepts multiple configuration files (comma-separated, merged together).
+* Added the ability to override certain Chappe internal values with the `overrides` configuration property.
+
+### Bug Fixes
+
+* Fixed an issue in Chappe CLI, where a build failure could cause the process to hang indefinitely.
+
 ## 1.1.2 (2022-01-04)
 
 ### Bug Fixes
