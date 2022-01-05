@@ -242,33 +242,44 @@ function acquire_context() {
   }
 
   // Generate context
+  // Notice: the values are temporarily represented as arrays, to ease with \
+  //   data normalization steps.
   var _context = {
-    config : (args.config || _defaults.config),
-    assets : (args.assets || _defaults.assets),
-    data   : (args.data   || _defaults.data),
-    dist   : (args.dist   || _defaults.dist),
-    temp   : (args.temp   || _defaults.temp),
-    env    : (args.env    || _defaults.env)
+    config : (args.config  || _defaults.config).split(","),
+    assets : [(args.assets || _defaults.assets)],
+    data   : [(args.data   || _defaults.data)],
+    dist   : [(args.dist   || _defaults.dist)],
+    temp   : [(args.temp   || _defaults.temp)],
+    env    : [(args.env    || _defaults.env)]
   };
-
-  // Validate context
-  if (ENV_AVAILABLE.includes(_context.env) !== true) {
-    throw new Error(
-      "Environment value not recognized: " + _context.env
-    );
-  }
 
   // Expand context paths
   var _base_path = process.cwd();
 
   PATH_EXPAND_KEYS.forEach(function(key) {
-    // Path is not already in absolute format? (convert to absolute)
-    if (path.isAbsolute(_context[key]) !== true) {
-      _context[key] = (
-        path.join(_base_path, _context[key])
-      );
+    var _context_values = _context[key];
+
+    for (var _i = 0; _i < _context_values.length; _i++) {
+      // Path is not already in absolute format? (convert to absolute)
+      if (path.isAbsolute(_context_values[_i]) !== true) {
+        _context_values[_i] = (
+          path.join(_base_path, _context_values[_i])
+        );
+      }
     }
   });
+
+  // Re-join context values as bare strings (from lists)
+  for (var _key in _context) {
+    _context[_key] = _context[_key].join(",");
+  }
+
+  // Validate final context
+  if (ENV_AVAILABLE.includes(_context.env) !== true) {
+    throw new Error(
+      "Environment value not recognized: " + _context.env
+    );
+  }
 
   return _context;
 }

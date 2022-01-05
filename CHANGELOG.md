@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 (2022-01-05)
+
+### Bug Fixes
+
+* Fixed the normalization of paths passed to the Chappe CLI via `--config`.
+
 ## 1.2.0 (2022-01-05)
 
 ### New Features
