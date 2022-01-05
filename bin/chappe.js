@@ -288,7 +288,7 @@ class ChappeCLI {
   /**
    * Dumps the context
    * @private
-   * @param  {object} Context object
+   * @param  {object} context
    * @return {string} Dumped context
    */
   __dump_context(context) {
