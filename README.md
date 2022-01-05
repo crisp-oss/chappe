@@ -105,7 +105,7 @@ It supports the following actions, defaulting to `build` if none is specified:
 
 It supports the following parameters, with a default value if not set:
 
-* `--config` (path to the configuration file, _default value:_ `./config.json`)
+* `--config` (paths to the configuration files, comma-separated, _default value:_ `./config.json`)
 * `--assets` (path to the assets directory, _default value:_ `./assets`)
 * `--data` (path to the data directory, _default value:_ `./data`)
 * `--dist` (path where to write built resources, _default value:_ `./dist`)

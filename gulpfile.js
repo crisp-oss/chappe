@@ -70,7 +70,10 @@ var CONTEXT        = {
   SEARCH_INDEX  : null,
 
   // Configurations
-  PATH_CONFIG       : (PARENT_CONTEXT.config || null),
+  PATH_CONFIG       : (
+    PARENT_CONTEXT.config ? PARENT_CONTEXT.config.split(",") : null
+  ),
+
   PATH_ASSETS       : (PARENT_CONTEXT.assets || null),
   PATH_DATA         : (PARENT_CONTEXT.data   || null),
   PATH_TEMP         : (PARENT_CONTEXT.temp   || null),
@@ -122,15 +125,20 @@ var get_configuration = function(next) {
   // Make sure that the config and data paths exist
   // Notice: do not check the 'temp' and 'dist' path, as they will get \
   //   auto-created.
-  if (fs.existsSync(CONTEXT.PATH_CONFIG) !== true) {
-    throw new Error("The configuration path provided does not exist!");
-  }
   if (fs.existsSync(CONTEXT.PATH_ASSETS) !== true) {
     throw new Error("The assets path provided does not exist!");
   }
   if (fs.existsSync(CONTEXT.PATH_DATA) !== true) {
     throw new Error("The data path provided does not exist!");
   }
+
+  CONTEXT.PATH_CONFIG.forEach(function(config_path) {
+    if (fs.existsSync(config_path) !== true) {
+      throw new Error(
+        "One of the configuration path provided does not exist!"
+      );
+    }
+  });
 
   // Initialize final source paths
   CONTEXT.PATH_CHAPPE    = __dirname;
@@ -141,7 +149,7 @@ var get_configuration = function(next) {
   CONTEXT.PATH_BUILD_PAGES  = CONTEXT.PATH_DIST;
   CONTEXT.PATH_BUILD_ASSETS = (CONTEXT.PATH_DIST + "/static");
 
-  // Read configurations (merge them together)
+  // Read atomic configurations (merge them together)
   var _merge_pipeline = [
     // #1: Common configuration (project static)
     require("./res/config/common.json"),
@@ -149,13 +157,16 @@ var get_configuration = function(next) {
     // #2: Site configuration (project defaults)
     {
       SITE : require("./res/config/user.json")
-    },
-
-    // #3: Site configuration (user-provided)
-    {
-      SITE : require(CONTEXT.PATH_CONFIG)
     }
   ];
+
+  // Read vector configurations
+  CONTEXT.PATH_CONFIG.forEach(function(config_path) {
+    // #3: Site configuration (user-provided)
+    _merge_pipeline.push({
+      SITE : require(config_path)
+    });
+  });
 
   // Unwind merge pipeline
   _merge_pipeline.forEach(function(merge_object) {
@@ -1450,7 +1461,9 @@ var watch = function() {
       );
 
       // External files (user files)
-      gulp.watch(CONTEXT.PATH_CONFIG, get_configuration);
+      CONTEXT.PATH_CONFIG.forEach(function(config_path) {
+        gulp.watch(config_path, get_configuration);
+      });
 
       gulp.watch(
         (CONTEXT.PATH_DATA + "/guides/**/*.{jpg,jpeg,png,gif}"),
