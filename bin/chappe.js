@@ -53,6 +53,10 @@ var ACTIONS_AVAILABLE = [
   "watch"
 ];
 
+var ACTIONS_LOGGING   = [
+  "watch"
+];
+
 var SPINNER_SUCCESSES = {
   default : {
     method : "succeed",
@@ -168,8 +172,8 @@ function run_default() {
   // Setup error traps
   setup_error_traps(spinner);
 
-  // Setup Gulp logging? (only if watching for changes)
-  if (_task === "watch") {
+  // Setup Gulp logging? (only for certain actions)
+  if (ACTIONS_LOGGING.includes(_task) === true) {
     setup_gulp_logging(
       require("gulp")
     );
