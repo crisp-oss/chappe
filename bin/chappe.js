@@ -11,357 +11,442 @@
 "use strict";
 
 
-// IMPORTS
+var fs       = require("fs");
+var path     = require("path");
 
-var fs        = require("fs");
-var path      = require("path");
+var ora      = require("ora");
 
-var ora       = require("ora");
-
-var version   = require("../package.json").version;
-var args      = require("yargs").argv;
+var version  = require("../package.json").version;
+var args     = require("yargs").argv;
 
 
-// CONSTANTS
+/**
+ * Chappe CLI
+ * @class
+ * @classdesc Chappe CLI class.
+ */
+class ChappeCLI {
+  /**
+   * Constructor
+   */
+  constructor() {
+    // Constants
+    this.__context_defaults  = {
+      default : {
+        config : "./config.json",
+        assets : "./assets",
+        data   : "./data",
+        dist   : "./dist",
+        temp   : "./.chappe",
+        env    : "production"
+      },
 
-var CONTEXT_DEFAULTS  = {
-  default : {
-    config : "./config.json",
-    assets : "./assets",
-    data   : "./data",
-    dist   : "./dist",
-    temp   : "./.chappe",
-    env    : "production"
-  },
+      example : {
+        "acme-docs" : {
+          config : "./examples/acme-docs/config.json",
+          assets : "./examples/acme-docs/assets",
+          data   : "./examples/acme-docs/data",
+          dist   : "./dist",
+          temp   : "./.chappe",
+          env    : "development"
+        }
+      }
+    };
 
-  example : {
-    "acme-docs" : {
-      config : "./examples/acme-docs/config.json",
-      assets : "./examples/acme-docs/assets",
-      data   : "./examples/acme-docs/data",
-      dist   : "./dist",
-      temp   : "./.chappe",
-      env    : "development"
+    this.__actions_available = [
+      "clean",
+      "build",
+      "lint",
+      "watch"
+    ];
+
+    this.__actions_logging   = [
+      "watch"
+    ];
+
+    this.__spinner_successes = {
+      default : {
+        method : "succeed",
+        text   : "Success!"
+      },
+
+      clean   : {
+        method : "succeed",
+        text   : "Cleaned up."
+      },
+
+      build   : {
+        method : "succeed",
+        text   : "Build done!"
+      },
+
+      lint    : {
+        method : "succeed",
+        text   : "Lint passed."
+      },
+
+      watch   : {
+        method : "start",
+        text   : "Watching...\n"
+      }
+    };
+
+    this.__path_expand_keys  = [
+      "config",
+      "assets",
+      "data",
+      "dist",
+      "temp"
+    ];
+
+    this.__env_available     = [
+      "development",
+      "production"
+    ];
+  }
+
+
+  // jscs:enable disallowIdentifierNames
+
+
+  /**
+   * Runs the class
+   * @public
+   * @return {undefined}
+   */
+  run() {
+    // Run help?
+    if (args.help) {
+      return this.__run_help();
     }
-  }
-};
 
-var ACTIONS_AVAILABLE = [
-  "clean",
-  "build",
-  "lint",
-  "watch"
-];
+    // Run version?
+    if (args.version) {
+      return this.__run_version();
+    }
 
-var ACTIONS_LOGGING   = [
-  "watch"
-];
-
-var SPINNER_SUCCESSES = {
-  default : {
-    method : "succeed",
-    text   : "Success!"
-  },
-
-  clean   : {
-    method : "succeed",
-    text   : "Cleaned up."
-  },
-
-  build   : {
-    method : "succeed",
-    text   : "Build done!"
-  },
-
-  lint    : {
-    method : "succeed",
-    text   : "Lint passed."
-  },
-
-  watch   : {
-    method : "start",
-    text   : "Watching...\n"
-  }
-};
-
-var PATH_EXPAND_KEYS  = [
-  "config",
-  "assets",
-  "data",
-  "dist",
-  "temp"
-];
-
-var ENV_AVAILABLE     = [
-  "development",
-  "production"
-];
-
-
-// METHODS
-
-// jscs:disable disallowIdentifierNames
-
-function run() {
-  // Run help?
-  if (args.help) {
-    return run_help();
+    // Run default (clean or build)
+    this.__run_default();
   }
 
-  // Run version?
-  if (args.version) {
-    return run_version();
-  }
 
-  // Run default (clean or build)
-  run_default();
-}
-
-function run_help() {
-  console.log(
-    "Builds given Chappe documentation resources into static assets.\n\n"  +
-
-    "Available actions:\n"                                                 +
-      (help_actions(ACTIONS_AVAILABLE) + "\n\n")                           +
-
-    "Available arguments:\n"                                               +
-      (help_argument("config") + "\n")                                     +
-      (help_argument("assets") + "\n")                                     +
-      (help_argument("data")   + "\n")                                     +
-      (help_argument("dist")   + "\n")                                     +
-      (help_argument("temp")   + "\n")                                     +
-      help_argument("env")
-  );
-
-  process.exit(0);
-}
-
-function run_version() {
-  console.log("Chappe CLI v" + version);
-
-  process.exit(0);
-}
-
-function run_default() {
-  var _has_output = (args.quiet ? false : true);
-
-  // Acquire task from action
-  var _task = acquire_action();
-
-  // Dump banner?
-  if (_has_output === true) {
-    console.log(dump_banner());
-  }
-
-  // Acquire context
-  global.CONTEXT = acquire_context();
-
-  if (_has_output === true) {
+  /**
+   * Runs help
+   * @private
+   * @return {undefined}
+   */
+  __run_help() {
     console.log(
-      ("Chappe will " + _task + " docs with context:\n")  +
-        (dump_context(global.CONTEXT) + "\n")
+      "Builds given Chappe documentation resources into static assets.\n\n"  +
+
+      "Available actions:\n"                                                 +
+        (this.__format_help_actions(this.__actions_available) + "\n\n")      +
+
+      "Available arguments:\n"                                               +
+        (this.__format_help_argument("config") + "\n")                       +
+        (this.__format_help_argument("assets") + "\n")                       +
+        (this.__format_help_argument("data")   + "\n")                       +
+        (this.__format_help_argument("dist")   + "\n")                       +
+        (this.__format_help_argument("temp")   + "\n")                       +
+        this.__format_help_argument("env")
     );
+
+    process.exit(0);
   }
 
-  // Setup spinner
-  var spinner = ora({
-    text  : "Working...\n",
-    color : "cyan"
-  });
 
-  // Setup error traps
-  setup_error_traps(spinner);
+  /**
+   * Runs version
+   * @private
+   * @return {undefined}
+   */
+  __run_version() {
+    console.log("Chappe CLI v" + version);
 
-  // Setup Gulp logging? (only for certain actions)
-  if (ACTIONS_LOGGING.includes(_task) === true) {
-    setup_gulp_logging(
-      require("gulp")
-    );
+    process.exit(0);
   }
 
-  // Import the Gulpfile
-  var gulpfile = require("../gulpfile.js");
 
-  // Start spinner
-  spinner.start();
+  /**
+   * Runs default
+   * @private
+   * @return {undefined}
+   */
+  __run_default() {
+    let _has_output = (args.quiet ? false : true);
 
-  // Build docs
-  gulpfile[_task](function(error) {
-    // Any error occured?
-    if (error) {
-      spinner.fail("Error:");
+    // Acquire task from action
+    let _task = this.__acquire_action();
 
-      console.log(error);
+    // Dump banner?
+    if (_has_output === true) {
+      console.log(this.__dump_banner());
+    }
 
-      process.exit(1);
-    } else {
-      var _success_rules = (
-        SPINNER_SUCCESSES[_task] || SPINNER_SUCCESSES.default
+    // Acquire context
+    global.CONTEXT = this.__acquire_context();
+
+    if (_has_output === true) {
+      console.log(
+        ("Chappe will " + _task + " docs with context:\n")  +
+          (this.__dump_context(global.CONTEXT) + "\n")
       );
-
-      spinner[_success_rules.method](_success_rules.text);
     }
-  });
-}
 
-function help_actions(actions) {
-  var _actions = actions.map(function(action) {
-    return (" " + action);
-  });
+    // Setup spinner
+    let spinner = ora({
+      text  : "Working...\n",
+      color : "cyan"
+    });
 
-  return _actions.join("\n");
-}
+    // Setup error traps
+    this.__setup_error_traps(spinner);
 
-function help_argument(name) {
-  return (
-    " --" + name + "  (defaults to: '" + CONTEXT_DEFAULTS.default[name] + "')"
-  );
-}
-
-function dump_banner() {
-  // Generate bundle name
-  var _bundle_name = ("Chappe v" + version);
-
-  // Read banner file
-  var _buffer = (
-    fs.readFileSync(path.join(__dirname, "../.banner"))
-  );
-
-  // Convert banner to string and inject bundle name
-  var _banner = _buffer.toString().replace("{{bundle}}", _bundle_name);
-
-  return _banner;
-}
-
-function dump_context(context) {
-  var _context = Object.keys(context).map(function(key) {
-    return (" " + key + " -> " + context[key]);
-  });
-
-  return _context.join("\n");
-}
-
-function acquire_action() {
-  var _action;
-
-  for (var _i = 0; _i < ACTIONS_AVAILABLE.length; _i++) {
-    var _cur_action = ACTIONS_AVAILABLE[_i];
-
-    if (process.argv.includes(_cur_action) === true) {
-      _action = _cur_action;
-
-      break;
+    // Setup Gulp logging? (only for certain actions)
+    if (this.__actions_logging.includes(_task) === true) {
+      this.__setup_gulp_logging(
+        require("gulp")
+      );
     }
+
+    // Import the Gulpfile
+    let _gulpfile = require("../gulpfile.js");
+
+    // Start spinner
+    spinner.start();
+
+    // Build docs
+    _gulpfile[_task]((error) => {
+      // Any error occured?
+      if (error) {
+        spinner.fail("Error:");
+
+        console.log(error);
+
+        process.exit(1);
+      } else {
+        let _success_rules = (
+          this.__spinner_successes[_task] || this.__spinner_successes.default
+        );
+
+        spinner[_success_rules.method](_success_rules.text);
+      }
+    });
   }
 
-  return (_action || "build");
-}
 
-function acquire_context() {
-  // Acquire defaults
-  var _defaults = (
-    args.example ?
-      CONTEXT_DEFAULTS.example[args.example] : CONTEXT_DEFAULTS.default
-  );
+  /**
+   * Formats help actions
+   * @private
+   * @param  {object} Help actions
+   * @return {string} Formatted help actions
+   */
+  __format_help_actions(actions) {
+    let _actions = actions.map((action) => {
+      return (" " + action);
+    });
 
-  if (!_defaults) {
-    throw new Error(
-      "Defaults could not be acquired. Did you specify a non-existing example?"
+    return _actions.join("\n");
+  }
+
+
+  /**
+   * Formats help argument
+   * @private
+   * @param  {string} Help argument name
+   * @return {string} Formatted help argument
+   */
+  __format_help_argument(name) {
+    return (
+      " --" + name + "  "  +
+        "(defaults to: '" + this.__context_defaults.default[name] + "')"
     );
   }
 
-  // Generate context
-  // Notice: the values are temporarily represented as arrays, to ease with \
-  //   data normalization steps.
-  var _context = {
-    config : (args.config  || _defaults.config).split(","),
-    assets : [(args.assets || _defaults.assets)],
-    data   : [(args.data   || _defaults.data)],
-    dist   : [(args.dist   || _defaults.dist)],
-    temp   : [(args.temp   || _defaults.temp)],
-    env    : [(args.env    || _defaults.env)]
-  };
 
-  // Expand context paths
-  var _base_path = process.cwd();
+  /**
+   * Dumps the banner
+   * @private
+   * @return {string} Dumped banner
+   */
+  __dump_banner() {
+    // Generate bundle name
+    let _bundle_name = ("Chappe v" + version);
 
-  PATH_EXPAND_KEYS.forEach(function(key) {
-    var _context_values = _context[key];
+    // Read banner file
+    let _buffer = (
+      fs.readFileSync(path.join(__dirname, "../.banner"))
+    );
 
-    for (var _i = 0; _i < _context_values.length; _i++) {
-      // Path is not already in absolute format? (convert to absolute)
-      if (path.isAbsolute(_context_values[_i]) !== true) {
-        _context_values[_i] = (
-          path.join(_base_path, _context_values[_i])
-        );
+    // Convert banner to string and inject bundle name
+    let _banner = _buffer.toString().replace("{{bundle}}", _bundle_name);
+
+    return _banner;
+  }
+
+
+  /**
+   * Dumps the context
+   * @private
+   * @param  {object} Context object
+   * @return {string} Dumped context
+   */
+  __dump_context(context) {
+    let _context = Object.keys(context).map((key) => {
+      return (" " + key + " -> " + context[key]);
+    });
+
+    return _context.join("\n");
+  }
+
+
+  /**
+   * Acquires current action
+   * @private
+   * @return {string} Current action
+   */
+  __acquire_action() {
+    let _action;
+
+    for (let _i = 0; _i < this.__actions_available.length; _i++) {
+      let _cur_action = this.__actions_available[_i];
+
+      if (process.argv.includes(_cur_action) === true) {
+        _action = _cur_action;
+
+        break;
       }
     }
-  });
 
-  // Re-join context values as bare strings (from lists)
-  for (var _key in _context) {
-    _context[_key] = _context[_key].join(",");
+    return (_action || "build");
   }
 
-  // Validate final context
-  if (ENV_AVAILABLE.includes(_context.env) !== true) {
-    throw new Error(
-      "Environment value not recognized: " + _context.env
+
+  /**
+   * Acquires current context
+   * @private
+   * @return {object} Current context
+   */
+  __acquire_context() {
+    // Acquire defaults
+    let _defaults = (
+      args.example ?
+        this.__context_defaults.example[args.example] :
+        this.__context_defaults.default
     );
-  }
 
-  return _context;
-}
-
-function setup_error_traps(spinner) {
-  process.once("exit", function(code) {
-    if (code > 0) {
-      // Self-kill, because apparently event if calling process.exit(1), the \
-      //   process stays active and sticky in certain cases (due to registered \
-      //   listeners and file descriptors in some Gulp libraries).
-      // Warning: this is a bit hacky!
-      process.exitCode = code;
-
-      process.kill(process.pid, "SIGKILL");
+    if (!_defaults) {
+      throw new Error(
+        "Defaults could not be acquired. Did you specify a non-existing example?"
+      );
     }
-  });
 
-  process.on("uncaughtException", function(error) {
-    spinner.fail("Failed:");
+    // Generate context
+    // Notice: the values are temporarily represented as arrays, to ease with \
+    //   data normalization steps.
+    let _context = {
+      config : (args.config  || _defaults.config).split(","),
+      assets : [(args.assets || _defaults.assets)],
+      data   : [(args.data   || _defaults.data)],
+      dist   : [(args.dist   || _defaults.dist)],
+      temp   : [(args.temp   || _defaults.temp)],
+      env    : [(args.env    || _defaults.env)]
+    };
 
-    console.log(
-      (error && error.context) ? error.context : error
-    );
+    // Expand context paths
+    let _base_path = process.cwd();
 
-    process.exit(1);
-  });
+    this.__path_expand_keys.forEach((key) => {
+      let _context_values = _context[key];
+
+      for (let _i = 0; _i < _context_values.length; _i++) {
+        // Path is not already in absolute format? (convert to absolute)
+        if (path.isAbsolute(_context_values[_i]) !== true) {
+          _context_values[_i] = (
+            path.join(_base_path, _context_values[_i])
+          );
+        }
+      }
+    });
+
+    // Re-join context values as bare strings (from lists)
+    for (let _key in _context) {
+      _context[_key] = _context[_key].join(",");
+    }
+
+    // Validate final context
+    if (this.__env_available.includes(_context.env) !== true) {
+      throw new Error(
+        "Environment value not recognized: " + _context.env
+      );
+    }
+
+    return _context;
+  }
+
+
+  /**
+   * Setups error traps
+   * @private
+   * @param  {object} spinner
+   * @return {undefined}
+   */
+  __setup_error_traps(spinner) {
+    process.once("exit", (code) => {
+      if (code > 0) {
+        // Self-kill, because apparently event if calling process.exit(1), the \
+        //   process stays active and sticky in certain cases (due to registered \
+        //   listeners and file descriptors in some Gulp libraries).
+        // Warning: this is a bit hacky!
+        process.exitCode = code;
+
+        process.kill(process.pid, "SIGKILL");
+      }
+    });
+
+    process.on("uncaughtException", (error) => {
+      spinner.fail("Failed:");
+
+      console.log(
+        (error && error.context) ? error.context : error
+      );
+
+      process.exit(1);
+    });
+  }
+
+
+  /**
+   * Setups Gulp logging
+   * @private
+   * @param  {object} instance
+   * @return {undefined}
+   */
+  __setup_gulp_logging(instance) {
+    instance.on("start", (event) => {
+      console.log(
+        "Starting '" + event.name + "'..."
+      );
+    });
+
+    instance.on("stop", (event) => {
+      console.log(
+        "Finished '" + event.name + "'"
+      );
+    });
+
+    instance.on("error", (event) => {
+      console.log(
+        ("Error in: '" + event.name + "'"), event.error
+      );
+
+      process.exit(1);
+    });
+  }
+
+
+  // jscs:disable disallowIdentifierNames
 }
 
-function setup_gulp_logging(instance) {
-  instance.on("start", function(event) {
-    console.log(
-      "Starting '" + event.name + "'..."
-    );
-  });
 
-  instance.on("stop", function(event) {
-    console.log(
-      "Finished '" + event.name + "'"
-    );
-  });
-
-  instance.on("error", function(event) {
-    console.log(
-      ("Error in: '" + event.name + "'"), event.error
-    );
-
-    process.exit(1);
-  });
-}
-
-// jscs:enable disallowIdentifierNames
-
-
-// CALLS
-
-run();
+(new ChappeCLI()).run();
