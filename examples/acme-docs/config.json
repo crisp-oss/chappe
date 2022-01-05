@@ -38,13 +38,14 @@
 
     "categories" : {
       "guides" : {
-        "hello-world" : "images/categories/guides/hello-world.svg"
+        "hello-world"     : "images/categories/guides/hello-world.svg",
+        "markdown-syntax" : "images/categories/guides/markdown-syntax.svg"
       },
 
       "references" : {
         "rest-api" : "images/categories/references/rest-api.svg",
         "rtm-api"  : "images/categories/references/rtm-api.svg",
-        "website"  : "images/categories/references/website.svg"
+        "team"     : "images/categories/references/team.svg"
       }
     }
   },
@@ -191,7 +192,7 @@
           },
 
           {
-            "route" : ["guides", "markdown-syntax"],
+            "route" : ["guides", "markdown-syntax", "syntax"],
             "label" : "Markdown Syntax"
           }
         ]
