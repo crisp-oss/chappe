@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0 (2022-01-05)
+
+### Non-Breaking Changes
+
+* Reworked the lint pipeline to reduce the number of dependencies.
+
+### Bug Fixes
+
+* Fixed an issue where 404 and private pages appeared in the sitemap.
+* Fixed the configuration path for the SASS linter, which could not read its configuration file in some cases.
+
 ## 1.2.1 (2022-01-05)
 
 ### Bug Fixes
