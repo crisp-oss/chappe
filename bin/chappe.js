@@ -219,11 +219,18 @@ function help_argument(name) {
 }
 
 function dump_banner() {
+  // Generate bundle name
+  var _bundle_name = ("Chappe v" + version);
+
+  // Read banner file
   var _buffer = (
     fs.readFileSync(path.join(__dirname, "../.banner"))
   );
 
-  return _buffer.toString();
+  // Convert banner to string and inject bundle name
+  var _banner = _buffer.toString().replace("{{bundle}}", _bundle_name);
+
+  return _banner;
 }
 
 function dump_context(context) {
