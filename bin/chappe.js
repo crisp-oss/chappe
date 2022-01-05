@@ -267,6 +267,14 @@ function acquire_context() {
 }
 
 function setup_error_traps(spinner) {
+  process.once("exit", function(code) {
+    if (code > 0) {
+      // Self-kill, because apparently event if calling process.exit(1), the \
+      //   process stays active and sticky in certain cases.
+      process.kill(process.pid, "SIGINT");
+    }
+  });
+
   process.on("uncaughtException", function(error) {
     spinner.fail("Failed:");
 
