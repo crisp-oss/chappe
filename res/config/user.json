@@ -153,5 +153,9 @@
         }
       }
     }
+  },
+
+  "overrides" : {
+    "crisp_chatbox_url" : ""
   }
 }

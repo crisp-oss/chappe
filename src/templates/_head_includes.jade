@@ -4,11 +4,13 @@
 //- Author: Valerian Saliou <valerian@valeriansaliou.name>
 
 if SITE.tokens.crisp_website_id
+  - var crisp_chatbox_url = (SITE.overrides.crisp_chatbox_url || "https://client.crisp.chat/l.js");
+
   script.
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "#{SITE.tokens.crisp_website_id}";
 
-    (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+    (function(){d=document;s=d.createElement("script");s.src="#{crisp_chatbox_url}";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
 
 each script_inline in SITE.includes.scripts.inline
   script.
