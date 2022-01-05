@@ -238,7 +238,7 @@ class ChappeCLI {
   /**
    * Formats help actions
    * @private
-   * @param  {object} Help actions
+   * @param  {object} actions
    * @return {string} Formatted help actions
    */
   __format_help_actions(actions) {
@@ -253,7 +253,7 @@ class ChappeCLI {
   /**
    * Formats help argument
    * @private
-   * @param  {string} Help argument name
+   * @param  {string} name
    * @return {string} Formatted help argument
    */
   __format_help_argument(name) {
