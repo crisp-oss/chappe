@@ -1281,7 +1281,11 @@ var lint_jade_templates = function() {
     CONTEXT.PATH_SOURCES + "/templates/**/*.jade"
   )
     .pipe(
-      gulp_pug_lint()
+      gulp_pug_lint({
+        defaultFile : path.join(
+          CONTEXT.PATH_CHAPPE, ".pug-lintrc"
+        )
+      })
     );
 };
 
@@ -1294,7 +1298,11 @@ var lint_sass_stylesheets = function() {
     CONTEXT.PATH_SOURCES + "/stylesheets/**/*.sass"
   )
     .pipe(
-      gulp_sass_lint()
+      gulp_sass_lint({
+        configFile : path.join(
+          CONTEXT.PATH_CHAPPE, ".sass-lint.yml"
+        )
+      })
     )
     .pipe(
       gulp_sass_lint.format()
