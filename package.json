@@ -85,12 +85,17 @@
   },
   "keywords": [
     "docs",
+    "documentation",
     "api-documentation",
+    "documentation-tool",
     "docs-generator",
+    "developer-documentation",
+    "developer-tool",
+    "markdown",
     "blueprint",
     "developer",
     "api-rest",
-    "developer-documentation",
-    "developer-tool"
+    "github-pages",
+    "cloudflare-pages"
   ]
 }
