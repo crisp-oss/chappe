@@ -9,7 +9,7 @@
 /**
  * Common
  * @class
- * @classdesc  Common class.
+ * @classdesc Common class.
  */
 class Common {
   /**
