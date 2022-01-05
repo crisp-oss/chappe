@@ -13,7 +13,7 @@
   "disallowQuotedKeysInObjects": true,
   "disallowSpacesInsideParentheses": true,
   "disallowKeywordsOnNewLine": ["else"],
-  "disallowIdentifierNames": [],
+  "disallowIdentifierNames": ["console"],
 
   "requireCurlyBraces": true,
   "requireDotNotation": true,

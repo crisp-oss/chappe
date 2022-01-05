@@ -38,10 +38,7 @@
     "build": "./bin/chappe.js build --example=crisp-docs",
     "clean": "./bin/chappe.js clean --example=crisp-docs",
     "dev": "./bin/chappe.js build --example=crisp-docs && ./bin/chappe.js watch --example=crisp-docs",
-    "test": "check-build && ./bin/chappe.js lint --example=crisp-docs"
-  },
-  "devDependencies": {
-    "check-build": "2.8.2"
+    "test": "./bin/chappe.js lint --example=crisp-docs"
   },
   "dependencies": {
     "babel-preset-es2015": "6.9.x",
@@ -67,8 +64,11 @@
     "gulp-replace": "1.1.x",
     "gulp-pug-lint": "0.1.x",
     "gulp-sass-lint": "1.4.x",
+    "gulp-jshint": "2.1.x",
+    "gulp-jscs": "4.1.x",
     "gulp-sizereport": "1.2.x",
     "gulp-notify": "4.0.x",
+    "jshint": "2.13.x",
     "marked": "4.0.x",
     "markdown-toc": "1.2.x",
     "drafter": "2.0.x",

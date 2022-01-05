@@ -86,6 +86,8 @@ var ENV_AVAILABLE     = [
 
 // METHODS
 
+// jscs:disable disallowIdentifierNames
+
 function run() {
   // Run help?
   if (args.help) {
@@ -329,6 +331,8 @@ function setup_gulp_logging(instance) {
     process.exit(1);
   });
 }
+
+// jscs:enable disallowIdentifierNames
 
 
 // CALLS

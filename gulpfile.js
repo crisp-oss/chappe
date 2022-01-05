@@ -36,6 +36,8 @@ var gulp_replace         = require("gulp-replace");
 var gulp_header          = require("gulp-header");
 var gulp_pug_lint        = require("gulp-pug-lint");
 var gulp_sass_lint       = require("gulp-sass-lint");
+var gulp_jshint          = require("gulp-jshint");
+var gulp_jscs            = require("gulp-jscs");
 var gulp_sizereport      = require("gulp-sizereport");
 var gulp_sitemap         = require("gulp-sitemap");
 var gulp_notify          = require("gulp-notify");
@@ -1311,6 +1313,48 @@ var lint_sass_stylesheets = function() {
 
 
 /*
+  Lints JS scripts (with JSHint)
+*/
+var lint_js_scripts_jshint = function() {
+  return gulp.src([
+    CONTEXT.PATH_SOURCES + "/javascripts/**/*.js",
+    CONTEXT.PATH_CHAPPE + "/bin/*.js"
+  ])
+    .pipe(
+      gulp_jshint({
+        defaultFile : path.join(
+          CONTEXT.PATH_CHAPPE, ".jshintrc"
+        )
+      })
+    )
+    .pipe(
+      gulp_jshint.reporter("fail")
+    );
+};
+
+
+/*
+  Lints JS scripts (with JSCS)
+*/
+var lint_js_scripts_jscs = function() {
+  return gulp.src([
+    CONTEXT.PATH_SOURCES + "/javascripts/**/*.js",
+    CONTEXT.PATH_CHAPPE + "/bin/*.js"
+  ])
+    .pipe(
+      gulp_jscs({
+        configPath : path.join(
+          CONTEXT.PATH_CHAPPE, ".jscsrc"
+        )
+      })
+    )
+    .pipe(
+      gulp_jscs.reporter("fail")
+    );
+};
+
+
+/*
   Lints project built code
 */
 var lint = function() {
@@ -1319,7 +1363,9 @@ var lint = function() {
 
     gulp.parallel(
       lint_jade_templates,
-      lint_sass_stylesheets
+      lint_sass_stylesheets,
+      lint_js_scripts_jshint,
+      lint_js_scripts_jscs
     )
   );
 }();
