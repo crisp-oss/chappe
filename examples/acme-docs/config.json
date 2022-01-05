@@ -52,12 +52,9 @@
   "colors" : {
     "changes" : {
       "groups" : {
-        "rest_api"       : "#d34040",
-        "rtm_api"        : "#dc9b37",
-        "web_hooks"      : "#ba40d3",
-        "chatbox_sdk"    : "#1a71f5",
-        "widget_sdk_js"  : "#33cc6f",
-        "widget_schemas" : "#a6cc33"
+        "rest_api"  : "#d34040",
+        "rtm_api"   : "#dc9b37",
+        "web_hooks" : "#1a71f5"
       }
     }
   },
@@ -70,13 +67,9 @@
 
     "changes" : {
       "groups" : {
-        "rest_api"       : "REST API",
-        "rtm_api"        : "RTM API",
-        "web_hooks"      : "Web Hooks",
-        "chatbox_sdk"    : "Chatbox SDK",
-        "widget_sdk_js"  : "Widget JS SDK",
-        "widget_schemas" : "Widget Schemas",
-        "other"          : "Other"
+        "rest_api"  : "REST API",
+        "rtm_api"   : "RTM API",
+        "web_hooks" : "Web Hooks"
       },
 
       "titles" : {
@@ -170,7 +163,7 @@
     "home" : [
       {
         "route" : ["guides"],
-        "label" : "Build your First Plugin in Minutes"
+        "label" : "Build your First Acme App"
       }
     ]
   },

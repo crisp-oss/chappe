@@ -2,23 +2,23 @@ TYPE: API Blueprint
 TITLE: REST API Reference (Private)
 UPDATED: 2021-11-03
 FORMAT: 1A
-HOST: https://api.crisp.chat/v1
+HOST: https://api.acme.com/v1
 
 # Reference
 
-This reference documents private Crisp API routes.
+This reference documents private Acme API routes.
 
-☢️ **Those routes are solely used by Crisp apps to perform eg. account management and other tasks. This may not be shared to public users, although routes are still available for them to access through the same API endpoint than the public one.**
+☢️ **Those routes are solely used by Acme systems to perform eg. account management and other tasks. This may not be shared to public users, although routes are still available for them to access through the same API endpoint than the public one.**
 
 # Group Email
 
-Manages Crisp emails.
+Manages Acme emails.
 
 ## Subscription [/email/{email_hash}/subscription]
 
-Manages email subscriptions. Used to subscribe or unsubscribe from Crisp notification emails.
+Manages email subscriptions. Used to subscribe or unsubscribe from Acme notification emails.
 
-### Get Subscription Status [GET /email/{email_hash}/subscription/{key}{?website_id}]
+### Get Subscription Status [GET /email/{email_hash}/subscription/{key}{?team_id}]
 
 Resolves current subscription status (subscribed or unsubscribed).
 
@@ -31,7 +31,7 @@ Resolves current subscription status (subscribed or unsubscribed).
 + Parameters
     + email_hash (string) - Email secure hash
     + key (string) - Private security for given email
-    + website_id (string, optional) - Website identifier for email
+    + team_id (string, optional) - Team identifier for email
 
 + Request Get Subscription Status (application/json)
 

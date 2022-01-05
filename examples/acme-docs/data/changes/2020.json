@@ -4,22 +4,14 @@
     "type"  : "change",
     "date"  : "2020-12-08",
 
-    "text"  : "**Support for Plugin Widgets has been added to the REST API.** It is now possible to ship a plugin with a widget, that shows in the Crisp Inbox."
+    "text"  : "The REST API now rejects all requests without an `application/json` `Content-Type` header. Please update your apps!"
   },
 
   {
-    "group" : "chatbox_sdk",
-    "type"  : "deprecation",
-    "date"  : "2020-05-28",
-
-    "text"  : "**The legacy Crisp iOS SDK has been deprecated.** This previous Web-based iOS SDK has been replaced by the better native iOS SDK built in Swift."
-  },
-
-  {
-    "group" : "chatbox_sdk",
+    "group" : "web_hooks",
     "type"  : "change",
     "date"  : "2020-05-28",
 
-    "text"  : "**A new Crisp iOS SDK is out!** 🎉 This new iOS SDK is faster and more efficient, as it is built using native iOS technologies (with Swift)."
+    "text"  : "The Web Hooks delivery user-agent has been updated to: `Acme-Hooks-Deliver (1.0)`"
   }
 ]
