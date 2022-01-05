@@ -106,7 +106,7 @@ class ChappeCLI {
   }
 
 
-  // jscs:enable disallowIdentifierNames
+  // jscs:disable disallowIdentifierNames
 
 
   /**
@@ -337,7 +337,8 @@ class ChappeCLI {
 
     if (!_defaults) {
       throw new Error(
-        "Defaults could not be acquired. Did you specify a non-existing example?"
+        "Defaults could not be acquired. "  +
+          "Did you specify a non-existing example?"
       );
     }
 
@@ -395,8 +396,8 @@ class ChappeCLI {
     process.once("exit", (code) => {
       if (code > 0) {
         // Self-kill, because apparently event if calling process.exit(1), the \
-        //   process stays active and sticky in certain cases (due to registered \
-        //   listeners and file descriptors in some Gulp libraries).
+        //   process stays active and sticky in certain cases (due to \
+        //   registered listeners and file descriptors in some Gulp libraries).
         // Warning: this is a bit hacky!
         process.exitCode = code;
 
@@ -445,7 +446,7 @@ class ChappeCLI {
   }
 
 
-  // jscs:disable disallowIdentifierNames
+  // jscs:enable disallowIdentifierNames
 }
 
 
