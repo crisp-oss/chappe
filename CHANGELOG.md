@@ -4,8 +4,8 @@
 
 ### Non-Breaking Changes
 
-* Refactor Chappe CLI terminal outputs.
-* Improve provided `acme-docs` example.
+* Refactored Chappe CLI terminal outputs.
+* Improved the `acme-docs` example.
 
 ## 1.3.0 (2022-01-05)
 
