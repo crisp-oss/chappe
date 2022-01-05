@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.2 (2022-01-05)
+
+### Non-Breaking Changes
+
+* Moved the Chappe CLI from ES5 to ES6.
+
 ## 1.3.1 (2022-01-05)
 
 ### Non-Breaking Changes
