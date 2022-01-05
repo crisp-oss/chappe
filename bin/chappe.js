@@ -66,7 +66,7 @@ var SPINNER_SUCCESSES = {
 
   watch   : {
     method : "start",
-    text   : "Watching..."
+    text   : "Watching...\n"
   }
 };
 
@@ -149,6 +149,13 @@ function run_default() {
 
   // Setup error traps
   setup_error_traps(spinner);
+
+  // Setup Gulp logging? (only if watching for changes)
+  if (_task === "watch") {
+    setup_gulp_logging(
+      require("gulp")
+    );
+  }
 
   // Import the Gulpfile
   var gulpfile = require("../gulpfile.js");
@@ -284,6 +291,28 @@ function setup_error_traps(spinner) {
 
     console.log(
       (error && error.context) ? error.context : error
+    );
+
+    process.exit(1);
+  });
+}
+
+function setup_gulp_logging(instance) {
+  instance.on("start", function(event) {
+    console.log(
+      "Starting '" + event.name + "'..."
+    );
+  });
+
+  instance.on("stop", function(event) {
+    console.log(
+      "Finished '" + event.name + "'"
+    );
+  });
+
+  instance.on("error", function(event) {
+    console.log(
+      ("Error in: '" + event.name + "'"), event.error
     );
 
     process.exit(1);
