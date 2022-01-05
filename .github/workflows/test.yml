@@ -40,5 +40,5 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Build assets
-        run: npm run build
+      - name: Build 'acme-docs' example
+        run: ./bin/chappe.js build --example=acme-docs
