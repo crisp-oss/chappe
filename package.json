@@ -35,10 +35,8 @@
     "node": ">= 12.0.0"
   },
   "scripts": {
-    "build": "./bin/chappe.js build --example=crisp-docs",
-    "clean": "./bin/chappe.js clean --example=crisp-docs",
-    "dev": "./bin/chappe.js build --example=crisp-docs && ./bin/chappe.js watch --example=crisp-docs",
-    "test": "./bin/chappe.js lint --example=crisp-docs"
+    "dev": "./bin/chappe.js clean --quiet --example=acme-docs && ./bin/chappe.js build --quiet --example=acme-docs && ./bin/chappe.js watch --example=acme-docs",
+    "test": "./bin/chappe.js lint --example=acme-docs"
   },
   "dependencies": {
     "babel-preset-es2015": "6.9.x",

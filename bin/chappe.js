@@ -35,10 +35,10 @@ var CONTEXT_DEFAULTS  = {
   },
 
   example : {
-    "crisp-docs" : {
-      config : "./examples/crisp-docs/config.json",
-      assets : "./examples/crisp-docs/assets",
-      data   : "./examples/crisp-docs/data",
+    "acme-docs" : {
+      config : "./examples/acme-docs/config.json",
+      assets : "./examples/acme-docs/assets",
+      data   : "./examples/acme-docs/data",
       dist   : "./dist",
       temp   : "./.chappe",
       env    : "development"
@@ -47,10 +47,10 @@ var CONTEXT_DEFAULTS  = {
 };
 
 var ACTIONS_AVAILABLE = [
-  "build",
   "clean",
-  "watch",
-  "lint"
+  "build",
+  "lint",
+  "watch"
 ];
 
 var SPINNER_SUCCESSES = {
@@ -59,9 +59,19 @@ var SPINNER_SUCCESSES = {
     text   : "Success!"
   },
 
+  clean   : {
+    method : "succeed",
+    text   : "Cleaned up."
+  },
+
   build   : {
     method : "succeed",
-    text   : "Done!"
+    text   : "Build done!"
+  },
+
+  lint    : {
+    method : "succeed",
+    text   : "Lint passed."
   },
 
   watch   : {
@@ -129,19 +139,25 @@ function run_version() {
 }
 
 function run_default() {
+  var _has_output = (args.quiet ? false : true);
+
   // Acquire task from action
   var _task = acquire_action();
 
-  // Dump banner
-  console.log(dump_banner());
+  // Dump banner?
+  if (_has_output === true) {
+    console.log(dump_banner());
+  }
 
   // Acquire context
   global.CONTEXT = acquire_context();
 
-  console.log(
-    ("Chappe will " + _task + " docs with context:\n")  +
-      (dump_context(global.CONTEXT) + "\n")
-  );
+  if (_has_output === true) {
+    console.log(
+      ("Chappe will " + _task + " docs with context:\n")  +
+        (dump_context(global.CONTEXT) + "\n")
+    );
+  }
 
   // Setup spinner
   var spinner = ora({

@@ -76,7 +76,7 @@ _The following optional features can also be enabled:_
 To install and use Chappe, please follow those steps:
 
 1. Create a new, empty Git repository;
-2. Copy the `examples/crisp-docs/` folder contents from the Chappe repository into your project root;
+2. Copy the `examples/acme-docs/` folder contents from the Chappe repository into your project root;
 3. Run: `npm install` (make sure that you have a recent NodeJS version installed);
 4. Write your Markdown guides and references in the `data/` directory;
 5. Run: `npx chappe build` to build the docs;
@@ -88,7 +88,7 @@ Please refer to sections below for more details on how to write docs, customize 
 
 The configuration of your Chappe docs is stored in a single JSON file, usually named `config.json`. Your configuration file will make references to images, such as your docs logo, which are stored in the `assets/` folder.
 
-An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/crisp-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/crisp-docs/config.json) (if you copy-paste it, **make sure** to change all of its contents).
+An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/acme-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/acme-docs/config.json) (if you copy-paste it, **make sure** to change all of its contents).
 
 _👇 Notes on certain configuration rules can be found in the [Advanced settings](#%EF%B8%8F-advanced-settings) section._
 
@@ -114,6 +114,7 @@ It supports the following parameters, with a default value if not set:
 
 Some special parameters are also available:
 
+* `--quiet` (disable output when performing task)
 * `--example` (name of the Chappe docs example to build, useful for Chappe developers and quick tests)
 
 To build your docs, you can call the Chappe CLI as such:
@@ -185,7 +186,7 @@ Each guide Markdown file **must** start with a meta-data header, which holds inf
 
 Right after the header is defined, you can start writing Markdown for your guide, as normal.
 
-An example of a full Markdown code for a guide is available at: [examples/crisp-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/guides/hello-world/index.md)
+An example of a full Markdown code for a guide is available at: [examples/acme-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/guides/hello-world/index.md)
 
 #### Adding icons to guide sections
 
@@ -334,7 +335,7 @@ After that, you can specify all your HTTP REST API routes in API Blueprint as no
 
 Also, note that as done with guides above, reference sections can have their own icon images. Section icons are defined in the `config.json` configuration file, within `images.categories.references`.
 
-An example of a full API Blueprint code for a reference is available at: [examples/crisp-docs/data/references/rest-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/references/rest-api/v1.md)
+An example of a full API Blueprint code for a reference is available at: [examples/acme-docs/data/references/rest-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/references/rest-api/v1.md)
 
 #### Markdown references
 
@@ -353,7 +354,7 @@ After that, you can write the specification contents in Markdown.
 
 Also, note that as done with guides above, reference sections can have their own icon images. Section icons are defined in the `config.json` configuration file, within `images.categories.references`.
 
-An example of a full Markdown code for a reference is available at: [examples/crisp-docs/data/references/rtm-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/references/rtm-api/v1.md)
+An example of a full Markdown code for a reference is available at: [examples/acme-docs/data/references/rtm-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/references/rtm-api/v1.md)
 
 ### How to write changelogs?
 
@@ -376,7 +377,7 @@ For instance, a `2021.json` file with a single change would contain:
 ]
 ```
 
-An example of a full changelog file is available at: [examples/crisp-docs/data/changes/2021.json](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/crisp-docs/data/changes/2021.json)
+An example of a full changelog file is available at: [examples/acme-docs/data/changes/2021.json](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/changes/2021.json)
 
 #### Allowed values for a change
 

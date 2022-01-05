@@ -1,12 +1,11 @@
 {
   "identity" : {
-    "title"     : "Crisp Developer Hub",
-    "copyright" : "Crisp IM SARL"
+    "title"     : "Acme Developer Hub",
+    "copyright" : "Acme Inc."
   },
 
   "urls" : {
-    "base"  : "http://chappe.local",
-    "vigil" : "https://status.crisp.chat"
+    "base" : "https://docs.acme.com"
   },
 
   "favicons" : {
@@ -65,8 +64,8 @@
 
   "texts" : {
     "home" : {
-      "title" : "Welcome to the Crisp Developer Hub",
-      "label" : "Build apps for 200k+ Crisp users, or just for your own private use."
+      "title" : "Welcome to the Acme Developer Hub",
+      "label" : "Build apps for 10M+ Acme app users."
     },
 
     "changes" : {
@@ -81,12 +80,12 @@
       },
 
       "titles" : {
-        "feed"   : "Crisp Platform Changes",
+        "feed"   : "Acme Platform Changes",
         "latest" : "Latest Platform Changes",
         "year"   : "Platform Changes In"
       },
 
-      "notice" : "**The Crisp Platform is updated every day with improvements and new features.** This page is a ledger of all notable changes that occured over time, and which may impact your integrations.\n\n**Note that breaking changes appear in red.** We are committed in avoiding the introduction of such changes, knowing the negative impact that they can have on your integrations.\n\nIf you would like to monitor those changes, an RSS feed is available at: [`changes.rss`](/changes.rss)"
+      "notice" : "**The Acme Platform is updated every day with improvements and new features.** This page is a ledger of all notable changes that occured over time, and which may impact your integrations.\n\n**Note that breaking changes appear in red.**\n\nIf you would like to monitor those changes, an RSS feed is available at: [`changes.rss`](/changes.rss)"
     }
   },
 
@@ -122,15 +121,15 @@
 
           "dropdown" : [
             {
-              "title"    : "Sign Up to Crisp",
-              "subtitle" : "Create your Crisp user account.",
-              "target"   : "https://app.crisp.chat/"
+              "title"    : "Sign Up to Acme",
+              "subtitle" : "Create your Acme user account.",
+              "target"   : "https://dashboard.acme.com/"
             },
 
             {
-              "title"    : "Sign Up to Marketplace",
-              "subtitle" : "Start building Crisp plugins.",
-              "target"   : "https://marketplace.crisp.chat/"
+              "title"    : "Sign Up to Developer Center",
+              "subtitle" : "Start building Acme integrations.",
+              "target"   : "https://developers.acme.com/"
             }
           ]
         }
@@ -140,28 +139,28 @@
     "footer" : {
       "navigation" : [
         {
-          "label"  : "Crisp Website",
-          "target" : "https://crisp.chat/"
+          "label"  : "Acme Website",
+          "target" : "https://acme.com/"
         },
 
         {
           "label"  : "Terms of Use",
-          "target" : "https://crisp.chat/terms/"
+          "target" : "https://acme.com/terms/"
         },
 
         {
           "label"  : "Privacy Policy",
-          "target" : "https://crisp.chat/privacy/"
+          "target" : "https://acme.com/privacy/"
         },
 
         {
           "label"  : "About Us",
-          "target" : "https://crisp.chat/about/"
+          "target" : "https://acme.com/about/"
         },
 
         {
           "label"  : "Read our Blog",
-          "target" : "https://crisp.chat/blog/"
+          "target" : "https://blog.acme.com/"
         }
       ]
     }
@@ -179,7 +178,7 @@
   "bulletpoints" : {
     "home" : {
       "quickstart" : {
-        "description" : "Start building on the top of the Crisp Platform in a matter of minutes.",
+        "description" : "Start building on the top of the Acme Platform in a matter of minutes.",
 
         "actions"     : [
           {
@@ -190,23 +189,23 @@
       },
 
       "guides" : {
-        "description" : "Guides & tutorials on how to integrate Crisp with your systems.",
+        "description" : "Guides & tutorials on how to integrate Acme with your systems.",
 
         "actions"     : [
           {
-            "route" : ["guides", "rest-api", "api-libraries"],
-            "label" : "API Libraries"
+            "route" : ["guides", "hello-world"],
+            "label" : "Introduction"
           },
 
           {
-            "route" : ["guides", "chatbox-sdks"],
-            "label" : "Chatbox SDKs"
+            "route" : ["guides", "markdown-syntax"],
+            "label" : "Markdown Syntax"
           }
         ]
       },
 
       "references" : {
-        "description" : "In-depth technical references of all available Crisp APIs.",
+        "description" : "In-depth technical references of all available Acme APIs.",
 
         "actions"     : [
           {
@@ -217,11 +216,6 @@
           {
             "route" : ["references", "rtm-api", "v1"],
             "label" : "RTM API"
-          },
-
-          {
-            "route" : ["references", "plugin-widgets", "v1"],
-            "label" : "Widget API"
           }
         ]
       }
