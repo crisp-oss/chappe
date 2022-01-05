@@ -1,6 +1,6 @@
 # Chappe
 
-[![Test and Build](https://github.com/valeriansaliou/chappe/workflows/Test%20and%20Build/badge.svg?branch=master)](https://github.com/valeriansaliou/chappe/actions?query=workflow%3A%22Test+and+Build%22) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe) [![Buy Me A Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/valeriansaliou)
+[![Test and Build](https://github.com/crisp-oss/chappe/workflows/Test%20and%20Build/badge.svg?branch=master)](https://github.com/crisp-oss/chappe/actions?query=workflow%3A%22Test+and+Build%22) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe)
 
 **Developer Docs builder. Write guides in Markdown and references in API Blueprint. Comes with a built-in search engine.**
 
@@ -22,15 +22,15 @@ The reason behind why we made Chappe is the following: while looking for a Devel
 
 1️⃣ Chappe can generate your REST API reference:
 
-[![Chappe References](https://valeriansaliou.github.io/chappe/images/screenshot-references.gif)](https://docs.crisp.chat/references/rest-api/v1/)
+[![Chappe References](https://crisp-oss.github.io/chappe/images/screenshot-references.gif)](https://docs.crisp.chat/references/rest-api/v1/)
 
 2️⃣ It also generates Markdown-based developer guides:
 
-[![Chappe Guides](https://valeriansaliou.github.io/chappe/images/screenshot-guides.gif)](https://docs.crisp.chat/guides/rest-api/rate-limits/)
+[![Chappe Guides](https://crisp-oss.github.io/chappe/images/screenshot-guides.gif)](https://docs.crisp.chat/guides/rest-api/rate-limits/)
 
 3️⃣ Oh, and it also lets your users search anything in your Developer Docs:
 
-[![Chappe Search](https://valeriansaliou.github.io/chappe/images/screenshot-search.gif)](https://docs.crisp.chat/)
+[![Chappe Search](https://crisp-oss.github.io/chappe/images/screenshot-search.gif)](https://docs.crisp.chat/)
 
 _👉 Note that the search engine feature is 100% local. This means that it does not run on an external service like [Algolia](https://www.algolia.com/), though it does provides similar search performance and results. The search index is generated at build time as a JSON file, which gets loaded on-demand when the search box gets opened._
 
@@ -38,18 +38,18 @@ _👉 Note that the search engine feature is 100% local. This means that it does
 
 <table>
 <tr>
-<td align="center"><a href="https://crisp.chat/"><img src="https://valeriansaliou.github.io/chappe/images/logo-crisp.png" width="64" /></a></td>
+<td align="center"><a href="https://crisp.chat/"><img src="https://crisp-oss.github.io/chappe/images/logo-crisp.png" width="64" /></a></td>
 </tr>
 <tr>
 <td align="center">Crisp</td>
 </tr>
 </table>
 
-_👋 You use Chappe and you want to be listed there? [Contact me](https://valeriansaliou.name/)._
+_👋 You use Chappe and you want to be listed there? [Open an issue](https://github.com/crisp-oss/chappe/issues)._
 
 ## Last changes
 
-The version history can be found in the [CHANGELOG.md](https://github.com/valeriansaliou/chappe/blob/master/CHANGELOG.md) file.
+The version history can be found in the [CHANGELOG.md](https://github.com/crisp-oss/chappe/blob/master/CHANGELOG.md) file.
 
 ## Features
 
@@ -88,7 +88,7 @@ Please refer to sections below for more details on how to write docs, customize 
 
 The configuration of your Chappe docs is stored in a single JSON file, usually named `config.json`. Your configuration file will make references to images, such as your docs logo, which are stored in the `assets/` folder.
 
-An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/valeriansaliou/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/acme-docs/config.json](https://github.com/valeriansaliou/chappe/blob/master/examples/acme-docs/config.json) (if you copy-paste it, **make sure** to change all of its contents).
+An empty definition of the Chappe configuration file is available in: [res/config/user.json](https://github.com/crisp-oss/chappe/blob/master/res/config/user.json), although you may rather want to see a filled example: [examples/acme-docs/config.json](https://github.com/crisp-oss/chappe/blob/master/examples/acme-docs/config.json) (if you copy-paste it, **make sure** to change all of its contents).
 
 _👇 Notes on certain configuration rules can be found in the [Advanced settings](#%EF%B8%8F-advanced-settings) section._
 
@@ -186,7 +186,7 @@ Each guide Markdown file **must** start with a meta-data header, which holds inf
 
 Right after the header is defined, you can start writing Markdown for your guide, as normal.
 
-An example of a full Markdown code for a guide is available at: [examples/acme-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/guides/hello-world/index.md)
+An example of a full Markdown code for a guide is available at: [examples/acme-docs/data/guides/hello-world/index.md](https://raw.githubusercontent.com/crisp-oss/chappe/master/examples/acme-docs/data/guides/hello-world/index.md)
 
 #### Adding icons to guide sections
 
@@ -335,7 +335,7 @@ After that, you can specify all your HTTP REST API routes in API Blueprint as no
 
 Also, note that as done with guides above, reference sections can have their own icon images. Section icons are defined in the `config.json` configuration file, within `images.categories.references`.
 
-An example of a full API Blueprint code for a reference is available at: [examples/acme-docs/data/references/rest-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/references/rest-api/v1.md)
+An example of a full API Blueprint code for a reference is available at: [examples/acme-docs/data/references/rest-api/v1.md](https://raw.githubusercontent.com/crisp-oss/chappe/master/examples/acme-docs/data/references/rest-api/v1.md)
 
 #### Markdown references
 
@@ -354,7 +354,7 @@ After that, you can write the specification contents in Markdown.
 
 Also, note that as done with guides above, reference sections can have their own icon images. Section icons are defined in the `config.json` configuration file, within `images.categories.references`.
 
-An example of a full Markdown code for a reference is available at: [examples/acme-docs/data/references/rtm-api/v1.md](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/references/rtm-api/v1.md)
+An example of a full Markdown code for a reference is available at: [examples/acme-docs/data/references/rtm-api/v1.md](https://raw.githubusercontent.com/crisp-oss/chappe/master/examples/acme-docs/data/references/rtm-api/v1.md)
 
 ### How to write changelogs?
 
@@ -377,7 +377,7 @@ For instance, a `2021.json` file with a single change would contain:
 ]
 ```
 
-An example of a full changelog file is available at: [examples/acme-docs/data/changes/2021.json](https://raw.githubusercontent.com/valeriansaliou/chappe/master/examples/acme-docs/data/changes/2021.json)
+An example of a full changelog file is available at: [examples/acme-docs/data/changes/2021.json](https://raw.githubusercontent.com/crisp-oss/chappe/master/examples/acme-docs/data/changes/2021.json)
 
 #### Allowed values for a change
 
