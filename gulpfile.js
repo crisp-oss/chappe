@@ -1024,17 +1024,10 @@ var sitemap = function() {
   // Scan all templates, while ignoring the 'not_found' page and all private \
   //   pages (ie. those starting w/ '_')
   return gulp.src([
-    (
-      "!" + CONTEXT.PATH_BUILD_PAGES + "/not_found/index.html"
-    ),
+    (CONTEXT.PATH_BUILD_PAGES + "/**/*.html"),
 
-    (
-      "!" + CONTEXT.PATH_BUILD_PAGES + "/**/_*/index.html"
-    ),
-
-    (
-      CONTEXT.PATH_BUILD_PAGES + "/**/*.html"
-    )
+    ("!" + CONTEXT.PATH_BUILD_PAGES + "/not_found/index.html"),
+    ("!" + CONTEXT.PATH_BUILD_PAGES + "/**/_*/index.html")
   ])
     .pipe(
       gulp_sitemap({
