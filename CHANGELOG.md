@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.1 (2022-01-05)
+
+### Non-Breaking Changes
+
+* Refactor Chappe CLI terminal outputs.
+* Improve provided `acme-docs` example.
+
 ## 1.3.0 (2022-01-05)
 
 ### Non-Breaking Changes
