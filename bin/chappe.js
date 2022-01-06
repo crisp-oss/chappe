@@ -42,14 +42,12 @@ class ChappeCLI {
       },
 
       example : {
-        "acme-docs" : {
-          config : "./examples/acme-docs/config.json",
-          assets : "./examples/acme-docs/assets",
-          data   : "./examples/acme-docs/data",
-          dist   : "./dist",
-          temp   : "./.chappe",
-          env    : "development"
-        }
+        config : "./examples/{{target}}/config.json",
+        assets : "./examples/{{target}}/assets",
+        data   : "./examples/{{target}}/data",
+        dist   : "./dist",
+        temp   : "./.chappe",
+        env    : "development"
       }
     };
 
@@ -339,15 +337,13 @@ class ChappeCLI {
   __acquire_context() {
     // Acquire defaults
     let _defaults = (
-      args.example ?
-        this.__context_defaults.example[args.example] :
-        this.__context_defaults.default
+      this.__context_defaults[(args.example ? "example" : "default")]
     );
 
-    if (!_defaults) {
-      throw new Error(
-        "Defaults could not be acquired. "  +
-          "Did you specify a non-existing example?"
+    // Inject target in defaults?
+    if (args.example) {
+      _defaults = this.__inject_defaults_target(
+        _defaults, args.example
       );
     }
 
@@ -392,6 +388,26 @@ class ChappeCLI {
     }
 
     return _context;
+  }
+
+
+  /**
+   * Inject target into defaults
+   * @private
+   * @param  {object} defaults
+   * @param  {string} target
+   * @return {object} Defaults w/ injections
+   */
+  __inject_defaults_target(defaults, target) {
+    // Important: create a new defaults object, as not to alter the given one, \
+    //   which could be re-used later.
+    let _injected_defaults = {};
+
+    for (let _key in defaults) {
+      _injected_defaults[_key] = defaults[_key].replace("{{target}}", target);
+    }
+
+    return _injected_defaults;
   }
 
 
