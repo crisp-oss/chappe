@@ -38,7 +38,9 @@ class ChappeCLI {
         data   : "./data",
         dist   : "./dist",
         temp   : "./.chappe",
-        env    : "production"
+        env    : "production",
+        host   : "localhost",
+        port   : 8040
       },
 
       example : {
@@ -47,23 +49,28 @@ class ChappeCLI {
         data   : "./examples/{{target}}/data",
         dist   : "./dist",
         temp   : "./.chappe",
-        env    : "development"
+        env    : "development",
+        host   : "localhost",
+        port   : 8040
       }
     };
 
     this.__actions_available = [
-      "clean",
       "build",
-      "lint",
-      "watch"
+      "clean",
+      "watch",
+      "serve",
+      "lint"
     ];
 
     this.__actions_logging   = [
-      "watch"
+      "watch",
+      "serve"
     ];
 
     this.__actions_no_aborts = [
-      "watch"
+      "watch",
+      "serve"
     ];
 
     this.__spinner_successes = {
@@ -85,6 +92,11 @@ class ChappeCLI {
       lint    : {
         method : "succeed",
         text   : "Lint passed."
+      },
+
+      serve   : {
+        method : "start",
+        text   : "Now listening."
       },
 
       watch   : {
@@ -150,7 +162,9 @@ class ChappeCLI {
         (this.__format_help_argument("data")   + "\n")                       +
         (this.__format_help_argument("dist")   + "\n")                       +
         (this.__format_help_argument("temp")   + "\n")                       +
-        this.__format_help_argument("env")
+        (this.__format_help_argument("env")    + "\n")                       +
+        (this.__format_help_argument("host")   + "\n")                       +
+        this.__format_help_argument("port")
     );
 
     process.exit(0);
@@ -186,7 +200,7 @@ class ChappeCLI {
     }
 
     // Acquire context
-    global.CONTEXT = this.__acquire_context();
+    global.CONTEXT = this.__acquire_context(_task);
 
     if (_has_output === true) {
       console.log(
@@ -332,9 +346,10 @@ class ChappeCLI {
   /**
    * Acquires current context
    * @private
+   * @param  {string} task
    * @return {object} Current context
    */
-  __acquire_context() {
+  __acquire_context(task) {
     // Acquire defaults
     let _defaults = (
       this.__context_defaults[(args.example ? "example" : "default")]
@@ -358,6 +373,12 @@ class ChappeCLI {
       temp   : [(args.temp   || _defaults.temp)],
       env    : [(args.env    || _defaults.env)]
     };
+
+    // Append serve-related context?
+    if (task === "serve") {
+      _context.host = [(args.host || _defaults.host)];
+      _context.port = [(args.port || _defaults.port)];
+    }
 
     // Expand context paths
     let _base_path = process.cwd();
@@ -404,7 +425,13 @@ class ChappeCLI {
     let _injected_defaults = {};
 
     for (let _key in defaults) {
-      _injected_defaults[_key] = defaults[_key].replace("{{target}}", target);
+      var _cur_default = defaults[_key];
+
+      if (typeof _cur_default === "string") {
+        _cur_default = _cur_default.replace("{{target}}", target);
+      }
+
+      _injected_defaults[_key] = _cur_default;
     }
 
     return _injected_defaults;

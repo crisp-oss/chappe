@@ -46,6 +46,7 @@
     "compass-importer": "0.4.x",
     "node-sass": "7.0.x",
     "gulp": "4.0.x",
+    "gulp-connect": "5.7.x",
     "gulp-bower": "0.0.15",
     "gulp-file": "0.4.x",
     "gulp-jade": "1.1.x",

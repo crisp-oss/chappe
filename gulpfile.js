@@ -21,6 +21,7 @@ var Feed                 = require("feed").Feed;
 
 var gulp                 = require("gulp");
 
+var gulp_connect         = require("gulp-connect");
 var gulp_file            = require("gulp-file");
 var gulp_bower           = require("gulp-bower");
 var gulp_jade            = require("gulp-jade");
@@ -81,6 +82,9 @@ var CONTEXT        = {
   PATH_TEMP         : (PARENT_CONTEXT.temp   || null),
   PATH_DIST         : (PARENT_CONTEXT.dist   || null),
 
+  SERVE_HOST        : (PARENT_CONTEXT.host || null),
+  SERVE_PORT        : (PARENT_CONTEXT.port || null),
+
   PATH_CHAPPE       : null,
   PATH_SOURCES      : null,
   PATH_LIBRARIES    : null,
@@ -115,7 +119,7 @@ marked.use({
   Acquires the configuration
 */
 var get_configuration = function(next) {
-  // Assert that the config and data paths are set
+  // Assert that all paths are set
   if (CONTEXT.PATH_CONFIG === null || CONTEXT.PATH_ASSETS === null  ||
         CONTEXT.PATH_DATA === null || CONTEXT.PATH_TEMP === null    ||
         CONTEXT.PATH_DIST === null) {
@@ -1276,6 +1280,22 @@ var build_clean = function() {
 
 
 /*
+  Starts connect server
+*/
+var connect_server = function(next) {
+  gulp_connect.server({
+    name       : "Server",
+    root       : CONTEXT.PATH_DIST,
+    host       : CONTEXT.SERVE_HOST,
+    port       : CONTEXT.SERVE_PORT,
+    livereload : true
+  });
+
+  next();
+};
+
+
+/*
   Lints Jade templates
 */
 var lint_jade_templates = function() {
@@ -1367,6 +1387,17 @@ var lint = function() {
       lint_js_scripts_jshint,
       lint_js_scripts_jscs
     )
+  );
+}();
+
+
+/*
+  Serves project
+*/
+var serve = function() {
+  return gulp.series(
+    get_configuration,
+    connect_server
   );
 }();
 
@@ -1550,6 +1581,7 @@ var watch = function() {
   Export all public tasks
 */
 exports.lint    = lint;
+exports.serve   = serve;
 exports.clean   = clean;
 exports.watch   = watch;
 exports.build   = build;

@@ -101,6 +101,7 @@ It supports the following actions, defaulting to `build` if none is specified:
 * `build` to build docs
 * `clean` to clean `dist/` and all temporary files
 * `watch` to watch for changes and re-build (useful while writing docs)
+* `serve` to serve built assets on your local computer (useful while testing and writing docs)
 * `lint` to run lints on Chappe internal resources
 
 It supports the following parameters, with a default value if not set:
@@ -112,10 +113,15 @@ It supports the following parameters, with a default value if not set:
 * `--temp` (path where to write temporary files, _default value:_ `./.chappe`)
 * `--env` (environment, either `development` or `production`, _default value:_ `production`)
 
+If you are running with the `serve` action, it accepts additional parameters:
+
+* `--host` (hostname or IP address to use for the local server, _default value:_ `localhost`)
+* `--port` (port number to use for the local server, _default value:_ `8040`)
+
 Some special parameters are also available:
 
-* `--quiet` (disable output when performing task)
-* `--example` (name of the Chappe docs example to build, useful for Chappe developers and quick tests)
+* `--quiet` (disable most output when performing task)
+* `--example` (name of the Chappe docs example to build, useful for Chappe developers and quick tests, eg. `acme-docs`)
 
 To build your docs, you can call the Chappe CLI as such:
 
