@@ -117,6 +117,9 @@ class ChappeCLI {
       "development",
       "production"
     ];
+
+    // Storage
+    this.__has_setup_gulp_logging = false;
   }
 
 
@@ -225,13 +228,9 @@ class ChappeCLI {
     // Setup error traps
     this.__setup_error_traps(spinner);
 
-    // Setup Gulp logging? (only for certain actions)
-    if (args.verbose || this.__actions_logging.includes(_task) === true) {
-      this.__setup_gulp_logging(
-        require("gulp"), spinner,
-
-        (this.__actions_no_aborts.includes(_task) !== true)  //-[crash_on_error]
-      );
+    // Setup Gulp logging? (pre-task mode, only if verbose)
+    if (args.verbose) {
+      this.__setup_gulp_logging(spinner, _task);
     }
 
     // Import the Gulpfile
@@ -253,11 +252,17 @@ class ChappeCLI {
 
         process.exit(1);
       } else {
+        // Show success spinner (depending on task success rule)
         let _success_rules = (
           this.__spinner_successes[_task] || this.__spinner_successes.default
         );
 
         spinner[_success_rules.method](_success_rules.text);
+
+        // Setup Gulp logging? (post-task mode, only for certain actions)
+        if (this.__actions_logging.includes(_task) === true) {
+          this.__setup_gulp_logging(spinner, _task);
+        }
       }
     });
   }
@@ -493,46 +498,58 @@ class ChappeCLI {
   /**
    * Setups Gulp logging
    * @private
-   * @param  {object}  instance
-   * @param  {object}  spinner
-   * @param  {boolean} [crash_on_error]
+   * @param  {object} spinner
+   * @param  {string} task
    * @return {undefined}
    */
-  __setup_gulp_logging(instance, spinner, crash_on_error=true) {
-    instance.on("start", (event) => {
-      // Freeze spinner w/ information
-      spinner.info(
-        "Starting '" + event.name + "'..."
-      );
-    });
+  __setup_gulp_logging(spinner, task) {
+    // Not quiet and not already setup?
+    if (!args.quiet && this.__has_setup_gulp_logging !== true) {
+      this.__has_setup_gulp_logging = true;
 
-    instance.on("stop", (event) => {
-      // Freeze spinner w/ success
-      spinner.succeed(
-        "Finished '" + event.name + "'"
-      );
+      // Import Gulp instance
+      var _gulp = require("gulp");
 
-      // Restart the spinner
-      spinner.start();
-    });
-
-    instance.on("error", (event) => {
-      // Freeze spinner w/ failure
-      spinner.fail(
-        "Error in '" + event.name + "':"
+      // Check if should crash on error
+      let _crash_on_error = (
+        (this.__actions_no_aborts.includes(task) === true) ? false : true
       );
 
-      if (event.error) {
-        console.log(event.error);
-      }
+      _gulp.on("start", (event) => {
+        // Freeze spinner w/ information
+        spinner.info(
+          "Starting '" + event.name + "'..."
+        );
+      });
 
-      // Restart the spinner
-      spinner.start();
+      _gulp.on("stop", (event) => {
+        // Freeze spinner w/ success
+        spinner.succeed(
+          "Finished '" + event.name + "'"
+        );
 
-      if (crash_on_error === true) {
-        process.exit(1);
-      }
-    });
+        // Restart the spinner
+        spinner.start();
+      });
+
+      _gulp.on("error", (event) => {
+        // Freeze spinner w/ failure
+        spinner.fail(
+          "Error in '" + event.name + "':"
+        );
+
+        if (event.error) {
+          console.log(event.error);
+        }
+
+        // Restart the spinner
+        spinner.start();
+
+        if (_crash_on_error === true) {
+          process.exit(1);
+        }
+      });
+    }
   }
 
 

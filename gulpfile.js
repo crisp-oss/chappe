@@ -1346,9 +1346,7 @@ var build_resources = function() {
 var build_clean = function() {
   return del([
     (CONTEXT.PATH_BUILD_ASSETS + "/*"),
-    (CONTEXT.PATH_BUILD_PAGES + "/*"),
-    (CONTEXT.PATH_LIBRARIES + "/*"),
-    CONTEXT.PATH_TEMP
+    (CONTEXT.PATH_BUILD_PAGES + "/*")
   ]);
 };
 
