@@ -64,6 +64,10 @@ class ChappeCLI {
       "watch"
     ];
 
+    this.__actions_no_aborts = [
+      "watch"
+    ];
+
     this.__spinner_successes = {
       default : {
         method : "succeed",
@@ -205,7 +209,9 @@ class ChappeCLI {
     // Setup Gulp logging? (only for certain actions)
     if (this.__actions_logging.includes(_task) === true) {
       this.__setup_gulp_logging(
-        require("gulp")
+        require("gulp"),
+
+        (this.__actions_no_aborts.includes(_task) !== true)  //-[crash_on_error]
       );
     }
 
@@ -420,10 +426,11 @@ class ChappeCLI {
   /**
    * Setups Gulp logging
    * @private
-   * @param  {object} instance
+   * @param  {object}  instance
+   * @param  {boolean} [crash_on_error]
    * @return {undefined}
    */
-  __setup_gulp_logging(instance) {
+  __setup_gulp_logging(instance, crash_on_error=true) {
     instance.on("start", (event) => {
       console.log(
         "Starting '" + event.name + "'..."
@@ -441,7 +448,9 @@ class ChappeCLI {
         ("Error in: '" + event.name + "'"), event.error
       );
 
-      process.exit(1);
+      if (crash_on_error === true) {
+        process.exit(1);
+      }
     });
   }
 
