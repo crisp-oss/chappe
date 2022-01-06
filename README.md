@@ -78,11 +78,10 @@ To install and use Chappe, please follow those steps:
 1. Create a new, empty Git repository;
 2. Copy the `examples/acme-docs/` folder contents from the Chappe repository into your project root;
 3. Run: `npm install` (make sure that you have a recent NodeJS version installed);
-4. Write your Markdown guides and references in the `data/` directory;
-5. Run: `npx chappe build` to build the docs;
-6. Upload the contents of the `dist/` folder to your Web server (at the root);
+4. Run: `npx chappe serve` to build the docs and serve them over a local Web server (it will also watch for changes);
+5. Write your Markdown guides and references in the `data/` directory (changes will be hot-reloaded in your browser);
 
-Please refer to sections below for more details on how to write docs, customize Chappe, and deploy your docs to your Web server.
+Please refer to sections below for more details on how to write docs, customize Chappe, and deploy your final docs to your Web server.
 
 ### Configuration
 
@@ -150,9 +149,11 @@ Docs can be either: `guides`, `references` or `changes`. The corresponding folde
 
 ### Deploying your docs
 
-To deploy your docs, first, create a Virtual Host on your Web server, using a dedicated domain, eg. `docs.acme.com`.
+To deploy your docs:
 
-Then, after you built Chappe (on your local computer or a CI/CD runner such as GitHub Actions), copy the contents of the `dist/` folder to your server folder for your docs Virtual Host (eg. `/var/www/docs.acme.com`).
+1. First, create a Virtual Host on your Web server, using a dedicated domain, eg. `docs.acme.com`;
+2. Then, build Chappe with `npx chappe build` (on your local computer or a CI/CD runner such as GitHub Actions);
+3. Finally, copy the contents of the `dist/` folder to your server folder for your docs Virtual Host (eg. `/var/www/docs.acme.com`);
 
 ⚠️ Chappe **must** be hosted at the root of your docs domain — it **will not** work if hosted in a sub-directory!
 
