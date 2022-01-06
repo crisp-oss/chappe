@@ -96,7 +96,7 @@ class ChappeCLI {
 
       serve   : {
         method : "start",
-        text   : "Now listening."
+        text   : "Now listening..."
       },
 
       watch   : {
@@ -164,7 +164,12 @@ class ChappeCLI {
         (this.__format_help_argument("temp")   + "\n")                       +
         (this.__format_help_argument("env")    + "\n")                       +
         (this.__format_help_argument("host")   + "\n")                       +
-        this.__format_help_argument("port")
+        (this.__format_help_argument("port")   + "\n\n")                     +
+
+      "Other arguments:\n"                                                   +
+        (this.__format_help_argument("quiet") + "\n")                        +
+        (this.__format_help_argument("verbose") + "\n")                      +
+        this.__format_help_argument("example")
     );
 
     process.exit(0);
@@ -189,7 +194,9 @@ class ChappeCLI {
    * @return {undefined}
    */
   __run_default() {
-    let _has_output = (args.quiet ? false : true);
+    let _has_output = (
+      (args.quiet && !args.verbose) ? false : true
+    );
 
     // Acquire task from action
     let _task = this.__acquire_action();
@@ -219,7 +226,7 @@ class ChappeCLI {
     this.__setup_error_traps(spinner);
 
     // Setup Gulp logging? (only for certain actions)
-    if (this.__actions_logging.includes(_task) === true) {
+    if (args.verbose || this.__actions_logging.includes(_task) === true) {
       this.__setup_gulp_logging(
         require("gulp"), spinner,
 
@@ -278,10 +285,16 @@ class ChappeCLI {
    * @return {string} Formatted help argument
    */
   __format_help_argument(name) {
-    return (
-      " --" + name + "  "  +
-        "(defaults to: '" + this.__context_defaults.default[name] + "')"
-    );
+    let _argument = (" --" + name);
+
+    // Append default value? (if any)
+    let _default_value = (this.__context_defaults.default[name] || null);
+
+    if (_default_value !== null) {
+      _argument += ("  (defaults to: '" + _default_value + "')");
+    }
+
+    return _argument;
   }
 
 

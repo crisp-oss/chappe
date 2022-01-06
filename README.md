@@ -120,7 +120,8 @@ If you are running with the `serve` action, it accepts additional parameters:
 
 Some special parameters are also available:
 
-* `--quiet` (disable most output when performing task)
+* `--quiet` (show less output when performing task)
+* `--verbose` (show more output when performing task)
 * `--example` (name of the Chappe docs example to build, useful for Chappe developers and quick tests, eg. `acme-docs`)
 
 To build your docs, you can call the Chappe CLI as such:
