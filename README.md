@@ -1,12 +1,12 @@
-# Chappe
+<img alt="Chappe" src="https://crisp-oss.github.io/chappe/images/chappe.png" width="200">
+
+---
 
 [![Test and Build](https://github.com/crisp-oss/chappe/workflows/Test%20and%20Build/badge.svg?branch=master)](https://github.com/crisp-oss/chappe/actions?query=workflow%3A%22Test+and+Build%22) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe)
 
 **Developer Docs builder. Write guides in Markdown and references in API Blueprint. Comes with a built-in search engine.**
 
 Chappe is a Developer Docs builder, that produces static assets. No runtime, just lightweight static files. It was built to address SaaS companies needs, and can serve as a first-class modern alternative to hosted services such as [ReadMe](https://readme.com/).
-
-<img alt="Chappe" src="https://crisp-oss.github.io/chappe/images/chappe.png" width="460">
 
 The reason behind why we made Chappe is the following: while looking for a Developer Docs builder at [Crisp](https://crisp.chat/en/), all that we could find were either outdated open-source projects, or commercial documentation builders. We wanted a modern Developer Docs website hosted on our premises, as pure-static assets. The latter is especially important, as we do not want to rely on a plethora of external services that can go down anytime.
 
