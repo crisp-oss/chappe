@@ -789,7 +789,7 @@ var sass = function() {
     .on("error", function(error) {
       if (CONTEXT.IS_WATCH === true) {
         // Handle compile errors (used for development ease w/ `gulp watch`)
-        console.error(error.toString());  // jscs:ignore
+        console.error(error.toString());
       } else {
         throw error;
       }
@@ -846,7 +846,7 @@ var babel = function() {
     .on("error", function(error) {
       if (CONTEXT.IS_WATCH === true) {
         // Handle compile errors (used for development ease w/ `gulp watch`)
-        console.error(error.toString());  // jscs:ignore
+        console.error(error.toString());
       } else {
         throw error;
       }
@@ -1355,17 +1355,27 @@ var build_clean = function() {
   Starts connect server
 */
 var connect_server = function(next) {
-  gulp_connect.server({
-    name       : "Server",
-    root       : CONTEXT.PATH_DIST,
-    host       : CONTEXT.SERVE_HOST,
-    port       : CONTEXT.SERVE_PORT,
+  gulp_connect.server(
+    {
+      name       : "Server",
+      root       : CONTEXT.PATH_DIST,
+      host       : CONTEXT.SERVE_HOST,
+      port       : CONTEXT.SERVE_PORT,
+      silent     : true,
 
-    livereload : {
-      hostname : CONTEXT.SERVE_HOST,
-      port     : (CONTEXT.SERVE_PORT + 1),
+      livereload : {
+        hostname : CONTEXT.SERVE_HOST,
+        port     : (CONTEXT.SERVE_PORT + 1),
+      }
+    },
+
+    function() {
+      console.log(
+        "\n🔥 Preview server started on: http://" + CONTEXT.SERVE_HOST + ":"  +
+          CONTEXT.SERVE_PORT + "\n"
+      );
     }
-  });
+  );
 
   next();
 };
