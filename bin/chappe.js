@@ -209,7 +209,7 @@ class ChappeCLI {
     // Setup Gulp logging? (only for certain actions)
     if (this.__actions_logging.includes(_task) === true) {
       this.__setup_gulp_logging(
-        require("gulp"),
+        require("gulp"), spinner,
 
         (this.__actions_no_aborts.includes(_task) !== true)  //-[crash_on_error]
       );
@@ -225,9 +225,12 @@ class ChappeCLI {
     _gulpfile[_task]((error) => {
       // Any error occured?
       if (error) {
+        // Throw error and stop spinner
         spinner.fail("Error:");
 
         console.log(error);
+
+        spinner.stop();
 
         process.exit(1);
       } else {
@@ -412,11 +415,14 @@ class ChappeCLI {
     });
 
     process.on("uncaughtException", (error) => {
+      // Throw error and stop spinner
       spinner.fail("Failed:");
 
       console.log(
         (error && error.context) ? error.context : error
       );
+
+      spinner.stop();
 
       process.exit(1);
     });
@@ -427,26 +433,40 @@ class ChappeCLI {
    * Setups Gulp logging
    * @private
    * @param  {object}  instance
+   * @param  {object}  spinner
    * @param  {boolean} [crash_on_error]
    * @return {undefined}
    */
-  __setup_gulp_logging(instance, crash_on_error=true) {
+  __setup_gulp_logging(instance, spinner, crash_on_error=true) {
     instance.on("start", (event) => {
-      console.log(
+      // Freeze spinner w/ information
+      spinner.info(
         "Starting '" + event.name + "'..."
       );
     });
 
     instance.on("stop", (event) => {
-      console.log(
+      // Freeze spinner w/ success
+      spinner.succeed(
         "Finished '" + event.name + "'"
       );
+
+      // Restart the spinner
+      spinner.start();
     });
 
     instance.on("error", (event) => {
-      console.log(
-        ("Error in: '" + event.name + "'"), event.error
+      // Freeze spinner w/ failure
+      spinner.fail(
+        "Error in '" + event.name + "':"
       );
+
+      if (event.error) {
+        console.log(event.error);
+      }
+
+      // Restart the spinner
+      spinner.start();
 
       if (crash_on_error === true) {
         process.exit(1);
