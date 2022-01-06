@@ -138,6 +138,12 @@ npx chappe build
 
 By default, docs are built for a `production` target, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
 
+To create a local development server on [http://localhost:8040](http://localhost:8040/), used to write and preview your docs, use:
+
+```bash
+npx chappe serve
+```
+
 _👉 If the `chappe` command is not found, make sure to add `chappe` to your `package.json` and call `npm install`._
 
 ### Writing docs
