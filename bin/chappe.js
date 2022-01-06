@@ -220,35 +220,38 @@ class ChappeCLI {
     }
 
     // Setup spinner
-    let spinner = ora({
+    let _spinner = ora({
       text  : "Working...\n",
       color : "cyan"
     });
 
+    // Import Gulp instance
+    let _gulp = require("gulp");
+
     // Setup error traps
-    this.__setup_error_traps(spinner);
+    this.__setup_error_traps(_gulp, _spinner, _task);
 
     // Setup Gulp logging? (pre-task mode, only if verbose)
     if (args.verbose) {
-      this.__setup_gulp_logging(spinner, _task);
+      this.__setup_gulp_logging(_gulp, _spinner);
     }
 
     // Import the Gulpfile
     let _gulpfile = require("../gulpfile.js");
 
     // Start spinner
-    spinner.start();
+    _spinner.start();
 
     // Build docs
     _gulpfile[_task]((error) => {
       // Any error occured?
       if (error) {
         // Throw error and stop spinner
-        spinner.fail("Error:");
+        _spinner.fail("Error:");
 
         console.log(error);
 
-        spinner.stop();
+        _spinner.stop();
 
         process.exit(1);
       } else {
@@ -257,11 +260,11 @@ class ChappeCLI {
           this.__spinner_successes[_task] || this.__spinner_successes.default
         );
 
-        spinner[_success_rules.method](_success_rules.text);
+        _spinner[_success_rules.method](_success_rules.text);
 
         // Setup Gulp logging? (post-task mode, only for certain actions)
         if (this.__actions_logging.includes(_task) === true) {
-          this.__setup_gulp_logging(spinner, _task);
+          this.__setup_gulp_logging(_gulp, _spinner);
         }
       }
     });
@@ -464,10 +467,18 @@ class ChappeCLI {
   /**
    * Setups error traps
    * @private
+   * @param  {object} gulp
    * @param  {object} spinner
+   * @param  {string} task
    * @return {undefined}
    */
-  __setup_error_traps(spinner) {
+  __setup_error_traps(gulp, spinner, task) {
+    // Check if should crash on error
+    let _crash_on_error = (
+      (this.__actions_no_aborts.includes(task) === true) ? false : true
+    );
+
+    // Setup process events
     process.once("exit", (code) => {
       if (code > 0) {
         // Self-kill, because apparently event if calling process.exit(1), the \
@@ -482,7 +493,7 @@ class ChappeCLI {
 
     process.on("uncaughtException", (error) => {
       // Throw error and stop spinner
-      spinner.fail("Failed:");
+      spinner.fail("Unexpected failure:");
 
       console.log(
         (error && error.context) ? error.context : error
@@ -492,37 +503,49 @@ class ChappeCLI {
 
       process.exit(1);
     });
+
+    // Important: setup Gulp error listener, otherwise any error will get \
+    //   uncaught and be handled by 'uncaughtException' at the process-level.
+    gulp.on("error", (event) => {
+      // Freeze spinner w/ failure
+      spinner.fail(
+        "Error in '" + event.name + "':"
+      );
+
+      if (event.error) {
+        console.log(event.error);
+      }
+
+      // Restart the spinner
+      spinner.start();
+
+      if (_crash_on_error === true) {
+        process.exit(1);
+      }
+    });
   }
 
 
   /**
    * Setups Gulp logging
    * @private
+   * @param  {object} gulp
    * @param  {object} spinner
-   * @param  {string} task
    * @return {undefined}
    */
-  __setup_gulp_logging(spinner, task) {
+  __setup_gulp_logging(gulp, spinner) {
     // Not quiet and not already setup?
     if (!args.quiet && this.__has_setup_gulp_logging !== true) {
       this.__has_setup_gulp_logging = true;
 
-      // Import Gulp instance
-      var _gulp = require("gulp");
-
-      // Check if should crash on error
-      let _crash_on_error = (
-        (this.__actions_no_aborts.includes(task) === true) ? false : true
-      );
-
-      _gulp.on("start", (event) => {
+      gulp.on("start", (event) => {
         // Freeze spinner w/ information
         spinner.info(
           "Starting '" + event.name + "'..."
         );
       });
 
-      _gulp.on("stop", (event) => {
+      gulp.on("stop", (event) => {
         // Freeze spinner w/ success
         spinner.succeed(
           "Finished '" + event.name + "'"
@@ -530,24 +553,6 @@ class ChappeCLI {
 
         // Restart the spinner
         spinner.start();
-      });
-
-      _gulp.on("error", (event) => {
-        // Freeze spinner w/ failure
-        spinner.fail(
-          "Error in '" + event.name + "':"
-        );
-
-        if (event.error) {
-          console.log(event.error);
-        }
-
-        // Restart the spinner
-        spinner.start();
-
-        if (_crash_on_error === true) {
-          process.exit(1);
-        }
       });
     }
   }
