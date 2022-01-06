@@ -1288,7 +1288,11 @@ var connect_server = function(next) {
     root       : CONTEXT.PATH_DIST,
     host       : CONTEXT.SERVE_HOST,
     port       : CONTEXT.SERVE_PORT,
-    livereload : true
+
+    livereload : {
+      hostname : CONTEXT.SERVE_HOST,
+      port     : (CONTEXT.SERVE_PORT + 1),
+    }
   });
 
   next();

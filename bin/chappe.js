@@ -377,7 +377,7 @@ class ChappeCLI {
     // Append serve-related context?
     if (task === "serve") {
       _context.host = [(args.host || _defaults.host)];
-      _context.port = [(args.port || _defaults.port)];
+      _context.port = [parseInt((args.port || _defaults.port), 10)];
     }
 
     // Expand context paths
@@ -398,7 +398,12 @@ class ChappeCLI {
 
     // Re-join context values as bare strings (from lists)
     for (let _key in _context) {
-      _context[_key] = _context[_key].join(",");
+      // Notice, this retains non-string types untouched
+      if (_context[_key].length === 1) {
+        _context[_key] = _context[_key][0];
+      } else {
+        _context[_key] = _context[_key].join(",");
+      }
     }
 
     // Validate final context
@@ -425,7 +430,7 @@ class ChappeCLI {
     let _injected_defaults = {};
 
     for (let _key in defaults) {
-      var _cur_default = defaults[_key];
+      let _cur_default = defaults[_key];
 
       if (typeof _cur_default === "string") {
         _cur_default = _cur_default.replace("{{target}}", target);
