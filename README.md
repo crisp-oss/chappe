@@ -79,7 +79,8 @@ To install and use Chappe, please follow those steps:
 2. Copy the `examples/acme-docs/` folder contents from the Chappe repository into your project root;
 3. Run: `npm install` (make sure that you have a recent NodeJS version installed);
 4. Run: `npx chappe serve` to build the docs and serve them over a local Web server (it will also watch for changes);
-5. Write your Markdown guides and references in the `data/` directory (changes will be hot-reloaded in your browser);
+5. Open: [http://localhost:8040](http://localhost:8040/) in your Web browser to access your docs;
+6. Write your Markdown guides and references in the `data/` directory (changes will be hot-reloaded in your browser);
 
 Please refer to sections below for more details on how to write docs, customize Chappe, and deploy your final docs to your Web server.
 
