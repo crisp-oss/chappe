@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.1 (2022-01-06)
+
+### Non-Breaking Changes
+
+* Refactored the README to add the Chappe logo.
+
 ## 1.4.0 (2022-01-05)
 
 ### Non-Breaking Changes
