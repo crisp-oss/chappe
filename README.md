@@ -1,4 +1,4 @@
-<img alt="Chappe" src="https://crisp-oss.github.io/chappe/images/chappe.png" width="280">
+<img alt="Chappe" src="https://crisp-oss.github.io/chappe/images/chappe.png" width="320">
 
 [![Test and Build](https://github.com/crisp-oss/chappe/workflows/Test%20and%20Build/badge.svg?branch=master)](https://github.com/crisp-oss/chappe/actions?query=workflow%3A%22Test+and+Build%22) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe)
 
