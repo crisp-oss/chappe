@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.0 (2022-01-06)
+
+### New Features
+
+* The Chappe CLI now embeds a preview server, used to ease with writing and previewing docs (via `chappe serve`).
+
+### Non-Breaking Changes
+
+* Improved logging in the Chappe CLI.
+
+### Bug Fixes
+
+* Fixed the abrupt stopping of the Chappe CLI whenever a resource build failed while using `chappe watch`.
+
 ## 1.4.1 (2022-01-06)
 
 ### Non-Breaking Changes
