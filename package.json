@@ -35,7 +35,8 @@
     "node": ">= 12.0.0"
   },
   "scripts": {
-    "dev": "./bin/chappe.js clean --quiet --example=acme-docs && ./bin/chappe.js build --quiet --example=acme-docs && ./bin/chappe.js watch --example=acme-docs",
+    "dev": "./bin/chappe.js serve --example=acme-docs",
+    "build": "./bin/chappe.js build --example=acme-docs",
     "test": "./bin/chappe.js lint --example=acme-docs"
   },
   "dependencies": {
