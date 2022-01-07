@@ -62,6 +62,7 @@ class Common {
       // Storage
       this.__crisp_chat_feedback_shown     = false;
       this.__search_opened                 = false;
+      this.__appearance_mode               = "light";
 
       this.__content_anchor_viewed_timeout = null;
       this.__status_poll_scheduler         = null;
@@ -135,6 +136,9 @@ class Common {
       this.__bind_search_open_click();
       this.__bind_search_close_click();
       this.__bind_search_field_keyup();
+
+      // Bind appearance events
+      this.__bind_appearance_toggle_click();
 
       // Bind sidebar events
       this.__bind_sidebar_toggler_click();
@@ -1332,6 +1336,39 @@ class Common {
             Console.error(`${this.ns}.${fn}:click`, _error);
           }
         });
+      });
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Binds appearance toggle click event
+   * @private
+   * @return {undefined}
+   */
+  __bind_appearance_toggle_click() {
+    let fn = "__bind_appearance_toggle_click";
+
+    try {
+      this._$("#header .appearance").on("click", (event) => {
+        try {
+          if (event.target) {
+            // Acquire new appearance mode
+            let _new_mode = (
+              (this.__appearance_mode === "light") ? "dark" : "light"
+            );
+
+            // Store new appearance mode (now current mode)
+            this.__appearance_mode = _new_mode;
+
+            // Update current appearance mode (in toggle)
+            this._$(event.target).attr("data-mode", _new_mode);
+          }
+        } catch (_error) {
+          Console.error(`${this.ns}.${fn}:click`, _error);
+        }
       });
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
