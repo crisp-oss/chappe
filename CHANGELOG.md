@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.1 (2022-01-07)
+
+### Non-Breaking Changes
+
+* Improved the performance of watching for changes in `data/` while using `chappe serve` or `chappe watch`.
+
+### Bug Fixes
+
+* Fixed Gulp meta-events showing in the Chappe CLI output when using `--verbose` (they are now hidden).
+
 ## 1.5.0 (2022-01-06)
 
 ### New Features
