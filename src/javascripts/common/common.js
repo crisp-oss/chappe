@@ -133,7 +133,7 @@ class Common {
     try {
       // Restore appearance options
       this.__toggle_appearance(
-        (this.__read_cookie("appearance-mode") || null)  //-[mode]
+        this.__detect_appearance_preference()  //-[mode]
       );
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
@@ -650,6 +650,46 @@ class Common {
       }
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Detects appearance preference
+   * @private
+   * @return {string} Detected appearance preference
+   */
+  __detect_appearance_preference() {
+    let fn = "__detect_appearance_preference";
+
+    let _mode = null;
+
+    try {
+      // Attempt to detect mode from cookies? (user override)
+      let _mode_cookies = (
+        this.__read_cookie("appearance-mode") || null
+      );
+
+      if (_mode_cookies !== null) {
+        _mode = _mode_cookies;
+
+        // Abort detection there.
+        return;
+      }
+
+      // Attempt to detect mode from media query? (operating system)
+      if (typeof window.matchMedia === "function"  &&
+            (window.matchMedia("(prefers-color-scheme: dark)").matches  ===
+              true)) {
+        _mode = "dark";
+
+        // Abort detection there.
+        return;
+      }
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    } finally {
+      return (_mode || "light");
     }
   }
 
