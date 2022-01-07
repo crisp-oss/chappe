@@ -540,19 +540,25 @@ class ChappeCLI {
 
       gulp.on("start", (event) => {
         // Freeze spinner w/ information
-        spinner.info(
-          "Starting '" + event.name + "'..."
-        );
+        // Notice: do not log meta-events eg. '<series>'
+        if (event.name.startsWith("<") !== true) {
+          spinner.info(
+            "Starting '" + event.name + "'..."
+          );
+        }
       });
 
       gulp.on("stop", (event) => {
         // Freeze spinner w/ success
-        spinner.succeed(
-          "Finished '" + event.name + "'"
-        );
+        // Notice: do not log meta-events eg. '<series>'
+        if (event.name.startsWith("<") !== true) {
+          spinner.succeed(
+            "Finished '" + event.name + "'"
+          );
 
-        // Restart the spinner
-        spinner.start();
+          // Restart the spinner
+          spinner.start();
+        }
       });
     }
   }
