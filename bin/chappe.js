@@ -220,9 +220,12 @@ class ChappeCLI {
     }
 
     // Setup spinner
+    // Throttle down spinner refresh interval, to ease w/ terminal CPU usage \
+    //   when performing long operations eg. 'watch'.
     let _spinner = ora({
-      text  : "Working...\n",
-      color : "cyan"
+      text     : "Working...\n",
+      color    : "cyan",
+      interval : 350
     });
 
     // Import Gulp instance
