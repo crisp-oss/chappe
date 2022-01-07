@@ -230,6 +230,9 @@ var copy_images_base = function() {
       gulp.dest(
         CONTEXT.PATH_BUILD_ASSETS + "/images"
       )
+    )
+    .pipe(
+      gulp_connect.reload()
     );
 };
 
@@ -245,6 +248,9 @@ var copy_images_guides = function() {
       gulp.dest(
         CONTEXT.PATH_BUILD_ASSETS + "/images/guides/content"
       )
+    )
+    .pipe(
+      gulp_connect.reload()
     );
 };
 
@@ -271,6 +277,9 @@ var copy_fonts = function() {
       gulp.dest(
         CONTEXT.PATH_BUILD_ASSETS + "/fonts"
       )
+    )
+    .pipe(
+      gulp_connect.reload()
     );
 };
 
@@ -398,6 +407,9 @@ var jade_templates_base = function() {
             gulp.dest(
               CONTEXT.PATH_BUILD_PAGES
             )
+          )
+          .pipe(
+            gulp_connect.reload()
           )
       );
     });
@@ -815,6 +827,9 @@ var css_inline_images = function() {
       gulp.dest(
         CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
       )
+    )
+    .pipe(
+      gulp_connect.reload()
     );
 };
 
@@ -938,6 +953,9 @@ var replace_javascripts = function() {
       gulp.dest(
         CONTEXT.PATH_BUILD_ASSETS + "/javascripts"
       )
+    )
+    .pipe(
+      gulp_connect.reload()
     );
 };
 
