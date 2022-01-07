@@ -45,6 +45,8 @@ class Common {
       this.__chatbox_z_index             = 120;
       this.__search_results_limit        = 12;
 
+      this.__cookie_prefix               = "chappe/";
+
       this.__status_known_health         = [
         "healthy",
         "sick",
@@ -90,6 +92,7 @@ class Common {
 
     try {
       this.__chatbox();
+      this.__options();
       this.__events();
       this.__schedules();
     } catch (error) {
@@ -113,6 +116,25 @@ class Common {
           "config", "container:index", this.__chatbox_z_index
         ]);
       }
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Setups all user options
+   * @private
+   * @return {undefined}
+   */
+  __options() {
+    let fn = "__options";
+
+    try {
+      // Restore appearance options
+      this.__toggle_appearance(
+        (this.__read_cookie("appearance-mode") || null)  //-[mode]
+      );
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
     }
@@ -174,6 +196,55 @@ class Common {
     try {
       // Bind all schedules
       this.__bind_status_poll_schedule();
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Reads cookie
+   * @private
+   * @param  {string} cookie_key
+   * @return {string} Cookie value (if any)
+   */
+  __read_cookie(cookie_key) {
+    let fn = "__read_cookie";
+
+    let _cookie_value;
+
+    try {
+      _cookie_value = Cookies.get(
+        (this.__cookie_prefix + cookie_key)
+      );
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    } finally {
+      return _cookie_value;
+    }
+  }
+
+
+  /**
+   * Writes cookie
+   * @private
+   * @param  {string} cookie_key
+   * @param  {string} cookie_value
+   * @return {undefined}
+   */
+  __write_cookie(cookie_key, cookie_value) {
+    let fn = "__write_cookie";
+
+    try {
+      Cookies.set(
+        (this.__cookie_prefix + cookie_key), cookie_value,
+
+        {
+          domain   : location.hostname,
+          expires  : Infinity,
+          sameSite : "strict"
+        }
+      );
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
     }
@@ -550,6 +621,32 @@ class Common {
 
         // Toggle expanded state on selected level
         _parent_sel.attr("data-expanded", _new_state);
+      }
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Toggles appearance mode
+   * @private
+   * @param  {string} [new_mode]
+   * @return {undefined}
+   */
+  __toggle_appearance(new_mode=null) {
+    let fn = "__toggle_appearance";
+
+    try {
+      if (new_mode !== null && this.__appearance_mode !== new_mode) {
+        // Store new appearance mode (now current mode)
+        this.__appearance_mode = new_mode;
+
+        // Update current appearance mode (in toggle)
+        this._$("#header .appearance").attr("data-mode", new_mode);
+
+        // Update dark mode in document
+        document.body.setAttribute("data-appearance", new_mode);
       }
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
@@ -1352,20 +1449,20 @@ class Common {
     let fn = "__bind_appearance_toggle_click";
 
     try {
-      this._$("#header .appearance").on("click", (event) => {
+      this._$("#header .appearance").on("click", () => {
         try {
-          if (event.target) {
-            // Acquire new appearance mode
-            let _new_mode = (
-              (this.__appearance_mode === "light") ? "dark" : "light"
-            );
+          // Acquire new appearance mode
+          let _new_mode = (
+            (this.__appearance_mode === "light") ? "dark" : "light"
+          );
 
-            // Store new appearance mode (now current mode)
-            this.__appearance_mode = _new_mode;
+          // Toggle appearance mode
+          this.__toggle_appearance(_new_mode);
 
-            // Update current appearance mode (in toggle)
-            this._$(event.target).attr("data-mode", _new_mode);
-          }
+          // Remember choice (with a cookie)
+          this.__write_cookie(
+            "appearance-mode", _new_mode
+          );
         } catch (_error) {
           Console.error(`${this.ns}.${fn}:click`, _error);
         }

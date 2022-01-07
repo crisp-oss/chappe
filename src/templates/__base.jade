@@ -51,7 +51,8 @@ html(
       +head-javascript("/static/javascripts/common/common")
 
   body.viewer(
-    class=(viewer ? ("viewer--" + viewer) : null)
+    class=(viewer ? ("viewer--" + viewer) : null),
+    data-appearance="light"
   )
     include _body_header
     include _body_search
