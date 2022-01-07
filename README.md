@@ -58,11 +58,14 @@ The version history can be found in the [CHANGELOG.md](https://github.com/crisp-
 * **References**: document your HTTP REST API specification using API Blueprint
 * **Changes**: maintain a changelog of your platform (eg. your REST API, your SDKs)
 * **RSS feed**: users can subscribe to your changelog over RSS
+* **Beautiful Markdown rendering**: all content that you write gets rendered with a clear and modern style
+* **Syntax highlighting**: coloring for your code examples in 100+ programming languages
 * **Built-in search engine**: the index is generated during build and is hosted locally
 * **Fully responsive**: full support of desktop, tablet and phone screens
 * **SEO-friendly**: a deep sitemap is generated for search engines
 * **Sharing-friendly**: support for the Open Graph protocol
 * **Private pages support**: mark any guide or reference as private or unlisted (prefix its name with `_`)
+* **Local preview server**: skip setting up a local Web server to preview your docs while writing them, Chappe embeds a preview server
 
 _The following optional features can also be enabled:_
 
