@@ -259,9 +259,70 @@
       box-shadow: 0 1px 0 0 #E4E9ED
       border-radius: 3px
 
-  .actions
-    margin-left: 42px
+  .appearance
+    $appearance-height: 16px
+    $appearance-width: 32px
+    $appearance-toggle-size: 24px
+    $appearance-toggle-border-color: darken($color-grey-dark, 50%)
 
+    background-color: lighten($color-grey-light, 1%)
+    width: $appearance-width
+    height: $appearance-height
+    margin: 0 32px
+    cursor: pointer
+    position: relative
+    border-radius: ($appearance-height / 2)
+
+    &:hover
+      .toggle
+        border-color: rgba($appearance-toggle-border-color, .225)
+        box-shadow: 0 1px 4px 0 rgba($color-black, .06)
+
+    &:active
+      .toggle
+        border-color: rgba($appearance-toggle-border-color, .175)
+        box-shadow: 0 1px 1px 0 rgba($color-black, .02)
+
+    &[data-mode="light"]
+      .toggle
+        margin-left: (-1 * ($appearance-toggle-size / 4))
+
+        &:before
+          +background-image-internal("common/header/appearance-mode-light-icon.svg")
+          width: 14px
+          height: 14px
+
+    &[data-mode="dark"]
+      .toggle
+        margin-left: ($appearance-width - (($appearance-toggle-size + 2px) - ($appearance-toggle-size / 4)))
+
+        &:before
+          +background-image-internal("common/header/appearance-mode-dark-icon.svg")
+          width: 12px
+          height: 12px
+
+    .toggle
+      background-color: $color-white
+      border: 1px solid rgba($appearance-toggle-border-color, .2)
+      height: $appearance-toggle-size
+      width: $appearance-toggle-size
+      margin-top: (-1 * (($appearance-toggle-size / 2) - ($appearance-height / 2) + 1px))
+      top: 0
+      left: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      position: absolute
+      border-radius: 100%
+      box-shadow: 0 1px 3px 0 rgba($color-black, .04)
+      transition: all linear 100ms
+      transition-property: border-color, margin-left, box-shadow
+
+      &:before
+        content: ""
+        +background-image-fill
+
+  .actions
     .action
       position: relative
 

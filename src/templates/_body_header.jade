@@ -64,6 +64,11 @@
         span.search-shortcut
           | ⌘F
 
+      .appearance(
+        data-mode="light"
+      )
+        span.toggle
+
       if SITE.links.header.actions.length > 0
         .actions
           each action in SITE.links.header.actions
