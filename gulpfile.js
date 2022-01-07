@@ -482,9 +482,6 @@ var jade_templates_guides = function() {
                 CONTEXT.PATH_BUILD_PAGES
               )
             )
-            .pipe(
-              gulp_connect.reload()
-            )
         );
       });
     });
@@ -896,6 +893,9 @@ var replace_templates_guides = function() {
       gulp.dest(
         CONTEXT.PATH_BUILD_PAGES + "/guides"
       )
+    )
+    .pipe(
+      gulp_connect.reload()
     );
 };
 
