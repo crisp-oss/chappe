@@ -1388,50 +1388,54 @@ var watch_resources = function(next) {
   CONTEXT.IS_WATCH = true;
 
   // Internal files (Chappe files)
-  gulp.watch("bower.json", bower);
-  gulp.watch("res/config/*", get_configuration);
-  gulp.watch("src/images/**/*", copy_images_base);
-  gulp.watch("src/fonts/**/*", copy_fonts);
+  // Notice: only if not 'production', ie. in 'development' mode, as this is \
+  //   used by Chappe developers only.
+  if (CONTEXT.IS_PRODUCTION !== true) {
+    gulp.watch("bower.json", bower);
+    gulp.watch("res/config/*", get_configuration);
+    gulp.watch("src/images/**/*", copy_images_base);
+    gulp.watch("src/fonts/**/*", copy_fonts);
 
-  gulp.watch(
-    "src/locales/**/*",
+    gulp.watch(
+      "src/locales/**/*",
 
-    gulp.series(
-      jade_templates_all,
-      replace_templates_guides
-    )
-  );
-
-  gulp.watch(
-    "src/templates/**/*",
-
-    gulp.series(
-      jade_templates_all,
-
-      gulp.parallel(
-        replace_templates_guides,
-        sitemap
+      gulp.series(
+        jade_templates_all,
+        replace_templates_guides
       )
-    )
-  );
+    );
 
-  gulp.watch(
-    "src/stylesheets/**/*",
+    gulp.watch(
+      "src/templates/**/*",
 
-    gulp.series(
-      sass,
-      css_inline_images
-    )
-  );
+      gulp.series(
+        jade_templates_all,
 
-  gulp.watch(
-    "src/javascripts/**/*",
+        gulp.parallel(
+          replace_templates_guides,
+          sitemap
+        )
+      )
+    );
 
-    gulp.series(
-      babel,
-      replace_javascripts
-    )
-  );
+    gulp.watch(
+      "src/stylesheets/**/*",
+
+      gulp.series(
+        sass,
+        css_inline_images
+      )
+    );
+
+    gulp.watch(
+      "src/javascripts/**/*",
+
+      gulp.series(
+        babel,
+        replace_javascripts
+      )
+    );
+  }
 
   // External files (user files)
   CONTEXT.PATH_CONFIG.forEach(function(config_path) {

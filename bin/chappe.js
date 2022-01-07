@@ -296,9 +296,9 @@ class ChappeCLI {
     let _argument = (" --" + name);
 
     // Append default value? (if any)
-    let _default_value = (this.__context_defaults.default[name] || null);
+    let _default_value = this.__context_defaults.default[name];
 
-    if (_default_value !== null) {
+    if (typeof _default_value !== "undefined") {
       _argument += ("  (defaults to: '" + _default_value + "')");
     }
 
