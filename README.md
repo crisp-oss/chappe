@@ -65,7 +65,7 @@ The version history can be found in the [CHANGELOG.md](https://github.com/crisp-
 * **SEO-friendly**: a deep sitemap is generated for search engines
 * **Sharing-friendly**: support for the Open Graph protocol
 * **Private pages support**: mark any guide or reference as private or unlisted (prefix its name with `_`)
-* **Local preview server**: skip setting up a local Web server to preview your docs while writing them, Chappe embeds a preview server
+* **Local preview server**: skip setting up a local Web server to preview your docs while writing them, Chappe embeds a preview server that can be started in a single command
 
 _The following optional features can also be enabled:_
 
