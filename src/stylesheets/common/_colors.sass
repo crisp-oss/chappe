@@ -51,14 +51,33 @@
   --color-viewer-panes-footer-border: #{rgba($color-grey, .5)}
 
   // Markdown
+  --color-markdown-title-small-text: #44566b
+  --color-markdown-list-item-bullet: #44566b
+  --color-markdown-code-background-inline: #e8f5fa
+  --color-markdown-code-background-block: #1f2224
+  --color-markdown-code-border-inline: #a9c6dd
+  --color-markdown-code-text-inline: #275190
   --color-markdown-code-selection: #{rgba($color-selection-code, .25)}
+  --color-markdown-figure-text: #879aad
   --color-markdown-figure-border: #{rgba($color-grey, .9)}
+  --color-markdown-table-head-text: #44566b
   --color-markdown-table-cell-border: #{rgba(#c1ccd8, .65)}
+  --color-markdown-blockquote-text: #44566b
+  --color-markdown-blockquote-border: #c0cedd
+  --color-markdown-emphasis-warning-text: #fff4e1
+  --color-markdown-emphasis-warning-border: #f49c0b
+  --color-markdown-emphasis-info-text: #fffcd9
+  --color-markdown-emphasis-info-border: #f4e200
+  --color-markdown-emphasis-notice-text: #e2ffdd
+  --color-markdown-emphasis-notice-border: #48cc30
 
   // Code
   --color-code-selection: #{rgba($color-selection-code, .3)}
   --color-code-border-hover: #{rgba($color-white, .25)}
+  --color-code-header-default: #151517
+  --color-code-header-hover: #0c0c0d
   --color-code-language: #{rgba($color-white, .6)}
+  --color-code-metas: #1e1e20
   --color-code-meta-name-border: #{rgba($color-white, .06)}
   --color-code-meta-name-text: #{rgba($color-white, .8)}
   --color-code-meta-type: #{rgba($color-white, .4)}
@@ -73,6 +92,9 @@
   --color-search-lock: #{rgba(#495368, .45)}
   --color-search-spotlight-field: #{rgba($color-base, .65)}
   --color-search-spotlight-shadow: #{rgba($color-black, .1)}
+  --color-search-spotlight-shortcut-text: #929fac
+  --color-search-spotlight-field-placeholder: #607282
+  --color-search-spotlight-field-spinner-border: #607282
   --color-search-spotlight-entry-link-default: #{$color-blue}
   --color-search-spotlight-entry-link-active: #{darken($color-blue, 3%)}
 
@@ -88,6 +110,8 @@
   --color-header-search-border-hover: #{darken($color-grey-dark, 10%)}
   --color-header-search-border-active: #{darken($color-grey-dark, 14%)}
   --color-header-search-shadow: #{rgba($color-grey-dark, .25)}
+  --color-header-search-placeholder-text: #607282
+  --color-header-search-shortcut-text: #a2aeb9
   --color-header-appearance: #{lighten($color-grey-light, 1%)}
   --color-header-appearance-toggle-border-default: #{rgba(darken($color-grey-dark, 50%), .2)}
   --color-header-appearance-toggle-border-hover: #{rgba(darken($color-grey-dark, 50%), .225)}
@@ -103,8 +127,12 @@
   --color-content-navigation-shadow-outset: #{rgba(#c1ccd8, .25)}
   --color-content-navigation-shadow-inset: #{rgba($color-white, .75)}
   --color-content-navigation-shadow-active: #{rgba(#c1ccd8, .4)}
+  --color-content-navigation-label-text: #879aad
+  --color-content-bulletpoint-label-text: #879aad
   --color-content-sidebar-small: #{rgba($color-base, .9)}
   --color-content-sidebar-small-shadow: #{rgba($color-black, .04)}
+  --color-content-sidebar-left: #{rgba($color-base, .65)}
+  --color-content-sidebar-right: #2d3134
   --color-content-sidebar-toggler-background: #{rgba($color-white, .85)}
   --color-content-sidebar-toggler-shadow-default: #{rgba($color-black, .1)}
   --color-content-sidebar-toggler-shadow-hover: #{rgba($color-black, .125)}
@@ -115,18 +143,37 @@
   --color-content-sidebar-nest-navigate-link-toggle-active: #{darken($color-grey-light, 7%)}
   --color-content-sidebar-nest-navigate-link-active-toggle-hover: #{rgba($color-white, .15)}
   --color-content-sidebar-nest-navigate-link-active-toggle-active: #{rgba($color-white, .2)}
+  --color-content-sidebar-nest-navigate-slice-text: #44566b
 
   // Footer
   --color-footer-brand-separator: #{rgba(#9fb0c2, .3)}
   --color-footer-status-border-default: #{rgba(#9fb0c2, .45)}
   --color-footer-status-border-hover: #{rgba(#9fb0c2, .65)}
+  --color-footer-status-state-default-text: #787b84
+  --color-footer-status-state-healthy-text: #0db033
+  --color-footer-status-state-sick-text: #f18000
+  --color-footer-status-state-dead-text: #e10000
+  --color-footer-status-time-text: #93a0ad
+  --color-footer-link-target-text: #677789
+  --color-footer-copyright-text: #859ab0
+  --color-footer-engine-text: #9fb0c2
 
   // Guides
   --color-guides-details-border: #{rgba($color-grey, .65)}
+  --color-guides-details-inner-text: #44566b
 
   // References
   --color-references-separator-content: #{rgba($color-grey, .65)}
   --color-references-separator-sidebar: #{rgba($color-grey, .15)}
+  --color-references-details-updated-text: #44566b
+  --color-references-group-origin: #44566b
+  --color-references-request-target-url-border-default: #c6d2e0
+  --color-references-request-target-url-border-hover: #aab9ca
+  --color-references-request-target-url-border-active: #8e99a6
+  --color-references-request-format-type-text: #44566b
+  --color-references-request-format-required-text: #eb4e3a
+  --color-references-request-format-optional-text: #a2a8b0
+  --color-references-request-format-label-text: #717982
   --color-references-request-format-keys-depth-zero: #{lighten($color-grey-light, 10%)}
   --color-references-request-format-keys-depth-one: #{lighten($color-grey-light, 5%)}
   --color-references-request-format-keys-depth-two: #{$color-grey-light}
@@ -138,6 +185,9 @@
   --color-references-request-format-toggle-button-border: #{darken($color-grey-dark, 8%)}
   --color-references-request-format-toggle-button-shadow: #{rgba($color-grey-dark, .25)}
   --color-references-examples-selection: #{rgba($color-selection-code, .2)}
+  --color-references-examples-detail-value-text: #858b8e
+  --color-references-examples-detail-segment-text: #dde4e8
+  --color-references-examples-detail-parameter-text: #c2ee65
 
   // Changes
   --color-changes-navigate-link-hover: #{lighten($color-grey-light, 6%)}

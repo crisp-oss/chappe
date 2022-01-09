@@ -22,7 +22,6 @@
 
   .spotlight
     $spotlight-padding-sides: 26px
-    $spotlight-field-contents-color: #607282
     $spotlight-field-icon-size: 16px
     $spotlight-field-spinner-size: 12px
 
@@ -89,7 +88,7 @@
 
       &:after
         background: transparent
-        border-color: $spotlight-field-contents-color $spotlight-field-contents-color transparent
+        border-color: var(--color-search-spotlight-field-spinner-border) var(--color-search-spotlight-field-spinner-border) transparent
         border-width: 2px
         border-style: solid
         width: $spotlight-field-spinner-size
@@ -118,7 +117,7 @@
         +appearance(none)
 
         +input-placeholder
-          color: $spotlight-field-contents-color
+          color: var(--color-search-spotlight-field-placeholder)
           opacity: 1
 
         +input-search
@@ -254,7 +253,7 @@
         flex: 0 0 auto
 
         .spotlight-shortcut
-          color: #929fac
+          color: var(--color-search-spotlight-shortcut-text)
           +font-size(11px)
           letter-spacing: .1px
           margin-top: -1px

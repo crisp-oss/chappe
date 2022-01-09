@@ -87,7 +87,7 @@
       position: relative
 
       &.sidebar--left
-        background-color: var(--color-base-background)
+        background-color: var(--color-content-sidebar-left)
         width: $content-sidebar-left-width
         padding-top: $header-height-outer
         padding-bottom: 30px
@@ -99,7 +99,7 @@
         bottom: 0
 
       &.sidebar--right
-        background-color: #2d3134
+        background-color: var(--color-content-sidebar-right)
         width: $content-sidebar-right-default-width
 
       .sidebar-toggler-retract
@@ -240,7 +240,7 @@
 
               &,
               .nest-navigate-slice
-                color: #44566b
+                color: var(--color-content-sidebar-nest-navigate-slice-text)
 
               &[data-active="true"]
                 background-color: var(--color-blue)
@@ -413,7 +413,7 @@
         +font-size(18.5px)
 
       .bulletpoint-label
-        color: #879aad
+        color: var(--color-content-bulletpoint-label-text)
         +font-size(14px)
         line-height: 18px
         margin-top: 9px
@@ -509,7 +509,7 @@
             line-height: 20px
 
           .navigation-label
-            color: #879aad
+            color: var(--color-content-navigation-label-text)
             +font-size(13.5px)
             line-height: 18px
             margin-top: 3px

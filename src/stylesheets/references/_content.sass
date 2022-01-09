@@ -43,7 +43,7 @@ $part-chunk-padding-sides: 24px
         flex: 1
 
       .details-updated
-        color: #44566b
+        color: var(--color-references-details-updated-text)
         +font-size(13.5px)
         flex: 0 0 auto
         padding-left: 8px
@@ -69,7 +69,7 @@ $part-chunk-padding-sides: 24px
 
     .group-anchor
       .group-origin
-        color: #44566b
+        color: var(--color-references-group-origin)
         margin-left: 9px
 
   .introduction
@@ -207,7 +207,7 @@ $part-chunk-padding-sides: 24px
 
             .request-target-url
               background: var(--color-base)
-              border: 1px solid #c6d2e0
+              border: 1px solid var(--color-references-request-target-url-border-default)
               margin-left: 12px
               padding: 0 11px 0 9px
               display: flex
@@ -226,13 +226,13 @@ $part-chunk-padding-sides: 24px
                   margin-right: -1px
 
               &:hover
-                border-color: #aab9ca
+                border-color: var(--color-references-request-target-url-border-hover)
 
                 .request-target-copy
                   opacity: .85
 
               &:active
-                border-color: #8e99a6
+                border-color: var(--color-references-request-target-url-border-active)
 
                 .request-target-copy
                   opacity: 1
@@ -335,7 +335,7 @@ $part-chunk-padding-sides: 24px
                 flex: 0 0 auto
 
               .request-format-type
-                color: #44566b
+                color: var(--color-references-request-format-type-text)
                 user-select: none
                 min-width: 58px
 
@@ -344,17 +344,17 @@ $part-chunk-padding-sides: 24px
                 margin-left: 4px
 
               .request-format-required
-                color: #eb4e3a
+                color: var(--color-references-request-format-required-text)
 
               .request-format-optional
-                color: #a2a8b0
+                color: var(--color-references-request-format-optional-text)
 
               .request-format-head
                 display: flex
                 flex-direction: row
 
               .request-format-label
-                color: #717982
+                color: var(--color-references-request-format-label-text)
                 hyphens: auto
                 word-break: break-all
                 margin-top: 1px
@@ -490,7 +490,7 @@ $part-chunk-padding-sides: 24px
               flex: 0 0 auto
 
             .examples-detail-value
-              color: #858b8e
+              color: var(--color-references-examples-detail-value-text)
               +font-size(13.5px)
               line-height: 16px
               word-break: break-word
@@ -504,10 +504,10 @@ $part-chunk-padding-sides: 24px
                   margin-right: 0
 
               .examples-detail-segment
-                color: #dde4e8
+                color: var(--color-references-examples-detail-segment-text)
 
               .examples-detail-parameter
-                color: #c2ee65
+                color: var(--color-references-examples-detail-parameter-text)
 
         .code
           margin: 24px 0 0
