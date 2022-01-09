@@ -9,9 +9,7 @@ mixin references-sidebar-context(reference)
 
   .context
     .context-name.font-sans-semibold
-      span.context-icon(
-        style=((context_icon !== null) ? ("background-image: url('/static/user/" + context_icon + "');") : null)
-      )
+      +icon-user-override("context-icon", context_icon)
 
       | #{reference.title}
 

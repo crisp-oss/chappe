@@ -8,6 +8,13 @@ mixin text-space
   | <span> </span>
 
 
+mixin icon-user-override(icon_class, icon_image)
+  span(
+    class="#{icon_class}",
+    style=((icon_image !== null) ? ("-webkit-mask-image: url('/static/user/" + icon_image + "'); mask-image: url('/static/user/" + icon_image + "');") : null)
+  )
+
+
 mixin sidebar-toggler
   .sidebar-toggler(
     data-toggled="false"
@@ -44,9 +51,7 @@ mixin nest(origin, category, parent_id)
       - var link_icon_category = (SITE.images.categories[origin][category.id] || null);
       - var link_url_category  = (category.segments ? ("/" + page + "/" + category.segments.join("/") + "/") : null);
 
-      span.nest-icon(
-        style=((link_icon_category !== null) ? ("background-image: url('/static/user/" + link_icon_category + "');") : null)
-      )
+      +icon-user-override("nest-icon", link_icon_category)
 
       if link_url_category
         a.nest-category-link(

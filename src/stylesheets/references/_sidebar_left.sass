@@ -7,15 +7,15 @@
   .panes
     .sidebar
       &.sidebar--left
-        .context
-          .context-name
-            .context-icon
-              +background-image-fill
+        .context .context-name .context-icon,
+        .nest .nest-category .nest-icon
+          background-color: var(--color-accent-base)
+          +mask-image-fill
 
         .nest
           .nest-category
             .nest-icon
-              +background-image-internal-fill("references/sidebar/category-icon-default.svg")
+              +mask-image-external("references/sidebar/category-icon-default.svg")
 
 
 //- Media Queries
