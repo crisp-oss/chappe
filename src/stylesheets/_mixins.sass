@@ -50,15 +50,15 @@
 
 @mixin mask-image-internal($image)
   @if $with-inline-images == true
-    mask-image: inline-image($image)
+    +mask-image(inline-image($image))
   @else
-    mask-image: url('/static/images/#{$image}?#{$cache-buster-hash}')
+    +mask-image(url('/static/images/#{$image}?#{$cache-buster-hash}'))
 
 
 @mixin mask-image-fill($display: true)
-  mask-size: contain
-  mask-repeat: no-repeat
-  mask-position: center
+  +mask-size(contain)
+  +mask-repeat(no-repeat)
+  +mask-position(center)
 
   @if $display == true
     display: inline-block
@@ -116,6 +116,26 @@
 @mixin backdrop-filter($rules)
   -webkit-backdrop-filter: $rules
   backdrop-filter: $rules
+
+
+@mixin mask-image($value)
+  -webkit-mask-image: $value
+  mask-image: $value
+
+
+@mixin mask-size($value)
+  -webkit-mask-size: $value
+  mask-size: $value
+
+
+@mixin mask-repeat($value)
+  -webkit-mask-repeat: $value
+  mask-repeat: $value
+
+
+@mixin mask-position($value)
+  -webkit-mask-position: $value
+  mask-position: $value
 
 
 @mixin font-smoothing($value: antialiased)
