@@ -15,7 +15,6 @@
   --color-red: #{$color-red}
 
   // Base
-  --color-base: #{$color-base}
   --color-base-background: #{rgba($color-base, .65)}
 
   // Selection
@@ -53,15 +52,17 @@
   // Markdown
   --color-markdown-title-small-text: #44566b
   --color-markdown-list-item-bullet: #44566b
-  --color-markdown-code-background-inline: #e8f5fa
-  --color-markdown-code-background-block: #1f2224
-  --color-markdown-code-border-inline: #a9c6dd
-  --color-markdown-code-text-inline: #275190
+  --color-markdown-code-inline-background: #e8f5fa
+  --color-markdown-code-inline-border: #a9c6dd
+  --color-markdown-code-inline-text: #275190
+  --color-markdown-code-block-background: #1f2224
   --color-markdown-code-selection: #{rgba($color-selection-code, .25)}
   --color-markdown-figure-text: #879aad
   --color-markdown-figure-border: #{rgba($color-grey, .9)}
+  --color-markdown-table-head-background: #{$color-base}
   --color-markdown-table-head-text: #44566b
   --color-markdown-table-cell-border: #{rgba(#c1ccd8, .65)}
+  --color-markdown-blockquote-background: #{$color-base}
   --color-markdown-blockquote-text: #44566b
   --color-markdown-blockquote-border: #c0cedd
   --color-markdown-emphasis-warning-text: #fff4e1
@@ -76,11 +77,11 @@
   --color-code-border-hover: #{rgba($color-white, .25)}
   --color-code-header-default: #151517
   --color-code-header-hover: #0c0c0d
-  --color-code-language: #{rgba($color-white, .6)}
-  --color-code-metas: #1e1e20
+  --color-code-language-text: #{rgba($color-white, .6)}
+  --color-code-metas-background: #1e1e20
   --color-code-meta-name-border: #{rgba($color-white, .06)}
   --color-code-meta-name-text: #{rgba($color-white, .8)}
-  --color-code-meta-type: #{rgba($color-white, .4)}
+  --color-code-meta-type-text: #{rgba($color-white, .4)}
   --color-code-content-background: #222628
   --color-code-content-text: #{rgba($color-white, .4)}
   --color-code-select-text-default: #{rgba($color-white, .5)}
@@ -89,14 +90,14 @@
   --color-code-select-border-hover: #{rgba($color-white, .15)}
 
   // Search
-  --color-search-lock: #{rgba(#495368, .45)}
-  --color-search-spotlight-field: #{rgba($color-base, .65)}
+  --color-search-lock-background: #{rgba(#495368, .45)}
   --color-search-spotlight-shadow: #{rgba($color-black, .1)}
   --color-search-spotlight-shortcut-text: #929fac
+  --color-search-spotlight-field-background: #{rgba($color-base, .65)}
   --color-search-spotlight-field-placeholder: #607282
   --color-search-spotlight-field-spinner-border: #607282
-  --color-search-spotlight-entry-link-default: #{$color-blue}
-  --color-search-spotlight-entry-link-active: #{darken($color-blue, 3%)}
+  --color-search-spotlight-entry-link-background-default: #{$color-blue}
+  --color-search-spotlight-entry-link-background-active: #{darken($color-blue, 3%)}
 
   // Header
   --color-header-background: #{rgba($color-white, .85)}
@@ -104,8 +105,9 @@
   --color-header-shadow: #{rgba($color-black, .06)}
   --color-header-dropdown-border: #{rgba($color-grey, .65)}
   --color-header-dropdown-shadow: #{rgba($color-black, .05)}
-  --color-header-dropdown-link-hover: #{$color-blue}
-  --color-header-dropdown-link-active: #{darken($color-blue, 5%)}
+  --color-header-dropdown-link-background-hover: #{$color-blue}
+  --color-header-dropdown-link-background-active: #{darken($color-blue, 5%)}
+  --color-header-search-background: #{$color-base}
   --color-header-search-border-default: #{$color-grey-dark}
   --color-header-search-border-hover: #{darken($color-grey-dark, 10%)}
   --color-header-search-border-active: #{darken($color-grey-dark, 14%)}
@@ -114,7 +116,7 @@
   --color-header-search-shortcut-text: #a2aeb9
   --color-header-search-shortcut-border: #d5dadf
   --color-header-search-shortcut-shadow: #e4e9ed
-  --color-header-appearance: #{lighten($color-grey-light, 1%)}
+  --color-header-appearance-background: #{lighten($color-grey-light, 1%)}
   --color-header-appearance-toggle-border-default: #{rgba(darken($color-grey-dark, 50%), .2)}
   --color-header-appearance-toggle-border-hover: #{rgba(darken($color-grey-dark, 50%), .225)}
   --color-header-appearance-toggle-border-active: #{rgba(darken($color-grey-dark, 50%), .175)}
@@ -131,20 +133,21 @@
   --color-content-navigation-shadow-active: #{rgba(#c1ccd8, .4)}
   --color-content-navigation-label-text: #879aad
   --color-content-bulletpoint-label-text: #879aad
-  --color-content-sidebar-small: #{rgba($color-base, .9)}
-  --color-content-sidebar-small-shadow: #{rgba($color-black, .04)}
-  --color-content-sidebar-left: #{rgba($color-base, .65)}
-  --color-content-sidebar-right: #2d3134
+  --color-content-sidebar-left-background-default: #{rgba($color-base, .65)}
+  --color-content-sidebar-left-background-small: #{rgba($color-base, .9)}
+  --color-content-sidebar-left-background-tiny: #{$color-base}
+  --color-content-sidebar-left-shadow-small: #{rgba($color-black, .04)}
+  --color-content-sidebar-right-background: #2d3134
   --color-content-sidebar-toggler-background: #{rgba($color-white, .85)}
   --color-content-sidebar-toggler-shadow-default: #{rgba($color-black, .1)}
   --color-content-sidebar-toggler-shadow-hover: #{rgba($color-black, .125)}
   --color-content-sidebar-toggler-shadow-active: #{rgba($color-black, .2)}
-  --color-content-sidebar-nest-navigate-link-hover: #{lighten($color-grey-light, 3%)}
-  --color-content-sidebar-nest-navigate-link-active: #{lighten($color-grey-light, 1%)}
-  --color-content-sidebar-nest-navigate-link-toggle-hover: #{darken($color-grey-light, 3%)}
-  --color-content-sidebar-nest-navigate-link-toggle-active: #{darken($color-grey-light, 7%)}
-  --color-content-sidebar-nest-navigate-link-active-toggle-hover: #{rgba($color-white, .15)}
-  --color-content-sidebar-nest-navigate-link-active-toggle-active: #{rgba($color-white, .2)}
+  --color-content-sidebar-nest-navigate-link-background-hover: #{lighten($color-grey-light, 3%)}
+  --color-content-sidebar-nest-navigate-link-background-active: #{lighten($color-grey-light, 1%)}
+  --color-content-sidebar-nest-navigate-link-default-toggle-background-hover: #{darken($color-grey-light, 3%)}
+  --color-content-sidebar-nest-navigate-link-default-toggle-background-active: #{darken($color-grey-light, 7%)}
+  --color-content-sidebar-nest-navigate-link-active-toggle-background-hover: #{rgba($color-white, .15)}
+  --color-content-sidebar-nest-navigate-link-active-toggle-background-active: #{rgba($color-white, .2)}
   --color-content-sidebar-nest-navigate-slice-text: #44566b
 
   // Footer
@@ -168,7 +171,8 @@
   --color-references-separator-content: #{rgba($color-grey, .65)}
   --color-references-separator-sidebar: #{rgba($color-grey, .15)}
   --color-references-details-updated-text: #44566b
-  --color-references-group-origin: #44566b
+  --color-references-group-origin-text: #44566b
+  --color-references-request-target-url-background: #{$color-base}
   --color-references-request-target-url-border-default: #c6d2e0
   --color-references-request-target-url-border-hover: #aab9ca
   --color-references-request-target-url-border-active: #8e99a6
@@ -176,12 +180,12 @@
   --color-references-request-format-required-text: #eb4e3a
   --color-references-request-format-optional-text: #a2a8b0
   --color-references-request-format-label-text: #717982
-  --color-references-request-format-keys-depth-zero: #{lighten($color-grey-light, 10%)}
-  --color-references-request-format-keys-depth-one: #{lighten($color-grey-light, 5%)}
-  --color-references-request-format-keys-depth-two: #{$color-grey-light}
-  --color-references-request-format-keys-depth-three: #{darken($color-grey-light, 5%)}
-  --color-references-request-format-keys-depth-four: #{darken($color-grey-light, 10%)}
-  --color-references-request-format-keys-depth-infinity: #{darken($color-grey-light, 15%)}
+  --color-references-request-format-keys-depth-border-zero: #{lighten($color-grey-light, 10%)}
+  --color-references-request-format-keys-depth-border-one: #{lighten($color-grey-light, 5%)}
+  --color-references-request-format-keys-depth-border-two: #{$color-grey-light}
+  --color-references-request-format-keys-depth-border-three: #{darken($color-grey-light, 5%)}
+  --color-references-request-format-keys-depth-border-four: #{darken($color-grey-light, 10%)}
+  --color-references-request-format-keys-depth-border-infinity: #{darken($color-grey-light, 15%)}
   --color-references-request-format-toggle-count-text: #{lighten($color-black, 12.5%)}
   --color-references-request-format-toggle-count-background: #{lighten($color-grey-light, 2%)}
   --color-references-request-format-toggle-button-border: #{darken($color-grey-dark, 8%)}
@@ -192,8 +196,9 @@
   --color-references-examples-detail-parameter-text: #c2ee65
 
   // Changes
-  --color-changes-navigate-link-hover: #{lighten($color-grey-light, 6%)}
-  --color-changes-navigate-link-active: #{lighten($color-grey-light, 4%)}
+  --color-changes-notice-background: #{$color-base}
+  --color-changes-navigate-link-background-hover: #{lighten($color-grey-light, 6%)}
+  --color-changes-navigate-link-background-active: #{lighten($color-grey-light, 4%)}
   --color-changes-month-event-border: #{rgba($color-grey, .65)}
   --color-changes-month-event-group-text: #607282
-  --color-changes-month-event-deprecated-text-background: #fdeaee
+  --color-changes-month-event-deprecated-background: #fdeaee

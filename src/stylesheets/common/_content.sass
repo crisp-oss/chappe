@@ -87,7 +87,7 @@
       position: relative
 
       &.sidebar--left
-        background-color: var(--color-content-sidebar-left)
+        background-color: var(--color-content-sidebar-left-background-default)
         width: $content-sidebar-left-width
         padding-top: $header-height-outer
         padding-bottom: 30px
@@ -99,7 +99,7 @@
         bottom: 0
 
       &.sidebar--right
-        background-color: var(--color-content-sidebar-right)
+        background-color: var(--color-content-sidebar-right-background)
         width: $content-sidebar-right-default-width
 
       .sidebar-toggler-retract
@@ -233,10 +233,10 @@
               transition-property: background-color, color
 
               &:hover
-                background-color: var(--color-content-sidebar-nest-navigate-link-hover)
+                background-color: var(--color-content-sidebar-nest-navigate-link-background-hover)
 
               &:active
-                background-color: var(--color-content-sidebar-nest-navigate-link-active)
+                background-color: var(--color-content-sidebar-nest-navigate-link-background-active)
 
               &,
               .nest-navigate-slice
@@ -296,13 +296,13 @@
                     transition-property: opacity, transform
 
                   &:hover
-                    background-color: var(--color-content-sidebar-nest-navigate-link-toggle-hover)
+                    background-color: var(--color-content-sidebar-nest-navigate-link-default-toggle-background-hover)
 
                     &:after
                       opacity: 1
 
                   &:active
-                    background-color: var(--color-content-sidebar-nest-navigate-link-toggle-active)
+                    background-color: var(--color-content-sidebar-nest-navigate-link-default-toggle-background-active)
 
                 &[data-active="true"]
                   .nest-navigate-toggle
@@ -310,10 +310,10 @@
                       +background-image-internal("common/content/sidebar-link-slice-icon-active.svg")
 
                     &:hover
-                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-hover)
+                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-background-hover)
 
                     &:active
-                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-active)
+                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-background-active)
 
                 .nest-navigate-slice
                   flex: 1
@@ -570,7 +570,7 @@
 
       .sidebar
         &.sidebar--left
-          background-color: var(--color-content-sidebar-small)
+          background-color: var(--color-content-sidebar-left-background-small)
           padding-top: 20px
           padding-bottom: 20px
           overflow-x: hidden
@@ -581,7 +581,7 @@
           left: (-1 * ($content-sidebar-left-width + 10px))
           z-index: 75
           transition: left ease 200ms
-          box-shadow: 1px 0 5px 0 var(--color-content-sidebar-small-shadow)
+          box-shadow: 1px 0 5px 0 var(--color-content-sidebar-left-shadow-small)
           +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
           &[data-visible="true"]
@@ -620,7 +620,7 @@
 
       .sidebar
         &.sidebar--left
-          background-color: var(--color-base)
+          background-color: var(--color-content-sidebar-left-background-tiny)
           visibility: hidden
           opacity: 0
           width: auto

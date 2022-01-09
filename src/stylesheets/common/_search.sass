@@ -65,7 +65,7 @@
 
     .spotlight-field,
     .spotlight-legend
-      background-color: var(--color-search-spotlight-field)
+      background-color: var(--color-search-spotlight-field-background)
       flex: 0 0 auto
 
     .spotlight-field
@@ -145,11 +145,11 @@
 
           &[data-selected="true"]
             .spotlight-entry-link
-              background-color: var(--color-search-spotlight-entry-link-default)
+              background-color: var(--color-search-spotlight-entry-link-background-default)
               color: var(--color-white)
 
               &:active
-                background-color: var(--color-search-spotlight-entry-link-active)
+                background-color: var(--color-search-spotlight-entry-link-background-active)
                 transition: background-color linear 100ms
 
               &:after
@@ -299,7 +299,7 @@
 
   &:after
     content: ""
-    background-color: var(--color-search-lock)
+    background-color: var(--color-search-lock-background)
     z-index: 1
     +animation-name(search-lock-animation)
     +animation-duration(.1s)
