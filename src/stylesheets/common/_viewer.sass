@@ -4,7 +4,8 @@
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
 .viewer
-  &.viewer--panes
+  &[data-viewer-panes="2"],
+  &[data-viewer-panes="3"]
     #content
       .panes
         .content
@@ -20,14 +21,47 @@
       .inner
         border-left: 1px solid var(--color-viewer-panes-footer-border)
 
+  &[data-viewer-panes="3"]
+    #header
+      .search
+        background: var(--color-header-search-background-clear)
+        border-color: var(--color-header-search-border-clear-default)
+
+        &:hover
+          border-color: var(--color-header-search-border-clear-hover)
+
+        &:active
+          border-color: var(--color-header-search-border-clear-active)
+
+      .appearance
+        background-color: var(--color-header-appearance-background-clear)
+
 
 //- Media Queries
 
 // For screens below defined widths
 
+@media screen and (max-width: $screen-medium-width-breakpoint)
+  .viewer
+    &[data-viewer-panes="3"]
+      #header
+        .search
+          background: var(--color-header-search-background-default)
+          border-color: var(--color-header-search-border-default)
+
+          &:hover
+            border-color: var(--color-header-search-border-hover)
+
+          &:active
+            border-color: var(--color-header-search-border-active)
+
+        .appearance
+          background-color: var(--color-header-appearance-background-default)
+
 @media screen and (max-width: $screen-small-width-breakpoint)
   .viewer
-    &.viewer--panes
+    &[data-viewer-panes="2"],
+    &[data-viewer-panes="3"]
       #content
         .panes
           .content

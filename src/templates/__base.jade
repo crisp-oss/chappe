@@ -6,7 +6,8 @@
 include _mixins
 
 block vars
-  - var page = null;
+  - var page  = null;
+  - var panes = 1;
 
 mixin head-stylesheet(href)
   link(
@@ -51,7 +52,7 @@ html(
       +head-javascript("/static/javascripts/common/common")
 
   body.viewer.appearance(
-    class=(viewer ? ("viewer--" + viewer) : null),
+    data-viewer-panes="#{panes}",
     data-appearance="light"
   )
     include _body_header
