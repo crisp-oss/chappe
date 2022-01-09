@@ -374,7 +374,7 @@
   .bulletpoints .bulletpoint,
   .navigation .navigation-link
     background-color: var(--color-content-navigation-background)
-    border: 1px solid #c1ccd8
+    border: 1px solid var(--color-content-navigation-border-default)
     text-align: left
     box-shadow: 0 2px 1px 0 var(--color-content-navigation-shadow-outset), inset 0 1px 0 0 var(--color-content-navigation-shadow-inset)
     border-radius: 2px
@@ -384,13 +384,13 @@
   .navigation
     .navigation-link
       &:hover
-        border-color: #b1bfce
+        border-color: var(--color-content-navigation-border-active)
 
   .navigation
     .navigation-link
       &:active
         transform: translateY(1px)
-        box-shadow: 0 1px 1px 0 rgba(#c1ccd8, .4)
+        box-shadow: 0 1px 1px 0 var(--color-content-navigation-shadow-active)
 
   .bulletpoints
     display: grid

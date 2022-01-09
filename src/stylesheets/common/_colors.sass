@@ -53,6 +53,7 @@
   // Markdown
   --color-markdown-code-selection: #{rgba($color-selection-code, .25)}
   --color-markdown-figure-border: #{rgba($color-grey, .9)}
+  --color-markdown-table-cell-border: #{rgba(#c1ccd8, .65)}
 
   // Code
   --color-code-selection: #{rgba($color-selection-code, .3)}
@@ -69,10 +70,11 @@
   --color-code-select-border-hover: #{rgba($color-white, .15)}
 
   // Search
-  --color-spotlight-field: #{rgba($color-base, .65)}
-  --color-spotlight-shadow: #{rgba($color-black, .1)}
-  --color-spotlight-entry-link-default: #{$color-blue}
-  --color-spotlight-entry-link-active: #{darken($color-blue, 3%)}
+  --color-search-lock: #{rgba(#495368, .45)}
+  --color-search-spotlight-field: #{rgba($color-base, .65)}
+  --color-search-spotlight-shadow: #{rgba($color-black, .1)}
+  --color-search-spotlight-entry-link-default: #{$color-blue}
+  --color-search-spotlight-entry-link-active: #{darken($color-blue, 3%)}
 
   // Header
   --color-header-background: #{rgba($color-white, .85)}
@@ -96,8 +98,11 @@
 
   // Content
   --color-content-navigation-background: #{rgba($color-base, .25)}
+  --color-content-navigation-border-default: #c1ccd8
+  --color-content-navigation-border-active: #b1bfce
   --color-content-navigation-shadow-outset: #{rgba(#c1ccd8, .25)}
   --color-content-navigation-shadow-inset: #{rgba($color-white, .75)}
+  --color-content-navigation-shadow-active: #{rgba(#c1ccd8, .4)}
   --color-content-sidebar-small: #{rgba($color-base, .9)}
   --color-content-sidebar-small-shadow: #{rgba($color-black, .04)}
   --color-content-sidebar-toggler-background: #{rgba($color-white, .85)}
@@ -110,6 +115,11 @@
   --color-content-sidebar-nest-navigate-link-toggle-active: #{darken($color-grey-light, 7%)}
   --color-content-sidebar-nest-navigate-link-active-toggle-hover: #{rgba($color-white, .15)}
   --color-content-sidebar-nest-navigate-link-active-toggle-active: #{rgba($color-white, .2)}
+
+  // Footer
+  --color-footer-brand-separator: #{rgba(#9fb0c2, .3)}
+  --color-footer-status-border-default: #{rgba(#9fb0c2, .45)}
+  --color-footer-status-border-hover: #{rgba(#9fb0c2, .65)}
 
   // Guides
   --color-guides-details-border: #{rgba($color-grey, .65)}
@@ -133,3 +143,5 @@
   --color-changes-navigate-link-hover: #{lighten($color-grey-light, 6%)}
   --color-changes-navigate-link-active: #{lighten($color-grey-light, 4%)}
   --color-changes-month-event-border: #{rgba($color-grey, .65)}
+  --color-changes-month-event-group-text: #607282
+  --color-changes-month-event-deprecated-text-background: #fdeaee

@@ -62,11 +62,11 @@
       display: flex
       flex-direction: column
       border-radius: 6px
-      box-shadow: 0 4px 6px 0 var(--color-spotlight-shadow)
+      box-shadow: 0 4px 6px 0 var(--color-search-spotlight-shadow)
 
     .spotlight-field,
     .spotlight-legend
-      background-color: var(--color-spotlight-field)
+      background-color: var(--color-search-spotlight-field)
       flex: 0 0 auto
 
     .spotlight-field
@@ -146,11 +146,11 @@
 
           &[data-selected="true"]
             .spotlight-entry-link
-              background-color: var(--color-spotlight-entry-link-default)
+              background-color: var(--color-search-spotlight-entry-link-default)
               color: var(--color-white)
 
               &:active
-                background-color: var(--color-spotlight-entry-link-active)
+                background-color: var(--color-search-spotlight-entry-link-active)
                 transition: background-color linear 100ms
 
               &:after
@@ -300,7 +300,7 @@
 
   &:after
     content: ""
-    background-color: rgba(#495368, .45)
+    background-color: var(--color-search-lock)
     z-index: 1
     +animation-name(search-lock-animation)
     +animation-duration(.1s)
