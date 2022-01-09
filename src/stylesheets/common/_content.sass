@@ -344,19 +344,19 @@
       top: ($header-height + $header-border-size)
       left: 0
       z-index: 50
-      box-shadow: 0 1px 5px 0 rgba($color-black, .1)
+      box-shadow: 0 1px 5px 0 var(--color-content-sidebar-toggler-shadow-default)
       border-radius: 100%
       transition: box-shadow linear 150ms
       +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
       &:hover
-        box-shadow: 0 2px 6px 0 rgba($color-black, .125)
+        box-shadow: 0 2px 6px 0 var(--color-content-sidebar-toggler-shadow-hover)
 
         &:after
           opacity: .9
 
       &:active
-        box-shadow: 0 1px 3px 0 rgba($color-black, .2)
+        box-shadow: 0 1px 3px 0 var(--color-content-sidebar-toggler-shadow-active)
 
         &:after
           opacity: 1
@@ -581,7 +581,7 @@
           left: (-1 * ($content-sidebar-left-width + 10px))
           z-index: 75
           transition: left ease 200ms
-          box-shadow: 1px 0 5px 0 rgba($color-black, .04)
+          box-shadow: 1px 0 5px 0 var(--color-content-sidebar-small-shadow)
           +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
           &[data-visible="true"]

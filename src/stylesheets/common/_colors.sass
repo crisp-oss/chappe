@@ -24,6 +24,7 @@
   // Buttons
   --color-button-default: #{$color-blue}
   --color-button-active: #{darken($color-blue, 3%)}
+  --color-button-shadow: #{rgba($color-black, .1)}
 
   // Badges
   --color-badge-black: #{$color-badge-black}
@@ -55,11 +56,15 @@
 
   // Search
   --color-spotlight-field: #{rgba($color-base, .65)}
+  --color-spotlight-shadow: #{rgba($color-black, .1)}
   --color-spotlight-entry-link-default: #{$color-blue}
   --color-spotlight-entry-link-active: #{darken($color-blue, 3%)}
 
   // Header
   --color-header-border: #{rgba($color-grey, .65)}
+  --color-header-shadow: #{rgba($color-black, .06)}
+  --color-header-dropdown-border: #{rgba($color-grey, .65)}
+  --color-header-dropdown-shadow: #{rgba($color-black, .05)}
   --color-header-dropdown-link-hover: #{$color-blue}
   --color-header-dropdown-link-active: #{darken($color-blue, 5%)}
   --color-header-search-border-default: #{$color-grey-dark}
@@ -70,10 +75,17 @@
   --color-header-appearance-toggle-border-default: #{rgba(darken($color-grey-dark, 50%), .2)}
   --color-header-appearance-toggle-border-hover: #{rgba(darken($color-grey-dark, 50%), .225)}
   --color-header-appearance-toggle-border-active: #{rgba(darken($color-grey-dark, 50%), .175)}
+  --color-header-appearance-toggle-shadow-default: #{rgba($color-black, .04)}
+  --color-header-appearance-toggle-shadow-hover: #{rgba($color-black, .06)}
+  --color-header-appearance-toggle-shadow-active: #{rgba($color-black, .02)}
 
   // Content
   --color-content-navigation: #{rgba($color-base, .25)}
   --color-content-sidebar-small: #{rgba($color-base, .9)}
+  --color-content-sidebar-small-shadow: #{rgba($color-black, .04)}
+  --color-content-sidebar-toggler-shadow-default: #{rgba($color-black, .1)}
+  --color-content-sidebar-toggler-shadow-hover: #{rgba($color-black, .125)}
+  --color-content-sidebar-toggler-shadow-active: #{rgba($color-black, .2)}
   --color-content-sidebar-nest-navigate-link-hover: #{lighten($color-grey-light, 3%)}
   --color-content-sidebar-nest-navigate-link-active: #{lighten($color-grey-light, 1%)}
   --color-content-sidebar-nest-navigate-link-toggle-hover: #{darken($color-grey-light, 3%)}
@@ -91,6 +103,7 @@
   --color-references-request-format-keys-depth-three: #{darken($color-grey-light, 5%)}
   --color-references-request-format-keys-depth-four: #{darken($color-grey-light, 10%)}
   --color-references-request-format-keys-depth-infinity: #{darken($color-grey-light, 15%)}
+  --color-references-request-format-toggle-count-text: #{lighten($color-black, 12.5%)}
   --color-references-request-format-toggle-count-background: #{lighten($color-grey-light, 2%)}
   --color-references-request-format-toggle-button-border: #{darken($color-grey-dark, 8%)}
   --color-references-request-format-toggle-button-shadow: #{rgba($color-grey-dark, .25)}
