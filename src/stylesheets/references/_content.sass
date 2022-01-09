@@ -29,7 +29,7 @@ $part-chunk-padding-sides: 24px
       padding-left: $part-chunk-padding-sides
 
     .details-inner
-      border-bottom: 1px solid rgba($color-grey, .65)
+      border-bottom: 1px solid var(--color-references-separator-content)
       padding-bottom: 18px
       display: flex
       flex-direction: row
@@ -153,12 +153,12 @@ $part-chunk-padding-sides: 24px
         bottom: 0
 
       &:before
-        background-color: rgba($color-grey, .65)
+        background-color: var(--color-references-separator-content)
         left: $part-chunk-padding-sides
         right: $content-sidebar-right-default-width
 
       &:after
-        background-color: rgba($color-grey, .15)
+        background-color: var(--color-references-separator-sidebar)
         width: $content-sidebar-right-default-width
         right: 0
 
@@ -281,7 +281,7 @@ $part-chunk-padding-sides: 24px
                   margin-top: ((-1 * $emphasis-margin-top-bottom) + 8px)
 
             .request-format-title
-              border-bottom: 1px solid rgba($color-grey, .65)
+              border-bottom: 1px solid var(--color-references-separator-content)
               color: var(--color-black)
               +font-size(15px)
               user-select: none

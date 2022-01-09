@@ -43,8 +43,12 @@
   --color-method-delete-light: #{$color-method-delete-light}
   --color-method-delete-dark: #{$color-method-delete-dark}
 
+  // Viewer
+  --color-viewer-panes-footer-border: #{rgba($color-grey, .5)}
+
   // Markdown
   --color-markdown-code-selection: #{rgba($color-selection-code, .25)}
+  --color-markdown-figure-border: #{rgba($color-grey, .9)}
 
   // Code
   --color-code-selection: #{rgba($color-selection-code, .3)}
@@ -55,6 +59,7 @@
   --color-spotlight-entry-link-active: #{darken($color-blue, 3%)}
 
   // Header
+  --color-header-border: #{rgba($color-grey, .65)}
   --color-header-dropdown-link-hover: #{$color-blue}
   --color-header-dropdown-link-active: #{darken($color-blue, 5%)}
   --color-header-search-border-default: #{$color-grey-dark}
@@ -74,7 +79,12 @@
   --color-content-sidebar-nest-navigate-link-toggle-hover: #{darken($color-grey-light, 3%)}
   --color-content-sidebar-nest-navigate-link-toggle-active: #{darken($color-grey-light, 7%)}
 
+  // Guides
+  --color-guides-details-border: #{rgba($color-grey, .65)}
+
   // References
+  --color-references-separator-content: #{rgba($color-grey, .65)}
+  --color-references-separator-sidebar: #{rgba($color-grey, .15)}
   --color-references-request-format-keys-depth-zero: #{lighten($color-grey-light, 10%)}
   --color-references-request-format-keys-depth-one: #{lighten($color-grey-light, 5%)}
   --color-references-request-format-keys-depth-two: #{$color-grey-light}
@@ -89,3 +99,4 @@
   // Changes
   --color-changes-navigate-link-hover: #{lighten($color-grey-light, 6%)}
   --color-changes-navigate-link-active: #{lighten($color-grey-light, 4%)}
+  --color-changes-month-event-border: #{rgba($color-grey, .65)}
