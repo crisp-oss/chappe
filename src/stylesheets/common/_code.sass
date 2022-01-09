@@ -30,7 +30,7 @@
             display: none
 
   &:hover
-    border-color: rgba($color-white, .25)
+    border-color: var(--color-code-border-hover)
 
     .code-header
       background-color: #0c0c0d
@@ -55,7 +55,7 @@
       align-items: center
 
     .code-language
-      color: rgba($color-white, .6)
+      color: var(--color-code-language)
       +font-size(12.5px)
       flex: 1
 
@@ -107,10 +107,10 @@
 
       .code-meta-name,
       .code-meta-picker
-        border-right: 1px solid rgba($color-white, .06)
+        border-right: 1px solid var(--color-code-meta-name-border)
 
       .code-meta-name
-        color: rgba($color-white, .8)
+        color: var(--color-code-meta-name-text)
         text-align: left
         padding-right: 8px
         margin-right: 10px
@@ -121,12 +121,12 @@
         margin-right: 8px
 
       .code-meta-type
-        color: rgba($color-white, .4)
+        color: var(--color-code-meta-type)
         text-align: right
 
     .code-content
-      background-color: #222628
-      color: rgba($color-white, .4)
+      background-color: var(--color-code-content-background)
+      color: var(--color-code-content-text)
       +font-size(11px)
       line-height: 16px
       white-space: pre
@@ -147,8 +147,8 @@
     $select-padding-sides: 8px
 
     background: transparent
-    color: rgba($color-white, .5)
-    border: 1px solid rgba($color-white, .075)
+    color: var(--color-code-select-text-default)
+    border: 1px solid var(--color-code-select-border-default)
     +background-image-internal("common/code/select-arrow.svg")
     background-repeat: no-repeat
     background-position-x: calc(100% - 8px)
@@ -169,8 +169,8 @@
     transition-property: color, border-color
 
     &:hover
-      color: rgba($color-white, .8)
-      border-color: rgba($color-white, .15)
+      color: var(--color-code-select-text-hover)
+      border-color: var(--color-code-select-border-hover)
 
       option
         color: initial

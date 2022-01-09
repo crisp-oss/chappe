@@ -310,10 +310,10 @@
                       +background-image-internal("common/content/sidebar-link-slice-icon-active.svg")
 
                     &:hover
-                      background-color: rgba($color-white, .15)
+                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-hover)
 
                     &:active
-                      background-color: rgba($color-white, .2)
+                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-active)
 
                 .nest-navigate-slice
                   flex: 1
@@ -332,7 +332,7 @@
     .sidebar-toggler
       $sidebar-toggler-size: 36px
 
-      background-color: rgba($color-white, .85)
+      background-color: var(--color-content-sidebar-toggler-background)
       line-height: $sidebar-toggler-size
       text-align: center
       width: $sidebar-toggler-size
@@ -373,10 +373,10 @@
 
   .bulletpoints .bulletpoint,
   .navigation .navigation-link
-    background-color: var(--color-content-navigation)
+    background-color: var(--color-content-navigation-background)
     border: 1px solid #c1ccd8
     text-align: left
-    box-shadow: 0 2px 1px 0 rgba(#c1ccd8, .25), inset 0 1px 0 0 rgba($color-white, .75)
+    box-shadow: 0 2px 1px 0 var(--color-content-navigation-shadow-outset), inset 0 1px 0 0 var(--color-content-navigation-shadow-inset)
     border-radius: 2px
     transition: all linear 100ms
     transition-property: border-color, box-shadow, transform
