@@ -10,7 +10,6 @@
   --color-grey: #{$color-grey}
   --color-grey-light: #{$color-grey-light}
   --color-grey-dark: #{$color-grey-dark}
-  --color-blue: #{$color-blue}
   --color-blue-grey: #{$color-blue-grey}
   --color-red: #{$color-red}
 
@@ -21,8 +20,8 @@
   --color-selection-default: #{$color-selection-default}
 
   // Buttons
-  --color-button-default: #{$color-blue}
-  --color-button-active: #{darken($color-blue, 3%)}
+  --color-button-default: var(--color-accent-base)
+  --color-button-active: var(--color-accent-active)
   --color-button-shadow: #{rgba($color-black, .1)}
 
   // Badges
@@ -96,8 +95,8 @@
   --color-search-spotlight-field-background: #{rgba($color-base, .65)}
   --color-search-spotlight-field-placeholder: #607282
   --color-search-spotlight-field-spinner-border: #607282
-  --color-search-spotlight-entry-link-background-default: #{$color-blue}
-  --color-search-spotlight-entry-link-background-active: #{darken($color-blue, 3%)}
+  --color-search-spotlight-entry-link-background-default: var(--color-accent-base)
+  --color-search-spotlight-entry-link-background-active: var(--color-accent-active)
 
   // Header
   --color-header-background: #{rgba($color-white, .85)}
@@ -105,8 +104,8 @@
   --color-header-shadow: #{rgba($color-black, .06)}
   --color-header-dropdown-border: #{rgba($color-grey, .65)}
   --color-header-dropdown-shadow: #{rgba($color-black, .05)}
-  --color-header-dropdown-link-background-hover: #{$color-blue}
-  --color-header-dropdown-link-background-active: #{darken($color-blue, 5%)}
+  --color-header-dropdown-link-background-hover: var(--color-accent-base)
+  --color-header-dropdown-link-background-active: var(--color-accent-active)
   --color-header-search-background-default: #{$color-base}
   --color-header-search-background-clear: #{$color-white}
   --color-header-search-border-default: #{$color-grey-dark}
