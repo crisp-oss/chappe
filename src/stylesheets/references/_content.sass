@@ -36,7 +36,7 @@ $part-chunk-padding-sides: 24px
       align-items: center
 
       .details-title
-        color: $color-black
+        color: var(--color-black)
         +font-size(21px)
         line-height: 22px
         margin: 0
@@ -63,7 +63,7 @@ $part-chunk-padding-sides: 24px
 
     &,
     .group-anchor
-      color: $color-black
+      color: var(--color-black)
       +font-size(19px)
       line-height: 20px
 
@@ -103,47 +103,47 @@ $part-chunk-padding-sides: 24px
       &.part--method-head
         .specification
           .request-specification
-            border-color: $color-method-get-head-light
+            border-color: var(--color-method-get-head-light)
 
             .request-target
-              background-color: $color-method-get-head-light
+              background-color: var(--color-method-get-head-light)
 
               .request-target-method
-                background-color: $color-method-get-head-dark
+                background-color: var(--color-method-get-head-dark)
 
       &.part--method-post
         .specification
           .request-specification
-            border-color: $color-method-post-light
+            border-color: var(--color-method-post-light)
 
             .request-target
-              background-color: $color-method-post-light
+              background-color: var(--color-method-post-light)
 
               .request-target-method
-                background-color: $color-method-post-dark
+                background-color: var(--color-method-post-dark)
 
       &.part--method-put,
       &.part--method-patch
         .specification
           .request-specification
-            border-color: $color-method-put-patch-light
+            border-color: var(--color-method-put-patch-light)
 
             .request-target
-              background-color: $color-method-put-patch-light
+              background-color: var(--color-method-put-patch-light)
 
               .request-target-method
-                background-color: $color-method-put-patch-dark
+                background-color: var(--color-method-put-patch-dark)
 
       &.part--method-delete
         .specification
           .request-specification
-            border-color: $color-method-delete-light
+            border-color: var(--color-method-delete-light)
 
             .request-target
-              background-color: $color-method-delete-light
+              background-color: var(--color-method-delete-light)
 
               .request-target-method
-                background-color: $color-method-delete-dark
+                background-color: var(--color-method-delete-dark)
 
       &:before,
       &:after
@@ -173,11 +173,11 @@ $part-chunk-padding-sides: 24px
 
           &,
           .request-title-anchor
-            color: $color-black
+            color: var(--color-black)
             +font-size(17.5px)
 
         .request-specification
-          border: 1px solid $color-grey
+          border: 1px solid var(--color-grey)
           margin-top: 12px
           border-radius: 3px
 
@@ -186,7 +186,7 @@ $part-chunk-padding-sides: 24px
             padding: 0 12px
 
           .request-target
-            background-color: $color-grey
+            background-color: var(--color-grey)
             height: 42px
             display: flex
             align-items: center
@@ -196,8 +196,8 @@ $part-chunk-padding-sides: 24px
               line-height: 28px
 
             .request-target-method
-              background-color: $color-black
-              color: $color-white
+              background-color: var(--color-black)
+              color: var(--color-white)
               +font-size(13px)
               letter-spacing: -.1px
               user-select: none
@@ -206,7 +206,7 @@ $part-chunk-padding-sides: 24px
               flex: 0 0 auto
 
             .request-target-url
-              background: $color-base
+              background: var(--color-base)
               border: 1px solid #c6d2e0
               margin-left: 12px
               padding: 0 11px 0 9px
@@ -248,7 +248,7 @@ $part-chunk-padding-sides: 24px
                 transition: opacity linear 100ms
 
             .request-target-path
-              color: $color-black
+              color: var(--color-black)
               +font-size(12px)
               text-overflow: ellipsis
               white-space: nowrap
@@ -282,7 +282,7 @@ $part-chunk-padding-sides: 24px
 
             .request-format-title
               border-bottom: 1px solid rgba($color-grey, .65)
-              color: $color-black
+              color: var(--color-black)
               +font-size(15px)
               user-select: none
               margin-top: 18px
@@ -299,27 +299,27 @@ $part-chunk-padding-sides: 24px
                   margin-bottom: 0
 
                 .request-format-keys
-                  border-left: 2px solid $color-grey-light
+                  border-left: 2px solid var(--color-references-request-format-keys-depth-two)
                   margin: 7px 0
                   padding-left: 12px
 
                   &[data-depth]
-                    border-left-color: darken($color-grey-light, 15%)
+                    border-left-color: var(--color-references-request-format-keys-depth-infinity)
 
                   &[data-depth="0"]
-                    border-left-color: lighten($color-grey-light, 10%)
+                    border-left-color: var(--color-references-request-format-keys-depth-zero)
 
                   &[data-depth="1"]
-                    border-left-color: lighten($color-grey-light, 5%)
+                    border-left-color: var(--color-references-request-format-keys-depth-one)
 
                   &[data-depth="2"]
-                    border-left-color: $color-grey-light
+                    border-left-color: var(--color-references-request-format-keys-depth-two)
 
                   &[data-depth="3"]
-                    border-left-color: darken($color-grey-light, 5%)
+                    border-left-color: var(--color-references-request-format-keys-depth-three)
 
                   &[data-depth="4"]
-                    border-left-color: darken($color-grey-light, 10%)
+                    border-left-color: var(--color-references-request-format-keys-depth-four)
 
             .request-format-parts
               .request-format-type,
@@ -386,7 +386,7 @@ $part-chunk-padding-sides: 24px
                       padding-left: 15px
 
                       &:before
-                        background-color: $color-black
+                        background-color: var(--color-black)
                         width: 4px
                         height: 4px
                         top: 5px
@@ -394,9 +394,9 @@ $part-chunk-padding-sides: 24px
                         border-radius: 0
 
             .request-format-toggle-button
-              color: $color-black
-              background-color: $color-white
-              border: 1px solid darken($color-grey-dark, 8%)
+              color: var(--color-black)
+              background-color: var(--color-white)
+              border: 1px solid var(--color-references-request-format-toggle-button-border)
               line-height: 25px
               white-space: nowrap
               height: auto
@@ -408,7 +408,7 @@ $part-chunk-padding-sides: 24px
               display: inline-flex
               align-items: center
               border-radius: 2px
-              box-shadow: 0 2px 1px 0 rgba($color-grey-dark, .25)
+              box-shadow: 0 2px 1px 0 var(--color-references-request-format-toggle-button-shadow)
 
               &:hover
                 &:before
@@ -438,7 +438,7 @@ $part-chunk-padding-sides: 24px
                 $toggle-count-footprint: 12px
 
                 color: lighten($color-black, 12.5%)
-                background-color: lighten($color-grey-light, 2%)
+                background-color: var(--color-references-request-format-toggle-count-background)
                 +font-size(10px)
                 text-align: center
                 line-height: $toggle-count-footprint
@@ -481,8 +481,8 @@ $part-chunk-padding-sides: 24px
               margin-bottom: 0
 
             +selection
-              background-color: rgba($color-selection-code, .2)
-              color: $color-white
+              background-color: var(--color-references-examples-selection)
+              color: var(--color-white)
 
             .examples-detail-label
               min-width: 65px

@@ -38,7 +38,7 @@
         display: none
 
       .spotlight-legend
-        background-color: $color-white
+        background-color: var(--color-white)
 
     &[data-index-loading="true"]
       .spotlight-field
@@ -54,7 +54,7 @@
           display: block
 
     .spotlight-box
-      background-color: $color-white
+      background-color: var(--color-white)
       width: 100%
       max-width: 600px
       margin: 0 auto
@@ -66,11 +66,11 @@
 
     .spotlight-field,
     .spotlight-legend
-      background-color: rgba($color-base, .65)
+      background-color: var(--color-spotlight-field)
       flex: 0 0 auto
 
     .spotlight-field
-      border-bottom: 1px solid $color-grey-dark
+      border-bottom: 1px solid var(--color-grey-dark)
       height: 58px
       position: relative
 
@@ -109,7 +109,7 @@
         background: transparent
         border: 0 none
         outline: 0 none
-        color: $color-black
+        color: var(--color-black)
         +font-size(15px)
         letter-spacing: .1px
         padding-left: ($spotlight-padding-sides + $spotlight-field-icon-size + 14px)
@@ -146,11 +146,11 @@
 
           &[data-selected="true"]
             .spotlight-entry-link
-              background-color: $color-blue
-              color: $color-white
+              background-color: var(--color-spotlight-entry-link-default)
+              color: var(--color-white)
 
               &:active
-                background-color: darken($color-blue, 3%)
+                background-color: var(--color-spotlight-entry-link-active)
                 transition: background-color linear 100ms
 
               &:after
@@ -190,7 +190,7 @@
             display: block
 
           .spotlight-entry-link
-            color: $color-black
+            color: var(--color-black)
             letter-spacing: -.1px
             padding: $spotlight-entry-padding-top-bottom ($spotlight-entry-padding-sides + $spotlight-entry-type-icon-size + 1px) $spotlight-entry-padding-top-bottom $spotlight-entry-padding-sides
             position: relative
@@ -290,7 +290,7 @@
             margin-right: 4px
 
       .spotlight-error
-        color: $color-red
+        color: var(--color-red)
         +font-size(12px)
         text-align: right
         margin-top: -2px

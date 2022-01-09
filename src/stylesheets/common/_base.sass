@@ -6,7 +6,7 @@
 body
   font-family: "Chappe Proxima Nova Regular", "Helvetica Neue", Helvetica, Arial, sans-serif
   font-size: $font-size-base
-  background: rgba($color-base, .65) !important
+  background: var(--color-base-background) !important
 
 *
   font-weight: normal !important
@@ -21,7 +21,7 @@ a
   text-decoration: none
 
 +selection
-  background-color: $color-selection-default
+  background-color: var(--color-selection-default)
 
 .text-ellipsis
   text-overflow: ellipsis
@@ -31,7 +31,7 @@ a
 .title-group-anchor:hover .title-anchor,
 .title-anchor:hover
   text-decoration: underline !important
-  text-decoration-color: $color-grey-dark !important
+  text-decoration-color: var(--color-grey-dark) !important
 
 
 //- Media Queries

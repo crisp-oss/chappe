@@ -17,7 +17,7 @@
 
     &:before
       content: ""
-      background-color: $color-grey-light
+      background-color: var(--color-grey-light)
       width: 2px
       position: absolute
       top: 0
@@ -36,8 +36,8 @@
         &:hover,
         &:active
           .navigate-link
-            color: $color-white
-            background-color: $color-blue
+            color: var(--color-white)
+            background-color: var(--color-blue)
             z-index: 3
 
       &,
@@ -46,7 +46,7 @@
 
       .navigate-link
         background-color: transparent
-        color: $color-black
+        color: var(--color-black)
         +font-size(14px)
         letter-spacing: -.12px
         text-align: left
@@ -60,10 +60,10 @@
         z-index: 1
 
         &:hover
-          background-color: lighten($color-grey-light, 6%)
+          background-color: var(--color-changes-navigate-link-hover)
 
         &:active
-          background-color: lighten($color-grey-light, 4%)
+          background-color: var(--color-changes-navigate-link-active)
 
   .content
     width: 100%
@@ -73,11 +73,11 @@
     padding-bottom: 126px
 
     .title
-      color: $color-black
+      color: var(--color-black)
       +font-size(22px)
 
     .notice
-      background: $color-base
+      background: var(--color-base)
       margin-top: 18px
       padding: 18px 28px
       overflow: hidden
@@ -86,7 +86,7 @@
 
       &:before
         content: ""
-        background-color: $color-grey-light
+        background-color: var(--color-grey-light)
         width: 5px
         position: absolute
         top: 0
@@ -98,7 +98,7 @@
         margin-top: 52px
 
         .month-name
-          color: $color-black
+          color: var(--color-black)
           +font-size(22px)
 
         .month-events
@@ -116,12 +116,12 @@
 
             &.month-event--deprecated
               .month-event-group
-                color: $color-red
+                color: var(--color-red)
                 padding-top: $event-deprecated-padding-top-bottom
 
               .month-event-text
                 background-color: #fdeaee
-                border-color: $color-red
+                border-color: var(--color-red)
                 padding-top: $event-deprecated-padding-top-bottom
                 padding-bottom: $event-deprecated-padding-top-bottom
                 padding-right: 8px
@@ -145,7 +145,7 @@
               flex: 0 0 auto
 
             .month-event-text
-              border-color: $color-grey
+              border-color: var(--color-grey)
               border-width: 0 0 0 2px
               border-style: solid
               padding: $event-default-padding-top-bottom 0 $event-default-padding-top-bottom 14px

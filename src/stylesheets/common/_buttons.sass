@@ -4,8 +4,8 @@
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
 .button
-  color: $color-white
-  background-color: $color-blue
+  color: var(--color-white)
+  background-color: var(--color-button-default)
   +font-size(13px)
   user-select: none
   line-height: $button-default-height
@@ -19,7 +19,7 @@
 
   &:hover,
   &:active
-    background-color: darken($color-blue, 3%)
+    background-color: var(--color-button-active)
 
   &:active
     transform: translateY(1px)
@@ -37,14 +37,14 @@
       flex: 1
 
   &.button--reverse
-    color: $color-blue
-    background-color: $color-white
-    border: 1px solid $color-blue
+    color: var(--color-button-default)
+    background-color: var(--color-white)
+    border: 1px solid var(--color-button-default)
     transition-duration: 75ms
 
     &:hover
-      color: $color-white
-      background-color: $color-blue
+      color: var(--color-white)
+      background-color: var(--color-button-default)
 
     &.button--large
       border-width: 1.5px

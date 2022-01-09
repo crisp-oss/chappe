@@ -35,7 +35,7 @@
       padding-left: 12px
 
   .logo
-    color: $color-black
+    color: var(--color-black)
     margin-right: 60px
 
     .logo-image
@@ -66,7 +66,7 @@
   .extras .extras-item
     &:after
       content: ""
-      background-color: $color-grey
+      background-color: var(--color-grey)
       height: 0
       position: absolute
       left: 0
@@ -90,13 +90,13 @@
   .menu .menu-item.menu-item--active,
   .extras .extras-item.extras-item--active
     &:after
-      background-color: $color-blue
+      background-color: var(--color-blue)
 
   .dropdown
     $dropdown-padding-edges: 8px
     $dropdown-link-padding-sides: 8px
 
-    background-color: $color-white
+    background-color: var(--color-white)
     border: 1px solid rgba($color-grey, .65)
     padding: ($header-height - 15px) $dropdown-padding-edges $dropdown-padding-edges
     display: none
@@ -108,7 +108,7 @@
     border-radius: 3px
 
     .dropdown-link
-      color: $color-black
+      color: var(--color-black)
       +font-size(13.5px)
       line-height: 28px
       letter-spacing: -.1px
@@ -122,16 +122,16 @@
 
       &:hover,
       &:active
-        color: $color-white
+        color: var(--color-white)
 
       &:hover
-        background-color: $color-blue
+        background-color: var(--color-header-dropdown-link-hover)
 
         &:active
           transition: background-color linear 100ms
 
       &:active
-        background-color: darken($color-blue, 5%)
+        background-color: var(--color-header-dropdown-link-active)
 
       &:last-of-type
         margin-bottom: 0
@@ -188,7 +188,7 @@
         margin-right: 0
 
       .menu-link
-        color: $color-black
+        color: var(--color-black)
         +font-size(14px)
 
         &.menu-link--dropdown
@@ -207,14 +207,13 @@
   .extras
     .extras-item
       .extras-link
-        color: $color-blue
+        color: var(--color-blue)
         +font-size(13px)
         letter-spacing: -.09px
 
   .search
-    background: $color-base
-    border: 1px solid $color-grey-dark
-    box-shadow: 0 1px 0 0 rgba($color-grey-dark, .25)
+    background: var(--color-base)
+    border: 1px solid var(--color-header-search-border-default)
     height: 32px
     margin-left: 18px
     padding: 0 10px 0 12px
@@ -222,14 +221,15 @@
     align-items: center
     user-select: none
     border-radius: 3px
+    box-shadow: 0 1px 0 0 var(--color-header-search-shadow)
     transition: border-color linear 100ms
 
     &:hover
-      border-color: darken($color-grey-dark, 10%)
+      border-color: var(--color-header-search-border-hover)
       cursor: pointer
 
     &:active
-      border-color: darken($color-grey-dark, 14%)
+      border-color: var(--color-header-search-border-active)
 
     .search-placeholder
       color: #607282
@@ -246,7 +246,7 @@
         vertical-align: middle
 
     .search-shortcut
-      background: $color-white
+      background: var(--color-white)
       border: 1px solid #D5DADF
       color: #A2AEB9
       +font-size(12px)
@@ -263,9 +263,8 @@
     $appearance-height: 16px
     $appearance-width: 32px
     $appearance-toggle-size: 24px
-    $appearance-toggle-border-color: darken($color-grey-dark, 50%)
 
-    background-color: lighten($color-grey-light, 1%)
+    background-color: var(--color-header-appearance)
     width: $appearance-width
     height: $appearance-height
     margin: 0 32px
@@ -275,12 +274,12 @@
 
     &:hover
       .toggle
-        border-color: rgba($appearance-toggle-border-color, .225)
+        border-color: var(--color-header-appearance-toggle-border-hover)
         box-shadow: 0 1px 4px 0 rgba($color-black, .06)
 
     &:active
       .toggle
-        border-color: rgba($appearance-toggle-border-color, .175)
+        border-color: var(--color-header-appearance-toggle-border-active)
         box-shadow: 0 1px 1px 0 rgba($color-black, .02)
 
     &[data-mode="light"]
@@ -302,8 +301,8 @@
           height: 12px
 
     .toggle
-      background-color: $color-white
-      border: 1px solid rgba($appearance-toggle-border-color, .2)
+      background-color: var(--color-white)
+      border: 1px solid var(--color-header-appearance-toggle-border-default)
       height: $appearance-toggle-size
       width: $appearance-toggle-size
       margin-top: (-1 * (($appearance-toggle-size / 2) - ($appearance-height / 2) + 1px))
@@ -334,7 +333,7 @@
         .action-button
           &.button
             background-color: transparent !important
-            color: $color-black !important
+            color: var(--color-black) !important
             box-shadow: none !important
             transition: none !important
 
