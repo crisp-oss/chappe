@@ -48,6 +48,27 @@
   +background-image-fill($display)
 
 
+@mixin mask-image-internal($image)
+  @if $with-inline-images == true
+    mask-image: inline-image($image)
+  @else
+    mask-image: url('/static/images/#{$image}?#{$cache-buster-hash}')
+
+
+@mixin mask-image-fill($display: true)
+  mask-size: contain
+  mask-repeat: no-repeat
+  mask-position: center
+
+  @if $display == true
+    display: inline-block
+
+
+@mixin mask-image-internal-fill($image, $display: true)
+  +mask-image-internal($image)
+  +mask-image-fill($display)
+
+
 @mixin placeholder
   &:placeholder
     @content
