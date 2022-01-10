@@ -220,7 +220,8 @@ $part-chunk-padding-sides: 24px
 
               &[data-copy-state="copied"]
                 .request-target-copy
-                  +background-image-internal("references/content/request-target-copied.svg")
+                  background-color: var(--color-green)
+                  +mask-image-internal("references/content/request-target-copied.svg")
                   width: 14px
                   height: 11px
                   margin-right: -1px
@@ -239,7 +240,8 @@ $part-chunk-padding-sides: 24px
 
               .request-target-copy
                 content: ""
-                +background-image-internal-fill("references/content/request-target-copy.svg")
+                background-color: var(--color-black)
+                +mask-image-internal-fill("references/content/request-target-copy.svg")
                 width: 11px
                 height: 12px
                 margin-left: 5px
@@ -419,7 +421,8 @@ $part-chunk-padding-sides: 24px
 
               &:before
                 content: ""
-                +background-image-internal-fill("references/content/request-format-toggle-button-arrow.svg")
+                background-color: var(--color-black)
+                +mask-image-internal-fill("references/content/request-format-toggle-button-arrow.svg")
                 width: 8px
                 height: 6px
                 margin-right: 9px
