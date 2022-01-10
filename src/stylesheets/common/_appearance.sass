@@ -110,8 +110,8 @@
   --color-header-dropdown-link-background-hover: var(--color-accent-base)
   --color-header-dropdown-link-background-active: var(--color-accent-active)
   --color-header-search-background-default: var(--color-base)
-  --color-header-search-background-clear: #{$color-white}
-  --color-header-search-border-default: #{$color-grey-dark}
+  --color-header-search-background-clear: var(--color-white)
+  --color-header-search-border-default: var(--color-grey-dark)
   --color-header-search-border-hover: #{darken($color-grey-dark, 10%)}
   --color-header-search-border-active: #{darken($color-grey-dark, 14%)}
   --color-header-search-border-clear-default: #d5dadf
@@ -189,7 +189,7 @@
   --color-references-request-format-label-text: #717982
   --color-references-request-format-keys-depth-border-zero: #{lighten($color-grey-light, 10%)}
   --color-references-request-format-keys-depth-border-one: #{lighten($color-grey-light, 5%)}
-  --color-references-request-format-keys-depth-border-two: #{$color-grey-light}
+  --color-references-request-format-keys-depth-border-two: var(--color-grey-light)
   --color-references-request-format-keys-depth-border-three: #{darken($color-grey-light, 5%)}
   --color-references-request-format-keys-depth-border-four: #{darken($color-grey-light, 10%)}
   --color-references-request-format-keys-depth-border-infinity: #{darken($color-grey-light, 15%)}
@@ -211,7 +211,7 @@
   --color-changes-month-event-deprecated-background: #fdeaee
 
   &[data-appearance="dark"]
-    // Accent (Dark Mode
+    // Accent (Dark Mode)
     --color-accent-base: #{$color-white}
     --color-accent-active: #{rgba($color-white, .9)}
 
@@ -246,35 +246,28 @@
     --color-method-put-patch-light: #{rgba($color-method-put-patch-light, .3)}
     --color-method-delete-light: #{rgba($color-method-delete-light, .3)}
 
-    // Viewer (Dark Mode)
-    // TODO
-
-    // Markdown (Dark Mode)
-    // TODO
-
-    // Code (Dark Mode)
-    // TODO
-
     // Search (Dark Mode)
-    // TODO
+    --color-search-lock-background: #{rgba(#14161a, .45)}
+    --color-search-spotlight-field-background: #{rgba(#1e202b, .65)}
 
     // Header (Dark Mode)
     --color-header-background: #{rgba(#10131c, .9)}
     --color-header-border: #{rgba($color-white, .05)}
+    --color-header-search-background-clear: var(--color-header-search-background-default)
+    --color-header-search-border-hover: #{lighten(#3e4255, 10%)}
+    --color-header-search-border-active: #{lighten(#3e4255, 14%)}
+    --color-header-search-border-clear-default: var(--color-header-search-border-default)
+    --color-header-search-border-clear-hover: var(--color-header-search-border-hover)
+    --color-header-search-border-clear-active: var(--color-header-search-border-active)
+    --color-header-search-shadow: var(--color-white)
+    --color-header-search-shortcut-text: var(--color-blue-grey-dark)
+    --color-header-search-shortcut-border: var(--color-blue-grey-dark)
+    --color-header-search-shortcut-shadow: var(--color-white)
 
     // Content (Dark Mode)
     --color-content-sidebar-left-background-default: var(--color-base)
     --color-content-sidebar-left-background-small: var(--color-base)
     --color-content-sidebar-right-background: #1e202b
-
-    // Footer (Dark Mode)
-    // TODO
-
-    // Guides (Dark Mode)
-    // TODO
-
-    // References (Dark Mode)
-    // TODO
 
     // Changes (Dark Mode)
     --color-changes-month-event-deprecated-background: #{rgba(#ff7b98, .3)}
