@@ -239,17 +239,21 @@
     --color-selection-default: #{rgba($color-white, .25)}
 
     // Badges (Dark Mode)
-    --color-badge-black: #{$color-white}
-    --color-badge-blue: #{$color-white}
-    --color-badge-green: #{$color-white}
-    --color-badge-yellow: #{$color-white}
-    --color-badge-red: #{$color-white}
+    --color-badge-black: #{lighten($color-badge-black, 10%)}
+    --color-badge-blue: #{lighten($color-badge-blue, 10%)}
+    --color-badge-green: #{lighten($color-badge-green, 10%)}
+    --color-badge-yellow: #{lighten($color-badge-yellow, 10%)}
+    --color-badge-red: #{lighten($color-badge-red, 10%)}
 
     // Methods (Dark Mode)
     --color-method-get-head-light: #{rgba($color-method-get-head-light, .3)}
+    --color-method-get-head-dark: #{lighten($color-method-get-head-dark, 6%)}
     --color-method-post-light: #{rgba($color-method-post-light, .3)}
+    --color-method-post-dark: #{lighten($color-method-post-dark, 6%)}
     --color-method-put-patch-light: #{rgba($color-method-put-patch-light, .3)}
+    --color-method-put-patch-dark: #{lighten($color-method-put-patch-dark, 6%)}
     --color-method-delete-light: #{rgba($color-method-delete-light, .3)}
+    --color-method-delete-dark: #{lighten($color-method-delete-dark, 6%)}
 
     // Viewer (Dark Mode)
     --color-viewer-panes-footer-border: #{rgba($color-white, .1)}
@@ -289,10 +293,8 @@
     --color-header-search-shortcut-text: var(--color-blue-grey-dark)
     --color-header-search-shortcut-border: var(--color-blue-grey-dark)
     --color-header-search-shortcut-shadow: var(--color-white)
-
     --color-header-coloring-background-default: #{darken(#5161b7, 16%)}
-    --color-header-coloring-background-clear: #{rgba($color-white, .7)}
-
+    --color-header-coloring-background-clear: var(--color-header-coloring-background-default)
     --color-header-coloring-toggle-border-default: #{rgba(#5161b7, .85)}
     --color-header-coloring-toggle-border-hover: #5161b7
     --color-header-coloring-toggle-border-active: #{rgba(#5161b7, .95)}
@@ -319,13 +321,27 @@
     // References (Dark Mode)
     --color-references-separator-content: #{rgba(#474b5e, .45)}
     --color-references-separator-sidebar: #{rgba(#474b5e, .35)}
-    // TODO: add missing variables
+    --color-references-request-target-url-border-default: transparent
+    --color-references-request-target-url-border-hover: #{rgba($color-white, .45)}
+    --color-references-request-target-url-border-active: #{rgba($color-white, .6)}
+    --color-references-request-format-required-text: #ff6d5a
+    --color-references-request-format-optional-text: #8f99a6
+    --color-references-request-format-label-text: #8d98a4
+    --color-references-request-format-keys-depth-border-zero: #{darken(#4c4f62, 10%)}
+    --color-references-request-format-keys-depth-border-one: #{darken(#4c4f62, 5%)}
+    --color-references-request-format-keys-depth-border-three: #{lighten(#4c4f62, 5%)}
+    --color-references-request-format-keys-depth-border-four: #{lighten(#4c4f62, 10%)}
+    --color-references-request-format-keys-depth-border-infinity: #{lighten(#4c4f62, 15%)}
+    --color-references-request-format-toggle-count-text: #{darken($color-white, 12.5%)}
+    --color-references-request-format-toggle-count-background: #{darken(#4c4f62, 2%)}
+    --color-references-request-format-toggle-button-border: #{lighten(#3e4255, 8%)}
+    --color-references-request-format-toggle-button-shadow: #{rgba($color-black, .25)}
 
     // Changes (Dark Mode)
     --color-changes-navigate-link-background-hover: #{darken(#4c4f62, 6%)}
     --color-changes-navigate-link-background-active: #{darken(#4c4f62, 4%)}
+    --color-changes-month-event-border: #{rgba(#474b5e, .65)}
     --color-changes-month-event-deprecated-background: #{rgba(#ff7b98, .3)}
-    // TODO: add missing variables
 
     // Images (Dark Mode)
     .logo
