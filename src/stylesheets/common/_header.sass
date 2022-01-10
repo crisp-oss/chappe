@@ -152,7 +152,8 @@
           $icon-size: 12px
 
           content: ""
-          +background-image-internal-fill("common/header/actions-dropdown-external-default.svg")
+          background-color: var(--color-black)
+          +mask-image-internal-fill("common/header/actions-dropdown-external.svg")
           width: $icon-size
           height: $icon-size
           margin-top: (-1 * ($icon-size / 2))
@@ -164,7 +165,7 @@
         &:hover,
         &:active
           &:after
-            +background-image-internal("common/header/actions-dropdown-external-active.svg")
+            background-color: var(--color-white)
             opacity: 1
 
       .dropdown-link-title,
@@ -197,7 +198,8 @@
 
           &:after
             content: ""
-            +background-image-internal-fill("common/header/menu-arrow.svg")
+            background-color: var(--color-black)
+            +mask-image-internal-fill("common/header/menu-arrow.svg")
             width: 8px
             height: 5px
             margin-top: 1px
@@ -238,7 +240,8 @@
 
       &:before
         content: ""
-        +background-image-internal-fill("common/header/search-icon.svg")
+        background-color: var(--color-blue-grey-dark)
+        +mask-image-internal-fill("common/header/search-icon.svg")
         width: 14px
         height: 14px
         margin-top: -2px
@@ -287,7 +290,8 @@
         margin-left: (-1 * ($appearance-toggle-size / 4))
 
         &:before
-          +background-image-internal("common/header/appearance-mode-light-icon.svg")
+          background-color: var(--color-header-appearance-toggle-icon-light-background)
+          +mask-image-internal("common/header/appearance-mode-light-icon.svg")
           width: 14px
           height: 14px
 
@@ -296,7 +300,8 @@
         margin-left: ($appearance-width - (($appearance-toggle-size + 2px) - ($appearance-toggle-size / 4)))
 
         &:before
-          +background-image-internal("common/header/appearance-mode-dark-icon.svg")
+          background-color: var(--color-header-appearance-toggle-icon-dark-background)
+          +mask-image-internal("common/header/appearance-mode-dark-icon.svg")
           width: 12px
           height: 12px
 
@@ -320,7 +325,7 @@
 
       &:before
         content: ""
-        +background-image-fill
+        +mask-image-fill
 
   .actions
     .action
@@ -338,7 +343,7 @@
             transition: none !important
 
           &:after
-            +background-image-internal("common/header/actions-arrow-active.svg")
+            background-color: var(--color-black)
 
       .dropdown
         left: auto
@@ -354,7 +359,8 @@
 
         &:after
           content: ""
-          +background-image-internal-fill("common/header/actions-arrow-default.svg")
+          background-color: var(--color-white)
+          +mask-image-internal-fill("common/header/actions-arrow.svg")
           width: 8px
           height: 5px
           margin-left: 7px
