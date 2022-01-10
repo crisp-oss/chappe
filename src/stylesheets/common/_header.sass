@@ -263,55 +263,55 @@
       box-shadow: 0 1px 0 0 var(--color-header-search-shortcut-shadow)
       border-radius: 3px
 
-  .appearance
-    $appearance-height: 16px
-    $appearance-width: 32px
-    $appearance-toggle-size: 24px
+  .coloring
+    $coloring-height: 16px
+    $coloring-width: 32px
+    $coloring-toggle-size: 24px
 
-    background-color: var(--color-header-appearance-background-default)
-    width: $appearance-width
-    height: $appearance-height
+    background-color: var(--color-header-coloring-background-default)
+    width: $coloring-width
+    height: $coloring-height
     margin: 0 32px
     cursor: pointer
     position: relative
-    border-radius: ($appearance-height / 2)
+    border-radius: ($coloring-height / 2)
 
     &:hover
       .toggle
-        border-color: var(--color-header-appearance-toggle-border-hover)
-        box-shadow: 0 1px 4px 0 var(--color-header-appearance-toggle-shadow-hover)
+        border-color: var(--color-header-coloring-toggle-border-hover)
+        box-shadow: 0 1px 4px 0 var(--color-header-coloring-toggle-shadow-hover)
 
     &:active
       .toggle
-        border-color: var(--color-header-appearance-toggle-border-active)
-        box-shadow: 0 1px 1px 0 var(--color-header-appearance-toggle-shadow-active)
+        border-color: var(--color-header-coloring-toggle-border-active)
+        box-shadow: 0 1px 1px 0 var(--color-header-coloring-toggle-shadow-active)
 
     &[data-mode="light"]
       .toggle
-        margin-left: (-1 * ($appearance-toggle-size / 4))
+        margin-left: (-1 * ($coloring-toggle-size / 4))
 
         &:before
-          background-color: var(--color-header-appearance-toggle-icon-light-background)
-          +mask-image-internal("common/header/appearance-mode-light-icon.svg")
+          background-color: var(--color-header-coloring-toggle-icon-light-background)
+          +mask-image-internal("common/header/coloring-mode-light-icon.svg")
           width: 14px
           height: 14px
 
     &[data-mode="dark"]
       .toggle
-        margin-left: ($appearance-width - (($appearance-toggle-size + 2px) - ($appearance-toggle-size / 4)))
+        margin-left: ($coloring-width - (($coloring-toggle-size + 2px) - ($coloring-toggle-size / 4)))
 
         &:before
-          background-color: var(--color-header-appearance-toggle-icon-dark-background)
-          +mask-image-internal("common/header/appearance-mode-dark-icon.svg")
+          background-color: var(--color-header-coloring-toggle-icon-dark-background)
+          +mask-image-internal("common/header/coloring-mode-dark-icon.svg")
           width: 12px
           height: 12px
 
     .toggle
       background-color: var(--color-white)
-      border: 1px solid var(--color-header-appearance-toggle-border-default)
-      height: $appearance-toggle-size
-      width: $appearance-toggle-size
-      margin-top: (-1 * (($appearance-toggle-size / 2) - ($appearance-height / 2) + 1px))
+      border: 1px solid var(--color-header-coloring-toggle-border-default)
+      height: $coloring-toggle-size
+      width: $coloring-toggle-size
+      margin-top: (-1 * (($coloring-toggle-size / 2) - ($coloring-height / 2) + 1px))
       top: 0
       left: 0
       display: flex
@@ -320,7 +320,7 @@
       position: absolute
       pointer-events: none
       border-radius: 100%
-      box-shadow: 0 1px 3px 0 var(--color-header-appearance-toggle-shadow-default)
+      box-shadow: 0 1px 3px 0 var(--color-header-coloring-toggle-shadow-default)
       transition: all linear 100ms
       transition-property: border-color, margin-left, box-shadow
 
@@ -380,7 +380,7 @@
     .logo
       margin-right: 42px
 
-    .appearance
+    .coloring
       margin: 0 20px
 
 @media screen and (max-width: $screen-small-width-breakpoint)
@@ -407,7 +407,7 @@
         &:before
           margin-right: 0
 
-    .appearance
+    .coloring
       display: none
 
     .actions

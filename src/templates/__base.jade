@@ -53,7 +53,7 @@ html(
       +head-javascript("/static/javascripts/common/common")
 
   body.viewer.appearance(
-    data-viewer-panes="#{panes}",
+    data-viewer-panes="#{(panes || 1)}",
     data-appearance="light"
   )
     include _body_header

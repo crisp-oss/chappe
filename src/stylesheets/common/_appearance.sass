@@ -125,16 +125,16 @@
   --color-header-search-shortcut-text: #a2aeb9
   --color-header-search-shortcut-border: #d5dadf
   --color-header-search-shortcut-shadow: #e4e9ed
-  --color-header-appearance-background-default: #{lighten($color-grey-light, 1%)}
-  --color-header-appearance-background-clear: #{rgba($color-white, .7)}
-  --color-header-appearance-toggle-border-default: #{rgba(darken($color-grey-dark, 50%), .2)}
-  --color-header-appearance-toggle-border-hover: #{rgba(darken($color-grey-dark, 50%), .225)}
-  --color-header-appearance-toggle-border-active: #{rgba(darken($color-grey-dark, 50%), .175)}
-  --color-header-appearance-toggle-shadow-default: #{rgba($color-black, .04)}
-  --color-header-appearance-toggle-shadow-hover: #{rgba($color-black, .06)}
-  --color-header-appearance-toggle-shadow-active: #{rgba($color-black, .02)}
-  --color-header-appearance-toggle-icon-light-background: #e0a142
-  --color-header-appearance-toggle-icon-dark-background: #5162b7
+  --color-header-coloring-background-default: #{lighten($color-grey-light, 1%)}
+  --color-header-coloring-background-clear: #{rgba($color-white, .7)}
+  --color-header-coloring-toggle-border-default: #{rgba(darken($color-grey-dark, 50%), .2)}
+  --color-header-coloring-toggle-border-hover: #{rgba(darken($color-grey-dark, 50%), .225)}
+  --color-header-coloring-toggle-border-active: #{rgba(darken($color-grey-dark, 50%), .175)}
+  --color-header-coloring-toggle-shadow-default: #{rgba($color-black, .04)}
+  --color-header-coloring-toggle-shadow-hover: #{rgba($color-black, .06)}
+  --color-header-coloring-toggle-shadow-active: #{rgba($color-black, .02)}
+  --color-header-coloring-toggle-icon-light-background: #e0a142
+  --color-header-coloring-toggle-icon-dark-background: #5162b7
 
   // Content
   --color-content-navigation-background: #{rgba($color-base, .25)}
@@ -255,7 +255,11 @@
     --color-viewer-panes-footer-border: #{rgba($color-white, .1)}
 
     // Markdown (Dark Mode)
+    --color-markdown-code-inline-background: #{$color-white}
+    --color-markdown-code-inline-border: transparent
+    --color-markdown-code-inline-text: #{$color-black}
     --color-markdown-code-block-background: #2a2d39
+    --color-markdown-figure-border: #{rgba(#474b5e, .9)}
     --color-markdown-blockquote-border: #516071
     --color-markdown-emphasis-warning-background: #{rgba(#ffb300, .25)}
     --color-markdown-emphasis-warning-border: #c87c00
@@ -263,6 +267,9 @@
     --color-markdown-emphasis-info-border: #c4b500
     --color-markdown-emphasis-notice-background: #{rgba(#87ff73, .25)}
     --color-markdown-emphasis-notice-border: #30bb17
+
+    // Code (Dark Mode)
+    // TODO
 
     // Search (Dark Mode)
     --color-search-lock-background: #{rgba(#434959, .4)}
@@ -283,6 +290,13 @@
     --color-header-search-shortcut-border: var(--color-blue-grey-dark)
     --color-header-search-shortcut-shadow: var(--color-white)
 
+    --color-header-coloring-background-default: #{darken(#5161b7, 16%)}
+    --color-header-coloring-background-clear: #{rgba($color-white, .7)}
+
+    --color-header-coloring-toggle-border-default: #{rgba(#5161b7, .85)}
+    --color-header-coloring-toggle-border-hover: #5161b7
+    --color-header-coloring-toggle-border-active: #{rgba(#5161b7, .95)}
+
     // Content (Dark Mode)
     --color-content-navigation-background: var(--color-base)
     --color-content-navigation-border-default: var(--color-grey)
@@ -290,10 +304,10 @@
     --color-content-navigation-shadow-outset: #{rgba($color-black, .25)}
     --color-content-navigation-shadow-inset: #{rgba($color-white, .05)}
     --color-content-navigation-shadow-active: #{rgba($color-black, .4)}
-    --color-content-navigation-label-text: var(--color-blue-grey)
     --color-content-sidebar-left-background-default: var(--color-base)
     --color-content-sidebar-left-background-small: var(--color-base)
     --color-content-sidebar-right-background: #1e202b
+    --color-content-sidebar-toggler-background: #{rgba(#1e202b, .9)}
     --color-content-sidebar-nest-navigate-link-background-hover: #{darken(#4c4f62, 3%)}
     --color-content-sidebar-nest-navigate-link-background-active: #{darken(#4c4f62, 1%)}
     --color-content-sidebar-nest-navigate-link-default-toggle-background-hover: #{lighten(#4c4f62, 3%)}
@@ -305,11 +319,13 @@
     // References (Dark Mode)
     --color-references-separator-content: #{rgba(#474b5e, .45)}
     --color-references-separator-sidebar: #{rgba(#474b5e, .35)}
+    // TODO: add missing variables
 
     // Changes (Dark Mode)
     --color-changes-navigate-link-background-hover: #{darken(#4c4f62, 6%)}
     --color-changes-navigate-link-background-active: #{darken(#4c4f62, 4%)}
     --color-changes-month-event-deprecated-background: #{rgba(#ff7b98, .3)}
+    // TODO: add missing variables
 
     // Images (Dark Mode)
     .logo

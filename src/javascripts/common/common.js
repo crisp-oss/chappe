@@ -643,7 +643,7 @@ class Common {
         this.__appearance_mode = new_mode;
 
         // Update current appearance mode (in toggle)
-        this._$("#header .appearance").attr("data-mode", new_mode);
+        this._$("#header .coloring").attr("data-mode", new_mode);
 
         // Update dark mode in document
         document.body.setAttribute("data-appearance", new_mode);
@@ -1489,7 +1489,7 @@ class Common {
     let fn = "__bind_appearance_toggle_click";
 
     try {
-      this._$("#header .appearance").on("click", () => {
+      this._$("#header .coloring").on("click", () => {
         try {
           // Acquire new appearance mode
           let _new_mode = (
