@@ -45,11 +45,11 @@
   h4,
   h5,
   h6
-    color: #44566b
+    color: var(--color-markdown-title-small-text)
 
   h1,
   h2
-    color: $color-black
+    color: var(--color-black)
 
   h1
     +font-size(20px)
@@ -83,13 +83,13 @@
     margin-bottom: .9em
 
   a
-    color: $color-blue
+    color: var(--color-accent-base)
 
     &:hover
       text-decoration: underline
 
   hr
-    background-color: $color-grey-light
+    background-color: var(--color-grey-light)
     border: 0 none
     height: 1px
     margin: 28px auto 30px
@@ -135,7 +135,7 @@
           padding-left: 20px
 
           &:before
-            background-color: $color-black
+            background-color: var(--color-black)
             width: 4px
             height: 4px
             margin-top: 1px
@@ -145,7 +145,7 @@
     li
       &:before
         content: ""
-        background-color: #44566b
+        background-color: var(--color-markdown-list-item-bullet)
         width: 7px
         height: 7px
         border-radius: 100%
@@ -174,7 +174,7 @@
   figure figcaption,
   .embed .embed-caption
     +font-size(14px)
-    color: #879aad
+    color: var(--color-markdown-figure-text)
     text-align: center
     line-height: 18px
     margin-top: 10px
@@ -186,7 +186,7 @@
     display: block
 
     img
-      border: 1px solid rgba($color-grey, .9)
+      border: 1px solid var(--color-markdown-figure-border)
       width: auto
       max-width: 100%
       margin: 0 auto
@@ -195,9 +195,9 @@
   code
     font-family: "Chappe Hack Regular", sans-serif
     font-size: .8em
-    background-color: #e8f5fa
-    border: 1px solid #a9c6dd
-    color: #275190
+    background-color: var(--color-markdown-code-inline-background)
+    border: 1px solid var(--color-markdown-code-inline-border)
+    color: var(--color-markdown-code-inline-text)
     hyphens: auto
     word-break: break-all
     margin: 0 1px
@@ -209,9 +209,9 @@
     margin: 22px auto
 
     code
-      background-color: #1f2224
+      background-color: var(--color-markdown-code-block-background)
       border: 0 none
-      color: $color-white
+      color: var(--color-white)
       line-height: 19px
       text-align: left
       white-space: pre
@@ -227,7 +227,7 @@
       display: block
 
     +selection
-      background-color: rgba($color-selection-code, .25)
+      background-color: var(--color-markdown-code-selection)
 
   table
     border-collapse: collapse
@@ -237,14 +237,14 @@
     margin: 26px 0 34px
 
     thead
-      background-color: $color-base
-      color: #44566b
+      background-color: var(--color-markdown-table-head-background)
+      color: var(--color-markdown-table-head-text)
       letter-spacing: .1px
       user-select: none
 
     th,
     td
-      border: 1px solid rgba(#c1ccd8, .65)
+      border: 1px solid var(--color-markdown-table-cell-border)
       line-height: 18px
       word-break: break-word
       hyphens: auto
@@ -273,31 +273,31 @@
       left: 0
 
   blockquote
-    background-color: $color-base
-    color: #44566b
+    background-color: var(--color-markdown-blockquote-background)
+    color: var(--color-markdown-blockquote-text)
     font-style: italic
 
     &:before
-      background-color: #c0cedd
+      background-color: var(--color-markdown-blockquote-border)
 
   .emphasis
     &.emphasis--warning
-      background-color: #fff4e1
+      background-color: var(--color-markdown-emphasis-warning-background)
 
       &:before
-        background-color: #f49c0b
+        background-color: var(--color-markdown-emphasis-warning-border)
 
     &.emphasis--info
-      background-color: #fffcd9
+      background-color: var(--color-markdown-emphasis-info-background)
 
       &:before
-        background-color: #f4e200
+        background-color: var(--color-markdown-emphasis-info-border)
 
     &.emphasis--notice
-      background-color: #e2ffdd
+      background-color: var(--color-markdown-emphasis-notice-background)
 
       &:before
-        background-color: #48cc30
+        background-color: var(--color-markdown-emphasis-notice-border)
 
   .embed
     &[data-loaded="true"]
@@ -322,7 +322,7 @@
       .embed-preview,
       .embed-frame,
       .embed-frame iframe
-        background-color: $color-black
+        background-color: var(--color-black)
 
       .embed-preview,
       .embed-frame

@@ -33,9 +33,6 @@
 
 
 @mixin background-image-external($image)
-  $web-image: str-replace($image, '.png', '.webp')
-  $web-image: str-replace($web-image, '.jpg', '.webp')
-
   background-image: url('/static/images/#{$image}?#{$cache-buster-hash}')
 
 @mixin background-image-internal-fill($image, $display: true)
@@ -46,6 +43,27 @@
 @mixin background-image-external-fill($image, $display: true)
   +background-image-external($image)
   +background-image-fill($display)
+
+
+@mixin mask-image-internal($image)
+  @if $with-inline-images == true
+    +mask-image(inline-image($image))
+  @else
+    +mask-image(url('/static/images/#{$image}?#{$cache-buster-hash}'))
+
+
+@mixin mask-image-fill($display: true)
+  +mask-size(contain)
+  +mask-repeat(no-repeat)
+  +mask-position(center)
+
+  @if $display == true
+    display: inline-block
+
+
+@mixin mask-image-internal-fill($image, $display: true)
+  +mask-image-internal($image)
+  +mask-image-fill($display)
 
 
 @mixin placeholder
@@ -95,6 +113,28 @@
 @mixin backdrop-filter($rules)
   -webkit-backdrop-filter: $rules
   backdrop-filter: $rules
+
+
+@mixin mask-image($value)
+  --mask-image: #{$value}
+
+  -webkit-mask-image: var(--mask-image)
+  mask-image: var(--mask-image)
+
+
+@mixin mask-size($value)
+  -webkit-mask-size: $value
+  mask-size: $value
+
+
+@mixin mask-repeat($value)
+  -webkit-mask-repeat: $value
+  mask-repeat: $value
+
+
+@mixin mask-position($value)
+  -webkit-mask-position: $value
+  mask-position: $value
 
 
 @mixin font-smoothing($value: antialiased)

@@ -10,6 +10,7 @@
   "LIBRARIES" : {
     "JAVASCRIPTS" : [
       "console/console.js",
+      "cookies/src/cookies.js",
       "cash/dist/cash.js",
       "minisearch/dist/umd/index.js",
       "prism.js/prism.js"

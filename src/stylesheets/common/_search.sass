@@ -22,7 +22,6 @@
 
   .spotlight
     $spotlight-padding-sides: 26px
-    $spotlight-field-contents-color: #607282
     $spotlight-field-icon-size: 16px
     $spotlight-field-spinner-size: 12px
 
@@ -38,7 +37,7 @@
         display: none
 
       .spotlight-legend
-        background-color: $color-white
+        background-color: var(--color-white)
 
     &[data-index-loading="true"]
       .spotlight-field
@@ -54,7 +53,7 @@
           display: block
 
     .spotlight-box
-      background-color: $color-white
+      background-color: var(--color-white)
       width: 100%
       max-width: 600px
       margin: 0 auto
@@ -62,15 +61,15 @@
       display: flex
       flex-direction: column
       border-radius: 6px
-      box-shadow: 0 4px 6px 0 rgba($color-black, .1)
+      box-shadow: 0 4px 6px 0 var(--color-search-spotlight-shadow)
 
     .spotlight-field,
     .spotlight-legend
-      background-color: rgba($color-base, .65)
+      background-color: var(--color-search-spotlight-field-background)
       flex: 0 0 auto
 
     .spotlight-field
-      border-bottom: 1px solid $color-grey-dark
+      border-bottom: 1px solid var(--color-grey-dark)
       height: 58px
       position: relative
 
@@ -89,7 +88,7 @@
 
       &:after
         background: transparent
-        border-color: $spotlight-field-contents-color $spotlight-field-contents-color transparent
+        border-color: var(--color-search-spotlight-field-spinner-border) var(--color-search-spotlight-field-spinner-border) transparent
         border-width: 2px
         border-style: solid
         width: $spotlight-field-spinner-size
@@ -109,7 +108,7 @@
         background: transparent
         border: 0 none
         outline: 0 none
-        color: $color-black
+        color: var(--color-black)
         +font-size(15px)
         letter-spacing: .1px
         padding-left: ($spotlight-padding-sides + $spotlight-field-icon-size + 14px)
@@ -118,7 +117,7 @@
         +appearance(none)
 
         +input-placeholder
-          color: $spotlight-field-contents-color
+          color: var(--color-search-spotlight-field-placeholder)
           opacity: 1
 
         +input-search
@@ -146,11 +145,11 @@
 
           &[data-selected="true"]
             .spotlight-entry-link
-              background-color: $color-blue
-              color: $color-white
+              background-color: var(--color-search-spotlight-entry-link-background-default)
+              color: var(--color-white)
 
               &:active
-                background-color: darken($color-blue, 3%)
+                background-color: var(--color-search-spotlight-entry-link-background-active)
                 transition: background-color linear 100ms
 
               &:after
@@ -190,7 +189,7 @@
             display: block
 
           .spotlight-entry-link
-            color: $color-black
+            color: var(--color-black)
             letter-spacing: -.1px
             padding: $spotlight-entry-padding-top-bottom ($spotlight-entry-padding-sides + $spotlight-entry-type-icon-size + 1px) $spotlight-entry-padding-top-bottom $spotlight-entry-padding-sides
             position: relative
@@ -254,7 +253,7 @@
         flex: 0 0 auto
 
         .spotlight-shortcut
-          color: #929fac
+          color: var(--color-search-spotlight-shortcut-text)
           +font-size(11px)
           letter-spacing: .1px
           margin-top: -1px
@@ -290,7 +289,7 @@
             margin-right: 4px
 
       .spotlight-error
-        color: $color-red
+        color: var(--color-red)
         +font-size(12px)
         text-align: right
         margin-top: -2px
@@ -300,7 +299,7 @@
 
   &:after
     content: ""
-    background-color: rgba(#495368, .45)
+    background-color: var(--color-search-lock-background)
     z-index: 1
     +animation-name(search-lock-animation)
     +animation-duration(.1s)

@@ -8,7 +8,7 @@
   flex-direction: row
 
   .inner
-    border-top: 1px solid $color-grey
+    border-top: 1px solid var(--color-grey)
     padding: 30px 0 40px
     flex: 1
 
@@ -46,13 +46,13 @@
           margin-right: 0
 
         .link-target
-          color: #677789
+          color: var(--color-footer-link-target-text)
 
           &:hover
             text-decoration: underline
 
     .copyright
-      color: #859ab0
+      color: var(--color-footer-copyright-text)
 
   .metadata
     margin-top: 38px
@@ -66,7 +66,7 @@
         height: 26px
 
       .separator
-        background-color: rgba(#9fb0c2, .3)
+        background-color: var(--color-footer-brand-separator)
         width: 1px
         height: 22px
         margin: -1px 20px 0
@@ -77,7 +77,7 @@
 
         &,
         a
-          color: #9fb0c2
+          color: var(--color-footer-engine-text)
 
         a
           text-decoration: underline
@@ -107,7 +107,7 @@
 
           .status-text
             .status-state
-              color: #0db033
+              color: var(--color-footer-status-state-healthy-text)
 
               .status-state-variant
                 &.status-state-variant--healthy
@@ -120,7 +120,7 @@
 
           .status-text
             .status-state
-              color: #f18000
+              color: var(--color-footer-status-state-sick-text)
 
               .status-state-variant
                 &.status-state-variant--sick
@@ -133,14 +133,14 @@
 
           .status-text
             .status-state
-              color: #e10000
+              color: var(--color-footer-status-state-dead-text)
 
               .status-state-variant
                 &.status-state-variant--dead
                   display: block
 
       .status-wrapped
-        border: 1px solid rgba(#9fb0c2, .45)
+        border: 1px solid var(--color-footer-status-border-default)
         user-select: none
         padding: 5px 30px 5px 18px
         border-radius: 1px
@@ -150,7 +150,7 @@
         transition: border-color linear 100ms
 
         &:hover
-          border-color: rgba(#9fb0c2, .65)
+          border-color: var(--color-footer-status-border-hover)
           cursor: pointer
 
         .status-icon
@@ -167,7 +167,7 @@
 
           .status-state
             +font-size(13.5px)
-            color: #787b84
+            color: var(--color-footer-status-state-default-text)
             letter-spacing: 0
             line-height: 20px
 
@@ -176,7 +176,7 @@
 
           .status-time
             +font-size(12.5px)
-            color: #93a0ad
+            color: var(--color-footer-status-time-text)
             letter-spacing: -.1px
             line-height: 18px
 

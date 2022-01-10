@@ -4,15 +4,15 @@
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
 #header
-  background-color: rgba($color-white, .85)
-  border-bottom: $header-border-size solid rgba($color-grey, .65)
+  background-color: var(--color-header-background)
+  border-bottom: $header-border-size solid var(--color-header-border)
   height: $header-height
   position: fixed
   top: 0
   left: 0
   right: 0
   z-index: 100
-  box-shadow: 0 2px 6px 0 rgba($color-black, .06)
+  box-shadow: 0 2px 6px 0 var(--color-header-shadow)
   +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
   .wrapper
@@ -35,7 +35,7 @@
       padding-left: 12px
 
   .logo
-    color: $color-black
+    color: var(--color-black)
     margin-right: 60px
 
     .logo-image
@@ -66,7 +66,7 @@
   .extras .extras-item
     &:after
       content: ""
-      background-color: $color-grey
+      background-color: var(--color-grey)
       height: 0
       position: absolute
       left: 0
@@ -90,25 +90,25 @@
   .menu .menu-item.menu-item--active,
   .extras .extras-item.extras-item--active
     &:after
-      background-color: $color-blue
+      background-color: var(--color-accent-base)
 
   .dropdown
     $dropdown-padding-edges: 8px
     $dropdown-link-padding-sides: 8px
 
-    background-color: $color-white
-    border: 1px solid rgba($color-grey, .65)
+    background-color: var(--color-white)
+    border: 1px solid var(--color-header-dropdown-border)
     padding: ($header-height - 15px) $dropdown-padding-edges $dropdown-padding-edges
     display: none
     position: absolute
     z-index: 1
     top: 7px
     left: (-1 * ($dropdown-padding-edges + $dropdown-link-padding-sides))
-    box-shadow: 0 3px 5px 0 rgba($color-black, .05)
+    box-shadow: 0 3px 5px 0 var(--color-header-dropdown-shadow)
     border-radius: 3px
 
     .dropdown-link
-      color: $color-black
+      color: var(--color-black)
       +font-size(13.5px)
       line-height: 28px
       letter-spacing: -.1px
@@ -122,16 +122,16 @@
 
       &:hover,
       &:active
-        color: $color-white
+        color: var(--color-white)
 
       &:hover
-        background-color: $color-blue
+        background-color: var(--color-header-dropdown-link-background-hover)
 
         &:active
           transition: background-color linear 100ms
 
       &:active
-        background-color: darken($color-blue, 5%)
+        background-color: var(--color-header-dropdown-link-background-active)
 
       &:last-of-type
         margin-bottom: 0
@@ -188,7 +188,7 @@
         margin-right: 0
 
       .menu-link
-        color: $color-black
+        color: var(--color-black)
         +font-size(14px)
 
         &.menu-link--dropdown
@@ -207,14 +207,13 @@
   .extras
     .extras-item
       .extras-link
-        color: $color-blue
+        color: var(--color-accent-base)
         +font-size(13px)
         letter-spacing: -.09px
 
   .search
-    background: $color-base
-    border: 1px solid $color-grey-dark
-    box-shadow: 0 1px 0 0 rgba($color-grey-dark, .25)
+    background: var(--color-header-search-background-default)
+    border: 1px solid var(--color-header-search-border-default)
     height: 32px
     margin-left: 18px
     padding: 0 10px 0 12px
@@ -222,17 +221,18 @@
     align-items: center
     user-select: none
     border-radius: 3px
+    box-shadow: 0 1px 0 0 var(--color-header-search-shadow)
     transition: border-color linear 100ms
 
     &:hover
-      border-color: darken($color-grey-dark, 10%)
+      border-color: var(--color-header-search-border-hover)
       cursor: pointer
 
     &:active
-      border-color: darken($color-grey-dark, 14%)
+      border-color: var(--color-header-search-border-active)
 
     .search-placeholder
-      color: #607282
+      color: var(--color-header-search-placeholder-text)
       +font-size(13px)
       letter-spacing: -.1px
 
@@ -246,9 +246,9 @@
         vertical-align: middle
 
     .search-shortcut
-      background: $color-white
-      border: 1px solid #D5DADF
-      color: #A2AEB9
+      background: var(--color-white)
+      border: 1px solid var(--color-header-search-shortcut-border)
+      color: var(--color-header-search-shortcut-text)
       +font-size(12px)
       letter-spacing: -.2px
       text-align: center
@@ -256,12 +256,73 @@
       line-height: 21px
       margin-left: 20px
       padding: 0 5px
-      box-shadow: 0 1px 0 0 #E4E9ED
+      box-shadow: 0 1px 0 0 var(--color-header-search-shortcut-shadow)
       border-radius: 3px
 
-  .actions
-    margin-left: 42px
+  .appearance
+    $appearance-height: 16px
+    $appearance-width: 32px
+    $appearance-toggle-size: 24px
 
+    background-color: var(--color-header-appearance-background-default)
+    width: $appearance-width
+    height: $appearance-height
+    margin: 0 32px
+    cursor: pointer
+    position: relative
+    border-radius: ($appearance-height / 2)
+
+    &:hover
+      .toggle
+        border-color: var(--color-header-appearance-toggle-border-hover)
+        box-shadow: 0 1px 4px 0 var(--color-header-appearance-toggle-shadow-hover)
+
+    &:active
+      .toggle
+        border-color: var(--color-header-appearance-toggle-border-active)
+        box-shadow: 0 1px 1px 0 var(--color-header-appearance-toggle-shadow-active)
+
+    &[data-mode="light"]
+      .toggle
+        margin-left: (-1 * ($appearance-toggle-size / 4))
+
+        &:before
+          +background-image-internal("common/header/appearance-mode-light-icon.svg")
+          width: 14px
+          height: 14px
+
+    &[data-mode="dark"]
+      .toggle
+        margin-left: ($appearance-width - (($appearance-toggle-size + 2px) - ($appearance-toggle-size / 4)))
+
+        &:before
+          +background-image-internal("common/header/appearance-mode-dark-icon.svg")
+          width: 12px
+          height: 12px
+
+    .toggle
+      background-color: var(--color-white)
+      border: 1px solid var(--color-header-appearance-toggle-border-default)
+      height: $appearance-toggle-size
+      width: $appearance-toggle-size
+      margin-top: (-1 * (($appearance-toggle-size / 2) - ($appearance-height / 2) + 1px))
+      top: 0
+      left: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      position: absolute
+      pointer-events: none
+      border-radius: 100%
+      box-shadow: 0 1px 3px 0 var(--color-header-appearance-toggle-shadow-default)
+      transition: all linear 100ms
+      transition-property: border-color, margin-left, box-shadow
+
+      &:before
+        content: ""
+        +background-image-fill
+
+  .actions
     .action
       position: relative
 
@@ -272,7 +333,7 @@
         .action-button
           &.button
             background-color: transparent !important
-            color: $color-black !important
+            color: var(--color-black) !important
             box-shadow: none !important
             transition: none !important
 
@@ -312,8 +373,8 @@
     .logo
       margin-right: 42px
 
-    .actions
-      margin-left: 24px
+    .appearance
+      margin: 0 20px
 
 @media screen and (max-width: $screen-small-width-breakpoint)
   #header
@@ -338,6 +399,9 @@
       .search-placeholder
         &:before
           margin-right: 0
+
+    .appearance
+      display: none
 
     .actions
       margin-left: 10px

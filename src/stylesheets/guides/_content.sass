@@ -5,7 +5,7 @@
 
 #guides
   .details
-    border-bottom: 1px solid rgba($color-grey, .65)
+    border-bottom: 1px solid var(--color-guides-details-border)
     padding-bottom: 18px
 
     .details-upper,
@@ -26,7 +26,7 @@
 
     .details-upper .details-category,
     .details-lower .details-updated
-      color: #44566b
+      color: var(--color-guides-details-inner-text)
 
     .details-upper
       .details-category
@@ -43,7 +43,7 @@
           vertical-align: middle
 
       .details-feedback
-        color: $color-blue
+        color: var(--color-accent-base)
         user-select: none
 
         &:hover
@@ -53,7 +53,7 @@
       margin-top: 10px
 
       .details-title
-        color: $color-black
+        color: var(--color-black)
         +font-size(23px)
         line-height: 24px
 

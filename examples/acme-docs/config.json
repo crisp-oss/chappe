@@ -4,6 +4,13 @@
     "copyright" : "Acme Inc."
   },
 
+  "theme" : {
+    "accent" : {
+      "base"   : "#2275f1",
+      "active" : "#0f69ef"
+    }
+  },
+
   "urls" : {
     "base" : "https://docs.acme.com"
   },
@@ -22,8 +29,7 @@
 
   "images" : {
     "illustrations" : {
-      "home"      : "images/illustrations/home.gif",
-      "not_found" : "images/illustrations/not-found.gif"
+      "home" : "images/illustrations/home.png"
     },
 
     "logos" : {

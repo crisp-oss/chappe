@@ -4,7 +4,7 @@
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
 #content
-  background-color: $color-white
+  background-color: var(--color-white)
   min-height: 120px
   padding-top: $header-height-outer
 
@@ -15,13 +15,13 @@
       margin: 0 auto
 
     .main-title
-      color: $color-black
+      color: var(--color-black)
       +font-size(28px)
       letter-spacing: 0
       text-align: center
 
     .main-label
-      color: $color-blue-grey
+      color: var(--color-blue-grey)
       +font-size(17px)
       line-height: 22px
       letter-spacing: 0
@@ -87,7 +87,7 @@
       position: relative
 
       &.sidebar--left
-        background-color: rgba($color-base, .65)
+        background-color: var(--color-content-sidebar-left-background-default)
         width: $content-sidebar-left-width
         padding-top: $header-height-outer
         padding-bottom: 30px
@@ -99,7 +99,7 @@
         bottom: 0
 
       &.sidebar--right
-        background-color: #2d3134
+        background-color: var(--color-content-sidebar-right-background)
         width: $content-sidebar-right-default-width
 
       .sidebar-toggler-retract
@@ -119,11 +119,11 @@
           opacity: 1
 
       .context
-        border-bottom: 1px solid $color-grey
+        border-bottom: 1px solid var(--color-grey)
         padding: 16px $sidebar-item-padding-right-semi 16px $wrapper-default-padding-sides
 
         .context-name
-          color: $color-black
+          color: var(--color-black)
           +font-size(15px)
           line-height: 18px
           letter-spacing: -.1px
@@ -150,12 +150,12 @@
 
           &,
           .nest-category-link
-            color: $color-black
+            color: var(--color-black)
 
           &.nest-category--active
             &,
             .nest-category-link
-              color: $color-blue
+              color: var(--color-accent-base)
 
           .nest-icon
             vertical-align: middle
@@ -197,7 +197,7 @@
 
               &:before
                 content: ""
-                background-color: $color-grey-light
+                background-color: var(--color-grey-light)
                 width: 2px
                 position: absolute
                 top: 0
@@ -233,40 +233,41 @@
               transition-property: background-color, color
 
               &:hover
-                background-color: lighten($color-grey-light, 3%)
+                background-color: var(--color-content-sidebar-nest-navigate-link-background-hover)
 
               &:active
-                background-color: lighten($color-grey-light, 1%)
+                background-color: var(--color-content-sidebar-nest-navigate-link-background-active)
 
               &,
               .nest-navigate-slice
-                color: #44566b
+                color: var(--color-content-sidebar-nest-navigate-slice-text)
 
               &[data-active="true"]
-                background-color: $color-blue
+                background-color: var(--color-accent-base)
 
                 &,
                 .nest-navigate-slice
-                  color: $color-white
+                  color: var(--color-white)
 
                 .nest-navigate-link-text
                   font-family: "Chappe Proxima Nova Semibold", sans-serif
 
                 .nest-navigate-link-objects
                   .badge
-                    border-color: $color-white
-                    color: $color-white
+                    border-color: var(--color-white)
+                    color: var(--color-white)
 
               &[data-starred="true"]
                 .nest-navigate-link-text
                   font-family: "Chappe Proxima Nova Semibold", sans-serif
 
               &.nest-navigate-link--external
-                color: $color-blue
+                color: var(--color-accent-base)
 
                 &:after
                   content: ""
-                  +background-image-internal-fill("common/content/sidebar-link-external-icon.svg")
+                  background-color: var(--color-accent-base)
+                  +mask-image-internal-fill("common/content/sidebar-link-external-icon.svg")
                   width: 11px
                   height: 11px
                   margin-left: 6px
@@ -296,13 +297,13 @@
                     transition-property: opacity, transform
 
                   &:hover
-                    background-color: darken($color-grey-light, 3%)
+                    background-color: var(--color-content-sidebar-nest-navigate-link-default-toggle-background-hover)
 
                     &:after
                       opacity: 1
 
                   &:active
-                    background-color: darken($color-grey-light, 7%)
+                    background-color: var(--color-content-sidebar-nest-navigate-link-default-toggle-background-active)
 
                 &[data-active="true"]
                   .nest-navigate-toggle
@@ -310,10 +311,10 @@
                       +background-image-internal("common/content/sidebar-link-slice-icon-active.svg")
 
                     &:hover
-                      background-color: rgba($color-white, .15)
+                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-background-hover)
 
                     &:active
-                      background-color: rgba($color-white, .2)
+                      background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-background-active)
 
                 .nest-navigate-slice
                   flex: 1
@@ -332,7 +333,7 @@
     .sidebar-toggler
       $sidebar-toggler-size: 36px
 
-      background-color: rgba($color-white, .85)
+      background-color: var(--color-content-sidebar-toggler-background)
       line-height: $sidebar-toggler-size
       text-align: center
       width: $sidebar-toggler-size
@@ -344,19 +345,19 @@
       top: ($header-height + $header-border-size)
       left: 0
       z-index: 50
-      box-shadow: 0 1px 5px 0 rgba($color-black, .1)
+      box-shadow: 0 1px 5px 0 var(--color-content-sidebar-toggler-shadow-default)
       border-radius: 100%
       transition: box-shadow linear 150ms
       +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
       &:hover
-        box-shadow: 0 2px 6px 0 rgba($color-black, .125)
+        box-shadow: 0 2px 6px 0 var(--color-content-sidebar-toggler-shadow-hover)
 
         &:after
           opacity: .9
 
       &:active
-        box-shadow: 0 1px 3px 0 rgba($color-black, .2)
+        box-shadow: 0 1px 3px 0 var(--color-content-sidebar-toggler-shadow-active)
 
         &:after
           opacity: 1
@@ -373,10 +374,10 @@
 
   .bulletpoints .bulletpoint,
   .navigation .navigation-link
-    background-color: rgba($color-base, .25)
-    border: 1px solid #c1ccd8
+    background-color: var(--color-content-navigation-background)
+    border: 1px solid var(--color-content-navigation-border-default)
     text-align: left
-    box-shadow: 0 2px 1px 0 rgba(#c1ccd8, .25), inset 0 1px 0 0 rgba($color-white, .75)
+    box-shadow: 0 2px 1px 0 var(--color-content-navigation-shadow-outset), inset 0 1px 0 0 var(--color-content-navigation-shadow-inset)
     border-radius: 2px
     transition: all linear 100ms
     transition-property: border-color, box-shadow, transform
@@ -384,13 +385,13 @@
   .navigation
     .navigation-link
       &:hover
-        border-color: #b1bfce
+        border-color: var(--color-content-navigation-border-active)
 
   .navigation
     .navigation-link
       &:active
         transform: translateY(1px)
-        box-shadow: 0 1px 1px 0 rgba(#c1ccd8, .4)
+        box-shadow: 0 1px 1px 0 var(--color-content-navigation-shadow-active)
 
   .bulletpoints
     display: grid
@@ -403,17 +404,18 @@
 
       &:before
         content: ""
-        +background-image-fill
+        background-color: var(--color-accent-base)
+        +mask-image-fill
         height: 32px
         width: 32px
         margin-bottom: 16px
 
       .bulletpoint-title
-        color: $color-black
+        color: var(--color-black)
         +font-size(18.5px)
 
       .bulletpoint-label
-        color: #879aad
+        color: var(--color-content-bulletpoint-label-text)
         +font-size(14px)
         line-height: 18px
         margin-top: 9px
@@ -423,7 +425,7 @@
         margin-bottom: -1px
 
         .bulletpoint-action
-          color: $color-blue
+          color: var(--color-accent-base)
           +font-size(14px)
           line-height: 18px
           margin-right: 22px
@@ -446,7 +448,8 @@
 
             &:after
               content: ""
-              +background-image-internal-fill("common/content/bulletpoint-action-arrow.svg")
+              background-color: var(--color-accent-base)
+              +mask-image-internal-fill("common/content/bulletpoint-action-arrow.svg")
               width: 13px
               height: 9px
               margin-left: 4px
@@ -504,25 +507,26 @@
             display: block
 
           .navigation-title
-            color: $color-black
+            color: var(--color-black)
             +font-size(14.5px)
             line-height: 20px
 
           .navigation-label
-            color: #879aad
+            color: var(--color-content-navigation-label-text)
             +font-size(13.5px)
             line-height: 18px
             margin-top: 3px
 
         .navigation-action
-          color: $color-blue
+          color: var(--color-accent-base)
           +font-size(13.5px)
           margin-left: 8px
           flex: 0 0 auto
 
           &:after
             content: ""
-            +background-image-internal-fill("common/content/navigation-item-link-arrow.svg")
+            background-color: var(--color-accent-base)
+            +mask-image-internal-fill("common/content/navigation-item-link-arrow.svg")
             width: 11px
             height: 8px
             margin-top: -1px
@@ -570,7 +574,7 @@
 
       .sidebar
         &.sidebar--left
-          background-color: rgba($color-base, .9)
+          background-color: var(--color-content-sidebar-left-background-small)
           padding-top: 20px
           padding-bottom: 20px
           overflow-x: hidden
@@ -581,7 +585,7 @@
           left: (-1 * ($content-sidebar-left-width + 10px))
           z-index: 75
           transition: left ease 200ms
-          box-shadow: 1px 0 5px 0 rgba($color-black, .04)
+          box-shadow: 1px 0 5px 0 var(--color-content-sidebar-left-shadow-small)
           +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
           &[data-visible="true"]
@@ -620,7 +624,7 @@
 
       .sidebar
         &.sidebar--left
-          background-color: $color-base
+          background-color: var(--color-content-sidebar-left-background-tiny)
           visibility: hidden
           opacity: 0
           width: auto

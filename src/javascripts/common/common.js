@@ -45,6 +45,8 @@ class Common {
       this.__chatbox_z_index             = 120;
       this.__search_results_limit        = 12;
 
+      this.__cookie_prefix               = "chappe/";
+
       this.__status_known_health         = [
         "healthy",
         "sick",
@@ -62,6 +64,7 @@ class Common {
       // Storage
       this.__crisp_chat_feedback_shown     = false;
       this.__search_opened                 = false;
+      this.__appearance_mode               = "light";
 
       this.__content_anchor_viewed_timeout = null;
       this.__status_poll_scheduler         = null;
@@ -89,6 +92,7 @@ class Common {
 
     try {
       this.__chatbox();
+      this.__options();
       this.__events();
       this.__schedules();
     } catch (error) {
@@ -119,6 +123,25 @@ class Common {
 
 
   /**
+   * Setups all user options
+   * @private
+   * @return {undefined}
+   */
+  __options() {
+    let fn = "__options";
+
+    try {
+      // Restore appearance options
+      this.__toggle_appearance(
+        this.__detect_appearance_preference()  //-[mode]
+      );
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
    * Binds all events
    * @private
    * @return {undefined}
@@ -135,6 +158,9 @@ class Common {
       this.__bind_search_open_click();
       this.__bind_search_close_click();
       this.__bind_search_field_keyup();
+
+      // Bind appearance events
+      this.__bind_appearance_toggle_click();
 
       // Bind sidebar events
       this.__bind_sidebar_toggler_click();
@@ -170,6 +196,55 @@ class Common {
     try {
       // Bind all schedules
       this.__bind_status_poll_schedule();
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Reads cookie
+   * @private
+   * @param  {string} cookie_key
+   * @return {string} Cookie value (if any)
+   */
+  __read_cookie(cookie_key) {
+    let fn = "__read_cookie";
+
+    let _cookie_value;
+
+    try {
+      _cookie_value = Cookies.get(
+        (this.__cookie_prefix + cookie_key)
+      );
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    } finally {
+      return _cookie_value;
+    }
+  }
+
+
+  /**
+   * Writes cookie
+   * @private
+   * @param  {string} cookie_key
+   * @param  {string} cookie_value
+   * @return {undefined}
+   */
+  __write_cookie(cookie_key, cookie_value) {
+    let fn = "__write_cookie";
+
+    try {
+      Cookies.set(
+        (this.__cookie_prefix + cookie_key), cookie_value,
+
+        {
+          domain   : location.hostname,
+          expires  : Infinity,
+          sameSite : "strict"
+        }
+      );
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
     }
@@ -549,6 +624,72 @@ class Common {
       }
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Toggles appearance mode
+   * @private
+   * @param  {string} [new_mode]
+   * @return {undefined}
+   */
+  __toggle_appearance(new_mode=null) {
+    let fn = "__toggle_appearance";
+
+    try {
+      if (new_mode !== null && this.__appearance_mode !== new_mode) {
+        // Store new appearance mode (now current mode)
+        this.__appearance_mode = new_mode;
+
+        // Update current appearance mode (in toggle)
+        this._$("#header .appearance").attr("data-mode", new_mode);
+
+        // Update dark mode in document
+        document.body.setAttribute("data-appearance", new_mode);
+      }
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Detects appearance preference
+   * @private
+   * @return {string} Detected appearance preference
+   */
+  __detect_appearance_preference() {
+    let fn = "__detect_appearance_preference";
+
+    let _mode = null;
+
+    try {
+      // Attempt to detect mode from cookies? (user override)
+      let _mode_cookies = (
+        this.__read_cookie("appearance-mode") || null
+      );
+
+      if (_mode_cookies !== null) {
+        _mode = _mode_cookies;
+
+        // Abort detection there.
+        return;
+      }
+
+      // Attempt to detect mode from media query? (operating system)
+      if (typeof window.matchMedia === "function"  &&
+            (window.matchMedia("(prefers-color-scheme: dark)").matches  ===
+              true)) {
+        _mode = "dark";
+
+        // Abort detection there.
+        return;
+      }
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    } finally {
+      return (_mode || "light");
     }
   }
 
@@ -1332,6 +1473,39 @@ class Common {
             Console.error(`${this.ns}.${fn}:click`, _error);
           }
         });
+      });
+    } catch (error) {
+      Console.error(`${this.ns}.${fn}`, error);
+    }
+  }
+
+
+  /**
+   * Binds appearance toggle click event
+   * @private
+   * @return {undefined}
+   */
+  __bind_appearance_toggle_click() {
+    let fn = "__bind_appearance_toggle_click";
+
+    try {
+      this._$("#header .appearance").on("click", () => {
+        try {
+          // Acquire new appearance mode
+          let _new_mode = (
+            (this.__appearance_mode === "light") ? "dark" : "light"
+          );
+
+          // Toggle appearance mode
+          this.__toggle_appearance(_new_mode);
+
+          // Remember choice (with a cookie)
+          this.__write_cookie(
+            "appearance-mode", _new_mode
+          );
+        } catch (_error) {
+          Console.error(`${this.ns}.${fn}:click`, _error);
+        }
       });
     } catch (error) {
       Console.error(`${this.ns}.${fn}`, error);

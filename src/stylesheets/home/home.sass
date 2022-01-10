@@ -28,11 +28,12 @@
 
       &:hover
         &:after
-          +background-image-internal("home/action-quickstart-icon-active.svg")
+          background-color: var(--color-white)
 
       &:after
         content: ""
-        +background-image-internal-fill("home/action-quickstart-icon-default.svg")
+        background-color: var(--color-accent-base)
+        +mask-image-internal-fill("home/action-quickstart-icon.svg")
         width: 6px
         height: 9px
         margin-left: 17px
@@ -46,15 +47,15 @@
     .bulletpoint
       &.bulletpoint--quickstart
         &:before
-          +background-image-internal("home/bulletpoint-icon-quickstart.svg")
+          +mask-image-internal("home/bulletpoint-icon-quickstart.svg")
 
       &.bulletpoint--guides
         &:before
-          +background-image-internal("home/bulletpoint-icon-guides.svg")
+          +mask-image-internal("home/bulletpoint-icon-guides.svg")
 
       &.bulletpoint--references
         &:before
-          +background-image-internal("home/bulletpoint-icon-references.svg")
+          +mask-image-internal("home/bulletpoint-icon-references.svg")
 
   .support
     margin-top: 62px
@@ -69,13 +70,13 @@
       text-align: left
 
       .support-question
-        color: $color-black
+        color: var(--color-black)
         +font-size(15.5px)
         line-height: 20px
         margin-top: -2px
 
       .support-label
-        color: $color-blue-grey
+        color: var(--color-blue-grey)
         +font-size(14.5px)
         line-height: 18px
         margin-top: 5px
