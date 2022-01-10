@@ -80,7 +80,8 @@
         top: 50%
 
       &:before
-        +background-image-internal-fill("common/search/field-icon.svg")
+        background-color: var(--color-blue-grey-dark)
+        +mask-image-internal-fill("common/search/field-icon.svg")
         width: $spotlight-field-icon-size
         height: $spotlight-field-icon-size
         margin-top: (-1 * ($spotlight-field-icon-size / 2))
@@ -153,34 +154,25 @@
                 transition: background-color linear 100ms
 
               &:after
+                background-color: var(--color-white)
                 opacity: 1
 
               .spotlight-entry-path
                 opacity: 1
 
               .spotlight-entry-separator
-                +background-image-internal("common/search/result-separator-active.svg")
+                background-color: var(--color-white)
                 opacity: .55
 
           &.spotlight-entry--page
-            &[data-selected="true"]
-              .spotlight-entry-link
-                &:after
-                  +background-image-internal("common/search/result-type-page-active.svg")
-
             .spotlight-entry-link
               &:after
-                +background-image-internal("common/search/result-type-page-default.svg")
+                +mask-image-internal("common/search/result-type-page.svg")
 
           &.spotlight-entry--anchor
-            &[data-selected="true"]
-              .spotlight-entry-link
-                &:after
-                  +background-image-internal("common/search/result-type-anchor-active.svg")
-
             .spotlight-entry-link
               &:after
-                +background-image-internal("common/search/result-type-anchor-default.svg")
+                +mask-image-internal("common/search/result-type-anchor.svg")
                 width: ($spotlight-entry-type-icon-size - 2px)
                 height: ($spotlight-entry-type-icon-size - 2px)
 
@@ -197,7 +189,8 @@
 
             &:after
               content: ""
-              +background-image-fill
+              background-color: var(--color-black)
+              +mask-image-fill
               width: $spotlight-entry-type-icon-size
               height: $spotlight-entry-type-icon-size
               opacity: .25
@@ -231,7 +224,8 @@
               opacity: .8
 
             .spotlight-entry-separator
-              +background-image-internal-fill("common/search/result-separator-default.svg")
+              background-color: var(--color-black)
+              +mask-image-internal-fill("common/search/result-separator.svg")
               vertical-align: middle
               width: 4px
               height: 8px
@@ -265,25 +259,26 @@
 
           &.spotlight-shortcut--navigate
             &:before
-              +background-image-internal("common/search/legend-icon-navigate.svg")
+              +mask-image-internal("common/search/legend-icon-navigate.svg")
               width: 10px
               height: 13px
 
           &.spotlight-shortcut--go
             &:before
-              +background-image-internal("common/search/legend-icon-go.svg")
+              +mask-image-internal("common/search/legend-icon-go.svg")
               width: 10px
               height: 10px
 
           &.spotlight-shortcut--close
             &:before
-              +background-image-internal("common/search/legend-icon-close.svg")
+              +mask-image-internal("common/search/legend-icon-close.svg")
               width: 14px
               height: 10px
 
           &:before
             content: ""
-            +background-image-fill
+            background-color: var(--color-search-spotlight-shortcut-text)
+            +mask-image-fill
             vertical-align: middle
             margin-top: -2px
             margin-right: 4px
