@@ -62,6 +62,8 @@ The version history can be found in the [CHANGELOG.md](https://github.com/crisp-
 * **Syntax highlighting**: coloring for your code examples in 100+ programming languages
 * **Built-in search engine**: the index is generated during build and is hosted locally
 * **Fully responsive**: full support of desktop, tablet and phone screens
+* **Dark Mode**: read your docs either in light mode or dark mode
+* **Customizable theme**: configure an accent color for your docs theme
 * **SEO-friendly**: a deep sitemap is generated for search engines
 * **Sharing-friendly**: support for the Open Graph protocol
 * **Private pages support**: mark any guide or reference as private or unlisted (prefix its name with `_`)
