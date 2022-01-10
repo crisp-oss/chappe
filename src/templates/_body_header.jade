@@ -11,10 +11,9 @@
       )
         if SITE.images.logos.header_full && SITE.images.logos.header_short
           each variant in ["full", "short"]
-            img.logo-image(
-              class="logo-image--#{variant}"
-              src="/static/user/#{SITE.images.logos['header_' + variant]}",
-              alt=""
+            span.logo-image(
+              class="logo-image--#{variant}",
+              style="background-image: url('/static/user/#{SITE.images.logos['header_' + variant]}'); width: #{SITE.dimensions.logos['header_' + variant].width}px;"
             )
 
         else

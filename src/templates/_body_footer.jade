@@ -29,9 +29,8 @@
         .left
           .brand
             if SITE.images.logos.footer
-              img.logo(
-                src="/static/user/#{SITE.images.logos.footer}",
-                alt=""
+              span.logo(
+                style="background-image: url('/static/user/#{SITE.images.logos.footer}'); width: #{SITE.dimensions.logos.footer.width}px;"
               )
 
               span.separator

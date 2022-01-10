@@ -50,6 +50,22 @@
     }
   },
 
+  "dimensions" : {
+    "logos" : {
+      "header_full"  : {
+        "width" : 160
+      },
+
+      "header_short" : {
+        "width" : 50
+      },
+
+      "footer"       : {
+        "width" : 120
+      }
+    }
+  },
+
   "colors" : {
     "changes" : {
       "groups" : {}

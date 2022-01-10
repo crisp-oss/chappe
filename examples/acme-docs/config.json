@@ -52,6 +52,22 @@
     }
   },
 
+  "dimensions" : {
+    "logos" : {
+      "header_full"  : {
+        "width" : 136
+      },
+
+      "header_short" : {
+        "width" : 46
+      },
+
+      "footer"       : {
+        "width" : 84
+      }
+    }
+  },
+
   "colors" : {
     "changes" : {
       "groups" : {
