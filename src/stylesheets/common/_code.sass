@@ -16,7 +16,7 @@
       .code-actions
         .code-action
           &.code-action--copy
-            +background-image-internal("common/code/header-action-copied.svg")
+            +mask-image-internal("common/code/header-action-copied.svg")
             width: 13px
             height: 16px
             margin-top: 1px
@@ -64,7 +64,7 @@
       padding-left: 8px
 
       .code-action
-        +background-image-fill
+        +mask-image-fill
         margin-right: 15px
         opacity: .65
         cursor: pointer
@@ -80,7 +80,8 @@
           opacity: 1
 
         &.code-action--copy
-          +background-image-internal("common/code/header-action-copy.svg")
+          background-color: var(--color-code-action-background)
+          +mask-image-internal("common/code/header-action-copy.svg")
           width: 13px
           height: 15px
 

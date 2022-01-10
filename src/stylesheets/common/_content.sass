@@ -103,7 +103,8 @@
         width: $content-sidebar-right-default-width
 
       .sidebar-toggler-retract
-        +background-image-internal-fill("common/content/sidebar-toggler-retract.svg", $display: false)
+        background-color: var(--color-black)
+        +mask-image-internal-fill("common/content/sidebar-toggler-retract.svg", $display: false)
         width: 11px
         height: 11px
         margin-right: ($sidebar-item-padding-right-semi + 2px)
@@ -287,7 +288,8 @@
 
                   &:after
                     content: ""
-                    +background-image-internal-fill("common/content/sidebar-link-slice-icon-default.svg")
+                    background-color: var(--color-content-sidebar-nest-navigate-slice-icon-background-default)
+                    +mask-image-internal-fill("common/content/sidebar-link-slice-icon-default.svg")
                     vertical-align: middle
                     width: 9px
                     height: 6px
@@ -308,7 +310,8 @@
                 &[data-active="true"]
                   .nest-navigate-toggle
                     &:after
-                      +background-image-internal("common/content/sidebar-link-slice-icon-active.svg")
+                      background-color: var(--color-content-sidebar-nest-navigate-slice-icon-background-active)
+                      +mask-image-internal("common/content/sidebar-link-slice-icon-active.svg")
 
                     &:hover
                       background-color: var(--color-content-sidebar-nest-navigate-link-active-toggle-background-hover)
@@ -364,7 +367,8 @@
 
       &:after
         content: ""
-        +background-image-internal-fill("common/content/sidebar-toggler-icon.svg")
+        background-color: var(--color-content-sidebar-toggler-icon-background)
+        +mask-image-internal-fill("common/content/sidebar-toggler-icon.svg")
         vertical-align: middle
         width: 16px
         height: 16px
