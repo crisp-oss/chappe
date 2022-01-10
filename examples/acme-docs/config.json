@@ -29,8 +29,7 @@
 
   "images" : {
     "illustrations" : {
-      "home"      : "images/illustrations/home.gif",
-      "not_found" : "images/illustrations/not-found.gif"
+      "home" : "images/illustrations/home.png"
     },
 
     "logos" : {
