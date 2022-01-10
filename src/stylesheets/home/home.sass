@@ -33,7 +33,7 @@
       &:after
         content: ""
         background-color: var(--color-accent-base)
-        +mask-image-external-fill("home/action-quickstart-icon.svg")
+        +mask-image-internal-fill("home/action-quickstart-icon.svg")
         width: 6px
         height: 9px
         margin-left: 17px
@@ -47,15 +47,15 @@
     .bulletpoint
       &.bulletpoint--quickstart
         &:before
-          +mask-image-external("home/bulletpoint-icon-quickstart.svg")
+          +mask-image-internal("home/bulletpoint-icon-quickstart.svg")
 
       &.bulletpoint--guides
         &:before
-          +mask-image-external("home/bulletpoint-icon-guides.svg")
+          +mask-image-internal("home/bulletpoint-icon-guides.svg")
 
       &.bulletpoint--references
         &:before
-          +mask-image-external("home/bulletpoint-icon-references.svg")
+          +mask-image-internal("home/bulletpoint-icon-references.svg")
 
   .support
     margin-top: 62px

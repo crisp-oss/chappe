@@ -45,8 +45,11 @@
   +background-image-fill($display)
 
 
-@mixin mask-image-external($image)
-  +mask-image(url('/static/images/#{$image}?#{$cache-buster-hash}'))
+@mixin mask-image-internal($image)
+  @if $with-inline-images == true
+    +mask-image(inline-image($image))
+  @else
+    +mask-image(url('/static/images/#{$image}?#{$cache-buster-hash}'))
 
 
 @mixin mask-image-fill($display: true)
@@ -58,8 +61,8 @@
     display: inline-block
 
 
-@mixin mask-image-external-fill($image, $display: true)
-  +mask-image-external($image)
+@mixin mask-image-internal-fill($image, $display: true)
+  +mask-image-internal($image)
   +mask-image-fill($display)
 
 
@@ -113,8 +116,10 @@
 
 
 @mixin mask-image($value)
-  -webkit-mask-image: $value
-  mask-image: $value
+  --mask-image: #{$value}
+
+  -webkit-mask-image: var(--mask-image)
+  mask-image: var(--mask-image)
 
 
 @mixin mask-size($value)
