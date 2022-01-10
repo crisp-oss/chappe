@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0 (2022-01-10)
+
+### New Features
+
+* Implemented Dark Mode.
+* Added the ability to configure the theme accent color with the `theme` configuration property.
+
 ## 1.5.1 (2022-01-07)
 
 ### Non-Breaking Changes
