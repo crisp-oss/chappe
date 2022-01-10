@@ -219,10 +219,6 @@
   --color-changes-month-event-deprecated-background: #fdeaee
 
   &[data-appearance="dark"]
-    // Accent (Dark Mode)
-    --color-accent-base: #{$color-white}
-    --color-accent-active: #{rgba($color-white, .9)}
-
     // Palette (Dark Mode)
     --color-white: #10131c
     --color-black: #{$color-white}
@@ -255,7 +251,11 @@
     --color-method-put-patch-light: #{rgba($color-method-put-patch-light, .3)}
     --color-method-delete-light: #{rgba($color-method-delete-light, .3)}
 
+    // Viewer (Dark Mode)
+    --color-viewer-panes-footer-border: #{rgba($color-white, .1)}
+
     // Markdown (Dark Mode)
+    --color-markdown-code-block-background: #2a2d39
     --color-markdown-blockquote-border: #516071
     --color-markdown-emphasis-warning-background: #{rgba(#ffb300, .25)}
     --color-markdown-emphasis-warning-border: #c87c00
@@ -270,7 +270,7 @@
 
     // Header (Dark Mode)
     --color-header-background: #{rgba(#10131c, .9)}
-    --color-header-border: #{rgba($color-white, .05)}
+    --color-header-border: #{rgba($color-white, .075)}
     --color-header-dropdown-border: #{rgba(#474b5e, .65)}
     --color-header-search-background-clear: var(--color-header-search-background-default)
     --color-header-search-border-hover: #{lighten(#3e4255, 10%)}
@@ -284,11 +284,31 @@
     --color-header-search-shortcut-shadow: var(--color-white)
 
     // Content (Dark Mode)
+    --color-content-navigation-background: var(--color-base)
+    --color-content-navigation-border-default: var(--color-grey)
+    --color-content-navigation-border-active: #{lighten(#474b5e, 6%)}
+    --color-content-navigation-shadow-outset: #{rgba($color-black, .25)}
+    --color-content-navigation-shadow-inset: #{rgba($color-white, .05)}
+    --color-content-navigation-shadow-active: #{rgba($color-black, .4)}
+    --color-content-navigation-label-text: var(--color-blue-grey)
     --color-content-sidebar-left-background-default: var(--color-base)
     --color-content-sidebar-left-background-small: var(--color-base)
     --color-content-sidebar-right-background: #1e202b
+    --color-content-sidebar-nest-navigate-link-background-hover: #{darken(#4c4f62, 3%)}
+    --color-content-sidebar-nest-navigate-link-background-active: #{darken(#4c4f62, 1%)}
+    --color-content-sidebar-nest-navigate-link-default-toggle-background-hover: #{lighten(#4c4f62, 3%)}
+    --color-content-sidebar-nest-navigate-link-default-toggle-background-active: #{lighten(#4c4f62, 7%)}
+
+    // Guides (Dark Mode)
+    --color-guides-details-border: #{rgba(#474b5e, .45)}
+
+    // References (Dark Mode)
+    --color-references-separator-content: #{rgba(#474b5e, .45)}
+    --color-references-separator-sidebar: #{rgba(#474b5e, .35)}
 
     // Changes (Dark Mode)
+    --color-changes-navigate-link-background-hover: #{darken(#4c4f62, 6%)}
+    --color-changes-navigate-link-background-active: #{darken(#4c4f62, 4%)}
     --color-changes-month-event-deprecated-background: #{rgba(#ff7b98, .3)}
 
     // Images (Dark Mode)
