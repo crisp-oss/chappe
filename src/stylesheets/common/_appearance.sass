@@ -67,11 +67,11 @@
   --color-markdown-blockquote-background: var(--color-base)
   --color-markdown-blockquote-text: var(--color-blue-black)
   --color-markdown-blockquote-border: #c0cedd
-  --color-markdown-emphasis-warning-text: #fff4e1
+  --color-markdown-emphasis-warning-background: #fff4e1
   --color-markdown-emphasis-warning-border: #f49c0b
-  --color-markdown-emphasis-info-text: #fffcd9
+  --color-markdown-emphasis-info-background: #fffcd9
   --color-markdown-emphasis-info-border: #f4e200
-  --color-markdown-emphasis-notice-text: #e2ffdd
+  --color-markdown-emphasis-notice-background: #e2ffdd
   --color-markdown-emphasis-notice-border: #48cc30
 
   // Code
@@ -246,6 +246,15 @@
     --color-method-put-patch-light: #{rgba($color-method-put-patch-light, .3)}
     --color-method-delete-light: #{rgba($color-method-delete-light, .3)}
 
+    // Markdown (Dark Mode)
+    --color-markdown-blockquote-border: #516071
+    --color-markdown-emphasis-warning-background: #{rgba(#ffb300, .25)}
+    --color-markdown-emphasis-warning-border: #c87c00
+    --color-markdown-emphasis-info-background: #{rgba(#ffef00, .25)}
+    --color-markdown-emphasis-info-border: #c4b500
+    --color-markdown-emphasis-notice-background: #{rgba(#87ff73, .25)}
+    --color-markdown-emphasis-notice-border: #30bb17
+
     // Search (Dark Mode)
     --color-search-lock-background: #{rgba(#14161a, .45)}
     --color-search-spotlight-field-background: #{rgba(#1e202b, .65)}
@@ -277,6 +286,5 @@
       .logo-image
         filter: grayscale(1) invert(1) brightness(10)
 
-    .illustration,
-    .markdown img
+    .illustration
       filter: saturate(.15) invert(1)
