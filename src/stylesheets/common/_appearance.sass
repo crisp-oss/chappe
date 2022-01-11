@@ -4,8 +4,6 @@
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
 .appearance
-  // sass-lint:disable-block no-color-literals
-
   // Palette
   --color-white: #{$color-white}
   --color-black: #{$color-black}
@@ -37,9 +35,9 @@
   --color-badge-green: #{$color-badge-green}
   --color-badge-yellow: #{$color-badge-yellow}
   --color-badge-red: #{$color-badge-red}
-  --color-badge-special-background: #{rgba(#e8f5fa, .15)}
+  --color-badge-special-background: #{rgba($color-badge-special-dark, .15)}
   --color-badge-special-border: #{rgba($color-white, .25)}
-  --color-badge-special-text: #dde4e8
+  --color-badge-special-text: #{$color-badge-special-light}
 
   // Methods
   --color-method-get-head-light: #{$color-method-get-head-light}
@@ -219,6 +217,21 @@
   --color-changes-month-event-border: #{rgba($color-grey, .65)}
   --color-changes-month-event-group-text: var(--color-blue-grey-dark)
   --color-changes-month-event-deprecated-background: #fdeaee
+
+  // Highlight
+  --color-highlight-main: #{$color-highlight-main}
+  --color-highlight-entity-light: #{$color-highlight-entity-light}
+  --color-highlight-entity-dark: #{$color-highlight-entity-dark}
+  --color-highlight-comment: #{$color-highlight-comment}
+  --color-highlight-punctuation: #{$color-highlight-punctuation}
+  --color-highlight-variable: #{$color-highlight-variable}
+  --color-highlight-number: #{$color-highlight-number}
+  --color-highlight-class: #{$color-highlight-class}
+  --color-highlight-property: #{$color-highlight-property}
+  --color-highlight-regex: #{$color-highlight-regex}
+  --color-highlight-function: #{$color-highlight-function}
+  --color-highlight-keyword: #{$color-highlight-keyword}
+  --color-highlight-doctype: #{$color-highlight-doctype}
 
   &[data-appearance="dark"]
     // Palette (Dark Mode)

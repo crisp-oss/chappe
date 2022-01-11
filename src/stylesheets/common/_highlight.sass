@@ -6,9 +6,7 @@
 pre
   code
     &[class*="language-"]
-      // sass-lint:disable-block no-color-literals
-
-      color: #f7f7f7
+      color: var(--color-highlight-main)
 
       .namespace
         opacity: .7
@@ -16,33 +14,33 @@ pre
       .token.entity,
       .language-css .token.string,
       .style .token.string
-        color: #a09f93
-        background: #393939
+        color: var(--color-highlight-entity-light)
+        background: var(--color-highlight-entity-dark)
 
       .token
         &.comment,
         &.prolog,
         &.cdata
-          color: #a2a2a2
+          color: var(--color-highlight-comment)
 
         &.punctuation
-          color: #f7f7f7
+          color: var(--color-highlight-punctuation)
 
         &.variable,
         &.tag,
         &.operator,
         &.deleted
-          color: #f2777a
+          color: var(--color-highlight-variable)
 
         &.number,
         &.boolean,
         &.constant,
         &.url
-          color: #ff8c4d
+          color: var(--color-highlight-number)
 
         &.class-name,
         &.bold
-          color: #ffcc66
+          color: var(--color-highlight-class)
 
         &.property,
         &.string,
@@ -50,25 +48,25 @@ pre
         &.attr-value,
         &.inserted,
         &.atrule
-          color: #c2ee65
+          color: var(--color-highlight-property)
 
         &.regex,
         &.important
-          color: #66cccc
+          color: var(--color-highlight-regex)
 
         &.function,
         &.attr-name
-          color: #88c4ff
+          color: var(--color-highlight-function)
 
         &.keyword,
         &.selector,
         &.italic,
         &.char,
         &.builtin
-          color: #ff9eff
+          color: var(--color-highlight-keyword)
 
         &.doctype
-          color: #d27b53
+          color: var(--color-highlight-doctype)
 
         &.important,
         &.bold
