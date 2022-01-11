@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.1 (2022-01-11)
+
+### Non-Breaking Changes
+
+* Improved Dark Mode colors.
+* Moved logos to embedded images (this prevents visual glitches when loading docs).
+
 ## 1.6.0 (2022-01-10)
 
 ### New Features
