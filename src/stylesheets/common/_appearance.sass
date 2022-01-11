@@ -12,6 +12,7 @@
   --color-grey-dark: #{$color-grey-dark}
   --color-blue-black: #{$color-blue-black}
   --color-blue-grey: #{$color-blue-grey}
+  --color-blue-grey-light: #{$color-blue-grey-light}
   --color-blue-grey-dark: #{$color-blue-grey-dark}
   --color-green: #{$color-green}
   --color-red: #{$color-red}
@@ -55,39 +56,39 @@
   // Markdown
   --color-markdown-title-small-text: var(--color-blue-black)
   --color-markdown-list-item-bullet: var(--color-blue-black)
-  --color-markdown-code-inline-background: #{#e8f5fa}
-  --color-markdown-code-inline-border: #{#a9c6dd}
-  --color-markdown-code-inline-text: #{#275190}
-  --color-markdown-code-block-background: #{#1f2224}
+  --color-markdown-code-inline-background: #{$color-markdown-code-inline-light}
+  --color-markdown-code-inline-border: #{$color-markdown-code-inline}
+  --color-markdown-code-inline-text: #{$color-markdown-code-inline-dark}
+  --color-markdown-code-block-background: #{$color-markdown-code-block}
   --color-markdown-code-selection: #{rgba($color-selection-code, .25)}
   --color-markdown-figure-text: var(--color-blue-grey)
   --color-markdown-figure-border: #{rgba($color-grey, .9)}
   --color-markdown-table-head-background: var(--color-base)
   --color-markdown-table-head-text: var(--color-blue-black)
-  --color-markdown-table-cell-border: #{rgba(#c1ccd8, .65)}
+  --color-markdown-table-cell-border: #{rgba($color-blue-grey-light, .65)}
   --color-markdown-blockquote-background: var(--color-base)
   --color-markdown-blockquote-text: var(--color-blue-black)
-  --color-markdown-blockquote-border: #{#c0cedd}
+  --color-markdown-blockquote-border: #{$color-markdown-blockquote}
   --color-markdown-embed-wrap-background: #{$color-black}
-  --color-markdown-emphasis-warning-background: #{#fff4e1}
-  --color-markdown-emphasis-warning-border: #{#f49c0b}
-  --color-markdown-emphasis-info-background: #{#fffcd9}
-  --color-markdown-emphasis-info-border: #{#f4e200}
-  --color-markdown-emphasis-notice-background: #{#e2ffdd}
-  --color-markdown-emphasis-notice-border: #{#48cc30}
+  --color-markdown-emphasis-warning-background: #{$color-markdown-emphasis-warning-light}
+  --color-markdown-emphasis-warning-border: #{$color-markdown-emphasis-warning-dark}
+  --color-markdown-emphasis-info-background: #{$color-markdown-emphasis-info-light}
+  --color-markdown-emphasis-info-border: #{$color-markdown-emphasis-info-dark}
+  --color-markdown-emphasis-notice-background: #{$color-markdown-emphasis-notice-light}
+  --color-markdown-emphasis-notice-border: #{$color-markdown-emphasis-notice-dark}
 
   // Code
   --color-code-selection: #{rgba($color-selection-code, .3)}
   --color-code-border-hover: #{rgba($color-white, .25)}
-  --color-code-header-default: #{#151517}
-  --color-code-header-hover: #{#0c0c0d}
+  --color-code-header-default: #{$color-code-header-light}
+  --color-code-header-hover: #{$color-code-header-dark}
   --color-code-language-text: #{rgba($color-white, .6)}
   --color-code-action-background: #{$color-white}
-  --color-code-metas-background: #{#1e1e20}
+  --color-code-metas-background: #{$color-code-metas}
   --color-code-meta-name-border: #{rgba($color-white, .06)}
   --color-code-meta-name-text: #{rgba($color-white, .8)}
   --color-code-meta-type-text: #{rgba($color-white, .4)}
-  --color-code-content-background: #{#222628}
+  --color-code-content-background: #{$color-code-content}
   --color-code-content-text: #{rgba($color-white, .4)}
   --color-code-select-text-default: #{rgba($color-white, .5)}
   --color-code-select-text-hover: #{rgba($color-white, .8)}
@@ -95,9 +96,9 @@
   --color-code-select-border-hover: #{rgba($color-white, .15)}
 
   // Search
-  --color-search-lock-background: #{rgba(#495368, .45)}
+  --color-search-lock-background: #{rgba($color-search-lock, .45)}
   --color-search-spotlight-shadow: #{rgba($color-black, .1)}
-  --color-search-spotlight-shortcut-text: #{#929fac}
+  --color-search-spotlight-shortcut-text: #{$color-search-spotlight-shortcut}
   --color-search-spotlight-field-background: #{rgba($color-base, .65)}
   --color-search-spotlight-field-placeholder: var(--color-blue-grey-dark)
   --color-search-spotlight-field-spinner-border: var(--color-blue-grey-dark)
@@ -117,14 +118,14 @@
   --color-header-search-border-default: var(--color-grey-dark)
   --color-header-search-border-hover: #{darken($color-grey-dark, 10%)}
   --color-header-search-border-active: #{darken($color-grey-dark, 14%)}
-  --color-header-search-border-clear-default: #{#d5dadf}
-  --color-header-search-border-clear-hover: #{darken(#d5dadf, 6%)}
-  --color-header-search-border-clear-active: #{darken(#d5dadf, 9%)}
+  --color-header-search-border-clear-default: #{$color-header-search-border-clear}
+  --color-header-search-border-clear-hover: #{darken($color-header-search-border-clear, 6%)}
+  --color-header-search-border-clear-active: #{darken($color-header-search-border-clear, 9%)}
   --color-header-search-shadow: #{rgba($color-grey-dark, .25)}
   --color-header-search-placeholder-text: var(--color-blue-grey-dark)
-  --color-header-search-shortcut-text: #{#a2aeb9}
-  --color-header-search-shortcut-border: #{#d5dadf}
-  --color-header-search-shortcut-shadow: #{#e4e9ed}
+  --color-header-search-shortcut-text: #{$color-header-search-shortcut-text-dark}
+  --color-header-search-shortcut-border: #{$color-header-search-border-clear}
+  --color-header-search-shortcut-shadow: #{$color-header-search-shortcut-text-light}
   --color-header-coloring-background-default: #{lighten($color-grey-light, 1%)}
   --color-header-coloring-background-clear: #{rgba($color-white, .7)}
   --color-header-coloring-toggle-border-default: #{rgba(darken($color-grey-dark, 50%), .2)}
@@ -133,16 +134,16 @@
   --color-header-coloring-toggle-shadow-default: #{rgba($color-black, .04)}
   --color-header-coloring-toggle-shadow-hover: #{rgba($color-black, .06)}
   --color-header-coloring-toggle-shadow-active: #{rgba($color-black, .02)}
-  --color-header-coloring-toggle-icon-light-background: #{#e0a142}
-  --color-header-coloring-toggle-icon-dark-background: #{#5162b7}
+  --color-header-coloring-toggle-icon-light-background: #{$color-header-coloring-toggle-icon-light}
+  --color-header-coloring-toggle-icon-dark-background: #{$color-header-coloring-toggle-icon-dark}
 
   // Content
   --color-content-navigation-background: #{rgba($color-base, .25)}
-  --color-content-navigation-border-default: #{#c1ccd8}
+  --color-content-navigation-border-default: var(--color-blue-grey-light)
   --color-content-navigation-border-active: #{#b1bfce}
-  --color-content-navigation-shadow-outset: #{rgba(#c1ccd8, .25)}
+  --color-content-navigation-shadow-outset: #{rgba($color-blue-grey-light, .25)}
   --color-content-navigation-shadow-inset: #{rgba($color-white, .75)}
-  --color-content-navigation-shadow-active: #{rgba(#c1ccd8, .4)}
+  --color-content-navigation-shadow-active: #{rgba($color-blue-grey-light, .4)}
   --color-content-navigation-label-text: var(--color-blue-grey)
   --color-content-bulletpoint-label-text: var(--color-blue-grey)
   --color-content-sidebar-left-background-default: #{rgba($color-base, .65)}
@@ -242,6 +243,7 @@
     --color-grey-dark: #3e4255
     --color-blue-black: #cdd3db
     --color-blue-grey: #a3a5ae
+    --color-blue-grey-light: #474b5e
     --color-blue-grey-dark: #71757d
     --color-green: #21fb52
     --color-red: #ff7e7e
