@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.2 (2022-01-11)
+
+### Non-Breaking Changes
+
+* Improved management of CSS colors.
+
 ## 1.6.1 (2022-01-11)
 
 ### Non-Breaking Changes
