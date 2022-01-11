@@ -1525,6 +1525,9 @@ var lint_sass_stylesheets = function() {
     )
     .pipe(
       gulp_sass_lint.format()
+    )
+    .pipe(
+      gulp_sass_lint.failOnError()
     );
 };
 
