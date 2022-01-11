@@ -19,7 +19,7 @@
 
   // Base
   --color-base: #{$color-base}
-  --color-base-background: #{rgba($color-base, .65)}
+  --color-base-background: #{$color-base-background}
 
   // Selection
   --color-selection-default: #{$color-selection-default}
@@ -237,25 +237,41 @@
   --color-changes-month-event-deprecated-background: #{$color-changes-month-event-deprecated}
 
   &[data-appearance="dark"]
+    // Overrides (Dark Mode)
+    $color-white: #10131c
+    $color-black: #ffffff
+    $color-grey: #474b5e
+    $color-grey-light: #4c4f62
+    $color-grey-dark: #3e4255
+    $color-blue-black: #cdd3db
+    $color-blue-grey: #a3a5ae
+    $color-blue-grey-light: #474b5e
+    $color-blue-grey-dark: #71757d
+    $color-green: #21fb52
+    $color-red: #ff7e7e
+
+    $color-base: #1e202b
+    $color-base-background: #191c25
+
     // Palette (Dark Mode)
-    --color-white: #10131c
-    --color-black: #{$color-white}
-    --color-grey: #474b5e
-    --color-grey-light: #4c4f62
-    --color-grey-dark: #3e4255
-    --color-blue-black: #cdd3db
-    --color-blue-grey: #a3a5ae
-    --color-blue-grey-light: #474b5e
-    --color-blue-grey-dark: #71757d
-    --color-green: #21fb52
-    --color-red: #ff7e7e
+    --color-white: #{$color-white}
+    --color-black: #{$color-black}
+    --color-grey: #{$color-grey}
+    --color-grey-light: #{$color-grey-light}
+    --color-grey-dark: #{$color-grey-dark}
+    --color-blue-black: #{$color-blue-black}
+    --color-blue-grey: #{$color-blue-grey}
+    --color-blue-grey-light: #{$color-blue-grey-light}
+    --color-blue-grey-dark: #{$color-blue-grey-dark}
+    --color-green: #{$color-green}
+    --color-red: #{$color-red}
 
     // Base (Dark Mode)
-    --color-base: #1e202b
-    --color-base-background: #191c25
+    --color-base: #{$color-base}
+    --color-base-background: #{$color-base-background}
 
     // Selection (Dark Mode)
-    --color-selection-default: #{rgba($color-white, .25)}
+    --color-selection-default: #{rgba($color-black, .25)}
 
     // Badges (Dark Mode)
     --color-badge-black: #{lighten($color-badge-black, 10%)}
@@ -275,12 +291,12 @@
     --color-method-delete-dark: #{lighten($color-method-delete-dark, 6%)}
 
     // Viewer (Dark Mode)
-    --color-viewer-panes-footer-border: #{rgba($color-white, .1)}
+    --color-viewer-panes-footer-border: #{rgba($color-black, .1)}
 
     // Markdown (Dark Mode)
-    --color-markdown-code-inline-background: #{$color-white}
+    --color-markdown-code-inline-background: #{$color-black}
     --color-markdown-code-inline-border: transparent
-    --color-markdown-code-inline-text: #{$color-black}
+    --color-markdown-code-inline-text: #{$color-white}
     --color-markdown-code-block-background: #2a2d39
     --color-markdown-figure-border: #{rgba(#474b5e, .9)}
     --color-markdown-table-cell-border: var(--color-grey)
@@ -304,7 +320,7 @@
 
     // Header (Dark Mode)
     --color-header-background: #{rgba(#10131c, .9)}
-    --color-header-border: #{rgba($color-white, .075)}
+    --color-header-border: #{rgba($color-black, .075)}
     --color-header-dropdown-border: #{rgba(#474b5e, .65)}
     --color-header-search-background-clear: var(--color-header-search-background-default)
     --color-header-search-border-hover: #{lighten(#3e4255, 10%)}
@@ -326,9 +342,9 @@
     --color-content-navigation-background: var(--color-base)
     --color-content-navigation-border-default: var(--color-grey)
     --color-content-navigation-border-active: #{lighten(#474b5e, 6%)}
-    --color-content-navigation-shadow-outset: #{rgba($color-black, .25)}
-    --color-content-navigation-shadow-inset: #{rgba($color-white, .05)}
-    --color-content-navigation-shadow-active: #{rgba($color-black, .4)}
+    --color-content-navigation-shadow-outset: #{rgba($color-white, .25)}
+    --color-content-navigation-shadow-inset: #{rgba($color-black, .05)}
+    --color-content-navigation-shadow-active: #{rgba($color-white, .4)}
     --color-content-sidebar-left-background-default: var(--color-base)
     --color-content-sidebar-left-background-small: var(--color-base)
     --color-content-sidebar-right-background: #292a31
@@ -345,8 +361,8 @@
     --color-references-separator-content: #{rgba(#474b5e, .45)}
     --color-references-separator-sidebar: #{rgba(#474b5e, .35)}
     --color-references-request-target-url-border-default: transparent
-    --color-references-request-target-url-border-hover: #{rgba($color-white, .45)}
-    --color-references-request-target-url-border-active: #{rgba($color-white, .6)}
+    --color-references-request-target-url-border-hover: #{rgba($color-black, .45)}
+    --color-references-request-target-url-border-active: #{rgba($color-black, .6)}
     --color-references-request-format-required-text: #ff6d5a
     --color-references-request-format-optional-text: #8f99a6
     --color-references-request-format-label-text: #8d98a4
@@ -355,10 +371,10 @@
     --color-references-request-format-keys-depth-border-three: #{lighten(#4c4f62, 5%)}
     --color-references-request-format-keys-depth-border-four: #{lighten(#4c4f62, 10%)}
     --color-references-request-format-keys-depth-border-infinity: #{lighten(#4c4f62, 15%)}
-    --color-references-request-format-toggle-count-text: #{darken($color-white, 12.5%)}
+    --color-references-request-format-toggle-count-text: #{darken($color-black, 12.5%)}
     --color-references-request-format-toggle-count-background: #{darken(#4c4f62, 2%)}
     --color-references-request-format-toggle-button-border: #{lighten(#3e4255, 8%)}
-    --color-references-request-format-toggle-button-shadow: #{rgba($color-black, .25)}
+    --color-references-request-format-toggle-button-shadow: #{rgba($color-white, .25)}
 
     // Changes (Dark Mode)
     --color-changes-navigate-link-background-hover: #{darken(#4c4f62, 6%)}
