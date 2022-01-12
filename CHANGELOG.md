@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.3 (2022-01-12)
+
+### Bug Fixes
+
+* Fixed an issue with non-highlighted code blocks in Dark Mode, where code text would appear black-on-black.
+* Fixed an issue with inline code blocks in Dark Mode, where selected text would appear white-on-white.
+
 ## 1.6.2 (2022-01-11)
 
 ### Non-Breaking Changes
