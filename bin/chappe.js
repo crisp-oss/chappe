@@ -3,7 +3,7 @@
 /*
  * chappe
  *
- * Copyright 2021, Crisp IM SARL
+ * Copyright 2021, Crisp IM SAS
  * Author: Valerian Saliou <valerian@valeriansaliou.name>
  */
 
