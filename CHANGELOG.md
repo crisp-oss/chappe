@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.4 (2022-02-13)
+
+### Non-Breaking Changes
+
+* Moved the search engine opening shortcut from ⌘F to ⌘K (after gathering user feedback).
+
 ## 1.6.3 (2022-01-12)
 
 ### Bug Fixes
