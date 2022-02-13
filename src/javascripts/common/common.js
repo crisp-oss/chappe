@@ -1186,7 +1186,7 @@ class Common {
     let fn = "__bind_search_open_keydown";
 
     try {
-      const _KEY_CODE_F          = 70,
+      const _KEY_CODE_K          = 75,
             _KEY_CODE_ESCAPE     = 27,
             _KEY_CODE_ENTER      = 13,
             _KEY_CODE_ARROW_UP   = 38,
@@ -1194,8 +1194,8 @@ class Common {
 
       window.addEventListener("keydown", (event) => {
         switch (event.keyCode) {
-          // 'F' pressed?
-          case _KEY_CODE_F: {
+          // 'K' pressed?
+          case _KEY_CODE_K: {
             // Check if 'CTRL' is pressed (or 'COMMAND' on Mac computers)
             let _has_control = (
               ((navigator.platform || "").toLowerCase().indexOf("mac") !== -1) ?
@@ -1204,17 +1204,17 @@ class Common {
 
             if (_has_control === true) {
               if (this.__search_opened !== true) {
-                // Block 'CTRL + F' event default behavior (otherwise, browser \
-                //   search prompt will be shown)
+                // Block 'CTRL + K' event default behavior (otherwise, browser \
+                //   URL search prompt will be shown)
                 event.preventDefault();
 
                 // Open search
                 this.__open_search();
               } else {
                 // Close search
-                // Notice: this will show the browser default search prompt, \
-                //   letting the users press 'CTRL + F' twice quickly if they \
-                //   want to perform a regular browser search on the page.
+                // Notice: this will show the browser default URL search \
+                //   prompt, letting the users press 'CTRL + K' twice quickly \
+                //   if they want to perform a regular browser URL search.
                 this.__close_search();
               }
             }
