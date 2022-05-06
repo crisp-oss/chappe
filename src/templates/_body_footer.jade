@@ -59,12 +59,14 @@
               | .
 
         .right
-          if SITE.urls.vigil
+          - var status_url = (SITE.urls.vigil || SITE.urls.crisp_status || null);
+
+          if status_url
             .status(
               data-status="none"
             )
               a.status-wrapped(
-                href="#{SITE.urls.vigil}",
+                href="#{status_url}",
                 target="_blank"
               )
                 span.status-icon

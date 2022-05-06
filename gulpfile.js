@@ -929,7 +929,20 @@ var replace_javascripts = function() {
     )
     .pipe(
       gulp_replace(
-        "@:url_status", (CONTEXT.CONFIG.SITE.urls.vigil || "")
+        "\"@:url_status\"",
+
+        JSON.stringify({
+          provider : (
+            CONTEXT.CONFIG.SITE.urls.vigil ? "vigil" : (
+              CONTEXT.CONFIG.SITE.urls.crisp_status ? "crisp" : null
+            )
+          ),
+
+          target   : (
+            CONTEXT.CONFIG.SITE.urls.vigil  ||
+              CONTEXT.CONFIG.SITE.urls.crisp_status || null
+          )
+        })
       )
     )
     .pipe(

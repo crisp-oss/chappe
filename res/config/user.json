@@ -12,8 +12,9 @@
   },
 
   "urls" : {
-    "base"  : "",
-    "vigil" : ""
+    "base"         : "",
+    "vigil"        : "",
+    "crisp_status" : ""
   },
 
   "favicons" : {

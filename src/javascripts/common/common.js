@@ -1152,6 +1152,59 @@ class Common {
 
 
   /**
+   * Fetches status health (based on provider)
+   * @private
+   * @param  {string} provider
+   * @param  {string} target
+   * @return {undefined}
+   */
+  __fetch_status_health(provider, target) {
+    switch (provider) {
+      case "vigil": {
+        // Vigil provider
+        return fetch(`${target}/status/text/`, {
+          mode : "cors"
+        })
+          .then((response) => {
+            // Non-success response?
+            if (response.status !== 200) {
+              return Promise.reject(null);
+            }
+
+            // Examine the text in the response
+            return response.text();
+          });
+      }
+
+      case "crisp": {
+        // Crisp Status provider
+        return fetch(`${target}/includes/report/`, {
+          mode : "cors"
+        })
+          .then((response) => {
+            // Non-success response?
+            if (response.status !== 200) {
+              return Promise.reject(null);
+            }
+
+            // Examine the JSON in the response
+            return response.json();
+          })
+          .then((report) => {
+            // Extract health from report
+            return Promise.resolve(report.health);
+          });
+      }
+
+      default: {
+        // Provider unknown, hard-fail
+        return Promise.reject(null);
+      }
+    }
+  }
+
+
+  /**
    * Refreshes status indicator
    * @private
    * @param  {object} status_sel
@@ -1973,7 +2026,8 @@ class Common {
         this._$("#footer .status") || []
       );
 
-      if (this.__url_status !== "" && _status_sel.length > 0) {
+      if (this.__url_status.provider && this.__url_status.target  &&
+            _status_sel.length > 0) {
         let _seconds_sel = _status_sel.find(".status-time-seconds");
 
         // Stop any previously-set scheduler?
@@ -1997,18 +2051,9 @@ class Common {
                   this.__second_in_milliseconds)  >=
                 this.__status_poll_refresh)) {
             // Fetch latest status page health
-            fetch(`${this.__url_status}/status/text`, {
-              mode : "cors"
-            })
-              .then((response) => {
-                // Non-success response?
-                if (response.status !== 200) {
-                  return Promise.reject(null);
-                }
-
-                // Examine the text in the response
-                return response.text();
-              })
+            this.__fetch_status_health(
+              this.__url_status.provider, this.__url_status.target
+            )
               .then((text) => {
                 // Acquired status text health is unknown?
                 if (this.__status_known_health.includes(text) !== true) {

@@ -72,7 +72,7 @@ The version history can be found in the [CHANGELOG.md](https://github.com/crisp-
 _The following optional features can also be enabled:_
 
 * **Chatbox**: integrate with the [Crisp Chatbox](https://crisp.chat/en/livechat/) to handle tech support and collect user feedback
-* **Status page**: integrate with your [Vigil](https://github.com/valeriansaliou/vigil) status page to show live system status
+* **Status page**: integrate with your [Vigil](https://github.com/valeriansaliou/vigil) status page to show live system status (can also be [Crisp Status](https://crisp.chat/en/status/))
 
 ## How to use it?
 
