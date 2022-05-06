@@ -1003,10 +1003,15 @@ var feed_changes = function() {
     [], _change_years
   );
 
+  // Acquire feed title
+  let _feed_title = (
+    CONTEXT.CONFIG.SITE.texts.changes.titles.feed || "Platform Changes"
+  );
+
   // Construct feed object
   var _feed = new Feed({
-    title       : "Platform Changes",
-    description : "Feed of all Platform changes.",
+    title       : _feed_title,
+    description : ("Feed of " + _feed_title + "."),
 
     link        : CONTEXT.CONFIG.SITE.urls.base,
     language    : "en",
