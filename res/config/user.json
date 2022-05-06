@@ -12,8 +12,8 @@
       },
 
       "dark" : {
-        "base"   : "#ffffff",
-        "active" : "#ffffff"
+        "base"   : "#e0e7ed",
+        "active" : "#d5dde4"
       }
     }
   },
