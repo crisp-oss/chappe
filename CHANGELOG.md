@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.1 (2022-05-06)
+
+### Changes
+
+* The generated platform changes RSS feed now uses the configured title.
+
 ## 1.7.0 (2022-05-06)
 
 ### ⚠️ Breaking Changes
