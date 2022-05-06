@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.7.0 (2022-05-06)
+
+### ⚠️ Breaking Changes
+
+* Changed how the theme accent color gets configured with the `theme` configuration property (`light` and `dark` mode variants must now be set).
+
+### New Features
+
+* Support for Crisp Status (aside from Vigil).
+
 ## 1.6.4 (2022-02-13)
 
 ### Changes
