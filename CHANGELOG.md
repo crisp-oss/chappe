@@ -2,7 +2,7 @@
 
 ## 1.6.4 (2022-02-13)
 
-### Non-Breaking Changes
+### Changes
 
 * Moved the search engine opening shortcut from ⌘F to ⌘K (after gathering user feedback).
 
@@ -15,13 +15,13 @@
 
 ## 1.6.2 (2022-01-11)
 
-### Non-Breaking Changes
+### Changes
 
 * Improved management of CSS colors.
 
 ## 1.6.1 (2022-01-11)
 
-### Non-Breaking Changes
+### Changes
 
 * Improved Dark Mode colors.
 * Moved logos to embedded images (this prevents visual glitches when loading docs).
@@ -35,7 +35,7 @@
 
 ## 1.5.1 (2022-01-07)
 
-### Non-Breaking Changes
+### Changes
 
 * Improved the performance of watching for changes in `data/` while using `chappe serve` or `chappe watch`.
 
@@ -49,7 +49,7 @@
 
 * The Chappe CLI now embeds a preview server, used to ease with writing and previewing docs (via `chappe serve`).
 
-### Non-Breaking Changes
+### Changes
 
 * Improved logging in the Chappe CLI.
 
@@ -59,32 +59,32 @@
 
 ## 1.4.1 (2022-01-06)
 
-### Non-Breaking Changes
+### Changes
 
 * Refactored the README to add the Chappe logo.
 
 ## 1.4.0 (2022-01-05)
 
-### Non-Breaking Changes
+### Changes
 
 * Moved the project to a dedicated GitHub organization: [Crisp OSS](https://github.com/crisp-oss).
 
 ## 1.3.2 (2022-01-05)
 
-### Non-Breaking Changes
+### Changes
 
 * Moved the Chappe CLI from ES5 to ES6.
 
 ## 1.3.1 (2022-01-05)
 
-### Non-Breaking Changes
+### Changes
 
 * Refactored Chappe CLI terminal outputs.
 * Improved the `acme-docs` example.
 
 ## 1.3.0 (2022-01-05)
 
-### Non-Breaking Changes
+### Changes
 
 * Reworked the lint pipeline to reduce the number of dependencies.
 
@@ -124,14 +124,14 @@
 
 ## 1.1.0 (2022-01-04)
 
-### Non-Breaking Changes
+### Changes
 
 * Moved the build pipeline to Gulp 4.
 * Improved the Chappe CLI with terminal spinners.
 
 ## 1.0.3 (2022-01-04)
 
-### Non-Breaking Changes
+### Changes
 
 * Now showing a Chappe logo when calling the Chappe CLI.
 * Better temporary files management.
