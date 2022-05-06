@@ -6,8 +6,15 @@
 
   "theme" : {
     "accent" : {
-      "base"   : "#2275f1",
-      "active" : "#0f69ef"
+      "light" : {
+        "base"   : "#2275f1",
+        "active" : "#0f69ef"
+      },
+
+      "dark" : {
+        "base"   : "#ffffff",
+        "active" : "#ffffff"
+      }
     }
   },
 

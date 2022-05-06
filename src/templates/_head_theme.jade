@@ -4,7 +4,12 @@
 //- Author: Valerian Saliou <valerian@valeriansaliou.name>
 
 style.
-  :root {
-    --color-accent-base: #{SITE.theme.accent.base};
-    --color-accent-active: #{SITE.theme.accent.active};
+  .appearance {
+    --color-accent-base: #{SITE.theme.accent.light.base};
+    --color-accent-active: #{SITE.theme.accent.light.active};
+  }
+
+  .appearance[data-appearance="dark"] {
+    --color-accent-base: #{SITE.theme.accent.dark.base};
+    --color-accent-active: #{SITE.theme.accent.dark.active};
   }
