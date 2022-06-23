@@ -39,9 +39,11 @@ _👉 Note that the search engine feature is 100% local. This means that it does
 <table>
 <tr>
 <td align="center"><a href="https://crisp.chat/"><img src="https://crisp-oss.github.io/chappe/images/logo-crisp.png" width="64" /></a></td>
+<td align="center"><a href="https://meowtel.com/"><img src="https://crisp-oss.github.io/chappe/images/logo-meowtel.png" width="64" /></a></td>
 </tr>
 <tr>
 <td align="center">Crisp</td>
+<td align="center">Meowtel</td>
 </tr>
 </table>
 
