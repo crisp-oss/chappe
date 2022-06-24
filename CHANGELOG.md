@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.8.0 (2022-06-24)
+
+### New Features
+
+* Added a "copy to clipboard" button in all code blocks.
+
 ## 1.7.1 (2022-05-06)
 
 ### Changes
