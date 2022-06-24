@@ -207,6 +207,60 @@
 
   pre
     margin: 22px auto
+    position: relative
+
+    &.copy
+      &[data-copy-state="copied"]
+        .code-clipboard
+          border-color: var(--color-markdown-code-block-clipboard-border-copied)
+
+          &:after
+            background-color: var(--color-markdown-code-block-clipboard-icon-background-copied)
+            +mask-image-internal("common/markdown/code-clipboard-copied.svg")
+            width: 16px
+            height: 12px
+
+      &[data-copy-state="copied"],
+      &:hover
+        .code-clipboard
+          visibility: visible
+          opacity: 1
+
+    .code-clipboard
+      $code-clipboard-size: 30px
+
+      background-color: var(--color-markdown-code-block-clipboard-background-default)
+      border: 1px solid var(--color-markdown-code-block-clipboard-border-default)
+      width: $code-clipboard-size
+      height: $code-clipboard-size
+      display: flex
+      align-items: center
+      justify-content: center
+      visibility: hidden
+      opacity: 0
+      cursor: pointer
+      position: absolute
+      top: 8px
+      right: 9px
+      transition: all linear 75ms
+      transition-property: background-color, border-color, opacity
+      border-radius: 5px
+
+      &:hover
+        background-color: var(--color-markdown-code-block-clipboard-background-hover)
+        border-color: var(--color-markdown-code-block-clipboard-border-hover)
+
+      &:active
+        background-color: var(--color-markdown-code-block-clipboard-background-active)
+        border-color: var(--color-markdown-code-block-clipboard-border-active)
+
+      &:after
+        content: ""
+        background-color: var(--color-markdown-code-block-clipboard-icon-background-default)
+        +mask-image-internal("common/markdown/code-clipboard-copy.svg")
+        width: 13px
+        height: 15px
+        transition: background-color linear 75ms
 
     code
       background-color: var(--color-markdown-code-block-background)
@@ -221,7 +275,7 @@
       tab-size: 4
       hyphens: none
       margin: 0
-      padding: 11px 15px
+      padding: 15px 18px
       overflow-x: auto
       overflow-y: hidden
       display: block

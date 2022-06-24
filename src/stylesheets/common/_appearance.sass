@@ -67,6 +67,15 @@
   --color-markdown-code-inline-text: #{$color-markdown-code-inline-dark}
   --color-markdown-code-block-background: #{$color-markdown-code-block}
   --color-markdown-code-block-text: #{$color-white}
+  --color-markdown-code-block-clipboard-background-default: #{lighten($color-markdown-code-block, 3%)}
+  --color-markdown-code-block-clipboard-background-hover: #{lighten($color-markdown-code-block, 7%)}
+  --color-markdown-code-block-clipboard-background-active: #{lighten($color-markdown-code-block, 5%)}
+  --color-markdown-code-block-clipboard-border-default: #{rgba($color-blue-grey-light, .25)}
+  --color-markdown-code-block-clipboard-border-hover: #{rgba($color-blue-grey-light, .5)}
+  --color-markdown-code-block-clipboard-border-active: #{rgba($color-blue-grey-light, .35)}
+  --color-markdown-code-block-clipboard-border-copied: #{lighten($color-green, 7%)}
+  --color-markdown-code-block-clipboard-icon-background-default: #{$color-blue-grey-light}
+  --color-markdown-code-block-clipboard-icon-background-copied: var(--color-markdown-code-block-clipboard-border-copied)
   --color-markdown-code-selection: #{rgba($color-selection-code, .25)}
   --color-markdown-figure-text: var(--color-blue-grey)
   --color-markdown-figure-border: #{rgba($color-grey, .9)}
@@ -325,7 +334,6 @@
     --color-markdown-code-inline-background: #{rgba($color-black, .15)}
     --color-markdown-code-inline-border: #{rgba($color-black, .35)}
     --color-markdown-code-inline-text: #{$color-black}
-    --color-markdown-code-block-background: #{$color-markdown-code-block}
     --color-markdown-figure-border: #{rgba($color-grey, .9)}
     --color-markdown-table-cell-border: var(--color-grey)
     --color-markdown-blockquote-border: #{$color-markdown-blockquote}

@@ -49,7 +49,8 @@ var gulp_jade_templates  = require("./res/plugins/gulp/jade-templates");
 var gulp_minisearch      = require("./res/plugins/gulp/minisearch");
 
 var marked_renderers     = {
-  heading : require("./res/plugins/marked/renderers/heading")
+  heading : require("./res/plugins/marked/renderers/heading"),
+  code    : require("./res/plugins/marked/renderers/code")
 };
 
 var marked_extensions    = {
@@ -100,7 +101,8 @@ var CONTEXT        = {
 
 marked.use({
   renderer   : {
-    heading : marked_renderers.heading
+    heading : marked_renderers.heading,
+    code    : marked_renderers.code
   },
 
   extensions : [
