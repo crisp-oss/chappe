@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.8.1 (2022-11-03)
+
+### Changes
+
+* Added a background hover effect on table rows.
+
 ## 1.8.0 (2022-06-24)
 
 ### New Features
