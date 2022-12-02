@@ -1220,8 +1220,7 @@ var ogimage = function() {
 
           title           : function(_, $) {
             return (
-              $("body h1").first().text() || $("head title").first().text()  ||
-                ""
+              $("head title").first().text() || ""
             );
           },
 
