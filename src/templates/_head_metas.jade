@@ -24,7 +24,19 @@ meta(
 )
 
 if SITE.images.metas.opengraph
+  - var opengraph_image = (SITE.urls.base + "/static/user/" + SITE.images.metas.opengraph);
+
   meta(
     property="og:image",
-    content="#{SITE.urls.base}/static/user/#{SITE.images.metas.opengraph}"
+    content="#{opengraph_image}"
+  )
+
+  meta(
+    name="twitter:card",
+    content="summary_large_image"
+  )
+
+  meta(
+    name="twitter:image:src",
+    content="#{opengraph_image}"
   )
