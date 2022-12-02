@@ -462,15 +462,15 @@ To adjust size thresholds or disable this checker rule, open your `config.json` 
 
 ### The installation of Chappe fails on my Mac with Apple Silicon
 
-Chappe relies on the `gulp-ogimage` dependency to auto-generate Open Graph images, which itself relies on a library named `canvas`. Unfortunately, as of December 2022, `canvas` does not provide any pre-built binary for the `arm64` CPU architecture, leading to Chappe failing to install on Mac with Apple Silicon chips.
+Chappe relies on the `gulp-ogimage` dependency to auto-generate Open Graph images, which itself uses a library named `canvas`. Unfortunately, as of December 2022, `canvas` does not provide any pre-built binary for the `arm64` CPU architecture, leading to Chappe failing to install on Macs with Apple Silicon chips.
 
-In order to install Chappe on `arm64` architectures, you will need to ensure [Homebrew](https://brew.sh/) is setup on your system, then run:
+In order to install Chappe on `arm64` architectures, you will need to ensure that [Homebrew](https://brew.sh/) is setup on your system, then run:
 
 ```bash
 brew install pkg-config cairo pango libpng jpeg giflib librsvg pixman
 ```
 
-Once those tools are installed, try again installing Chappe.
+Once those tools are installed, try installing Chappe again.
 
 ### How can I customize my docs style?
 
