@@ -45,6 +45,10 @@
       "footer"       : "images/logos/logo-footer.svg"
     },
 
+    "metas" : {
+      "opengraph" : "images/metas/opengraph.png"
+    },
+
     "categories" : {
       "guides" : {
         "hello-world"     : "images/categories/guides/hello-world.svg",
