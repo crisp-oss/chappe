@@ -91,6 +91,8 @@ To install and use Chappe, please follow those steps:
 
 Please refer to sections below for more details on how to write docs, customize Chappe, and deploy your final docs to your Web server.
 
+_👉 If Chappe fails to install on your Mac with an Apple Silicon chip, please refer to the [Common questions](#-common-questions) section below._
+
 ### Configuration
 
 The configuration of your Chappe docs is stored in a single JSON file, usually named `config.json`. Your configuration file will make references to images, such as your docs logo, which are stored in the `assets/` folder.
@@ -457,6 +459,18 @@ To adjust size thresholds or disable this checker rule, open your `config.json` 
 * Maximum sizes can be adjusted where relevant with the `sizes` property (note that sizes are in bytes, so 10KB is about `10000`);
 
 ## 🙋 Common questions
+
+### The installation of Chappe fails on my Mac with Apple Silicon
+
+Chappe relies on the `gulp-ogimage` dependency to auto-generate Open Graph images, which itself relies on a library named `canvas`. Unfortunately, as of December 2022, `canvas` does not provide any pre-built binary for the `arm64` CPU architecture, leading to Chappe failing to install on Mac with Apple Silicon chips.
+
+In order to install Chappe on `arm64` architectures, you will need to ensure [Homebrew](https://brew.sh/) is setup on your system, then run:
+
+```bash
+brew install pkg-config cairo pango libpng jpeg giflib librsvg pixman
+```
+
+Once those tools are installed, try again installing Chappe.
 
 ### How can I customize my docs style?
 
