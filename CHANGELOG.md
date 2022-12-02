@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.1 (2022-12-02)
+
+### New Features
+
+* Added support for the `twitter:image:src` and `twitter:card` tags.
+
 ## 1.9.0 (2022-12-02)
 
 ### ⚠️ Breaking Changes
