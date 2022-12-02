@@ -1147,9 +1147,24 @@ var ogimage = function() {
     .pipe(function() {
       if (CONTEXT.CONFIG.SITE.images.metas.opengraph) {
         return gulp_ogimage({
-          base            : function() {
+          base            : function(file) {
+            // Acquire base path segments
+            // Notice: pop the last two items
+            var _page_base_segments = file.relative.split("/");
+
+            _page_base_segments.splice(
+              (_page_base_segments.length - 2), 2
+            );
+
+            if (_page_base_segments.length > 0) {
+              _page_base_segments.unshift("");
+            }
+
+            // Generate base path for generated image, which will be output to \
+            //   the final HTML file.
             return (
-              CONTEXT.CONFIG.SITE.urls.base + "/static/images/opengraph"
+              CONTEXT.CONFIG.SITE.urls.base + "/static/images/opengraph"  +
+                _page_base_segments.join("/")
             );
           },
 
@@ -1171,7 +1186,8 @@ var ogimage = function() {
             );
 
             // Return full directory path (except from the first directory, \
-            //   which becomes the image name)
+            //   which becomes the image name); this will get used to output \
+            //   the generated image file on the file system.
             return (
               CONTEXT.PATH_BUILD_ASSETS + _page_final_segments.join("/")
             );
@@ -1185,13 +1201,17 @@ var ogimage = function() {
             _page_base_segments.pop();
 
             // Return last directory name (if there is none, this means this \
-            //   is the 'home' page)
+            //   is the 'index' page); this will get used to output the \
+            //   generated image file on the file system.
             return (
-              _page_base_segments[(_page_base_segments.length - 1)] || "home"
+              _page_base_segments[(_page_base_segments.length - 1)] || "index"
             );
           },
 
           backgroundImage : function() {
+            // Return base background image, which will get used as a baseline \
+            //   to generate all Open Graph images (ie. as their background \
+            //   image).
             return (
               CONTEXT.PATH_BUILD_ASSETS + "/user/"  +
                 CONTEXT.CONFIG.SITE.images.metas.opengraph
