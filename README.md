@@ -67,7 +67,7 @@ The version history can be found in the [CHANGELOG.md](https://github.com/crisp-
 * **Dark Mode**: read your docs either in light mode or dark mode
 * **Customizable theme**: configure an accent color for your docs theme
 * **SEO-friendly**: a deep sitemap is generated for search engines
-* **Sharing-friendly**: support for the Open Graph protocol
+* **Sharing-friendly**: full support of the Open Graph protocol, with the auto-generation of preview images
 * **Private pages support**: mark any guide or reference as private or unlisted (prefix its name with `_`)
 * **Local preview server**: skip setting up a local Web server to preview your docs while writing them, Chappe embeds a preview server that can be started in a single command
 
