@@ -1213,7 +1213,7 @@ var ogimage = function() {
             //   to generate all Open Graph images (ie. as their background \
             //   image).
             return (
-              CONTEXT.PATH_BUILD_ASSETS + "/user/"  +
+              CONTEXT.PATH_ASSETS + "/"  +
                 CONTEXT.CONFIG.SITE.images.metas.opengraph
             );
           },
@@ -1473,7 +1473,9 @@ var build_resources = function() {
           replace_templates_guides,
           minisearch_consolidate,
           sitemap
-        )
+        ),
+
+        ogimage
       )
     )
   ];
@@ -1482,7 +1484,6 @@ var build_resources = function() {
   if (CONTEXT.IS_PRODUCTION === true) {
     _series.push(
       gulp.parallel(
-        ogimage,
         cssmin,
         uglify
       ),
