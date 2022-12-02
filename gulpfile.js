@@ -27,6 +27,7 @@ var gulp_bower           = require("gulp-bower");
 var gulp_jade            = require("gulp-jade");
 var gulp_sass            = require("gulp-sass")(require("node-sass"));
 var gulp_inline_image    = require("gulp-inline-image");
+var gulp_ogimage         = require("gulp-ogimage");
 var gulp_sass_variables  = require("gulp-sass-variables");
 var gulp_concat          = require("gulp-concat");
 var gulp_babel           = require("gulp-babel");
@@ -42,6 +43,7 @@ var gulp_jscs            = require("gulp-jscs");
 var gulp_sizereport      = require("gulp-sizereport");
 var gulp_sitemap         = require("gulp-sitemap");
 var gulp_notify          = require("gulp-notify");
+var gulp_noop            = require("gulp-noop");
 
 var package              = require("./package.json");
 
@@ -1006,7 +1008,7 @@ var feed_changes = function() {
   );
 
   // Acquire feed title
-  let _feed_title = (
+  var _feed_title = (
     CONTEXT.CONFIG.SITE.texts.changes.titles.feed || "Platform Changes"
   );
 
@@ -1126,6 +1128,101 @@ var robots = function() {
       src : true
     }
   )
+    .pipe(
+      gulp.dest(
+        CONTEXT.PATH_BUILD_PAGES
+      )
+    );
+};
+
+
+/*
+  Generates Open Graph images
+*/
+var ogimage = function() {
+  // Generate Open Graph images (if any background is configured)
+  return gulp.src(
+    CONTEXT.PATH_BUILD_PAGES + "/**/*.html"
+  )
+    .pipe(function() {
+      if (CONTEXT.CONFIG.SITE.images.metas.opengraph) {
+        return gulp_ogimage({
+          base            : function() {
+            return (
+              CONTEXT.CONFIG.SITE.urls.base + "/static/images/opengraph"
+            );
+          },
+
+          directory       : function(file) {
+            // Acquire base path segments
+            // Notice: pop the last two items
+            var _page_base_segments = file.relative.split("/");
+
+            _page_base_segments.splice(
+              (_page_base_segments.length - 2), 2
+            );
+
+            // Build final path segments
+            var _page_final_segments = (
+              [].concat(
+                ["", "images", "opengraph"],
+                _page_base_segments
+              )
+            );
+
+            // Return full directory path (except from the first directory, \
+            //   which becomes the image name)
+            return (
+              CONTEXT.PATH_BUILD_ASSETS + _page_final_segments.join("/")
+            );
+          },
+
+          name            : function(file) {
+            // Acquire base path segments
+            // Notice: pop the last item
+            var _page_base_segments = file.relative.split("/");
+
+            _page_base_segments.pop();
+
+            // Return last directory name (if there is none, this means this \
+            //   is the 'home' page)
+            return (
+              _page_base_segments[(_page_base_segments.length - 1)] || "home"
+            );
+          },
+
+          backgroundImage : function() {
+            return (
+              CONTEXT.PATH_BUILD_ASSETS + "/user/"  +
+                CONTEXT.CONFIG.SITE.images.metas.opengraph
+            );
+          },
+
+          title           : function(_, $) {
+            return (
+              $("body h1").first().text() || $("head title").first().text()  ||
+                ""
+            );
+          },
+
+          description     : function(_, $) {
+            return (
+              $("head meta[name=\"description\"]").first().attr("content") || ""
+            );
+          }
+        })
+      }
+
+      // No Open Graph background image configured, warn and skip
+      console.warn(
+        "⚠️  No Open Graph background image configured, skipping the "  +
+          "auto-generation of 'og:image' metadata.\n   "                +
+          "You can configure this with the 'images.metas.opengraph' "   +
+          "configuration namespace.\n"
+      );
+
+      return gulp_noop();
+    }())
     .pipe(
       gulp.dest(
         CONTEXT.PATH_BUILD_PAGES
@@ -1365,6 +1462,7 @@ var build_resources = function() {
   if (CONTEXT.IS_PRODUCTION === true) {
     _series.push(
       gulp.parallel(
+        ogimage,
         cssmin,
         uglify
       ),
