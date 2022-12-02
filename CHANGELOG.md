@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.0 (2022-12-02)
+
+### ⚠️ Breaking Changes
+
+* The Open Graph images are now auto-generated from the page content, using the provided `opengraph` configuration property; since this option already existed before, you will need to make sure to update your Open Graph image so that it can contain inserted text in the foreground (ie. you need to clear any text from your existing Open Graph image).
+
 ## 1.8.1 (2022-11-03)
 
 ### Changes
