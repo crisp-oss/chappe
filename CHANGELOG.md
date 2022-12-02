@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.2 (2022-12-02)
+
+### Changes
+
+* Improved detection of page titles when generating Open Graph previews.
+
 ## 1.9.1 (2022-12-02)
 
 ### New Features
