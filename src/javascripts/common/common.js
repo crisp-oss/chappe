@@ -1498,8 +1498,6 @@ class Common {
             let _value_sel = _click_parent_sel.find(".copy-value");
 
             if (_click_parent_sel.length > 0 && _value_sel.length > 0) {
-              let _text_value = _value_sel.text();
-
               // Select text and copy it
               let _was_copied = this.__copy_text(_value_sel[0]);
 
