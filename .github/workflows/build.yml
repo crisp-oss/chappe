@@ -6,7 +6,7 @@ on:
 name: Build and Release
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
 
     steps:
