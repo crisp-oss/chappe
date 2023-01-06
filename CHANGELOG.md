@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.3 (2023-01-06)
+
+### New Features
+
+* Automated the package release process via GitHub Actions (ie. `npm publish`).
+
 ## 1.9.2 (2022-12-02)
 
 ### Changes
