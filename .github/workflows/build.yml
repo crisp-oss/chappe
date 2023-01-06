@@ -1,16 +1,13 @@
-on: [push, pull_request]
+on:
+  push:
+    tags:
+      - "v*.*.*"
 
-name: Test and Build
+name: Build and Release
 
 jobs:
-  test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [12.x]
-      fail-fast: false
-
-    runs-on: ${{ matrix.os }}
+  publish:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -19,7 +16,8 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12.x
+          registry-url: https://registry.npmjs.org
 
       - name: Verify versions
         run: node --version && npm --version && node -p process.versions.v8
@@ -32,13 +30,12 @@ jobs:
             ~/.npm
             .chappe
             node_modules
-          key: test-${{ runner.os }}-node-${{ matrix.node-version }}
+          key: build-${{ runner.os }}-node-any
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
-      - name: Build 'acme-docs' example
-        run: npm run build
+      - name: Release package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
