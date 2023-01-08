@@ -23,6 +23,6 @@ jobs:
         run: node --version && npm --version && node -p process.versions.v8
 
       - name: Release package
-        run: npm publish
+        run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
