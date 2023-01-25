@@ -243,8 +243,8 @@
 
   "includes" : {
     "scripts" : {
-      "urls"   : [],
-      "inline" : []
+        "urls"   : ["https://unpkg.com/@livecycle/sdk@stable/dist/browser/index.js"],
+        "inline" : ["LivecycleSdk.init().catch(console.error)"]
     },
 
     "stylesheets" : {
