@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.4 (2023-08-02)
+
+### Bug Fixes
+
+* Fixed performance issues when installing Chappe with NPM v9.
+
 ## 1.9.3 (2023-01-06)
 
 ### New Features
