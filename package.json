@@ -73,7 +73,7 @@
     "jshint": "2.13.x",
     "marked": "4.0.x",
     "markdown-toc": "1.2.x",
-    "drafter": "2.0.x",
+    "drafter.js": "3.2.x",
     "feed": "4.2.x",
     "minisearch": "3.1.x",
     "slug": "5.2.x",
