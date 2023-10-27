@@ -59,12 +59,6 @@
       "QUICKSTART" : "Get Started",
       "GUIDES"     : "Guides",
       "REFERENCES" : "References"
-    },
-
-    "SUPPORT" : {
-      "QUESTION" : "Anything that you cannot find in the documentation?",
-      "LABEL" : "Ask our tech support team, anytime.",
-      "ACTION" : "Chat with Support"
     }
   },
 
