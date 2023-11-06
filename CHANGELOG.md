@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.5 (2023-11-06)
+
+### Changes
+
+* Added provenance information upon building NPM package over GitHub Actions.
+
 ## 1.9.4 (2023-08-02)
 
 ### Bug Fixes

@@ -1,7 +1,7 @@
 {
   "name": "chappe",
   "description": "Developer Docs builder. Write guides in Markdown and references in API Blueprint. Comes with a built-in search engine.",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "homepage": "https://github.com/crisp-oss/chappe",
   "license": "MIT",
   "bin": {
