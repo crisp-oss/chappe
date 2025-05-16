@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.6 (2025-05-16)
+
+### Changes
+
+* Replaced deprecated `node-sass` dependency with `sass`.
+
 ## 1.9.5 (2023-11-06)
 
 ### Changes
