@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.8 (2025-05-17)
+
+### Bug Fixes
+
+* Fixed concurrency issues on the copying of images while the `sass` is also running.
+
 ## 1.9.7 (2025-05-17)
 
 ### New Features
