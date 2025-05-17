@@ -790,8 +790,17 @@ var sass = function() {
     )
     .pipe(
       gulp_sass({
-        outputStyle : "expanded",
-        importer    : compass_importer
+        outputStyle         : "expanded",
+        importer            : compass_importer,
+        quietDeps           : true,
+
+        silenceDeprecations : [
+          "import",
+          "legacy-js-api",
+          "color-functions",
+          "global-builtin",
+          "slash-div"
+        ]
       })
     )
     .on("error", gulp_notify.onError({
