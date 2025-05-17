@@ -12,15 +12,15 @@ if SITE.tokens.crisp_website_id
 
     (function(){d=document;s=d.createElement("script");s.src="#{crisp_chatbox_url}";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
 
+each script_url in SITE.includes.scripts.urls
+  if script_url.url
+    script(src=script_url.url, defer=script_url.defer)
+  else
+    script(src="#{script_url}",defer)
+
 each script_inline in SITE.includes.scripts.inline
   script.
     #{script_inline}
-
-each script_url in SITE.includes.scripts.urls
-  script(
-    src="#{script_url}",
-    defer
-  )
 
 each stylesheet_inline in SITE.includes.stylesheets.inline
   style.
