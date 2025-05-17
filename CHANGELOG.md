@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.9.7 (2025-05-17)
+
+### New Features
+
+* Added a way to customize `async` and `defer` attributes in the `includes.scripts.urls` option.
+
+### Bug Fixes
+
+* The warnings thrown by `sass` are now hidden (until they are fixed).
+
 ## 1.9.6 (2025-05-16)
 
 ### Changes
