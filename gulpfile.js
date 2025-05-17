@@ -260,17 +260,6 @@ var copy_images_guides = function() {
 
 
 /*
-  Copies all images (shell task to aggregate sub-tasks)
-*/
-var copy_images_all = function() {
-  return gulp.parallel(
-    copy_images_base,
-    copy_images_guides
-  );
-}();
-
-
-/*
   Copies fonts
 */
 var copy_fonts = function() {
@@ -1449,8 +1438,7 @@ var build_resources = function() {
       feed_changes,
 
       copy_user_assets,
-      copy_images_all,
-      copy_fonts,
+      copy_images_guides,
 
       gulp.series(
         bower,
@@ -1470,6 +1458,11 @@ var build_resources = function() {
       ),
 
       gulp.series(
+        gulp.parallel(
+          copy_images_base,
+          copy_fonts
+        ),
+
         sass,
         css_inline_images
       ),
