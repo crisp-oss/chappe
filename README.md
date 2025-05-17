@@ -503,7 +503,12 @@ Add a new entry to the `urls` and `inline` array, separately, giving eg.:
   "includes" : {
     "scripts" : {
       "urls"   : [
-        "https://www.googletagmanager.com/gtag/js?id={YOUR_GTM_ID}"
+        "https://www.googletagmanager.com/gtag/js?id={YOUR_GTM_ID}",
+
+        {
+          "src"   : "https://scripts.simpleanalyticscdn.com/latest.js",
+          "async" : true
+        }
       ],
 
       "inline" : [
