@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.10.0 (2025-06-22)
+
+### New Features
+
+* Added a way to disable customer support CTAs with the `features.support` feature flag option (enabled by default).
+
 ## 1.9.8 (2025-05-17)
 
 ### Bug Fixes
