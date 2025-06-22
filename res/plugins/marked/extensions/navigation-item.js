@@ -12,7 +12,7 @@ var _s  = require("escape-html");
 // Format: `* Title: Description -> URL` for child
 
 var RULE = (
-  /^(?:[ ]*\|[ ]?([^:\n]+):[ ]?([^:\n]+)[ ]?->[ ]([^>\n]+)(?:\n|$))/
+  /^(?:[ ]*\|[ ]?([^:\n]+):[ ]?([^:\n]+)[ ]?->[ ]([^>\n\[\]]+)(?: \[(blank|self)\])?(?:\n|$))/
 );
 
 module.exports = {
@@ -36,7 +36,8 @@ module.exports = {
         raw         : _match[0],
         title       : _match[1].trim(),
         description : _match[2].trim(),
-        url         : _match[3].trim()
+        url         : _match[3].trim(),
+        target      : (_match[4] || "self").trim()
       };
     }
   },
@@ -44,7 +45,10 @@ module.exports = {
   renderer : function(token) {
     return (
       "<li class=\"navigation-item\">"                                        +
-        "<a class=\"navigation-link\" href=\"" + _s(token.url) + "\">"        +
+        "<a "                                                                 +
+            "class=\"navigation-link\" "                                      +
+            "href=\"" + _s(token.url) + "\" "                                 +
+            "target=\"_" + _s(token.target) + "\">"                           +
           "<span class=\"navigation-text\">"                                  +
             "<span class=\"navigation-title font-sans-semibold\">"            +
               _s(token.title)                                                 +

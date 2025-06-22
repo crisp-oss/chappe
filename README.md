@@ -291,7 +291,7 @@ To insert a navigation block, with one or multiple links to other pages, use the
 ```markdown
 + Navigation
   | Link Title 1: Link Description -> ./link/target/1/
-  | Link Title 2: Link Description -> http://external-url.com/target/page/
+  | Link Title 2: Link Description -> http://external-url.com/target/page/ [blank]
 ```
 
 Example:
