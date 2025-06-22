@@ -155,6 +155,10 @@
     }
   },
 
+  "features" : {
+    "support" : true
+  },
+
   "rules" : {
     "build_size" : {
       "fail"  : true,

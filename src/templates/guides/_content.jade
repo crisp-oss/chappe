@@ -15,7 +15,7 @@
 
           | #{category_title}
 
-        if SITE.tokens.crisp_website_id
+        if SITE.tokens.crisp_website_id && SITE.features.support === true
           a.details-feedback.font-sans-semibold(
             href="#crisp-chat-feedback"
           )

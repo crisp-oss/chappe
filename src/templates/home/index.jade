@@ -92,7 +92,7 @@ block body_content
                   )
                     | #{action.label}
 
-      if SITE.tokens.crisp_website_id
+      if SITE.tokens.crisp_website_id && SITE.features.support === true
         .support
           .support-wrap
             .support-text

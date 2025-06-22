@@ -12,6 +12,10 @@ if SITE.tokens.crisp_website_id
 
     (function(){d=document;s=d.createElement("script");s.src="#{crisp_chatbox_url}";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
 
+  if SITE.features.support !== true
+    script.
+      window.$crisp.push(["do", "chat:hide"]);
+
 each script_inline in SITE.includes.scripts.inline
   script.
     #{script_inline}
