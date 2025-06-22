@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.10.1 (2025-06-22)
+
+### New Features
+
+* Added a way to configure navigation link targets (`self` or `blank`, defaults to `self`).
+
 ## 1.10.0 (2025-06-22)
 
 ### New Features
