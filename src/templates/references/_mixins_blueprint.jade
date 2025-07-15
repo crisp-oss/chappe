@@ -194,7 +194,7 @@ mixin references-blueprint-request-format-keys(id, http_method, depth, content, 
           - var members = "";
 
           each enumeration in enumeration_attributes.enumerations.content
-            if enumeration.content
+            if enumeration.content !== undefined
               - members += ("* `" + enumeration.content + "`\n");
 
           if members
