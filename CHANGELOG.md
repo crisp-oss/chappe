@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.10.2 (2025-07-15)
+
+### Bug Fixes
+
+* Fixed dropped enumeration members with empty values (such as `0` and `false`).
+* Fixed enumeration descriptions, that were not showing at all.
+
 ## 1.10.1 (2025-06-22)
 
 ### New Features
