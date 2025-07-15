@@ -1,6 +1,6 @@
 <img alt="Chappe" src="https://crisp-oss.github.io/chappe/images/chappe.png" width="300">
 
-[![Test and Build](https://github.com/crisp-oss/chappe/workflows/Test%20and%20Build/badge.svg?branch=master)](https://github.com/crisp-oss/chappe/actions?query=workflow%3A%22Test+and+Build%22) [![Build and Release](https://github.com/crisp-oss/chappe/workflows/Build%20and%20Release/badge.svg)](https://github.com/crisp-oss/chappe/actions?query=workflow%3A%22Build+and+Release%22) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe)
+[![Test and Build](https://github.com/crisp-oss/chappe/actions/workflows/test.yml/badge.svg)](https://github.com/crisp-oss/chappe/actions/workflows/test.yml) [![Build and Release](https://github.com/crisp-oss/chappe/actions/workflows/build.yml/badge.svg)](https://github.com/crisp-oss/chappe/actions/workflows/build.yml) [![NPM](https://img.shields.io/npm/v/chappe.svg)](https://www.npmjs.com/package/chappe) [![Downloads](https://img.shields.io/npm/dt/chappe.svg)](https://www.npmjs.com/package/chappe)
 
 **Developer Docs builder. Write guides in Markdown and references in API Blueprint. Comes with a built-in search engine.**
 
