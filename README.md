@@ -86,7 +86,7 @@ To install and use Chappe, please follow those steps:
 2. Copy the `examples/acme-docs/` folder contents from the Chappe repository into your project root;
 3. Run: `npm install` (make sure that you have a recent NodeJS version installed);
 4. Run: `npx chappe serve` to build the docs and serve them over a local Web server (it will also watch for changes);
-5. Open: [http://localhost:8040](http://localhost:8040/) in your Web browser to access your docs;
+5. Open: [http://localhost:8080](http://localhost:8080/) in your Web browser to access your docs;
 6. Write your Markdown guides and references in the `data/` directory (changes will be hot-reloaded in your browser);
 
 Please refer to sections below for more details on how to write docs, customize Chappe, and deploy your final docs to your Web server.
@@ -125,7 +125,7 @@ It supports the following parameters, with a default value if not set:
 If you are running with the `serve` action, it accepts additional parameters:
 
 * `--host` (hostname or IP address to use for the local/development server, _default value:_ `localhost`)
-* `--port` (port number to use for the local/development server, _default value:_ `8040`)
+* `--port` (port number to use for the local/development server, _default value:_ `8080`)
 
 Some special parameters are also available:
 
@@ -147,7 +147,7 @@ npx chappe build
 
 By default, docs are built for a `production` target, meaning that all assets produced are optimized for speed and size. In most use cases, you will never need to set it to `development`, unless you are trying to extend or modify the Chappe core and therefore need to see uncompressed assets output.
 
-To create a local development server on [http://localhost:8040](http://localhost:8040/), used to write and preview your docs, use:
+To create a local development server on [http://localhost:8080](http://localhost:8080/), used to write and preview your docs, use:
 
 ```bash
 npx chappe serve

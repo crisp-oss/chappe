@@ -40,7 +40,7 @@ class ChappeCLI {
         temp   : "./.chappe",
         env    : "production",
         host   : "localhost",
-        port   : 8040
+        port   : 8080
       },
 
       example : {
@@ -51,7 +51,7 @@ class ChappeCLI {
         temp   : "./.chappe",
         env    : "development",
         host   : "localhost",
-        port   : 8040
+        port   : 8080
       }
     };
 
