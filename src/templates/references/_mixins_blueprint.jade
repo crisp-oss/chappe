@@ -195,7 +195,12 @@ mixin references-blueprint-request-format-keys(id, http_method, depth, content, 
 
           each enumeration in enumeration_attributes.enumerations.content
             if enumeration.content !== undefined
-              - members += ("* `" + enumeration.content + "`\n");
+              - members += ("* `" + enumeration.content + "`");
+
+              if enumeration.meta && enumeration.meta.description && enumeration.meta.description.content
+                - members += (" " + enumeration.meta.description.content);
+
+              - members += "\n";
 
           if members
             - key.label = ((key.label || "") + "\n\n**" + $_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_MEMBERS + "**\n" + members.trim());
