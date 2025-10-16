@@ -56,7 +56,7 @@
     "gulp-sass-variables": "1.2.x",
     "gulp-sitemap": "8.0.x",
     "gulp-inline-image": "1.0.x",
-    "gulp-ogimage": "1.0.x",
+    "gulp-ogimage": "2.0.x",
     "gulp-concat": "2.6.x",
     "gulp-cssmin": "0.2.x",
     "gulp-uglify": "3.0.x",
