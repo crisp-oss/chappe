@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.11.0 (2025-10-16)
+
+### Changes
+
+* Migrate to NPMJS OIDC publishing tokens (since Classic Tokens will be removed in November 2025).
+
 ## 1.10.2 (2025-07-15)
 
 ### Bug Fixes
