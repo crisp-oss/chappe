@@ -31,7 +31,7 @@ var gulp_ogimage         = require("gulp-ogimage");
 var gulp_sass_variables  = require("gulp-sass-variables");
 var gulp_concat          = require("gulp-concat");
 var gulp_babel           = require("gulp-babel");
-var gulp_cssmin          = require("gulp-cssmin");
+var gulp_clean_css       = require("gulp-clean-css");
 var gulp_uglify          = require("gulp-uglify");
 var gulp_rename          = require("gulp-rename");
 var gulp_replace         = require("gulp-replace");
@@ -1256,7 +1256,7 @@ var cssmin = function() {
     CONTEXT.PATH_BUILD_ASSETS + "/stylesheets/**/*.css"
   )
     .pipe(
-      gulp_cssmin()
+      gulp_clean_css()
     )
     .pipe(
       gulp.dest(

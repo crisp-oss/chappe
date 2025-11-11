@@ -58,7 +58,7 @@
     "gulp-inline-image": "1.0.x",
     "gulp-ogimage": "2.0.x",
     "gulp-concat": "2.6.x",
-    "gulp-cssmin": "0.2.x",
+    "gulp-clean-css": "4.3.x",
     "gulp-uglify": "3.0.x",
     "gulp-header": "2.0.x",
     "gulp-rename": "2.0.x",
