@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.12.0 (2025-11-11)
+
+### Changes
+
+* Migrate `gulp-cssmin` to `gulp-clean-css` for Node.js 24 compatibility.
+
 ## 1.11.0 (2025-10-16)
 
 ### Changes
