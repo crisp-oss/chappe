@@ -778,16 +778,7 @@ var sass = function() {
     )
     .pipe(
       gulp_sass({
-        outputStyle         : "expanded",
-        quietDeps           : true,
-
-        silenceDeprecations : [
-          "import",
-          "legacy-js-api",
-          "color-functions",
-          "global-builtin",
-          "slash-div"
-        ]
+        outputStyle : "expanded"
       })
     )
     .on("error", gulp_notify.onError({
