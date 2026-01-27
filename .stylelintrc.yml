@@ -2,6 +2,7 @@ extends:
   - stylelint-config-standard-scss
 
 rules:
+  at-rule-empty-line-before: null
   scss/comment-no-empty: null
   scss/load-no-partial-leading-underscore: null
   scss/dollar-variable-empty-line-before: null
