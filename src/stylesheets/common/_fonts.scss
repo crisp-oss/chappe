@@ -5,7 +5,7 @@
 
 @use "../_globals" as *;
 
-//- Proxima Nova
+// - Proxima Nova
 
 // Regular
 
@@ -24,15 +24,15 @@
 @include font-face-include("Chappe Proxima Nova Bold", "proxima_nova/proxima_nova_bold", 700, normal);
 @include font-face-include("Chappe Proxima Nova Bold", "proxima_nova/proxima_nova_bold_italic", 700, italic);
 
-//- Hack
+// - Hack
 
 // Regular
 
 @include font-face-include("Chappe Hack Regular", "hack/hack_regular", 400, normal);
 
-//- Bindings
+// - Bindings
 
-//- Sans Serif
+// - Sans Serif
 
 .font-sans-regular {
   font-family: "Chappe Proxima Nova Regular", sans-serif;

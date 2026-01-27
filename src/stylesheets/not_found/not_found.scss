@@ -28,12 +28,12 @@
 
     .button {
       &:hover {
-        &:before {
+        &::before {
           opacity: 1;
         }
       }
 
-      &:before {
+      &::before {
         content: "";
         background-color: var(--color-white);
         width: 20px;
@@ -50,7 +50,7 @@
   }
 }
 
-//- Media Queries
+// - Media Queries
 
 // For screens below defined widths
 

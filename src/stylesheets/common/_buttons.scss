@@ -34,8 +34,8 @@
     display: inline-flex;
     align-items: center;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       flex: 0 0 auto;
     }
 

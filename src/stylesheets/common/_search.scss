@@ -8,19 +8,13 @@
 #search {
   display: none;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   z-index: 200;
 
   .spotlight,
-  &:after {
+  &::after {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
   }
 
   .spotlight {
@@ -47,7 +41,7 @@
 
     &[data-index-loading="true"] {
       .spotlight-field {
-        &:after {
+        &::after {
           display: inline-block;
         }
 
@@ -88,14 +82,14 @@
       height: 58px;
       position: relative;
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         content: "";
         position: absolute;
         top: 50%;
       }
 
-      &:before {
+      &::before {
         background-color: var(--color-blue-grey-dark);
         width: $spotlight-field-icon-size;
         height: $spotlight-field-icon-size;
@@ -105,7 +99,7 @@
         @include mask-image-internal-fill("common/search/field-icon.svg");
       }
 
-      &:after {
+      &::after {
         background: transparent;
         border-color: var(--color-search-spotlight-field-spinner-border) var(--color-search-spotlight-field-spinner-border) transparent;
         border-width: 2px;
@@ -144,6 +138,7 @@
 
         @include input-search {
           @include appearance(none);
+
           display: none;
         }
       }
@@ -154,8 +149,7 @@
 
       max-height: 380px;
       padding: (12px - $spotlight-result-padding-scroller-top-bottom) $spotlight-padding-sides (20px - $spotlight-result-padding-scroller-top-bottom);
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden auto;
       flex: 1;
 
       .spotlight-entries {
@@ -178,7 +172,7 @@
                 transition: background-color linear 100ms;
               }
 
-              &:after {
+              &::after {
                 background-color: var(--color-white);
                 opacity: 1;
               }
@@ -196,7 +190,7 @@
 
           &.spotlight-entry--page {
             .spotlight-entry-link {
-              &:after {
+              &::after {
                 @include mask-image-internal("common/search/result-type-page.svg");
               }
             }
@@ -204,7 +198,7 @@
 
           &.spotlight-entry--anchor {
             .spotlight-entry-link {
-              &:after {
+              &::after {
                 width: ($spotlight-entry-type-icon-size - 2px);
                 height: ($spotlight-entry-type-icon-size - 2px);
 
@@ -225,7 +219,7 @@
             position: relative;
             border-radius: 3px;
 
-            &:after {
+            &::after {
               content: "";
               background-color: var(--color-black);
               width: $spotlight-entry-type-icon-size;
@@ -313,7 +307,7 @@
           }
 
           &.spotlight-shortcut--navigate {
-            &:before {
+            &::before {
               width: 10px;
               height: 13px;
 
@@ -322,7 +316,7 @@
           }
 
           &.spotlight-shortcut--go {
-            &:before {
+            &::before {
               width: 10px;
               height: 10px;
 
@@ -331,7 +325,7 @@
           }
 
           &.spotlight-shortcut--close {
-            &:before {
+            &::before {
               width: 14px;
               height: 10px;
 
@@ -339,7 +333,7 @@
             }
           }
 
-          &:before {
+          &::before {
             content: "";
             background-color: var(--color-search-spotlight-shortcut-text);
             vertical-align: middle;
@@ -364,7 +358,7 @@
     }
   }
 
-  &:after {
+  &::after {
     content: "";
     background-color: var(--color-search-lock-background);
     z-index: 1;
@@ -374,7 +368,7 @@
   }
 }
 
-//- Media Queries
+// - Media Queries
 
 // For screens below defined widths
 
@@ -396,7 +390,7 @@
 
 // For screens below defined heights
 
-@media screen and (max-height: 600px) {
+@media screen and (height <= 600px) {
   #search {
     .spotlight {
       .spotlight-box {
@@ -412,7 +406,7 @@
   }
 }
 
-//- Keyframes
+// - Keyframes
 
 @include keyframes-fix(search-lock-animation) {
   0% {

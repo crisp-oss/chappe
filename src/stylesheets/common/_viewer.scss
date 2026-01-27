@@ -17,7 +17,7 @@
     }
 
     #footer {
-      &:before {
+      &::before {
         content: "";
         background-color: var(--color-white);
         width: $content-sidebar-left-width;
@@ -52,7 +52,7 @@
   }
 }
 
-//- Media Queries
+// - Media Queries
 
 // For screens below defined widths
 
@@ -94,7 +94,7 @@
       }
 
       #footer {
-        &:before {
+        &::before {
           display: none;
         }
 

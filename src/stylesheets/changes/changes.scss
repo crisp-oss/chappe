@@ -19,7 +19,7 @@
     top: 70px;
     z-index: 1;
 
-    &:before {
+    &::before {
       content: "";
       background-color: var(--color-grey-light);
       width: 2px;
@@ -102,7 +102,7 @@
       position: relative;
       border-radius: 2px;
 
-      &:before {
+      &::before {
         content: "";
         background-color: var(--color-grey-light);
         width: 5px;
@@ -187,11 +187,11 @@
   }
 }
 
-//- Media Queries
+// - Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: 1140px) {
+@media screen and (width <= 1140px) {
   #changes {
     .content {
       .content-aside {
@@ -208,7 +208,7 @@
       margin-top: 14px;
       position: static;
 
-      &:before {
+      &::before {
         display: none;
       }
 

@@ -33,12 +33,12 @@
       margin: 0 5px $actions-button-margin-bottom;
 
       &:hover {
-        &:after {
+        &::after {
           background-color: var(--color-white);
         }
       }
 
-      &:after {
+      &::after {
         content: "";
         background-color: var(--color-accent-base);
         width: 6px;
@@ -58,19 +58,19 @@
 
     .bulletpoint {
       &.bulletpoint--quickstart {
-        &:before {
+        &::before {
           @include mask-image-internal("home/bulletpoint-icon-quickstart.svg");
         }
       }
 
       &.bulletpoint--guides {
-        &:before {
+        &::before {
           @include mask-image-internal("home/bulletpoint-icon-guides.svg");
         }
       }
 
       &.bulletpoint--references {
-        &:before {
+        &::before {
           @include mask-image-internal("home/bulletpoint-icon-references.svg");
         }
       }
@@ -112,12 +112,12 @@
 
       .button {
         &:hover {
-          &:before {
+          &::before {
             opacity: 1;
           }
         }
 
-        &:before {
+        &::before {
           content: "";
           background-color: var(--color-white);
           width: 20px;
@@ -135,7 +135,7 @@
   }
 }
 
-//- Media Queries
+// - Media Queries
 
 // For screens below defined widths
 

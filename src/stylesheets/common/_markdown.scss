@@ -165,7 +165,7 @@
         li {
           padding-left: 20px;
 
-          &:before {
+          &::before {
             background-color: var(--color-black);
             width: 4px;
             height: 4px;
@@ -179,7 +179,7 @@
 
   ul {
     li {
-      &:before {
+      &::before {
         content: "";
         background-color: var(--color-markdown-list-item-bullet);
         width: 7px;
@@ -198,7 +198,7 @@
     li {
       counter-increment: list-counter;
 
-      &:before {
+      &::before {
         content: counter(list-counter) ".";
         text-align: right;
         min-width: 19px;
@@ -262,7 +262,7 @@
         .code-clipboard {
           border-color: var(--color-markdown-code-block-clipboard-border-copied);
 
-          &:after {
+          &::after {
             background-color: var(--color-markdown-code-block-clipboard-icon-background-copied);
             width: 16px;
             height: 12px;
@@ -311,7 +311,7 @@
         border-color: var(--color-markdown-code-block-clipboard-border-active);
       }
 
-      &:after {
+      &::after {
         content: "";
         background-color: var(--color-markdown-code-block-clipboard-icon-background-default);
         width: 13px;
@@ -331,13 +331,12 @@
       white-space: pre;
       word-spacing: normal;
       word-break: normal;
-      word-wrap: normal;
+      overflow-wrap: normal;
       tab-size: 4;
       hyphens: none;
       margin: 0;
       padding: 15px 18px;
-      overflow-x: auto;
-      overflow-y: hidden;
+      overflow: auto hidden;
       display: block;
     }
 
@@ -394,7 +393,7 @@
       margin-top: ((-1 * $emphasis-margin-top-bottom-base) + 9px);
     }
 
-    &:before {
+    &::before {
       content: "";
       width: 4px;
       position: absolute;
@@ -409,7 +408,7 @@
     color: var(--color-markdown-blockquote-text);
     font-style: italic;
 
-    &:before {
+    &::before {
       background-color: var(--color-markdown-blockquote-border);
     }
   }
@@ -418,7 +417,7 @@
     &.emphasis--warning {
       background-color: var(--color-markdown-emphasis-warning-background);
 
-      &:before {
+      &::before {
         background-color: var(--color-markdown-emphasis-warning-border);
       }
     }
@@ -426,7 +425,7 @@
     &.emphasis--info {
       background-color: var(--color-markdown-emphasis-info-background);
 
-      &:before {
+      &::before {
         background-color: var(--color-markdown-emphasis-info-border);
       }
     }
@@ -434,7 +433,7 @@
     &.emphasis--notice {
       background-color: var(--color-markdown-emphasis-notice-background);
 
-      &:before {
+      &::before {
         background-color: var(--color-markdown-emphasis-notice-border);
       }
     }
@@ -451,7 +450,7 @@
         .embed-preview {
           opacity: 0;
 
-          &:after {
+          &::after {
             display: none;
           }
         }
@@ -487,18 +486,18 @@
         @include background-image-fill($display: false);
 
         &:hover {
-          &:after {
+          &::after {
             opacity: 1;
           }
         }
 
         &:active {
-          &:after {
+          &::after {
             opacity: .95;
           }
         }
 
-        &:after {
+        &::after {
           $icon-size: 68px;
 
           content: "";
@@ -531,7 +530,7 @@
 }
 
 
-//- Media Queries
+// - Media Queries
 
 // For screens below defined widths
 

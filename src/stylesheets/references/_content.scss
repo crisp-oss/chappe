@@ -106,8 +106,8 @@ $part-chunk-padding-sides: 24px;
           margin-bottom: 0;
           padding-bottom: 0;
 
-          &:before,
-          &:after {
+          &::before,
+          &::after {
             display: none;
           }
         }
@@ -191,21 +191,21 @@ $part-chunk-padding-sides: 24px;
         }
       }
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         content: "";
         height: 1px;
         position: absolute;
         bottom: 0;
       }
 
-      &:before {
+      &::before {
         background-color: var(--color-references-separator-content);
         left: $part-chunk-padding-sides;
         right: $content-sidebar-right-default-width;
       }
 
-      &:after {
+      &::after {
         background-color: var(--color-references-separator-sidebar);
         width: $content-sidebar-right-default-width;
         right: 0;
@@ -321,6 +321,7 @@ $part-chunk-padding-sides: 24px;
               white-space: nowrap;
 
               @include font-size(12px);
+
               overflow: hidden;
               flex: 1;
             }
@@ -486,7 +487,7 @@ $part-chunk-padding-sides: 24px;
                     li {
                       padding-left: 15px;
 
-                      &:before {
+                      &::before {
                         background-color: var(--color-black);
                         width: 4px;
                         height: 4px;
@@ -518,7 +519,7 @@ $part-chunk-padding-sides: 24px;
               box-shadow: 0 2px 1px 0 var(--color-references-request-format-toggle-button-shadow);
 
               &:hover {
-                &:before {
+                &::before {
                   opacity: .85;
                 }
               }
@@ -527,7 +528,7 @@ $part-chunk-padding-sides: 24px;
                 box-shadow: none;
               }
 
-              &:before {
+              &::before {
                 content: "";
                 background-color: var(--color-black);
                 width: 8px;
@@ -560,6 +561,7 @@ $part-chunk-padding-sides: 24px;
                 padding: 2px;
 
                 @include font-size(10px);
+
                 flex: 0 0 auto;
                 border-radius: 100%;
               }
@@ -573,7 +575,7 @@ $part-chunk-padding-sides: 24px;
             }
 
             .request-format-toggle-checkbox:checked ~ .request-format-toggle-button {
-              &:before {
+              &::before {
                 transform: rotate(-180deg);
               }
             }
@@ -653,7 +655,7 @@ $part-chunk-padding-sides: 24px;
   }
 }
 
-//- Media Queries
+// - Media Queries
 
 // For screens below defined widths
 
@@ -677,11 +679,11 @@ $part-chunk-padding-sides: 24px;
           width: $content-sidebar-right-large-width;
         }
 
-        &:before {
+        &::before {
           right: $content-sidebar-right-large-width;
         }
 
-        &:after {
+        &::after {
           width: $content-sidebar-right-large-width;
         }
       }
@@ -705,12 +707,12 @@ $part-chunk-padding-sides: 24px;
           max-width: calc(100% - #{$specification-max-width-outer-offset});
         }
 
-        &:after,
+        &::after,
         .examples {
           display: none;
         }
 
-        &:before {
+        &::before {
           right: $part-chunk-padding-sides;
         }
       }
@@ -735,7 +737,7 @@ $part-chunk-padding-sides: 24px;
 
     .parts {
       .part {
-        &:before {
+        &::before {
           left: $wrapper-small-padding-sides;
           right: $wrapper-small-padding-sides;
         }
@@ -784,7 +786,7 @@ $part-chunk-padding-sides: 24px;
   }
 }
 
-//- Keyframes
+// - Keyframes
 
 @include keyframes-fix(references-content-request-format-keys-animation) {
   0% {
