@@ -9,6 +9,7 @@
   .nest .nest-category .nest-icon,
   .details .details-category .details-icon {
     background-color: var(--color-accent-base);
+
     @include mask-image-internal-fill("guides/common/category-icon-others.svg");
   }
 }

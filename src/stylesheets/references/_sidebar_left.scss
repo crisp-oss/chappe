@@ -12,6 +12,7 @@
         .context .context-name .context-icon,
         .nest .nest-category .nest-icon {
           background-color: var(--color-accent-base);
+
           @include mask-image-fill;
         }
 

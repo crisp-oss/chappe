@@ -64,9 +64,10 @@
   }
 
   h1 {
-    @include font-size(20px);
     margin-top: 42px;
     margin-bottom: 20px;
+
+    @include font-size(20px);
   }
 
   h2 {
@@ -94,8 +95,9 @@
   ol,
   blockquote,
   .emphasis {
-    @include font-size(14.5px);
     line-height: 22px;
+
+    @include font-size(14.5px);
   }
 
   p {
@@ -214,12 +216,13 @@
 
   figure figcaption,
   .embed .embed-caption {
-    @include font-size(14px);
     color: var(--color-markdown-figure-text);
     text-align: center;
     line-height: 18px;
     margin-top: 10px;
     display: block;
+
+    @include font-size(14px);
   }
 
   figure {
@@ -261,9 +264,10 @@
 
           &:after {
             background-color: var(--color-markdown-code-block-clipboard-icon-background-copied);
-            @include mask-image-internal("common/markdown/code-clipboard-copied.svg");
             width: 16px;
             height: 12px;
+
+            @include mask-image-internal("common/markdown/code-clipboard-copied.svg");
           }
         }
       }
@@ -310,10 +314,11 @@
       &:after {
         content: "";
         background-color: var(--color-markdown-code-block-clipboard-icon-background-default);
-        @include mask-image-internal("common/markdown/code-clipboard-copy.svg");
         width: 13px;
         height: 15px;
         transition: background-color linear 75ms;
+
+        @include mask-image-internal("common/markdown/code-clipboard-copy.svg");
       }
     }
 
@@ -343,10 +348,11 @@
 
   table {
     border-collapse: collapse;
-    @include font-size(13px);
     text-align: left;
     width: 100%;
     margin: 26px 0 34px;
+
+    @include font-size(13px);
 
     thead {
       background-color: var(--color-markdown-table-head-background);
@@ -473,11 +479,12 @@
       }
 
       .embed-preview {
-        @include background-image-fill($display: false);
         cursor: pointer;
         opacity: 1;
         position: relative;
         z-index: 1;
+
+        @include background-image-fill($display: false);
 
         &:hover {
           &:after {
@@ -495,7 +502,6 @@
           $icon-size: 68px;
 
           content: "";
-          @include background-image-internal-fill("common/markdown/embed-preview-play.svg");
           width: $icon-size;
           height: $icon-size;
           position: absolute;
@@ -504,6 +510,8 @@
           opacity: .9;
           transition: opacity ease-in-out 300ms;
           transform: translate(-50%, -50%);
+
+          @include background-image-internal-fill("common/markdown/embed-preview-play.svg");
         }
       }
 

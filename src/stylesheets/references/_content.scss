@@ -44,17 +44,19 @@ $part-chunk-padding-sides: 24px;
 
       .details-title {
         color: var(--color-black);
-        @include font-size(21px);
         line-height: 22px;
         margin: 0;
         flex: 1;
+
+        @include font-size(21px);
       }
 
       .details-updated {
         color: var(--color-references-details-updated-text);
-        @include font-size(13.5px);
         flex: 0 0 auto;
         padding-left: 8px;
+
+        @include font-size(13.5px);
       }
     }
   }
@@ -77,8 +79,9 @@ $part-chunk-padding-sides: 24px;
     &,
     .group-anchor {
       color: var(--color-black);
-      @include font-size(19px);
       line-height: 20px;
+
+      @include font-size(19px);
     }
 
     .group-anchor {
@@ -220,6 +223,7 @@ $part-chunk-padding-sides: 24px;
           &,
           .request-title-anchor {
             color: var(--color-black);
+
             @include font-size(17.5px);
           }
         }
@@ -248,12 +252,13 @@ $part-chunk-padding-sides: 24px;
             .request-target-method {
               background-color: var(--color-black);
               color: var(--color-white);
-              @include font-size(13px);
               letter-spacing: -.1px;
               user-select: none;
               padding: 0 10px;
               border-radius: 2px;
               flex: 0 0 auto;
+
+              @include font-size(13px);
             }
 
             .request-target-url {
@@ -272,10 +277,11 @@ $part-chunk-padding-sides: 24px;
               &[data-copy-state="copied"] {
                 .request-target-copy {
                   background-color: var(--color-green);
-                  @include mask-image-internal("references/content/request-target-copied.svg");
                   width: 14px;
                   height: 11px;
                   margin-right: -1px;
+
+                  @include mask-image-internal("references/content/request-target-copied.svg");
                 }
               }
 
@@ -298,21 +304,23 @@ $part-chunk-padding-sides: 24px;
               .request-target-copy {
                 content: "";
                 background-color: var(--color-black);
-                @include mask-image-internal-fill("references/content/request-target-copy.svg");
                 width: 11px;
                 height: 12px;
                 margin-left: 5px;
                 opacity: .7;
                 flex: 0 0 auto;
                 transition: opacity linear 100ms;
+
+                @include mask-image-internal-fill("references/content/request-target-copy.svg");
               }
             }
 
             .request-target-path {
               color: var(--color-black);
-              @include font-size(12px);
               text-overflow: ellipsis;
               white-space: nowrap;
+
+              @include font-size(12px);
               overflow: hidden;
               flex: 1;
             }
@@ -351,18 +359,19 @@ $part-chunk-padding-sides: 24px;
             .request-format-title {
               border-bottom: 1px solid var(--color-references-separator-content);
               color: var(--color-black);
-              @include font-size(15px);
               user-select: none;
               margin-top: 18px;
               margin-bottom: 11px;
               padding-bottom: 6px;
+
+              @include font-size(15px);
             }
 
             .request-format-keys {
-              @include font-size(13.5px);
-
               .request-format-key {
                 margin-bottom: 6px;
+
+                @include font-size(13.5px);
 
                 &:last-of-type {
                   margin-bottom: 0;
@@ -453,8 +462,9 @@ $part-chunk-padding-sides: 24px;
                   }
 
                   code {
-                    @include font-size(11.5px);
                     padding: 1px 4px;
+
+                    @include font-size(11.5px);
                   }
 
                   p {
@@ -466,11 +476,12 @@ $part-chunk-padding-sides: 24px;
                   }
 
                   ul {
-                    @include font-size(12px);
                     line-height: 14px;
                     margin-top: 6px !important;
                     margin-bottom: 12px !important;
                     padding-left: 5px !important;
+
+                    @include font-size(12px);
 
                     li {
                       padding-left: 15px;
@@ -519,7 +530,6 @@ $part-chunk-padding-sides: 24px;
               &:before {
                 content: "";
                 background-color: var(--color-black);
-                @include mask-image-internal-fill("references/content/request-format-toggle-button-arrow.svg");
                 width: 8px;
                 height: 6px;
                 margin-right: 9px;
@@ -527,6 +537,8 @@ $part-chunk-padding-sides: 24px;
                 flex: 0 0 auto;
                 transition: all linear .15s;
                 transition-property: transform, opacity;
+
+                @include mask-image-internal-fill("references/content/request-format-toggle-button-arrow.svg");
               }
 
               .request-format-toggle-label {
@@ -541,12 +553,13 @@ $part-chunk-padding-sides: 24px;
 
                 color: var(--color-references-request-format-toggle-count-text);
                 background-color: var(--color-references-request-format-toggle-count-background);
-                @include font-size(10px);
                 text-align: center;
                 line-height: $toggle-count-footprint;
                 min-width: $toggle-count-footprint;
                 margin-left: 8px;
                 padding: 2px;
+
+                @include font-size(10px);
                 flex: 0 0 auto;
                 border-radius: 100%;
               }
@@ -606,11 +619,12 @@ $part-chunk-padding-sides: 24px;
 
             .examples-detail-value {
               color: var(--color-references-examples-detail-value-text);
-              @include font-size(13.5px);
               line-height: 16px;
               word-break: break-word;
               margin-left: 12px;
               flex: 1;
+
+              @include font-size(13.5px);
 
               .badge {
                 margin-right: 5px;

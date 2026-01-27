@@ -18,11 +18,12 @@
       .code-actions {
         .code-action {
           &.code-action--copy {
-            @include mask-image-internal("common/code/header-action-copied.svg");
             width: 13px;
             height: 16px;
             margin-top: 1px;
             opacity: 1;
+
+            @include mask-image-internal("common/code/header-action-copied.svg");
           }
         }
       }
@@ -73,8 +74,9 @@
 
     .code-language {
       color: var(--color-code-language-text);
-      @include font-size(12.5px);
       flex: 1;
+
+      @include font-size(12.5px);
     }
 
     .code-actions {
@@ -82,11 +84,12 @@
       padding-left: 8px;
 
       .code-action {
-        @include mask-image-fill;
         margin-right: 15px;
         opacity: .65;
         cursor: pointer;
         transition: opacity linear 100ms;
+
+        @include mask-image-fill;
 
         &:last-of-type {
           margin-right: 0;
@@ -102,9 +105,10 @@
 
         &.code-action--copy {
           background-color: var(--color-code-action-background);
-          @include mask-image-internal("common/code/header-action-copy.svg");
           width: 13px;
           height: 15px;
+
+          @include mask-image-internal("common/code/header-action-copy.svg");
         }
       }
     }
@@ -127,10 +131,11 @@
 
       .code-meta-name,
       .code-meta-type {
-        @include font-size(12.5px);
         letter-spacing: .1px;
         min-width: 80px;
         flex: 0 0 auto;
+
+        @include font-size(12.5px);
       }
 
       .code-meta-name,
@@ -160,7 +165,6 @@
     .code-content {
       background-color: var(--color-code-content-background);
       color: var(--color-code-content-text);
-      @include font-size(11px);
       line-height: 16px;
       white-space: pre;
       user-select: none;
@@ -168,6 +172,8 @@
       max-height: 640px;
       padding-top: 10px;
       padding-bottom: 12px;
+
+      @include font-size(11px);
 
       code {
         color: var(--color-white);
@@ -186,11 +192,9 @@
     background: transparent;
     color: var(--color-code-select-text-default);
     border: 1px solid var(--color-code-select-border-default);
-    @include background-image-internal("common/code/select-arrow.svg");
     background-repeat: no-repeat;
     background-position-x: calc(100% - 8px);
     background-position-y: 50%;
-    @include font-size(13px);
     line-height: 23px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -201,9 +205,12 @@
     outline: none;
     cursor: pointer;
     border-radius: 3px;
-    @include appearance(none);
     transition: all linear 75ms;
     transition-property: color, border-color;
+
+    @include background-image-internal("common/code/select-arrow.svg");
+    @include font-size(13px);
+    @include appearance(none);
 
     &:hover {
       color: var(--color-code-select-text-hover);

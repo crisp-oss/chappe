@@ -15,11 +15,12 @@
   padding-bottom: 86px;
 
   .illustration {
-    @include background-image-fill;
     max-width: 468px;
     width: 100%;
     height: 320px;
     margin: 64px auto 0;
+
+    @include background-image-fill;
   }
 
   .actions {
@@ -35,7 +36,6 @@
       &:before {
         content: "";
         background-color: var(--color-white);
-        @include mask-image-internal-fill("not_found/action-home-icon.svg");
         width: 20px;
         height: 16px;
         margin-top: -2px;
@@ -43,6 +43,8 @@
         margin-right: 12px;
         opacity: .55;
         transition: opacity linear 100ms;
+
+        @include mask-image-internal-fill("not_found/action-home-icon.svg");
       }
     }
   }

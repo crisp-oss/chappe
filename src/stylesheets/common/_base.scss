@@ -14,9 +14,10 @@ body {
 
 * {
   font-weight: normal !important;
-  @include font-smoothing(subpixel-antialiased);
   margin: 0;
   padding: 0;
+
+  @include font-smoothing(subpixel-antialiased);
 }
 
 .wrapper {

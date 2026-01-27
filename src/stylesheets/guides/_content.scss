@@ -24,9 +24,10 @@
 
     .details-upper .details-feedback,
     .details-lower .details-updated {
-      @include font-size(13.5px);
       flex: 0 0 auto;
       padding-left: 8px;
+
+      @include font-size(13.5px);
     }
 
     .details-upper .details-category,
@@ -36,17 +37,19 @@
 
     .details-upper {
       .details-category {
-        @include font-size(16px);
         line-height: 18px;
         margin-left: -2px;
 
+        @include font-size(16px);
+
         .details-icon {
-          @include background-image-fill;
           width: 19px;
           height: 19px;
           margin-top: -3px;
           margin-right: 4px;
           vertical-align: middle;
+
+          @include background-image-fill;
         }
       }
 
@@ -65,8 +68,9 @@
 
       .details-title {
         color: var(--color-black);
-        @include font-size(23px);
         line-height: 24px;
+
+        @include font-size(23px);
       }
     }
   }

@@ -57,7 +57,6 @@
       .navigate-link {
         background-color: transparent;
         color: var(--color-black);
-        @include font-size(14px);
         letter-spacing: -.12px;
         text-align: left;
         line-height: 24px;
@@ -68,6 +67,8 @@
         transition: background-color linear 75ms;
         position: relative;
         z-index: 1;
+
+        @include font-size(14px);
 
         &:hover {
           background-color: var(--color-changes-navigate-link-background-hover);
@@ -89,6 +90,7 @@
 
     .title {
       color: var(--color-black);
+
       @include font-size(22px);
     }
 
@@ -117,6 +119,7 @@
 
         .month-name {
           color: var(--color-black);
+
           @include font-size(22px);
         }
 
@@ -156,8 +159,9 @@
 
             .month-event-group,
             .month-event-text {
-              @include font-size(14px);
               line-height: 20px;
+
+              @include font-size(14px);
             }
 
             .month-event-group {

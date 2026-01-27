@@ -39,8 +39,9 @@
   .navigation {
     .links .link .link-target,
     .copyright {
-      @include font-size(13.5px);
       letter-spacing: -.1px;
+
+      @include font-size(13.5px);
     }
 
     .links {
@@ -78,8 +79,9 @@
       align-items: center;
 
       .logo {
-        @include background-image-fill;
         height: 26px;
+
+        @include background-image-fill;
       }
 
       .separator {
@@ -90,8 +92,9 @@
       }
 
       .engine {
-        @include font-size(14px);
         letter-spacing: -.11px;
+
+        @include font-size(14px);
 
         &,
         a {
@@ -205,9 +208,10 @@
         }
 
         .status-icon {
-          @include background-image-internal-fill("common/footer/status-failure.svg");
           width: 24px;
           height: 24px;
+
+          @include background-image-internal-fill("common/footer/status-failure.svg");
         }
 
         .status-text {
@@ -219,10 +223,11 @@
           }
 
           .status-state {
-            @include font-size(13.5px);
             color: var(--color-status-default-text);
             letter-spacing: 0;
             line-height: 20px;
+
+            @include font-size(13.5px);
 
             .status-state-variant {
               display: none;
@@ -230,10 +235,11 @@
           }
 
           .status-time {
-            @include font-size(12.5px);
             color: var(--color-footer-status-time-text);
             letter-spacing: -.1px;
             line-height: 18px;
+
+            @include font-size(12.5px);
           }
         }
       }

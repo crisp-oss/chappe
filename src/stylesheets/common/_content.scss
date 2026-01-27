@@ -19,19 +19,21 @@
 
     .main-title {
       color: var(--color-black);
-      @include font-size(28px);
       letter-spacing: 0;
       text-align: center;
+
+      @include font-size(28px);
     }
 
     .main-label {
       color: var(--color-blue-grey);
-      @include font-size(17px);
       line-height: 22px;
       letter-spacing: 0;
       text-align: center;
       max-width: 340px;
       margin-top: 16px;
+
+      @include font-size(17px);
 
       .main-label-line {
         display: block;
@@ -122,7 +124,6 @@
 
       .sidebar-toggler-retract {
         background-color: var(--color-black);
-        @include mask-image-internal-fill("common/content/sidebar-toggler-retract.svg", $display: false);
         width: 11px;
         height: 11px;
         margin-right: ($sidebar-item-padding-right-semi + 2px);
@@ -133,6 +134,8 @@
         right: 0;
         display: none;
         transition: opacity linear 100ms;
+
+        @include mask-image-internal-fill("common/content/sidebar-toggler-retract.svg", $display: false);
 
         &:hover {
           opacity: 1;
@@ -145,9 +148,10 @@
 
         .context-name {
           color: var(--color-black);
-          @include font-size(15px);
           line-height: 18px;
           letter-spacing: -.1px;
+
+          @include font-size(15px);
 
           .context-icon {
             vertical-align: middle;
@@ -170,8 +174,9 @@
         }
 
         .nest-category {
-          @include font-size(15px);
           letter-spacing: -.1px;
+
+          @include font-size(15px);
 
           &,
           .nest-category-link {
@@ -263,7 +268,6 @@
               $link-item-padding-top-bottom: 3px;
               $link-item-padding-right: 7px;
 
-              @include font-size(13.5px);
               letter-spacing: -.1px;
               line-height: 17px;
               margin-left: (-1 * $sidebar-item-padding-left-semi);
@@ -273,6 +277,8 @@
               border-radius: 3px;
               transition: all linear 75ms;
               transition-property: background-color, color;
+
+              @include font-size(13.5px);
 
               &:hover {
                 background-color: var(--color-content-sidebar-nest-navigate-link-background-hover);
@@ -319,10 +325,11 @@
                 &:after {
                   content: "";
                   background-color: var(--color-accent-base);
-                  @include mask-image-internal-fill("common/content/sidebar-link-external-icon.svg");
                   width: 11px;
                   height: 11px;
                   margin-left: 6px;
+
+                  @include mask-image-internal-fill("common/content/sidebar-link-external-icon.svg");
                 }
               }
 
@@ -342,7 +349,6 @@
                   &:after {
                     content: "";
                     background-color: var(--color-content-sidebar-nest-navigate-slice-icon-background-default);
-                    @include mask-image-internal-fill("common/content/sidebar-link-slice-icon.svg");
                     vertical-align: middle;
                     width: 9px;
                     height: 6px;
@@ -350,6 +356,8 @@
                     opacity: .5;
                     transition: all linear 100ms;
                     transition-property: opacity, transform;
+
+                    @include mask-image-internal-fill("common/content/sidebar-link-slice-icon.svg");
                   }
 
                   &:hover {
@@ -422,7 +430,6 @@
       box-shadow: 0 1px 5px 0 var(--color-content-sidebar-toggler-shadow-default);
       border-radius: 100%;
       transition: box-shadow linear 150ms;
-      @include backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%));
 
       &:hover {
         box-shadow: 0 2px 6px 0 var(--color-content-sidebar-toggler-shadow-hover);
@@ -443,14 +450,18 @@
       &:after {
         content: "";
         background-color: var(--color-content-sidebar-toggler-icon-background);
-        @include mask-image-internal-fill("common/content/sidebar-toggler-icon.svg");
         vertical-align: middle;
         width: 16px;
         height: 16px;
         margin-top: -1px;
         opacity: .7;
         transition: opacity linear 150ms;
+
+        @include mask-image-internal-fill("common/content/sidebar-toggler-icon.svg");
       }
+
+
+      @include backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%));
     }
   }
 
@@ -490,22 +501,25 @@
       &:before {
         content: "";
         background-color: var(--color-accent-base);
-        @include mask-image-fill;
         height: 32px;
         width: 32px;
         margin-bottom: 16px;
+
+        @include mask-image-fill;
       }
 
       .bulletpoint-title {
         color: var(--color-black);
+
         @include font-size(18.5px);
       }
 
       .bulletpoint-label {
         color: var(--color-content-bulletpoint-label-text);
-        @include font-size(14px);
         line-height: 18px;
         margin-top: 9px;
+
+        @include font-size(14px);
       }
 
       .bulletpoint-actions {
@@ -514,9 +528,10 @@
 
         .bulletpoint-action {
           color: var(--color-accent-base);
-          @include font-size(14px);
           line-height: 18px;
           margin-right: 22px;
+
+          @include font-size(14px);
 
           &:last-of-type {
             margin-right: 0;
@@ -543,12 +558,13 @@
             &:after {
               content: "";
               background-color: var(--color-accent-base);
-              @include mask-image-internal-fill("common/content/bulletpoint-action-arrow.svg");
               width: 13px;
               height: 9px;
               margin-left: 4px;
               vertical-align: middle;
               transition: transform linear 100ms;
+
+              @include mask-image-internal-fill("common/content/bulletpoint-action-arrow.svg");
             }
           }
         }
@@ -617,34 +633,38 @@
 
           .navigation-title {
             color: var(--color-black);
-            @include font-size(14.5px);
             line-height: 20px;
+
+            @include font-size(14.5px);
           }
 
           .navigation-label {
             color: var(--color-content-navigation-label-text);
-            @include font-size(13.5px);
             line-height: 18px;
             margin-top: 3px;
+
+            @include font-size(13.5px);
           }
         }
 
         .navigation-action {
           color: var(--color-accent-base);
-          @include font-size(13.5px);
           margin-left: 8px;
           flex: 0 0 auto;
+
+          @include font-size(13.5px);
 
           &:after {
             content: "";
             background-color: var(--color-accent-base);
-            @include mask-image-internal-fill("common/content/navigation-item-link-arrow.svg");
             width: 11px;
             height: 8px;
             margin-top: -1px;
             margin-left: 4px;
             vertical-align: middle;
             transition: transform linear 100ms;
+
+            @include mask-image-internal-fill("common/content/navigation-item-link-arrow.svg");
           }
         }
       }
@@ -719,7 +739,6 @@
           z-index: 75;
           transition: left ease 200ms;
           box-shadow: 1px 0 5px 0 var(--color-content-sidebar-left-shadow-small);
-          @include backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%));
 
           &[data-visible="true"] {
             left: 0;
@@ -729,6 +748,8 @@
             margin-top: 11px;
             display: inline-block;
           }
+
+          @include backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%));
         }
 
         .nest {
@@ -779,12 +800,13 @@
           right: 0;
           transition: opacity linear 150ms;
           box-shadow: none;
-          @include backdrop-filter(none);
 
           &[data-visible="true"] {
             visibility: visible;
             opacity: 1;
           }
+
+          @include backdrop-filter(none);
         }
       }
 

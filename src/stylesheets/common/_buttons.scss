@@ -8,7 +8,6 @@
 .button {
   color: var(--color-white);
   background-color: var(--color-button-default);
-  @include font-size(13px);
   user-select: none;
   line-height: $button-default-height;
   height: $button-default-height;
@@ -18,6 +17,8 @@
   border-radius: 3px;
   transition: all linear 100ms;
   transition-property: background-color, color, transform, box-shadow;
+
+  @include font-size(13px);
 
   &:hover,
   &:active {
@@ -65,8 +66,9 @@
   }
 
   &.button--large {
-    @include font-size(14px);
     padding: 0 24px;
+
+    @include font-size(14px);
   }
 
   &,

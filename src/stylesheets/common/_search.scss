@@ -97,11 +97,12 @@
 
       &:before {
         background-color: var(--color-blue-grey-dark);
-        @include mask-image-internal-fill("common/search/field-icon.svg");
         width: $spotlight-field-icon-size;
         height: $spotlight-field-icon-size;
         margin-top: (-1 * ($spotlight-field-icon-size * 0.5));
         left: $spotlight-padding-sides;
+
+        @include mask-image-internal-fill("common/search/field-icon.svg");
       }
 
       &:after {
@@ -128,11 +129,12 @@
         border: 0 none;
         outline: 0 none;
         color: var(--color-black);
-        @include font-size(15px);
         letter-spacing: .1px;
         padding-left: ($spotlight-padding-sides + $spotlight-field-icon-size + 14px);
         height: 100%;
         width: 100%;
+
+        @include font-size(15px);
         @include appearance(none);
 
         @include input-placeholder {
@@ -203,9 +205,10 @@
           &.spotlight-entry--anchor {
             .spotlight-entry-link {
               &:after {
-                @include mask-image-internal("common/search/result-type-anchor.svg");
                 width: ($spotlight-entry-type-icon-size - 2px);
                 height: ($spotlight-entry-type-icon-size - 2px);
+
+                @include mask-image-internal("common/search/result-type-anchor.svg");
               }
             }
           }
@@ -225,13 +228,14 @@
             &:after {
               content: "";
               background-color: var(--color-black);
-              @include mask-image-fill;
               width: $spotlight-entry-type-icon-size;
               height: $spotlight-entry-type-icon-size;
               opacity: .25;
               position: absolute;
               top: $spotlight-entry-padding-top-bottom;
               right: $spotlight-entry-padding-sides;
+
+              @include mask-image-fill;
             }
 
             .spotlight-entry-path,
@@ -244,34 +248,38 @@
             }
 
             .spotlight-entry-path {
-              @include font-size(12.5px);
               line-height: 14px;
               opacity: .85;
+
+              @include font-size(12.5px);
             }
 
             .spotlight-entry-title {
-              @include font-size(15px);
               line-height: 16px;
               margin-top: 6px;
+
+              @include font-size(15px);
             }
 
             .spotlight-entry-preview {
-              @include font-size(13.5px);
               line-height: 18px;
               margin-top: 6px;
               margin-bottom: -1px;
               opacity: .8;
+
+              @include font-size(13.5px);
             }
 
             .spotlight-entry-separator {
               background-color: var(--color-black);
-              @include mask-image-internal-fill("common/search/result-separator.svg");
               vertical-align: middle;
               width: 4px;
               height: 8px;
               margin: -1px 5px 0;
               opacity: .35;
               display: inline-block;
+
+              @include mask-image-internal-fill("common/search/result-separator.svg");
             }
           }
         }
@@ -293,11 +301,12 @@
 
         .spotlight-shortcut {
           color: var(--color-search-spotlight-shortcut-text);
-          @include font-size(11px);
           letter-spacing: .1px;
           margin-top: -1px;
           margin-right: 18px;
           flex: 0 0 auto;
+
+          @include font-size(11px);
 
           &:last-of-type {
             margin-right: 0;
@@ -305,47 +314,52 @@
 
           &.spotlight-shortcut--navigate {
             &:before {
-              @include mask-image-internal("common/search/legend-icon-navigate.svg");
               width: 10px;
               height: 13px;
+
+              @include mask-image-internal("common/search/legend-icon-navigate.svg");
             }
           }
 
           &.spotlight-shortcut--go {
             &:before {
-              @include mask-image-internal("common/search/legend-icon-go.svg");
               width: 10px;
               height: 10px;
+
+              @include mask-image-internal("common/search/legend-icon-go.svg");
             }
           }
 
           &.spotlight-shortcut--close {
             &:before {
-              @include mask-image-internal("common/search/legend-icon-close.svg");
               width: 14px;
               height: 10px;
+
+              @include mask-image-internal("common/search/legend-icon-close.svg");
             }
           }
 
           &:before {
             content: "";
             background-color: var(--color-search-spotlight-shortcut-text);
-            @include mask-image-fill;
             vertical-align: middle;
             margin-top: -2px;
             margin-right: 4px;
+
+            @include mask-image-fill;
           }
         }
       }
 
       .spotlight-error {
         color: var(--color-red);
-        @include font-size(12px);
         text-align: right;
         margin-top: -2px;
         padding-left: 10px;
         flex: 1;
         display: none;
+
+        @include font-size(12px);
       }
     }
   }
