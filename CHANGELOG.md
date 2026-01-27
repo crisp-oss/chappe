@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.13.0 (2026-01-27)
+
+### Changes
+
+* Migrate Sass syntax away from `@import` to `@use`.
+
 ## 1.12.0 (2025-11-11)
 
 ### Changes
