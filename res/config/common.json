@@ -32,12 +32,12 @@
     ],
 
     "STYLESHEETS" : [
-      "common/common.sass",
-      "home/home.sass",
-      "guides/guides.sass",
-      "references/references.sass",
-      "changes/changes.sass",
-      "not_found/not_found.sass"
+      "common/common.scss",
+      "home/home.scss",
+      "guides/guides.scss",
+      "references/references.scss",
+      "changes/changes.scss",
+      "not_found/not_found.scss"
     ]
   },
 

@@ -758,9 +758,9 @@ var jade_templates_all = function() {
 
 
 /*
-  Compiles SASS stylesheets
+  Compiles SCSS stylesheets
 */
-var sass = function() {
+var scss = function() {
   return gulp.src(
     CONTEXT.CONFIG.SOURCES.STYLESHEETS.map(function(stylesheet) {
       return (CONTEXT.PATH_SOURCES + "/stylesheets/" + stylesheet);
@@ -781,7 +781,7 @@ var sass = function() {
       })
     )
     .on("error", gulp_notify.onError({
-      title     : "sass",
+      title     : "scss",
       message   : "Error compiling",
       emitError : true
     }))
@@ -1472,7 +1472,7 @@ var build_resources = function() {
           copy_fonts
         ),
 
-        sass,
+        scss,
         replace_stylesheets,
         css_inline_images
       ),
@@ -1590,7 +1590,7 @@ var watch_resources = function(next) {
       "src/stylesheets/**/*",
 
       gulp.series(
-        sass,
+        scss,
         replace_stylesheets,
         css_inline_images
       )
@@ -1661,11 +1661,11 @@ var lint_jade_templates = function() {
 
 
 /*
-  Lints SASS stylesheets
+  Lints SCSS stylesheets
 */
-var lint_sass_stylesheets = function() {
+var lint_scss_stylesheets = function() {
   return gulp.src(
-    CONTEXT.PATH_SOURCES + "/stylesheets/**/*.sass"
+    CONTEXT.PATH_SOURCES + "/stylesheets/**/*.scss"
   )
     .pipe(
       gulp_stylelint({
@@ -1737,7 +1737,7 @@ var lint = function() {
 
     gulp.parallel(
       lint_jade_templates,
-      lint_sass_stylesheets,
+      lint_scss_stylesheets,
       lint_js_scripts_jshint,
       lint_js_scripts_jscs
     )
