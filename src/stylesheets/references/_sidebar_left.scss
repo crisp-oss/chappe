@@ -12,13 +12,13 @@
         .context .context-name .context-icon,
         .nest .nest-category .nest-icon {
           background-color: var(--color-accent-base);
-          +mask-image-fill;
+          @include mask-image-fill;
         }
 
         .nest {
           .nest-category {
             .nest-icon {
-              +mask-image-internal("references/sidebar/category-icon-default.svg");
+              @include mask-image-internal("references/sidebar/category-icon-default.svg");
             }
           }
         }

@@ -12,7 +12,7 @@
         .nest {
           .nest-category {
             .nest-icon {
-              +background-image-fill;
+              @include background-image-fill;
             }
           }
         }

@@ -18,7 +18,7 @@
       .code-actions {
         .code-action {
           &.code-action--copy {
-            +mask-image-internal("common/code/header-action-copied.svg");
+            @include mask-image-internal("common/code/header-action-copied.svg");
             width: 13px;
             height: 16px;
             margin-top: 1px;
@@ -73,7 +73,7 @@
 
     .code-language {
       color: var(--color-code-language-text);
-      +font-size(12.5px);
+      @include font-size(12.5px);
       flex: 1;
     }
 
@@ -82,7 +82,7 @@
       padding-left: 8px;
 
       .code-action {
-        +mask-image-fill;
+        @include mask-image-fill;
         margin-right: 15px;
         opacity: .65;
         cursor: pointer;
@@ -102,7 +102,7 @@
 
         &.code-action--copy {
           background-color: var(--color-code-action-background);
-          +mask-image-internal("common/code/header-action-copy.svg");
+          @include mask-image-internal("common/code/header-action-copy.svg");
           width: 13px;
           height: 15px;
         }
@@ -127,7 +127,7 @@
 
       .code-meta-name,
       .code-meta-type {
-        +font-size(12.5px);
+        @include font-size(12.5px);
         letter-spacing: .1px;
         min-width: 80px;
         flex: 0 0 auto;
@@ -160,7 +160,7 @@
     .code-content {
       background-color: var(--color-code-content-background);
       color: var(--color-code-content-text);
-      +font-size(11px);
+      @include font-size(11px);
       line-height: 16px;
       white-space: pre;
       user-select: none;
@@ -175,7 +175,7 @@
       }
     }
 
-    +selection {
+    @include selection {
       background-color: var(--color-code-selection);
     }
   }
@@ -186,11 +186,11 @@
     background: transparent;
     color: var(--color-code-select-text-default);
     border: 1px solid var(--color-code-select-border-default);
-    +background-image-internal("common/code/select-arrow.svg");
+    @include background-image-internal("common/code/select-arrow.svg");
     background-repeat: no-repeat;
     background-position-x: calc(100% - 8px);
     background-position-y: 50%;
-    +font-size(13px);
+    @include font-size(13px);
     line-height: 23px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -201,7 +201,7 @@
     outline: none;
     cursor: pointer;
     border-radius: 3px;
-    +appearance(none);
+    @include appearance(none);
     transition: all linear 75ms;
     transition-property: color, border-color;
 

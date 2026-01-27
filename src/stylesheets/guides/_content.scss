@@ -24,7 +24,7 @@
 
     .details-upper .details-feedback,
     .details-lower .details-updated {
-      +font-size(13.5px);
+      @include font-size(13.5px);
       flex: 0 0 auto;
       padding-left: 8px;
     }
@@ -36,12 +36,12 @@
 
     .details-upper {
       .details-category {
-        +font-size(16px);
+        @include font-size(16px);
         line-height: 18px;
         margin-left: -2px;
 
         .details-icon {
-          +background-image-fill;
+          @include background-image-fill;
           width: 19px;
           height: 19px;
           margin-top: -3px;
@@ -65,7 +65,7 @@
 
       .details-title {
         color: var(--color-black);
-        +font-size(23px);
+        @include font-size(23px);
         line-height: 24px;
       }
     }

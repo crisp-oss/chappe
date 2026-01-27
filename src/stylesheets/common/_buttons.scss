@@ -8,7 +8,7 @@
 .button {
   color: var(--color-white);
   background-color: var(--color-button-default);
-  +font-size(13px);
+  @include font-size(13px);
   user-select: none;
   line-height: $button-default-height;
   height: $button-default-height;
@@ -65,7 +65,7 @@
   }
 
   &.button--large {
-    +font-size(14px);
+    @include font-size(14px);
     padding: 0 24px;
   }
 

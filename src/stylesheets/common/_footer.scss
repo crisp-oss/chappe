@@ -39,7 +39,7 @@
   .navigation {
     .links .link .link-target,
     .copyright {
-      +font-size(13.5px);
+      @include font-size(13.5px);
       letter-spacing: -.1px;
     }
 
@@ -78,7 +78,7 @@
       align-items: center;
 
       .logo {
-        +background-image-fill;
+        @include background-image-fill;
         height: 26px;
       }
 
@@ -90,7 +90,7 @@
       }
 
       .engine {
-        +font-size(14px);
+        @include font-size(14px);
         letter-spacing: -.11px;
 
         &,
@@ -132,7 +132,7 @@
       &[data-status="healthy"] {
         .status-wrapped {
           .status-icon {
-            +background-image-internal("common/footer/status-healthy.svg");
+            @include background-image-internal("common/footer/status-healthy.svg");
           }
 
           .status-text {
@@ -152,7 +152,7 @@
       &[data-status="sick"] {
         .status-wrapped {
           .status-icon {
-            +background-image-internal("common/footer/status-sick.svg");
+            @include background-image-internal("common/footer/status-sick.svg");
           }
 
           .status-text {
@@ -172,7 +172,7 @@
       &[data-status="dead"] {
         .status-wrapped {
           .status-icon {
-            +background-image-internal("common/footer/status-dead.svg");
+            @include background-image-internal("common/footer/status-dead.svg");
           }
 
           .status-text {
@@ -205,7 +205,7 @@
         }
 
         .status-icon {
-          +background-image-internal-fill("common/footer/status-failure.svg");
+          @include background-image-internal-fill("common/footer/status-failure.svg");
           width: 24px;
           height: 24px;
         }
@@ -219,7 +219,7 @@
           }
 
           .status-state {
-            +font-size(13.5px);
+            @include font-size(13.5px);
             color: var(--color-status-default-text);
             letter-spacing: 0;
             line-height: 20px;
@@ -230,7 +230,7 @@
           }
 
           .status-time {
-            +font-size(12.5px);
+            @include font-size(12.5px);
             color: var(--color-footer-status-time-text);
             letter-spacing: -.1px;
             line-height: 18px;

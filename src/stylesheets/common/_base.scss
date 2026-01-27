@@ -14,7 +14,7 @@ body {
 
 * {
   font-weight: normal !important;
-  +font-smoothing(subpixel-antialiased);
+  @include font-smoothing(subpixel-antialiased);
   margin: 0;
   padding: 0;
 }
@@ -27,7 +27,7 @@ a {
   text-decoration: none;
 }
 
-+selection {
+@include selection {
   background-color: var(--color-selection-default);
 }
 

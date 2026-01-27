@@ -8,7 +8,7 @@
 @use "_variables" as vars;
 
 @mixin font-size($font-size) {
-  font-size: +functions.font-size-calculate-px($font-size);
+  font-size: functions.font-size-calculate-px($font-size);
 }
 
 @mixin font-face-include($font-family, $font-path, $font-weight, $font-style) {
@@ -43,27 +43,27 @@
   background-image: url('/static/images/#{$image}?#{vars.$cache-buster-hash}');
 }
 @mixin background-image-internal-fill($image, $display: true) {
-  +background-image-internal($image);
-  +background-image-fill($display);
+  @include background-image-internal($image);
+  @include background-image-fill($display);
 }
 
 @mixin background-image-external-fill($image, $display: true) {
-  +background-image-external($image);
-  +background-image-fill($display);
+  @include background-image-external($image);
+  @include background-image-fill($display);
 }
 
 @mixin mask-image-internal($image) {
   @if config.$inlining == true {
-    +mask-image(inline-image($image));
+    @include mask-image(inline-image($image));
   } @else {
-    +mask-image(url('/static/images/#{$image}?#{vars.$cache-buster-hash}'));
+    @include mask-image(url('/static/images/#{$image}?#{vars.$cache-buster-hash}'));
   }
 }
 
 @mixin mask-image-fill($display: true) {
-  +mask-size(contain);
-  +mask-repeat(no-repeat);
-  +mask-position(center);
+  @include mask-size(contain);
+  @include mask-repeat(no-repeat);
+  @include mask-position(center);
 
   @if $display == true {
     display: inline-block;
@@ -71,8 +71,8 @@
 }
 
 @mixin mask-image-internal-fill($image, $display: true) {
-  +mask-image-internal($image);
-  +mask-image-fill($display);
+  @include mask-image-internal($image);
+  @include mask-image-fill($display);
 }
 
 @mixin placeholder {
@@ -94,13 +94,13 @@
 }
 
 @mixin input-placeholder {
-  +placeholder {
+  @include placeholder {
     @content;
   }
 }
 
 @mixin textarea-placeholder {
-  +placeholder {
+  @include placeholder {
     @content;
   }
 }

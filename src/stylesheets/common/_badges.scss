@@ -8,7 +8,7 @@
 .badge {
   border: 1px solid var(--color-badge-black);
   color: var(--color-badge-black);
-  +font-size(10.5px);
+  @include font-size(10.5px);
   user-select: none;
   text-transform: uppercase;
   line-height: $badge-default-height;
@@ -21,7 +21,7 @@
     background-color: var(--color-badge-special-background);
     border-color: var(--color-badge-special-border);
     color: var(--color-badge-special-text);
-    +font-size(11.5px);
+    @include font-size(11.5px);
     user-select: text;
     text-transform: lowercase;
     line-height: $badge-special-value-height;
@@ -30,7 +30,7 @@
   }
 
   &.badge--small {
-    +font-size(10px);
+    @include font-size(10px);
     line-height: $badge-small-height;
     height: $badge-small-height;
     padding: 0 3px;

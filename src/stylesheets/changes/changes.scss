@@ -57,7 +57,7 @@
       .navigate-link {
         background-color: transparent;
         color: var(--color-black);
-        +font-size(14px);
+        @include font-size(14px);
         letter-spacing: -.12px;
         text-align: left;
         line-height: 24px;
@@ -89,7 +89,7 @@
 
     .title {
       color: var(--color-black);
-      +font-size(22px);
+      @include font-size(22px);
     }
 
     .notice {
@@ -117,7 +117,7 @@
 
         .month-name {
           color: var(--color-black);
-          +font-size(22px);
+          @include font-size(22px);
         }
 
         .month-events {
@@ -156,7 +156,7 @@
 
             .month-event-group,
             .month-event-text {
-              +font-size(14px);
+              @include font-size(14px);
               line-height: 20px;
             }
 

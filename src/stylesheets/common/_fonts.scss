@@ -9,26 +9,26 @@
 
 // Regular
 
-+font-face-include("Chappe Proxima Nova Regular", "proxima_nova/proxima_nova_regular", 400, normal);
-+font-face-include("Chappe Proxima Nova Regular", "proxima_nova/proxima_nova_regular_italic", 400, italic);
+@include font-face-include("Chappe Proxima Nova Regular", "proxima_nova/proxima_nova_regular", 400, normal);
+@include font-face-include("Chappe Proxima Nova Regular", "proxima_nova/proxima_nova_regular_italic", 400, italic);
 
 
 // Semibold
 
-+font-face-include("Chappe Proxima Nova Semibold", "proxima_nova/proxima_nova_semibold", 600, normal);
-+font-face-include("Chappe Proxima Nova Semibold", "proxima_nova/proxima_nova_semibold_italic", 600, italic);
+@include font-face-include("Chappe Proxima Nova Semibold", "proxima_nova/proxima_nova_semibold", 600, normal);
+@include font-face-include("Chappe Proxima Nova Semibold", "proxima_nova/proxima_nova_semibold_italic", 600, italic);
 
 
 // Bold
 
-+font-face-include("Chappe Proxima Nova Bold", "proxima_nova/proxima_nova_bold", 700, normal);
-+font-face-include("Chappe Proxima Nova Bold", "proxima_nova/proxima_nova_bold_italic", 700, italic);
+@include font-face-include("Chappe Proxima Nova Bold", "proxima_nova/proxima_nova_bold", 700, normal);
+@include font-face-include("Chappe Proxima Nova Bold", "proxima_nova/proxima_nova_bold_italic", 700, italic);
 
 //- Hack
 
 // Regular
 
-+font-face-include("Chappe Hack Regular", "hack/hack_regular", 400, normal);
+@include font-face-include("Chappe Hack Regular", "hack/hack_regular", 400, normal);
 
 //- Bindings
 
