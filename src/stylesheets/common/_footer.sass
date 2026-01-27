@@ -3,235 +3,310 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-#footer
-  display: flex
-  flex-direction: row
+#footer {
+  display: flex;
+  flex-direction: row;
 
-  .inner
-    border-top: 1px solid var(--color-grey)
-    padding: 30px 0 40px
-    flex: 1
+  .inner {
+    border-top: 1px solid var(--color-grey);
+    padding: 30px 0 40px;
+    flex: 1;
+  }
 
-  .wrapper
+  .wrapper {
     .navigation,
     .metadata,
     .left,
-    .right
-      height: 100%
-      display: flex
-      flex-direction: row
-      align-items: center
+    .right {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
 
-    .left
-      flex: 1
+    .left {
+      flex: 1;
+    }
 
-    .right
-      flex: 0 0 auto
-      padding-left: 12px
+    .right {
+      flex: 0 0 auto;
+      padding-left: 12px;
+    }
+  }
 
-  .navigation
+  .navigation {
     .links .link .link-target,
-    .copyright
-      +font-size(13.5px)
-      letter-spacing: -.1px
+    .copyright {
+      +font-size(13.5px);
+      letter-spacing: -.1px;
+    }
 
-    .links
-      user-select: none
+    .links {
+      user-select: none;
 
-      .link
-        margin-right: 20px
-        display: inline-block
+      .link {
+        margin-right: 20px;
+        display: inline-block;
 
-        &:last-of-type
-          margin-right: 0
+        &:last-of-type {
+          margin-right: 0;
+        }
 
-        .link-target
-          color: var(--color-footer-link-target-text)
+        .link-target {
+          color: var(--color-footer-link-target-text);
 
-          &:hover
-            text-decoration: underline
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
 
-    .copyright
-      color: var(--color-footer-copyright-text)
+    .copyright {
+      color: var(--color-footer-copyright-text);
+    }
+  }
 
-  .metadata
-    margin-top: 38px
+  .metadata {
+    margin-top: 38px;
 
-    .brand
-      display: flex
-      flex-direction: row
-      align-items: center
+    .brand {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
-      .logo
-        +background-image-fill
-        height: 26px
+      .logo {
+        +background-image-fill;
+        height: 26px;
+      }
 
-      .separator
-        background-color: var(--color-footer-brand-separator)
-        width: 1px
-        height: 22px
-        margin: -1px 20px 0
+      .separator {
+        background-color: var(--color-footer-brand-separator);
+        width: 1px;
+        height: 22px;
+        margin: -1px 20px 0;
+      }
 
-      .engine
-        +font-size(14px)
-        letter-spacing: -.11px
+      .engine {
+        +font-size(14px);
+        letter-spacing: -.11px;
 
         &,
-        a
-          color: var(--color-footer-engine-text)
+        a {
+          color: var(--color-footer-engine-text);
+        }
 
-        a
-          text-decoration: underline
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
 
-    .status
-      visibility: visible
-      opacity: 1
-      transition: opacity linear 100ms
+    .status {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity linear 100ms;
 
-      &[data-status="none"]
-        visibility: hidden
-        opacity: 0
+      &[data-status="none"] {
+        visibility: hidden;
+        opacity: 0;
+      }
 
       &[data-status="none"],
-      &[data-status="failure"]
-        .status-wrapped
-          .status-text
-            .status-state
-              .status-state-variant
-                &.status-state-variant--failure
-                  display: block
+      &[data-status="failure"] {
+        .status-wrapped {
+          .status-text {
+            .status-state {
+              .status-state-variant {
+                &.status-state-variant--failure {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
 
-      &[data-status="healthy"]
-        .status-wrapped
-          .status-icon
-            +background-image-internal("common/footer/status-healthy.svg")
+      &[data-status="healthy"] {
+        .status-wrapped {
+          .status-icon {
+            +background-image-internal("common/footer/status-healthy.svg");
+          }
 
-          .status-text
-            .status-state
-              color: var(--color-status-healthy-text)
+          .status-text {
+            .status-state {
+              color: var(--color-status-healthy-text);
 
-              .status-state-variant
-                &.status-state-variant--healthy
-                  display: block
+              .status-state-variant {
+                &.status-state-variant--healthy {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
 
-      &[data-status="sick"]
-        .status-wrapped
-          .status-icon
-            +background-image-internal("common/footer/status-sick.svg")
+      &[data-status="sick"] {
+        .status-wrapped {
+          .status-icon {
+            +background-image-internal("common/footer/status-sick.svg");
+          }
 
-          .status-text
-            .status-state
-              color: var(--color-status-sick-text)
+          .status-text {
+            .status-state {
+              color: var(--color-status-sick-text);
 
-              .status-state-variant
-                &.status-state-variant--sick
-                  display: block
+              .status-state-variant {
+                &.status-state-variant--sick {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
 
-      &[data-status="dead"]
-        .status-wrapped
-          .status-icon
-            +background-image-internal("common/footer/status-dead.svg")
+      &[data-status="dead"] {
+        .status-wrapped {
+          .status-icon {
+            +background-image-internal("common/footer/status-dead.svg");
+          }
 
-          .status-text
-            .status-state
-              color: var(--color-status-dead-text)
+          .status-text {
+            .status-state {
+              color: var(--color-status-dead-text);
 
-              .status-state-variant
-                &.status-state-variant--dead
-                  display: block
+              .status-state-variant {
+                &.status-state-variant--dead {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
 
-      .status-wrapped
-        border: 1px solid var(--color-footer-status-border-default)
-        user-select: none
-        padding: 5px 30px 5px 18px
-        border-radius: 1px
-        display: flex
-        flex-direction: row
-        align-items: center
-        transition: border-color linear 100ms
+      .status-wrapped {
+        border: 1px solid var(--color-footer-status-border-default);
+        user-select: none;
+        padding: 5px 30px 5px 18px;
+        border-radius: 1px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: border-color linear 100ms;
 
-        &:hover
-          border-color: var(--color-footer-status-border-hover)
-          cursor: pointer
+        &:hover {
+          border-color: var(--color-footer-status-border-hover);
+          cursor: pointer;
+        }
 
-        .status-icon
-          +background-image-internal-fill("common/footer/status-failure.svg")
-          width: 24px
-          height: 24px
+        .status-icon {
+          +background-image-internal-fill("common/footer/status-failure.svg");
+          width: 24px;
+          height: 24px;
+        }
 
-        .status-text
-          padding-left: 18px
+        .status-text {
+          padding-left: 18px;
 
           .status-state,
-          .status-time
-            display: block
+          .status-time {
+            display: block;
+          }
 
-          .status-state
-            +font-size(13.5px)
-            color: var(--color-status-default-text)
-            letter-spacing: 0
-            line-height: 20px
+          .status-state {
+            +font-size(13.5px);
+            color: var(--color-status-default-text);
+            letter-spacing: 0;
+            line-height: 20px;
 
-            .status-state-variant
-              display: none
+            .status-state-variant {
+              display: none;
+            }
+          }
 
-          .status-time
-            +font-size(12.5px)
-            color: var(--color-footer-status-time-text)
-            letter-spacing: -.1px
-            line-height: 18px
-
+          .status-time {
+            +font-size(12.5px);
+            color: var(--color-footer-status-time-text);
+            letter-spacing: -.1px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
-  #footer
-    .wrapper
+@media screen and (max-width: $screen-medium-width-breakpoint) {
+  #footer {
+    .wrapper {
       .navigation,
-      .metadata
-        display: block
+      .metadata {
+        display: block;
+      }
 
-      .navigation
+      .navigation {
         .left,
-        .right
-          text-align: center
-          padding: 0
-          display: block
+        .right {
+          text-align: center;
+          padding: 0;
+          display: block;
+        }
 
-        .right
-          margin-top: 20px
+        .right {
+          margin-top: 20px;
+        }
 
-        .links
-          line-height: 19px
+        .links {
+          line-height: 19px;
 
-          .link
-            margin: 0 8px
+          .link {
+            margin: 0 8px;
+          }
+        }
+      }
 
-      .metadata
-        margin-top: 28px
+      .metadata {
+        margin-top: 28px;
 
         .left,
-        .right
-          justify-content: center
-          padding: 0
+        .right {
+          justify-content: center;
+          padding: 0;
+        }
 
-        .right
-          margin-top: 36px
+        .right {
+          margin-top: 36px;
+        }
+      }
+    }
+  }
+}
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
-  #footer
-    .metadata
-      .brand
-        flex-direction: column
+@media screen and (max-width: $screen-tiny-width-breakpoint) {
+  #footer {
+    .metadata {
+      .brand {
+        flex-direction: column;
 
-        .separator
-          display: none
+        .separator {
+          display: none;
+        }
 
-        .engine
-          line-height: 18px
-          text-align: center
-          margin-top: 24px
+        .engine {
+          line-height: 18px;
+          text-align: center;
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+}

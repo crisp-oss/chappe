@@ -3,180 +3,219 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-.code
-  border: 1px solid transparent
-  margin: 24px
-  user-select: none
-  overflow: hidden
-  border-radius: 6px
-  transition: border-color linear 75ms
+.code {
+  border: 1px solid transparent;
+  margin: 24px;
+  user-select: none;
+  overflow: hidden;
+  border-radius: 6px;
+  transition: border-color linear 75ms;
 
-  &[data-copy-state="copied"]
-    .code-header
-      .code-actions
-        .code-action
-          &.code-action--copy
-            +mask-image-internal("common/code/header-action-copied.svg")
-            width: 13px
-            height: 16px
-            margin-top: 1px
-            opacity: 1
+  &[data-copy-state="copied"] {
+    .code-header {
+      .code-actions {
+        .code-action {
+          &.code-action--copy {
+            +mask-image-internal("common/code/header-action-copied.svg");
+            width: 13px;
+            height: 16px;
+            margin-top: 1px;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 
-  &[data-has-request="false"]
-    .code-header
-      .code-actions
-        .code-action
-          &.code-action--copy
-            display: none
+  &[data-has-request="false"] {
+    .code-header {
+      .code-actions {
+        .code-action {
+          &.code-action--copy {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 
-  &:hover
-    border-color: var(--color-code-border-hover)
+  &:hover {
+    border-color: var(--color-code-border-hover);
 
-    .code-header
-      background-color: var(--color-code-header-hover)
+    .code-header {
+      background-color: var(--color-code-header-hover);
+    }
+  }
 
   .code-header,
   .code-section .code-metas,
-  .code-section .code-content
-    padding: 0 14px
+  .code-section .code-content {
+    padding: 0 14px;
+  }
 
-  .code-data
-    display: none
+  .code-data {
+    display: none;
+  }
 
-  .code-header
-    background-color: var(--color-code-header-default)
-    height: 40px
-    display: flex
-    transition: background-color linear 75ms
+  .code-header {
+    background-color: var(--color-code-header-default);
+    height: 40px;
+    display: flex;
+    transition: background-color linear 75ms;
 
     .code-language,
-    .code-actions
-      display: flex
-      align-items: center
+    .code-actions {
+      display: flex;
+      align-items: center;
+    }
 
-    .code-language
-      color: var(--color-code-language-text)
-      +font-size(12.5px)
-      flex: 1
+    .code-language {
+      color: var(--color-code-language-text);
+      +font-size(12.5px);
+      flex: 1;
+    }
 
-    .code-actions
-      flex: 0 0 auto
-      padding-left: 8px
+    .code-actions {
+      flex: 0 0 auto;
+      padding-left: 8px;
 
-      .code-action
-        +mask-image-fill
-        margin-right: 15px
-        opacity: .65
-        cursor: pointer
-        transition: opacity linear 100ms
+      .code-action {
+        +mask-image-fill;
+        margin-right: 15px;
+        opacity: .65;
+        cursor: pointer;
+        transition: opacity linear 100ms;
 
-        &:last-of-type
-          margin-right: 0
+        &:last-of-type {
+          margin-right: 0;
+        }
 
-        &:hover
-          opacity: .85
+        &:hover {
+          opacity: .85;
+        }
 
-        &:active
-          opacity: 1
+        &:active {
+          opacity: 1;
+        }
 
-        &.code-action--copy
-          background-color: var(--color-code-action-background)
-          +mask-image-internal("common/code/header-action-copy.svg")
-          width: 13px
-          height: 15px
+        &.code-action--copy {
+          background-color: var(--color-code-action-background);
+          +mask-image-internal("common/code/header-action-copy.svg");
+          width: 13px;
+          height: 15px;
+        }
+      }
+    }
+  }
 
-  .code-section
-    .code-metas
-      background-color: var(--color-code-metas-background)
-      line-height: 16px
-      height: 33px
-      display: flex
-      flex-direction: row
-      align-items: center
+  .code-section {
+    .code-metas {
+      background-color: var(--color-code-metas-background);
+      line-height: 16px;
+      height: 33px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
       .code-meta-name,
       .code-meta-picker,
-      .code-meta-type
-        margin-top: -1px
+      .code-meta-type {
+        margin-top: -1px;
+      }
 
       .code-meta-name,
-      .code-meta-type
-        +font-size(12.5px)
-        letter-spacing: .1px
-        min-width: 80px
-        flex: 0 0 auto
+      .code-meta-type {
+        +font-size(12.5px);
+        letter-spacing: .1px;
+        min-width: 80px;
+        flex: 0 0 auto;
+      }
 
       .code-meta-name,
-      .code-meta-picker
-        border-right: 1px solid var(--color-code-meta-name-border)
+      .code-meta-picker {
+        border-right: 1px solid var(--color-code-meta-name-border);
+      }
 
-      .code-meta-name
-        color: var(--color-code-meta-name-text)
-        text-align: left
-        padding-right: 8px
-        margin-right: 10px
+      .code-meta-name {
+        color: var(--color-code-meta-name-text);
+        text-align: left;
+        padding-right: 8px;
+        margin-right: 10px;
+      }
 
-      .code-meta-picker
-        flex: 1
-        padding-right: 10px
-        margin-right: 8px
+      .code-meta-picker {
+        flex: 1;
+        padding-right: 10px;
+        margin-right: 8px;
+      }
 
-      .code-meta-type
-        color: var(--color-code-meta-type-text)
-        text-align: right
+      .code-meta-type {
+        color: var(--color-code-meta-type-text);
+        text-align: right;
+      }
+    }
 
-    .code-content
-      background-color: var(--color-code-content-background)
-      color: var(--color-code-content-text)
-      +font-size(11px)
-      line-height: 16px
-      white-space: pre
-      user-select: none
-      overflow: auto
-      max-height: 640px
-      padding-top: 10px
-      padding-bottom: 12px
+    .code-content {
+      background-color: var(--color-code-content-background);
+      color: var(--color-code-content-text);
+      +font-size(11px);
+      line-height: 16px;
+      white-space: pre;
+      user-select: none;
+      overflow: auto;
+      max-height: 640px;
+      padding-top: 10px;
+      padding-bottom: 12px;
 
-      code
-        color: var(--color-white)
-        user-select: text
+      code {
+        color: var(--color-white);
+        user-select: text;
+      }
+    }
 
-    +selection
-      background-color: var(--color-code-selection)
+    +selection {
+      background-color: var(--color-code-selection);
+    }
+  }
 
-  select
-    $select-padding-sides: 8px
+  select {
+    $select-padding-sides: 8px;
 
-    background: transparent
-    color: var(--color-code-select-text-default)
-    border: 1px solid var(--color-code-select-border-default)
-    +background-image-internal("common/code/select-arrow.svg")
-    background-repeat: no-repeat
-    background-position-x: calc(100% - 8px)
-    background-position-y: 50%
-    +font-size(13px)
-    line-height: 23px
-    text-overflow: ellipsis
-    white-space: nowrap
-    overflow: hidden
-    width: 100%
-    padding-left: $select-padding-sides
-    padding-right: ($select-padding-sides + 8px)
-    outline: none
-    cursor: pointer
-    border-radius: 3px
-    +appearance(none)
-    transition: all linear 75ms
-    transition-property: color, border-color
+    background: transparent;
+    color: var(--color-code-select-text-default);
+    border: 1px solid var(--color-code-select-border-default);
+    +background-image-internal("common/code/select-arrow.svg");
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 8px);
+    background-position-y: 50%;
+    +font-size(13px);
+    line-height: 23px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    padding-left: $select-padding-sides;
+    padding-right: ($select-padding-sides + 8px);
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    +appearance(none);
+    transition: all linear 75ms;
+    transition-property: color, border-color;
 
-    &:hover
-      color: var(--color-code-select-text-hover)
-      border-color: var(--color-code-select-border-hover)
+    &:hover {
+      color: var(--color-code-select-text-hover);
+      border-color: var(--color-code-select-border-hover);
 
-      option
-        color: initial
+      option {
+        color: initial;
+      }
+    }
 
-    option
-      color: initial
+    option {
+      color: initial;
+    }
+  }
+}

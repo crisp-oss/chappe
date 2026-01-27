@@ -3,153 +3,171 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "_config" as config
-@use "_functions" as functions
-@use "_variables" as vars
+@use "_config" as config;
+@use "_functions" as functions;
+@use "_variables" as vars;
 
-@mixin font-size($font-size)
-  font-size: +functions.font-size-calculate-px($font-size)
+@mixin font-size($font-size) {
+  font-size: +functions.font-size-calculate-px($font-size);
+}
 
+@mixin font-face-include($font-family, $font-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+    src: url('/static/fonts/#{$font-path}.woff2?#{vars.$cache-buster-hash}') format('woff2'), url('/static/fonts/#{$font-path}.woff?#{vars.$cache-buster-hash}') format('woff');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
 
-@mixin font-face-include($font-family, $font-path, $font-weight, $font-style)
-  @font-face
-    font-family: $font-family
-    src: url('/static/fonts/#{$font-path}.woff2?#{vars.$cache-buster-hash}') format('woff2'), url('/static/fonts/#{$font-path}.woff?#{vars.$cache-buster-hash}') format('woff')
-    font-weight: $font-weight
-    font-style: $font-style
-    font-display: swap
+@mixin background-image-internal($image) {
+  @if config.$inlining == true {
+    background-image: inline-image($image);
+  } @else {
+    background-image: url('/static/images/#{$image}?#{vars.$cache-buster-hash}');
+  }
+}
 
+@mixin background-image-fill($display: true) {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 
-@mixin background-image-internal($image)
-  @if config.$inlining == true
-    background-image: inline-image($image)
-  @else
-    background-image: url('/static/images/#{$image}?#{vars.$cache-buster-hash}')
+  @if $display == true {
+    display: inline-block;
+  }
+}
 
+@mixin background-image-external($image) {
+  background-image: url('/static/images/#{$image}?#{vars.$cache-buster-hash}');
+}
+@mixin background-image-internal-fill($image, $display: true) {
+  +background-image-internal($image);
+  +background-image-fill($display);
+}
 
-@mixin background-image-fill($display: true)
-  background-size: contain
-  background-repeat: no-repeat
-  background-position: center
+@mixin background-image-external-fill($image, $display: true) {
+  +background-image-external($image);
+  +background-image-fill($display);
+}
 
-  @if $display == true
-    display: inline-block
+@mixin mask-image-internal($image) {
+  @if config.$inlining == true {
+    +mask-image(inline-image($image));
+  } @else {
+    +mask-image(url('/static/images/#{$image}?#{vars.$cache-buster-hash}'));
+  }
+}
 
+@mixin mask-image-fill($display: true) {
+  +mask-size(contain);
+  +mask-repeat(no-repeat);
+  +mask-position(center);
 
-@mixin background-image-external($image)
-  background-image: url('/static/images/#{$image}?#{vars.$cache-buster-hash}')
+  @if $display == true {
+    display: inline-block;
+  }
+}
 
-@mixin background-image-internal-fill($image, $display: true)
-  +background-image-internal($image)
-  +background-image-fill($display)
+@mixin mask-image-internal-fill($image, $display: true) {
+  +mask-image-internal($image);
+  +mask-image-fill($display);
+}
 
+@mixin placeholder {
+  &:placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
 
-@mixin background-image-external-fill($image, $display: true)
-  +background-image-external($image)
-  +background-image-fill($display)
+@mixin input-placeholder {
+  +placeholder {
+    @content;
+  }
+}
 
+@mixin textarea-placeholder {
+  +placeholder {
+    @content;
+  }
+}
 
-@mixin mask-image-internal($image)
-  @if config.$inlining == true
-    +mask-image(inline-image($image))
-  @else
-    +mask-image(url('/static/images/#{$image}?#{vars.$cache-buster-hash}'))
-
-
-@mixin mask-image-fill($display: true)
-  +mask-size(contain)
-  +mask-repeat(no-repeat)
-  +mask-position(center)
-
-  @if $display == true
-    display: inline-block
-
-
-@mixin mask-image-internal-fill($image, $display: true)
-  +mask-image-internal($image)
-  +mask-image-fill($display)
-
-
-@mixin placeholder
-  &:placeholder
-    @content
-  &:-moz-placeholder
-    @content
-  &::-moz-placeholder
-    @content
-  &:-ms-input-placeholder
-    @content
-  &::-webkit-input-placeholder
-    @content
-
-
-@mixin input-placeholder
-  +placeholder
-    @content
-
-
-@mixin textarea-placeholder
-  +placeholder
-    @content
-
-
-@mixin input-search
+@mixin input-search {
   &::-webkit-search-decoration,
   &::-webkit-search-cancel-button,
   &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration
-    @content
+  &::-webkit-search-results-decoration {
+    @content;
+  }
+}
 
+@mixin selection {
+  ::selection {
+    @content;
+  }
+  ::-moz-selection {
+    @content;
+  }
+}
 
-@mixin selection
-  ::selection
-    @content
-  ::-moz-selection
-    @content
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}
 
+@mixin backdrop-filter($rules) {
+  -webkit-backdrop-filter: $rules;
+  backdrop-filter: $rules;
+}
 
-@mixin appearance($value)
-  -webkit-appearance: $value
-  -moz-appearance: $value
-  appearance: $value
+@mixin mask-image($value) {
+  --mask-image: #{$value};
 
+  -webkit-mask-image: var(--mask-image);
+  mask-image: var(--mask-image);
+}
 
-@mixin backdrop-filter($rules)
-  -webkit-backdrop-filter: $rules
-  backdrop-filter: $rules
+@mixin mask-size($value) {
+  -webkit-mask-size: $value;
+  mask-size: $value;
+}
 
+@mixin mask-repeat($value) {
+  -webkit-mask-repeat: $value;
+  mask-repeat: $value;
+}
 
-@mixin mask-image($value)
-  --mask-image: #{$value}
+@mixin mask-position($value) {
+  -webkit-mask-position: $value;
+  mask-position: $value;
+}
 
-  -webkit-mask-image: var(--mask-image)
-  mask-image: var(--mask-image)
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
 
-
-@mixin mask-size($value)
-  -webkit-mask-size: $value
-  mask-size: $value
-
-
-@mixin mask-repeat($value)
-  -webkit-mask-repeat: $value
-  mask-repeat: $value
-
-
-@mixin mask-position($value)
-  -webkit-mask-position: $value
-  mask-position: $value
-
-
-@mixin font-smoothing($value: antialiased)
-  @if $value == antialiased
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-  @else
-    -webkit-font-smoothing: subpixel-antialiased
-    -moz-osx-font-smoothing: auto
-
-
-@mixin keyframes-fix($name)
-  @keyframes #{$name}
-    @content
+@mixin keyframes-fix($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}

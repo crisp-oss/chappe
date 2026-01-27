@@ -3,41 +3,42 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "sass:math"
+@use "sass:math";
 
-@use "_variables" as vars
+@use "_variables" as vars;
 
-@function background-image-width($image)
-  $image-width: image-width("1x/#{$image}")
+@function background-image-width($image) {
+  $image-width: image-width("1x/#{$image}");
 
-  @return $image-width
+  @return $image-width;
+}
 
+@function background-image-height($image) {
+  $image-height: image-height("1x/#{$image}");
 
-@function background-image-height($image)
-  $image-height: image-height("1x/#{$image}")
+  @return $image-height;
+}
 
-  @return $image-height
+@function font-size-calculate-px($font-size) {
+  $calculated-font-size: (vars.$font-resize-ratio * $font-size);
 
+  @return $calculated-font-size;
+}
 
-@function font-size-calculate-px($font-size)
-  $calculated-font-size: (vars.$font-resize-ratio * $font-size)
+@function font-size-calculate-percent($font-size) {
+  $calculated-font-size: (vars.$font-resize-ratio * math.div($font-size, vars.$font-size-base)) * 100%;
 
-  @return $calculated-font-size
+  @return $calculated-font-size;
+}
 
+@function font-size-calculate-em($font-size) {
+  $calculated-font-size: (vars.$font-resize-ratio * math.div($font-size, vars.$font-size-base)) * 1em;
 
-@function font-size-calculate-percent($font-size)
-  $calculated-font-size: (vars.$font-resize-ratio * math.div($font-size, vars.$font-size-base)) * 100%
+  @return $calculated-font-size;
+}
 
-  @return $calculated-font-size
+@function font-size-calculate-rem($font-size, $relative-font-size) {
+  $calculated-font-size: (vars.$font-resize-ratio * math.div($font-size, $relative-font-size)) * 1rem;
 
-
-@function font-size-calculate-em($font-size)
-  $calculated-font-size: (vars.$font-resize-ratio * math.div($font-size, vars.$font-size-base)) * 1em
-
-  @return $calculated-font-size
-
-
-@function font-size-calculate-rem($font-size, $relative-font-size)
-  $calculated-font-size: (vars.$font-resize-ratio * math.div($font-size, $relative-font-size)) * 1rem
-
-  @return $calculated-font-size
+  @return $calculated-font-size;
+}

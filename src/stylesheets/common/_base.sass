@@ -3,60 +3,74 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-body
-  font-family: "Chappe Proxima Nova Regular", "Helvetica Neue", Helvetica, Arial, sans-serif
-  font-size: $font-size-base
-  background: var(--color-base-background) !important
-  color: var(--color-black)
+body {
+  font-family: "Chappe Proxima Nova Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: $font-size-base;
+  background: var(--color-base-background) !important;
+  color: var(--color-black);
+}
 
-*
-  font-weight: normal !important
-  +font-smoothing(subpixel-antialiased)
-  margin: 0
-  padding: 0
+* {
+  font-weight: normal !important;
+  +font-smoothing(subpixel-antialiased);
+  margin: 0;
+  padding: 0;
+}
 
-.wrapper
-  padding: 0 $wrapper-default-padding-sides
+.wrapper {
+  padding: 0 $wrapper-default-padding-sides;
+}
 
-a
-  text-decoration: none
+a {
+  text-decoration: none;
+}
 
-+selection
-  background-color: var(--color-selection-default)
++selection {
+  background-color: var(--color-selection-default);
+}
 
-.text-ellipsis
-  text-overflow: ellipsis
-  white-space: nowrap
-  overflow: hidden
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .title-group-anchor:hover .title-anchor,
-.title-anchor:hover
-  text-decoration: underline !important
-  text-decoration-color: var(--color-grey-dark) !important
-
+.title-anchor:hover {
+  text-decoration: underline !important;
+  text-decoration-color: var(--color-grey-dark) !important;
+}
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
-  .wrapper
-    padding-left: $wrapper-medium-padding-sides
-    padding-right: $wrapper-medium-padding-sides
+@media screen and (max-width: $screen-medium-width-breakpoint) {
+  .wrapper {
+    padding-left: $wrapper-medium-padding-sides;
+    padding-right: $wrapper-medium-padding-sides;
+  }
+}
 
-@media screen and (max-width: $screen-small-width-breakpoint)
-  .wrapper
-    padding-left: $wrapper-small-padding-sides
-    padding-right: $wrapper-small-padding-sides
+@media screen and (max-width: $screen-small-width-breakpoint) {
+  .wrapper {
+    padding-left: $wrapper-small-padding-sides;
+    padding-right: $wrapper-small-padding-sides;
+  }
+}
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
-  .wrapper
-    padding-left: $wrapper-tiny-padding-sides
-    padding-right: $wrapper-tiny-padding-sides
+@media screen and (max-width: $screen-tiny-width-breakpoint) {
+  .wrapper {
+    padding-left: $wrapper-tiny-padding-sides;
+    padding-right: $wrapper-tiny-padding-sides;
+  }
+}
 
-@media screen and (max-width: $screen-lilliput-width-breakpoint)
-  .wrapper
-    padding-left: $wrapper-lilliput-padding-sides
-    padding-right: $wrapper-lilliput-padding-sides
+@media screen and (max-width: $screen-lilliput-width-breakpoint) {
+  .wrapper {
+    padding-left: $wrapper-lilliput-padding-sides;
+    padding-right: $wrapper-lilliput-padding-sides;
+  }
+}

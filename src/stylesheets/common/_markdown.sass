@@ -3,452 +3,554 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-.markdown
-  font-family: "Chappe Proxima Nova Regular", sans-serif
+.markdown {
+  font-family: "Chappe Proxima Nova Regular", sans-serif;
 
-  *
-    &:first-child
-      margin-top: 0 !important
+  * {
+    &:first-child {
+      margin-top: 0 !important;
+    }
 
-    &:last-child
-      margin-bottom: 0 !important
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
 
   h1,
   h2,
-  h3
-    font-family: "Chappe Proxima Nova Bold", sans-serif
+  h3 {
+    font-family: "Chappe Proxima Nova Bold", sans-serif;
+  }
 
   h4,
   h5,
-  h6
-    font-family: "Chappe Proxima Nova Semibold", sans-serif
+  h6 {
+    font-family: "Chappe Proxima Nova Semibold", sans-serif;
+  }
 
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6
-    a
-      font-family: inherit
-      color: inherit
+  h6 {
+    a {
+      font-family: inherit;
+      color: inherit;
+    }
+  }
 
   h2,
   h3,
   h4,
   h5,
-  h6
-    margin-top: 20px
-    margin-bottom: 14px
+  h6 {
+    margin-top: 20px;
+    margin-bottom: 14px;
+  }
 
   h3,
   h4,
   h5,
-  h6
-    color: var(--color-markdown-title-small-text)
+  h6 {
+    color: var(--color-markdown-title-small-text);
+  }
 
   h1,
-  h2
-    color: var(--color-black)
+  h2 {
+    color: var(--color-black);
+  }
 
-  h1
-    +font-size(20px)
-    margin-top: 42px
-    margin-bottom: 20px
+  h1 {
+    @include font-size(20px);
+    margin-top: 42px;
+    margin-bottom: 20px;
+  }
 
-  h2
-    +font-size(18px)
+  h2 {
+    @include font-size(18px);
+  }
 
-  h3
-    +font-size(17.5px)
+  h3 {
+    @include font-size(17.5px);
+  }
 
-  h4
-    +font-size(17px)
+  h4 {
+    @include font-size(17px);
+  }
 
-  h5
-    +font-size(16.5px)
+  h5 {
+    @include font-size(16.5px);
+  }
 
-  h6
-    +font-size(16px)
+  h6 {
+    @include font-size(16px);
+  }
 
   p,
   ul,
   ol,
   blockquote,
-  .emphasis
-    +font-size(14.5px)
-    line-height: 22px
+  .emphasis {
+    @include font-size(14.5px);
+    line-height: 22px;
+  }
 
-  p
-    margin-bottom: .9em
+  p {
+    margin-bottom: .9em;
+  }
 
-  a
-    color: var(--color-accent-base)
+  a {
+    color: var(--color-accent-base);
 
-    &:hover
-      text-decoration: underline
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-  hr
-    background-color: var(--color-grey-light)
-    border: 0 none
-    height: 1px
-    margin: 28px auto 30px
+  hr {
+    background-color: var(--color-grey-light);
+    border: 0 none;
+    height: 1px;
+    margin: 28px auto 30px;
+  }
 
-  img
-    width: 100%
-    margin: 16px auto
+  img {
+    width: 100%;
+    margin: 16px auto;
+  }
 
-  em
-    font-style: italic
+  em {
+    font-style: italic;
+  }
 
   strong,
   a,
   table thead,
   figure figcaption,
-  .embed .embed-caption
-    font-family: "Chappe Proxima Nova Semibold", sans-serif
+  .embed .embed-caption {
+    font-family: "Chappe Proxima Nova Semibold", sans-serif;
+  }
 
   ul,
-  ol
-    list-style-type: none
-    margin: 18px 0
+  ol {
+    list-style-type: none;
+    margin: 18px 0;
 
-    li
-      line-height: 20px
-      margin-bottom: 8px
-      padding-left: 24px
-      position: relative
+    li {
+      line-height: 20px;
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
 
-      &:last-of-type
-        margin-bottom: 0
+      &:last-of-type {
+        margin-bottom: 0;
+      }
 
       ul,
-      ol
+      ol {
         &,
         &:first-child,
-        &:last-child
-          margin-top: 12px !important
-          margin-bottom: 18px !important
+        &:last-child {
+          margin-top: 12px !important;
+          margin-bottom: 18px !important;
+        }
+      }
 
-      ul
-        li
-          padding-left: 20px
+      ul {
+        li {
+          padding-left: 20px;
 
-          &:before
-            background-color: var(--color-black)
-            width: 4px
-            height: 4px
-            margin-top: 1px
-            border-radius: 0
+          &:before {
+            background-color: var(--color-black);
+            width: 4px;
+            height: 4px;
+            margin-top: 1px;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
 
-  ul
-    li
-      &:before
-        content: ""
-        background-color: var(--color-markdown-list-item-bullet)
-        width: 7px
-        height: 7px
-        border-radius: 100%
-        position: absolute
-        top: 7px
-        left: 10px
+  ul {
+    li {
+      &:before {
+        content: "";
+        background-color: var(--color-markdown-list-item-bullet);
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        position: absolute;
+        top: 7px;
+        left: 10px;
+      }
+    }
+  }
 
-  ol
-    counter-reset: list-counter
+  ol {
+    counter-reset: list-counter;
 
-    li
-      counter-increment: list-counter
+    li {
+      counter-increment: list-counter;
 
-      &:before
-        content: counter(list-counter) "."
-        text-align: right
-        min-width: 19px
-        position: absolute
-        top: 0
-        left: 0
+      &:before {
+        content: counter(list-counter) ".";
+        text-align: right;
+        min-width: 19px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
 
   figure,
-  .embed
-    margin: 36px auto 32px
+  .embed {
+    margin: 36px auto 32px;
+  }
 
   figure figcaption,
-  .embed .embed-caption
-    +font-size(14px)
-    color: var(--color-markdown-figure-text)
-    text-align: center
-    line-height: 18px
-    margin-top: 10px
-    display: block
+  .embed .embed-caption {
+    @include font-size(14px);
+    color: var(--color-markdown-figure-text);
+    text-align: center;
+    line-height: 18px;
+    margin-top: 10px;
+    display: block;
+  }
 
-  figure
-    text-align: center
-    max-width: 70%
-    display: block
+  figure {
+    text-align: center;
+    max-width: 70%;
+    display: block;
 
-    img
-      border: 1px solid var(--color-markdown-figure-border)
-      width: auto
-      max-width: 100%
-      margin: 0 auto
-      display: block
+    img {
+      border: 1px solid var(--color-markdown-figure-border);
+      width: auto;
+      max-width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+  }
 
-  code
-    font-family: "Chappe Hack Regular", sans-serif
-    font-size: .8em
-    background-color: var(--color-markdown-code-inline-background)
-    border: 1px solid var(--color-markdown-code-inline-border)
-    color: var(--color-markdown-code-inline-text)
-    hyphens: auto
-    word-break: break-all
-    margin: 0 1px
-    padding: 2px 6px
-    display: inline
-    border-radius: 2px
+  code {
+    font-family: "Chappe Hack Regular", sans-serif;
+    font-size: .8em;
+    background-color: var(--color-markdown-code-inline-background);
+    border: 1px solid var(--color-markdown-code-inline-border);
+    color: var(--color-markdown-code-inline-text);
+    hyphens: auto;
+    word-break: break-all;
+    margin: 0 1px;
+    padding: 2px 6px;
+    display: inline;
+    border-radius: 2px;
+  }
 
-  pre
-    margin: 22px auto
-    position: relative
+  pre {
+    margin: 22px auto;
+    position: relative;
 
-    &.copy
-      &[data-copy-state="copied"]
-        .code-clipboard
-          border-color: var(--color-markdown-code-block-clipboard-border-copied)
+    &.copy {
+      &[data-copy-state="copied"] {
+        .code-clipboard {
+          border-color: var(--color-markdown-code-block-clipboard-border-copied);
 
-          &:after
-            background-color: var(--color-markdown-code-block-clipboard-icon-background-copied)
-            +mask-image-internal("common/markdown/code-clipboard-copied.svg")
-            width: 16px
-            height: 12px
+          &:after {
+            background-color: var(--color-markdown-code-block-clipboard-icon-background-copied);
+            @include mask-image-internal("common/markdown/code-clipboard-copied.svg");
+            width: 16px;
+            height: 12px;
+          }
+        }
+      }
 
       &[data-copy-state="copied"],
-      &:hover
-        .code-clipboard
-          visibility: visible
-          opacity: 1
+      &:hover {
+        .code-clipboard {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
 
-    .code-clipboard
-      $code-clipboard-size: 30px
+    .code-clipboard {
+      $code-clipboard-size: 30px;
 
-      background-color: var(--color-markdown-code-block-clipboard-background-default)
-      border: 1px solid var(--color-markdown-code-block-clipboard-border-default)
-      width: $code-clipboard-size
-      height: $code-clipboard-size
-      display: flex
-      align-items: center
-      justify-content: center
-      visibility: hidden
-      opacity: 0
-      cursor: pointer
-      position: absolute
-      top: 8px
-      right: 9px
-      transition: all linear 75ms
-      transition-property: background-color, border-color, opacity
-      border-radius: 5px
+      background-color: var(--color-markdown-code-block-clipboard-background-default);
+      border: 1px solid var(--color-markdown-code-block-clipboard-border-default);
+      width: $code-clipboard-size;
+      height: $code-clipboard-size;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      transition: all linear 75ms;
+      transition-property: background-color, border-color, opacity;
+      border-radius: 5px;
 
-      &:hover
-        background-color: var(--color-markdown-code-block-clipboard-background-hover)
-        border-color: var(--color-markdown-code-block-clipboard-border-hover)
+      &:hover {
+        background-color: var(--color-markdown-code-block-clipboard-background-hover);
+        border-color: var(--color-markdown-code-block-clipboard-border-hover);
+      }
 
-      &:active
-        background-color: var(--color-markdown-code-block-clipboard-background-active)
-        border-color: var(--color-markdown-code-block-clipboard-border-active)
+      &:active {
+        background-color: var(--color-markdown-code-block-clipboard-background-active);
+        border-color: var(--color-markdown-code-block-clipboard-border-active);
+      }
 
-      &:after
-        content: ""
-        background-color: var(--color-markdown-code-block-clipboard-icon-background-default)
-        +mask-image-internal("common/markdown/code-clipboard-copy.svg")
-        width: 13px
-        height: 15px
-        transition: background-color linear 75ms
+      &:after {
+        content: "";
+        background-color: var(--color-markdown-code-block-clipboard-icon-background-default);
+        @include mask-image-internal("common/markdown/code-clipboard-copy.svg");
+        width: 13px;
+        height: 15px;
+        transition: background-color linear 75ms;
+      }
+    }
 
-    code
-      background-color: var(--color-markdown-code-block-background)
-      border: 0 none
-      color: var(--color-markdown-code-block-text)
-      line-height: 19px
-      text-align: left
-      white-space: pre
-      word-spacing: normal
-      word-break: normal
-      word-wrap: normal
-      tab-size: 4
-      hyphens: none
-      margin: 0
-      padding: 15px 18px
-      overflow-x: auto
-      overflow-y: hidden
-      display: block
+    code {
+      background-color: var(--color-markdown-code-block-background);
+      border: 0 none;
+      color: var(--color-markdown-code-block-text);
+      line-height: 19px;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      tab-size: 4;
+      hyphens: none;
+      margin: 0;
+      padding: 15px 18px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: block;
+    }
 
-    +selection
-      background-color: var(--color-markdown-code-selection)
+    @include selection {
+      background-color: var(--color-markdown-code-selection);
+    }
+  }
 
-  table
-    border-collapse: collapse
-    +font-size(13px)
-    text-align: left
-    width: 100%
-    margin: 26px 0 34px
+  table {
+    border-collapse: collapse;
+    @include font-size(13px);
+    text-align: left;
+    width: 100%;
+    margin: 26px 0 34px;
 
-    thead
-      background-color: var(--color-markdown-table-head-background)
-      color: var(--color-markdown-table-head-text)
-      letter-spacing: .1px
-      user-select: none
+    thead {
+      background-color: var(--color-markdown-table-head-background);
+      color: var(--color-markdown-table-head-text);
+      letter-spacing: .1px;
+      user-select: none;
+    }
 
-    tbody
-      tr
-        &:hover
-          background-color: var(--color-markdown-table-body-row-background-hover)
+    tbody {
+      tr {
+        &:hover {
+          background-color: var(--color-markdown-table-body-row-background-hover);
+        }
+      }
+    }
 
     th,
-    td
-      border: 1px solid var(--color-markdown-table-cell-border)
-      line-height: 18px
-      word-break: break-word
-      hyphens: auto
-      padding: 6px 10px 6px 16px
+    td {
+      border: 1px solid var(--color-markdown-table-cell-border);
+      line-height: 18px;
+      word-break: break-word;
+      hyphens: auto;
+      padding: 6px 10px 6px 16px;
+    }
+  }
 
   blockquote,
-  .emphasis
-    $emphasis-margin-top-bottom-base: 26px
+  .emphasis {
+    $emphasis-margin-top-bottom-base: 26px;
 
-    margin: $emphasis-margin-top-bottom-base 0
-    padding: 14px 20px 14px 28px
-    position: relative
-    overflow: hidden
-    border-radius: 2px
+    margin: $emphasis-margin-top-bottom-base 0;
+    padding: 14px 20px 14px 28px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
 
     & + blockquote,
-    & + .emphasis
-      margin-top: ((-1 * $emphasis-margin-top-bottom-base) + 9px)
+    & + .emphasis {
+      margin-top: ((-1 * $emphasis-margin-top-bottom-base) + 9px);
+    }
 
-    &:before
-      content: ""
-      width: 4px
-      position: absolute
-      top: 0
-      bottom: 0
-      left: 0
+    &:before {
+      content: "";
+      width: 4px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
 
-  blockquote
-    background-color: var(--color-markdown-blockquote-background)
-    color: var(--color-markdown-blockquote-text)
-    font-style: italic
+  blockquote {
+    background-color: var(--color-markdown-blockquote-background);
+    color: var(--color-markdown-blockquote-text);
+    font-style: italic;
 
-    &:before
-      background-color: var(--color-markdown-blockquote-border)
+    &:before {
+      background-color: var(--color-markdown-blockquote-border);
+    }
+  }
 
-  .emphasis
-    &.emphasis--warning
-      background-color: var(--color-markdown-emphasis-warning-background)
+  .emphasis {
+    &.emphasis--warning {
+      background-color: var(--color-markdown-emphasis-warning-background);
 
-      &:before
-        background-color: var(--color-markdown-emphasis-warning-border)
+      &:before {
+        background-color: var(--color-markdown-emphasis-warning-border);
+      }
+    }
 
-    &.emphasis--info
-      background-color: var(--color-markdown-emphasis-info-background)
+    &.emphasis--info {
+      background-color: var(--color-markdown-emphasis-info-background);
 
-      &:before
-        background-color: var(--color-markdown-emphasis-info-border)
+      &:before {
+        background-color: var(--color-markdown-emphasis-info-border);
+      }
+    }
 
-    &.emphasis--notice
-      background-color: var(--color-markdown-emphasis-notice-background)
+    &.emphasis--notice {
+      background-color: var(--color-markdown-emphasis-notice-background);
 
-      &:before
-        background-color: var(--color-markdown-emphasis-notice-border)
+      &:before {
+        background-color: var(--color-markdown-emphasis-notice-border);
+      }
+    }
+  }
 
-  .embed
-    &[data-loaded="true"]
-      .embed-wrap
-        .embed-frame
-          opacity: 1
-          z-index: 2
+  .embed {
+    &[data-loaded="true"] {
+      .embed-wrap {
+        .embed-frame {
+          opacity: 1;
+          z-index: 2;
+        }
 
-        .embed-preview
-          opacity: 0
+        .embed-preview {
+          opacity: 0;
 
-          &:after
-            display: none
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
 
-    .embed-wrap
-      height: 420px
-      width: 100%
-      max-width: 680px
-      margin: 0 auto
-      position: relative
+    .embed-wrap {
+      height: 420px;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
 
       .embed-preview,
       .embed-frame,
-      .embed-frame iframe
-        background-color: var(--color-markdown-embed-wrap-background)
+      .embed-frame iframe {
+        background-color: var(--color-markdown-embed-wrap-background);
+      }
 
       .embed-preview,
-      .embed-frame
-        width: 100%
-        height: 100%
-        transition: opacity ease-in-out 600ms
+      .embed-frame {
+        width: 100%;
+        height: 100%;
+        transition: opacity ease-in-out 600ms;
+      }
 
-      .embed-preview
-        +background-image-fill($display: false)
-        cursor: pointer
-        opacity: 1
-        position: relative
-        z-index: 1
+      .embed-preview {
+        @include background-image-fill($display: false);
+        cursor: pointer;
+        opacity: 1;
+        position: relative;
+        z-index: 1;
 
-        &:hover
-          &:after
-            opacity: 1
+        &:hover {
+          &:after {
+            opacity: 1;
+          }
+        }
 
-        &:active
-          &:after
-            opacity: .95
+        &:active {
+          &:after {
+            opacity: .95;
+          }
+        }
 
-        &:after
-          $icon-size: 68px
+        &:after {
+          $icon-size: 68px;
 
-          content: ""
-          +background-image-internal-fill("common/markdown/embed-preview-play.svg")
-          width: $icon-size
-          height: $icon-size
-          position: absolute
-          top: 50%
-          left: 50%
-          opacity: .9
-          transition: opacity ease-in-out 300ms
-          transform: translate(-50%, -50%)
+          content: "";
+          @include background-image-internal-fill("common/markdown/embed-preview-play.svg");
+          width: $icon-size;
+          height: $icon-size;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          opacity: .9;
+          transition: opacity ease-in-out 300ms;
+          transform: translate(-50%, -50%);
+        }
+      }
 
-      .embed-frame
-        opacity: 0
-        position: absolute
-        top: 0
-        left: 0
+      .embed-frame {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
 
-        iframe
-          width: 100%
-          height: 100%
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
 
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-small-width-breakpoint)
-  .markdown
-    figure
-      max-width: 80%
+@media screen and (max-width: $screen-small-width-breakpoint) {
+  .markdown {
+    figure {
+      max-width: 80%;
+    }
 
-    .embed
-      .embed-wrap
-        height: 380px
+    .embed {
+      .embed-wrap {
+        height: 380px;
+      }
+    }
+  }
+}
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
-  .markdown
-    figure
-      max-width: none
+@media screen and (max-width: $screen-tiny-width-breakpoint) {
+  .markdown {
+    figure {
+      max-width: none;
+    }
 
-    .embed
-      .embed-wrap
-        height: 280px
+    .embed {
+      .embed-wrap {
+        height: 280px;
+      }
+    }
+  }
+}

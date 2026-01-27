@@ -3,92 +3,116 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-#guides
-  .details
-    border-bottom: 1px solid var(--color-guides-details-border)
-    padding-bottom: 18px
+#guides {
+  .details {
+    border-bottom: 1px solid var(--color-guides-details-border);
+    padding-bottom: 18px;
 
     .details-upper,
-    .details-lower
-      display: flex
-      flex-direction: row
-      align-items: center
+    .details-lower {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
 
     .details-upper .details-category,
-    .details-lower .details-title
-      flex: 1
+    .details-lower .details-title {
+      flex: 1;
+    }
 
     .details-upper .details-feedback,
-    .details-lower .details-updated
-      +font-size(13.5px)
-      flex: 0 0 auto
-      padding-left: 8px
+    .details-lower .details-updated {
+      +font-size(13.5px);
+      flex: 0 0 auto;
+      padding-left: 8px;
+    }
 
     .details-upper .details-category,
-    .details-lower .details-updated
-      color: var(--color-guides-details-inner-text)
+    .details-lower .details-updated {
+      color: var(--color-guides-details-inner-text);
+    }
 
-    .details-upper
-      .details-category
-        +font-size(16px)
-        line-height: 18px
-        margin-left: -2px
+    .details-upper {
+      .details-category {
+        +font-size(16px);
+        line-height: 18px;
+        margin-left: -2px;
 
-        .details-icon
-          +background-image-fill
-          width: 19px
-          height: 19px
-          margin-top: -3px
-          margin-right: 4px
-          vertical-align: middle
+        .details-icon {
+          +background-image-fill;
+          width: 19px;
+          height: 19px;
+          margin-top: -3px;
+          margin-right: 4px;
+          vertical-align: middle;
+        }
+      }
 
-      .details-feedback
-        color: var(--color-accent-base)
-        user-select: none
+      .details-feedback {
+        color: var(--color-accent-base);
+        user-select: none;
 
-        &:hover
-          text-decoration: underline
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
 
-    .details-lower
-      margin-top: 10px
+    .details-lower {
+      margin-top: 10px;
 
-      .details-title
-        color: var(--color-black)
-        +font-size(23px)
-        line-height: 24px
+      .details-title {
+        color: var(--color-black);
+        +font-size(23px);
+        line-height: 24px;
+      }
+    }
+  }
 
-  .article
-    padding-top: 40px
-
+  .article {
+    padding-top: 40px;
+  }
+}
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-small-width-breakpoint)
-  #guides
-    .details
-      .details-upper
-        padding-left: 48px
+@media screen and (max-width: $screen-small-width-breakpoint) {
+  #guides {
+    .details {
+      .details-upper {
+        padding-left: 48px;
+      }
+    }
+  }
+}
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
-  #guides
-    .details
-      padding-left: 40px
-      padding-right: 10px
+@media screen and (max-width: $screen-tiny-width-breakpoint) {
+  #guides {
+    .details {
+      padding-left: 40px;
+      padding-right: 10px;
 
       .details-upper .details-category,
-      .details-lower .details-title
-        text-align: center
+      .details-lower .details-title {
+        text-align: center;
+      }
 
       .details-upper .details-feedback,
-      .details-lower .details-updated
-        display: none
+      .details-lower .details-updated {
+        display: none;
+      }
 
-      .details-upper
-        padding-left: 0
+      .details-upper {
+        padding-left: 0;
+      }
+    }
 
-    .article
-      padding-top: 30px
+    .article {
+      padding-top: 30px;
+    }
+  }
+}

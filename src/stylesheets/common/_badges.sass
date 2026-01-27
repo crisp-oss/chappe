@@ -3,53 +3,61 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-.badge
-  border: 1px solid var(--color-badge-black)
-  color: var(--color-badge-black)
-  +font-size(10.5px)
-  user-select: none
-  text-transform: uppercase
-  line-height: $badge-default-height
-  height: $badge-default-height
-  padding: 0 5px
-  display: inline-block
-  border-radius: 1px
+.badge {
+  border: 1px solid var(--color-badge-black);
+  color: var(--color-badge-black);
+  +font-size(10.5px);
+  user-select: none;
+  text-transform: uppercase;
+  line-height: $badge-default-height;
+  height: $badge-default-height;
+  padding: 0 5px;
+  display: inline-block;
+  border-radius: 1px;
 
-  &.badge--special-value
-    background-color: var(--color-badge-special-background)
-    border-color: var(--color-badge-special-border)
-    color: var(--color-badge-special-text)
-    +font-size(11.5px)
-    user-select: text
-    text-transform: lowercase
-    line-height: $badge-special-value-height
-    height: $badge-special-value-height
-    border-radius: 2px
+  &.badge--special-value {
+    background-color: var(--color-badge-special-background);
+    border-color: var(--color-badge-special-border);
+    color: var(--color-badge-special-text);
+    +font-size(11.5px);
+    user-select: text;
+    text-transform: lowercase;
+    line-height: $badge-special-value-height;
+    height: $badge-special-value-height;
+    border-radius: 2px;
+  }
 
-  &.badge--small
-    +font-size(10px)
-    line-height: $badge-small-height
-    height: $badge-small-height
-    padding: 0 3px
+  &.badge--small {
+    +font-size(10px);
+    line-height: $badge-small-height;
+    height: $badge-small-height;
+    padding: 0 3px;
+  }
 
-  &.badge--white
-    border-color: var(--color-badge-white)
-    color: var(--color-badge-white)
+  &.badge--white {
+    border-color: var(--color-badge-white);
+    color: var(--color-badge-white);
+  }
 
-  &.badge--blue
-    border-color: var(--color-badge-blue)
-    color: var(--color-badge-blue)
+  &.badge--blue {
+    border-color: var(--color-badge-blue);
+    color: var(--color-badge-blue);
+  }
 
-  &.badge--green
-    border-color: var(--color-badge-green)
-    color: var(--color-badge-green)
+  &.badge--green {
+    border-color: var(--color-badge-green);
+    color: var(--color-badge-green);
+  }
 
-  &.badge--yellow
-    border-color: var(--color-badge-yellow)
-    color: var(--color-badge-yellow)
+  &.badge--yellow {
+    border-color: var(--color-badge-yellow);
+    color: var(--color-badge-yellow);
+  }
 
-  &.badge--red
-    border-color: var(--color-badge-red)
-    color: var(--color-badge-red)
+  &.badge--red {
+    border-color: var(--color-badge-red);
+    color: var(--color-badge-red);
+  }
+}

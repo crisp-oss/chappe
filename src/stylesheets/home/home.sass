@@ -5,147 +5,187 @@
 
 @use "../_config" with (
   $inlining: $use-inline-images
-)
+);
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-#home
-  text-align: center
-  padding-top: 62px
-  padding-bottom: 100px
+#home {
+  text-align: center;
+  padding-top: 62px;
+  padding-bottom: 100px;
 
-  .illustration
-    +background-image-fill
-    max-width: 560px
-    width: 100%
-    height: 280px
-    margin: 48px auto -30px
+  .illustration {
+    +background-image-fill;
+    max-width: 560px;
+    width: 100%;
+    height: 280px;
+    margin: 48px auto -30px;
+  }
 
-  .actions
-    $actions-button-margin-bottom: 7px
+  .actions {
+    $actions-button-margin-bottom: 7px;
 
-    margin-top: 30px
-    margin-bottom: (-1 * $actions-button-margin-bottom)
+    margin-top: 30px;
+    margin-bottom: (-1 * $actions-button-margin-bottom);
 
-    .button
-      margin: 0 5px $actions-button-margin-bottom
+    .button {
+      margin: 0 5px $actions-button-margin-bottom;
 
-      &:hover
-        &:after
-          background-color: var(--color-white)
+      &:hover {
+        &:after {
+          background-color: var(--color-white);
+        }
+      }
 
-      &:after
-        content: ""
-        background-color: var(--color-accent-base)
-        +mask-image-internal-fill("home/action-quickstart-icon.svg")
-        width: 6px
-        height: 9px
-        margin-left: 17px
-        margin-right: -7px
-        flex: 0 0 auto
+      &:after {
+        content: "";
+        background-color: var(--color-accent-base);
+        +mask-image-internal-fill("home/action-quickstart-icon.svg");
+        width: 6px;
+        height: 9px;
+        margin-left: 17px;
+        margin-right: -7px;
+        flex: 0 0 auto;
+      }
+    }
+  }
 
-  .bulletpoints
-    max-width: 940px
-    margin: 74px auto 0
+  .bulletpoints {
+    max-width: 940px;
+    margin: 74px auto 0;
 
-    .bulletpoint
-      &.bulletpoint--quickstart
-        &:before
-          +mask-image-internal("home/bulletpoint-icon-quickstart.svg")
+    .bulletpoint {
+      &.bulletpoint--quickstart {
+        &:before {
+          +mask-image-internal("home/bulletpoint-icon-quickstart.svg");
+        }
+      }
 
-      &.bulletpoint--guides
-        &:before
-          +mask-image-internal("home/bulletpoint-icon-guides.svg")
+      &.bulletpoint--guides {
+        &:before {
+          +mask-image-internal("home/bulletpoint-icon-guides.svg");
+        }
+      }
 
-      &.bulletpoint--references
-        &:before
-          +mask-image-internal("home/bulletpoint-icon-references.svg")
+      &.bulletpoint--references {
+        &:before {
+          +mask-image-internal("home/bulletpoint-icon-references.svg");
+        }
+      }
+    }
+  }
 
-  .support
-    margin-top: 62px
-    display: flex
-    justify-content: center
+  .support {
+    margin-top: 62px;
+    display: flex;
+    justify-content: center;
 
-    .support-wrap
-      display: flex
-      flex-direction: row
+    .support-wrap {
+      display: flex;
+      flex-direction: row;
+    }
 
-    .support-text
-      text-align: left
+    .support-text {
+      text-align: left;
 
-      .support-question
-        color: var(--color-black)
-        +font-size(15.5px)
-        line-height: 20px
-        margin-top: -2px
+      .support-question {
+        color: var(--color-black);
+        +font-size(15.5px);
+        line-height: 20px;
+        margin-top: -2px;
+      }
 
-      .support-label
-        color: var(--color-blue-grey)
-        +font-size(14.5px)
-        line-height: 18px
-        margin-top: 5px
+      .support-label {
+        color: var(--color-blue-grey);
+        +font-size(14.5px);
+        line-height: 18px;
+        margin-top: 5px;
+      }
+    }
 
-    .support-action
-      margin-left: 34px
+    .support-action {
+      margin-left: 34px;
 
-      .button
-        &:hover
-          &:before
-            opacity: 1
+      .button {
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+        }
 
-        &:before
-          content: ""
-          background-color: var(--color-white)
-          +mask-image-internal-fill("home/support-chat-icon.svg")
-          width: 20px
-          height: 18px
-          margin-top: -1px
-          margin-left: -2px
-          margin-right: 12px
-          opacity: .55
-          transition: opacity linear 100ms
-
+        &:before {
+          content: "";
+          background-color: var(--color-white);
+          +mask-image-internal-fill("home/support-chat-icon.svg");
+          width: 20px;
+          height: 18px;
+          margin-top: -1px;
+          margin-left: -2px;
+          margin-right: 12px;
+          opacity: .55;
+          transition: opacity linear 100ms;
+        }
+      }
+    }
+  }
+}
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-small-width-breakpoint)
-  #home
-    padding-top: 52px
+@media screen and (max-width: $screen-small-width-breakpoint) {
+  #home {
+    padding-top: 52px;
 
-    .illustration
-      margin-bottom: 0
+    .illustration {
+      margin-bottom: 0;
+    }
 
-    .bulletpoints
-      margin-top: 60px
+    .bulletpoints {
+      margin-top: 60px;
+    }
+  }
+}
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
-  #home
-    padding-top: 42px
-    padding-bottom: 80px
+@media screen and (max-width: $screen-tiny-width-breakpoint) {
+  #home {
+    padding-top: 42px;
+    padding-bottom: 80px;
 
-    .illustration
-      height: 200px
+    .illustration {
+      height: 200px;
+    }
 
-    .support
-      .support-wrap
-        display: block
+    .support {
+      .support-wrap {
+        display: block;
 
-        .support-text
-          text-align: center
+        .support-text {
+          text-align: center;
+        }
 
-        .support-action
-          margin-left: 0
-          margin-top: 18px
+        .support-action {
+          margin-left: 0;
+          margin-top: 18px;
+        }
+      }
+    }
+  }
+}
 
-@media screen and (max-width: $screen-lilliput-width-breakpoint)
-  #home
+@media screen and (max-width: $screen-lilliput-width-breakpoint) {
+  #home {
     .actions .button,
-    .support .support-action .button
-      display: flex
+    .support .support-action .button {
+      display: flex;
+    }
 
-    .actions
-      .button
-        margin-left: 0
-        margin-right: 0
+    .actions {
+      .button {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}

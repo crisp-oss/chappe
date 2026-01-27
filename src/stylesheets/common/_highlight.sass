@@ -3,77 +3,96 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-pre
-  code
-    &[class*="language-"]
-      color: var(--color-highlight-main)
+pre {
+  code {
+    &[class*="language-"] {
+      color: var(--color-highlight-main);
 
-      .namespace
-        opacity: .7
+      .namespace {
+        opacity: .7;
+      }
 
       .token.entity,
       .language-css .token.string,
-      .style .token.string
-        color: var(--color-highlight-entity-light)
-        background: var(--color-highlight-entity-dark)
+      .style .token.string {
+        color: var(--color-highlight-entity-light);
+        background: var(--color-highlight-entity-dark);
+      }
 
-      .token
+      .token {
         &.comment,
         &.prolog,
-        &.cdata
-          color: var(--color-highlight-comment)
+        &.cdata {
+          color: var(--color-highlight-comment);
+        }
 
-        &.punctuation
-          color: var(--color-highlight-punctuation)
+        &.punctuation {
+          color: var(--color-highlight-punctuation);
+        }
 
         &.variable,
         &.tag,
         &.operator,
-        &.deleted
-          color: var(--color-highlight-variable)
+        &.deleted {
+          color: var(--color-highlight-variable);
+        }
 
         &.number,
         &.boolean,
         &.constant,
-        &.url
-          color: var(--color-highlight-number)
+        &.url {
+          color: var(--color-highlight-number);
+        }
 
         &.class-name,
-        &.bold
-          color: var(--color-highlight-class)
+        &.bold {
+          color: var(--color-highlight-class);
+        }
 
         &.property,
         &.string,
         &.symbol,
         &.attr-value,
         &.inserted,
-        &.atrule
-          color: var(--color-highlight-property)
+        &.atrule {
+          color: var(--color-highlight-property);
+        }
 
         &.regex,
-        &.important
-          color: var(--color-highlight-regex)
+        &.important {
+          color: var(--color-highlight-regex);
+        }
 
         &.function,
-        &.attr-name
-          color: var(--color-highlight-function)
+        &.attr-name {
+          color: var(--color-highlight-function);
+        }
 
         &.keyword,
         &.selector,
         &.italic,
         &.char,
-        &.builtin
-          color: var(--color-highlight-keyword)
+        &.builtin {
+          color: var(--color-highlight-keyword);
+        }
 
-        &.doctype
-          color: var(--color-highlight-doctype)
+        &.doctype {
+          color: var(--color-highlight-doctype);
+        }
 
         &.important,
-        &.bold
-          font-weight: bold
+        &.bold {
+          font-weight: bold;
+        }
 
-        &.italic
-          font-style: italic
+        &.italic {
+          font-style: italic;
+        }
 
-        &.entity
-          cursor: help
+        &.entity {
+          cursor: help;
+        }
+      }
+    }
+  }
+}

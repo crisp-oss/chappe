@@ -3,75 +3,105 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-.viewer
+.viewer {
   &[data-viewer-panes="2"],
-  &[data-viewer-panes="3"]
-    #content
-      .panes
-        .content
-          margin-left: $content-sidebar-left-width
+  &[data-viewer-panes="3"] {
+    #content {
+      .panes {
+        .content {
+          margin-left: $content-sidebar-left-width;
+        }
+      }
+    }
 
-    #footer
-      &:before
-        content: ""
-        background-color: var(--color-white)
-        width: $content-sidebar-left-width
-        flex: 0 0 auto
+    #footer {
+      &:before {
+        content: "";
+        background-color: var(--color-white);
+        width: $content-sidebar-left-width;
+        flex: 0 0 auto;
+      }
 
-      .inner
-        border-left: 1px solid var(--color-viewer-panes-footer-border)
+      .inner {
+        border-left: 1px solid var(--color-viewer-panes-footer-border);
+      }
+    }
+  }
 
-  &[data-viewer-panes="3"]
-    #header
-      .search
-        background: var(--color-header-search-background-clear)
-        border-color: var(--color-header-search-border-clear-default)
+  &[data-viewer-panes="3"] {
+    #header {
+      .search {
+        background: var(--color-header-search-background-clear);
+        border-color: var(--color-header-search-border-clear-default);
 
-        &:hover
-          border-color: var(--color-header-search-border-clear-hover)
+        &:hover {
+          border-color: var(--color-header-search-border-clear-hover);
+        }
 
-        &:active
-          border-color: var(--color-header-search-border-clear-active)
+        &:active {
+          border-color: var(--color-header-search-border-clear-active);
+        }
+      }
 
-      .coloring
-        background-color: var(--color-header-coloring-background-clear)
-
+      .coloring {
+        background-color: var(--color-header-coloring-background-clear);
+      }
+    }
+  }
+}
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
-  .viewer
-    &[data-viewer-panes="3"]
-      #header
-        .search
-          background: var(--color-header-search-background-default)
-          border-color: var(--color-header-search-border-default)
+@media screen and (max-width: $screen-medium-width-breakpoint) {
+  .viewer {
+    &[data-viewer-panes="3"] {
+      #header {
+        .search {
+          background: var(--color-header-search-background-default);
+          border-color: var(--color-header-search-border-default);
 
-          &:hover
-            border-color: var(--color-header-search-border-hover)
+          &:hover {
+            border-color: var(--color-header-search-border-hover);
+          }
 
-          &:active
-            border-color: var(--color-header-search-border-active)
+          &:active {
+            border-color: var(--color-header-search-border-active);
+          }
+        }
 
-        .coloring
-          background-color: var(--color-header-coloring-background-default)
+        .coloring {
+          background-color: var(--color-header-coloring-background-default);
+        }
+      }
+    }
+  }
+}
 
-@media screen and (max-width: $screen-small-width-breakpoint)
-  .viewer
+@media screen and (max-width: $screen-small-width-breakpoint) {
+  .viewer {
     &[data-viewer-panes="2"],
-    &[data-viewer-panes="3"]
-      #content
-        .panes
-          .content
-            margin-left: 0
+    &[data-viewer-panes="3"] {
+      #content {
+        .panes {
+          .content {
+            margin-left: 0;
+          }
+        }
+      }
 
-      #footer
-        &:before
-          display: none
+      #footer {
+        &:before {
+          display: none;
+        }
 
-        .inner
-          border-left: 0 none
+        .inner {
+          border-left: 0 none;
+        }
+      }
+    }
+  }
+}

@@ -3,64 +3,76 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_globals" as *
+@use "../_globals" as *;
 
-.button
-  color: var(--color-white)
-  background-color: var(--color-button-default)
-  +font-size(13px)
-  user-select: none
-  line-height: $button-default-height
-  height: $button-default-height
-  padding: 0 20px
-  display: inline-block
-  box-shadow: 0 1px 0 0 var(--color-button-shadow)
-  border-radius: 3px
-  transition: all linear 100ms
-  transition-property: background-color, color, transform, box-shadow
+.button {
+  color: var(--color-white);
+  background-color: var(--color-button-default);
+  +font-size(13px);
+  user-select: none;
+  line-height: $button-default-height;
+  height: $button-default-height;
+  padding: 0 20px;
+  display: inline-block;
+  box-shadow: 0 1px 0 0 var(--color-button-shadow);
+  border-radius: 3px;
+  transition: all linear 100ms;
+  transition-property: background-color, color, transform, box-shadow;
 
   &:hover,
-  &:active
-    background-color: var(--color-button-active)
+  &:active {
+    background-color: var(--color-button-active);
+  }
 
-  &:active
-    transform: translateY(1px)
-    box-shadow: none
+  &:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
 
-  &.button--icon
-    display: inline-flex
-    align-items: center
+  &.button--icon {
+    display: inline-flex;
+    align-items: center;
 
     &:before,
-    &:after
-      flex: 0 0 auto
+    &:after {
+      flex: 0 0 auto;
+    }
 
-    .button-text
-      flex: 1
+    .button-text {
+      flex: 1;
+    }
+  }
 
-  &.button--reverse
-    color: var(--color-button-default)
-    background-color: var(--color-white)
-    border: 1px solid var(--color-button-default)
-    transition-duration: 75ms
+  &.button--reverse {
+    color: var(--color-button-default);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-button-default);
+    transition-duration: 75ms;
 
-    &:hover
-      color: var(--color-white)
-      background-color: var(--color-button-default)
+    &:hover {
+      color: var(--color-white);
+      background-color: var(--color-button-default);
+    }
 
-    &.button--large
-      border-width: 1.5px
+    &.button--large {
+      border-width: 1.5px;
+    }
+  }
 
-  &.button--small
-    line-height: $button-small-height
-    height: $button-small-height
+  &.button--small {
+    line-height: $button-small-height;
+    height: $button-small-height;
+  }
 
-  &.button--large
-    +font-size(14px)
-    padding: 0 24px
+  &.button--large {
+    +font-size(14px);
+    padding: 0 24px;
+  }
 
   &,
-  .button-text
-    text-overflow: ellipsis
-    white-space: nowrap
-    overflow: hidden
+  .button-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
