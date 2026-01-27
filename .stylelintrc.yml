@@ -4,3 +4,4 @@ extends:
 rules:
   scss/comment-no-empty: null
   scss/load-no-partial-leading-underscore: null
+  scss/dollar-variable-empty-line-before: null
