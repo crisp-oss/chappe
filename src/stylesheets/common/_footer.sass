@@ -3,6 +3,9 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 #footer
   display: flex
   flex-direction: row
@@ -32,7 +35,7 @@
   .navigation
     .links .link .link-target,
     .copyright
-      +font-size(13.5px)
+      +mixins.font-size(13.5px)
       letter-spacing: -.1px
 
     .links
@@ -63,7 +66,7 @@
       align-items: center
 
       .logo
-        +background-image-fill
+        +mixins.background-image-fill
         height: 26px
 
       .separator
@@ -73,7 +76,7 @@
         margin: -1px 20px 0
 
       .engine
-        +font-size(14px)
+        +mixins.font-size(14px)
         letter-spacing: -.11px
 
         &,
@@ -104,7 +107,7 @@
       &[data-status="healthy"]
         .status-wrapped
           .status-icon
-            +background-image-internal("common/footer/status-healthy.svg")
+            +mixins.background-image-internal("common/footer/status-healthy.svg")
 
           .status-text
             .status-state
@@ -117,7 +120,7 @@
       &[data-status="sick"]
         .status-wrapped
           .status-icon
-            +background-image-internal("common/footer/status-sick.svg")
+            +mixins.background-image-internal("common/footer/status-sick.svg")
 
           .status-text
             .status-state
@@ -130,7 +133,7 @@
       &[data-status="dead"]
         .status-wrapped
           .status-icon
-            +background-image-internal("common/footer/status-dead.svg")
+            +mixins.background-image-internal("common/footer/status-dead.svg")
 
           .status-text
             .status-state
@@ -155,7 +158,7 @@
           cursor: pointer
 
         .status-icon
-          +background-image-internal-fill("common/footer/status-failure.svg")
+          +mixins.background-image-internal-fill("common/footer/status-failure.svg")
           width: 24px
           height: 24px
 
@@ -167,7 +170,7 @@
             display: block
 
           .status-state
-            +font-size(13.5px)
+            +mixins.font-size(13.5px)
             color: var(--color-status-default-text)
             letter-spacing: 0
             line-height: 20px
@@ -176,7 +179,7 @@
               display: none
 
           .status-time
-            +font-size(12.5px)
+            +mixins.font-size(12.5px)
             color: var(--color-footer-status-time-text)
             letter-spacing: -.1px
             line-height: 18px
@@ -186,7 +189,7 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
+@media screen and (max-width: vars.$screen-medium-width-breakpoint)
   #footer
     .wrapper
       .navigation,
@@ -220,7 +223,7 @@
         .right
           margin-top: 36px
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   #footer
     .metadata
       .brand

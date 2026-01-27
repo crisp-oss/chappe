@@ -3,10 +3,13 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 #content
   background-color: var(--color-white)
   min-height: 120px
-  padding-top: $header-height-outer
+  padding-top: vars.$header-height-outer
 
   .main
     .main-title,
@@ -16,13 +19,13 @@
 
     .main-title
       color: var(--color-black)
-      +font-size(28px)
+      +mixins.font-size(28px)
       letter-spacing: 0
       text-align: center
 
     .main-label
       color: var(--color-blue-grey)
-      +font-size(17px)
+      +mixins.font-size(17px)
       line-height: 22px
       letter-spacing: 0
       text-align: center
@@ -34,7 +37,7 @@
 
   .panes
     min-height: 100vh
-    margin-top: (-1 * $header-height-outer)
+    margin-top: (-1 * vars.$header-height-outer)
     display: flex
     flex-direction: row
 
@@ -46,22 +49,22 @@
 
     .content
       flex: 1
-      padding-top: ($header-height-outer + 34px)
+      padding-top: (vars.$header-height-outer + 34px)
 
       &.content--padded
         padding-left: 36px
-        padding-right: $wrapper-default-padding-sides
+        padding-right: vars.$wrapper-default-padding-sides
 
       .content-wrap
         width: 100%
-        max-width: $content-wrap-max-width
+        max-width: vars.$content-wrap-max-width
         margin: 0 auto
 
         &.content-wrap--full
           max-width: none
 
       [id]
-        $anchor-offset-top: ($header-height-outer + 16px)
+        $anchor-offset-top: (vars.$header-height-outer + 16px)
 
         pointer-events: none
 
@@ -88,8 +91,8 @@
 
       &.sidebar--left
         background-color: var(--color-content-sidebar-left-background-default)
-        width: $content-sidebar-left-width
-        padding-top: $header-height-outer
+        width: vars.$content-sidebar-left-width
+        padding-top: vars.$header-height-outer
         padding-bottom: 30px
         overflow-x: hidden
         overflow-y: scroll
@@ -100,11 +103,11 @@
 
       &.sidebar--right
         background-color: var(--color-content-sidebar-right-background)
-        width: $content-sidebar-right-default-width
+        width: vars.$content-sidebar-right-default-width
 
       .sidebar-toggler-retract
         background-color: var(--color-black)
-        +mask-image-internal-fill("common/content/sidebar-toggler-retract.svg", $display: false)
+        +mixins.mask-image-internal-fill("common/content/sidebar-toggler-retract.svg", $display: false)
         width: 11px
         height: 11px
         margin-right: ($sidebar-item-padding-right-semi + 2px)
@@ -121,11 +124,11 @@
 
       .context
         border-bottom: 1px solid var(--color-grey)
-        padding: 16px $sidebar-item-padding-right-semi 16px $wrapper-default-padding-sides
+        padding: 16px $sidebar-item-padding-right-semi 16px vars.$wrapper-default-padding-sides
 
         .context-name
           color: var(--color-black)
-          +font-size(15px)
+          +mixins.font-size(15px)
           line-height: 18px
           letter-spacing: -.1px
 
@@ -140,13 +143,13 @@
 
       .nest
         user-select: none
-        padding: 24px $sidebar-item-padding-right-semi 0 $wrapper-default-padding-sides
+        padding: 24px $sidebar-item-padding-right-semi 0 vars.$wrapper-default-padding-sides
 
         &:last-of-type
           padding-bottom: 10px
 
         .nest-category
-          +font-size(15px)
+          +mixins.font-size(15px)
           letter-spacing: -.1px
 
           &,
@@ -222,7 +225,7 @@
               $link-item-padding-top-bottom: 3px
               $link-item-padding-right: 7px
 
-              +font-size(13.5px)
+              +mixins.font-size(13.5px)
               letter-spacing: -.1px
               line-height: 17px
               margin-left: (-1 * $sidebar-item-padding-left-semi)
@@ -268,7 +271,7 @@
                 &:after
                   content: ""
                   background-color: var(--color-accent-base)
-                  +mask-image-internal-fill("common/content/sidebar-link-external-icon.svg")
+                  +mixins.mask-image-internal-fill("common/content/sidebar-link-external-icon.svg")
                   width: 11px
                   height: 11px
                   margin-left: 6px
@@ -289,7 +292,7 @@
                   &:after
                     content: ""
                     background-color: var(--color-content-sidebar-nest-navigate-slice-icon-background-default)
-                    +mask-image-internal-fill("common/content/sidebar-link-slice-icon.svg")
+                    +mixins.mask-image-internal-fill("common/content/sidebar-link-slice-icon.svg")
                     vertical-align: middle
                     width: 9px
                     height: 6px
@@ -340,17 +343,17 @@
       text-align: center
       width: $sidebar-toggler-size
       height: $sidebar-toggler-size
-      margin-left: $wrapper-default-padding-sides
+      margin-left: vars.$wrapper-default-padding-sides
       cursor: pointer
       display: none
       position: fixed
-      top: ($header-height + $header-border-size)
+      top: (vars.$header-height + vars.$header-border-size)
       left: 0
       z-index: 50
       box-shadow: 0 1px 5px 0 var(--color-content-sidebar-toggler-shadow-default)
       border-radius: 100%
       transition: box-shadow linear 150ms
-      +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
+      +mixins.backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
       &:hover
         box-shadow: 0 2px 6px 0 var(--color-content-sidebar-toggler-shadow-hover)
@@ -367,7 +370,7 @@
       &:after
         content: ""
         background-color: var(--color-content-sidebar-toggler-icon-background)
-        +mask-image-internal-fill("common/content/sidebar-toggler-icon.svg")
+        +mixins.mask-image-internal-fill("common/content/sidebar-toggler-icon.svg")
         vertical-align: middle
         width: 16px
         height: 16px
@@ -406,18 +409,18 @@
       &:before
         content: ""
         background-color: var(--color-accent-base)
-        +mask-image-fill
+        +mixins.mask-image-fill
         height: 32px
         width: 32px
         margin-bottom: 16px
 
       .bulletpoint-title
         color: var(--color-black)
-        +font-size(18.5px)
+        +mixins.font-size(18.5px)
 
       .bulletpoint-label
         color: var(--color-content-bulletpoint-label-text)
-        +font-size(14px)
+        +mixins.font-size(14px)
         line-height: 18px
         margin-top: 9px
 
@@ -427,7 +430,7 @@
 
         .bulletpoint-action
           color: var(--color-accent-base)
-          +font-size(14px)
+          +mixins.font-size(14px)
           line-height: 18px
           margin-right: 22px
 
@@ -450,7 +453,7 @@
             &:after
               content: ""
               background-color: var(--color-accent-base)
-              +mask-image-internal-fill("common/content/bulletpoint-action-arrow.svg")
+              +mixins.mask-image-internal-fill("common/content/bulletpoint-action-arrow.svg")
               width: 13px
               height: 9px
               margin-left: 4px
@@ -509,25 +512,25 @@
 
           .navigation-title
             color: var(--color-black)
-            +font-size(14.5px)
+            +mixins.font-size(14.5px)
             line-height: 20px
 
           .navigation-label
             color: var(--color-content-navigation-label-text)
-            +font-size(13.5px)
+            +mixins.font-size(13.5px)
             line-height: 18px
             margin-top: 3px
 
         .navigation-action
           color: var(--color-accent-base)
-          +font-size(13.5px)
+          +mixins.font-size(13.5px)
           margin-left: 8px
           flex: 0 0 auto
 
           &:after
             content: ""
             background-color: var(--color-accent-base)
-            +mask-image-internal-fill("common/content/navigation-item-link-arrow.svg")
+            +mixins.mask-image-internal-fill("common/content/navigation-item-link-arrow.svg")
             width: 11px
             height: 8px
             margin-top: -1px
@@ -540,38 +543,38 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-large-width-breakpoint)
+@media screen and (max-width: vars.$screen-large-width-breakpoint)
   #content
     .panes
       .sidebar
         &.sidebar--right
-          width: $content-sidebar-right-large-width
+          width: vars.$content-sidebar-right-large-width
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
+@media screen and (max-width: vars.$screen-medium-width-breakpoint)
   #content
     .panes
       .content
         &.content--padded
           padding-left: 28px
-          padding-right: $wrapper-medium-padding-sides
+          padding-right: vars.$wrapper-medium-padding-sides
 
       .sidebar
         &.sidebar--right
           display: none
 
       .sidebar-toggler
-        margin-left: $wrapper-medium-padding-sides
+        margin-left: vars.$wrapper-medium-padding-sides
 
     .bulletpoints
       grid-column-gap: 16px
 
-@media screen and (max-width: $screen-small-width-breakpoint)
+@media screen and (max-width: vars.$screen-small-width-breakpoint)
   #content
     .panes
       .content
         &.content--padded
-          padding-left: $wrapper-small-padding-sides
-          padding-right: $wrapper-small-padding-sides
+          padding-left: vars.$wrapper-small-padding-sides
+          padding-right: vars.$wrapper-small-padding-sides
 
       .sidebar
         &.sidebar--left
@@ -581,13 +584,13 @@
           overflow-x: hidden
           overflow-y: auto
           position: fixed
-          top: ($header-height + $header-border-size)
+          top: (vars.$header-height + vars.$header-border-size)
           bottom: 0
-          left: (-1 * ($content-sidebar-left-width + 10px))
+          left: (-1 * (vars.$content-sidebar-left-width + 10px))
           z-index: 75
           transition: left ease 200ms
           box-shadow: 1px 0 5px 0 var(--color-content-sidebar-left-shadow-small)
-          +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
+          +mixins.backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
           &[data-visible="true"]
             left: 0
@@ -601,7 +604,7 @@
             padding-bottom: 40px
 
       .sidebar-toggler
-        margin-left: $wrapper-small-padding-sides
+        margin-left: vars.$wrapper-small-padding-sides
         display: block
 
     .bulletpoints
@@ -612,16 +615,16 @@
       grid-row-gap: 5px
       grid-template-columns: 1fr
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   #content
     .panes
       .content
-        padding-top: ($header-height-outer + 22px)
+        padding-top: (vars.$header-height-outer + 22px)
         padding-bottom: 74px
 
         &.content--padded
-          padding-left: $wrapper-tiny-padding-sides
-          padding-right: $wrapper-tiny-padding-sides
+          padding-left: vars.$wrapper-tiny-padding-sides
+          padding-right: vars.$wrapper-tiny-padding-sides
 
       .sidebar
         &.sidebar--left
@@ -633,26 +636,26 @@
           right: 0
           transition: opacity linear 150ms
           box-shadow: none
-          +backdrop-filter(none)
+          +mixins.backdrop-filter(none)
 
           &[data-visible="true"]
             visibility: visible
             opacity: 1
 
       .sidebar-toggler
-        margin-left: $wrapper-tiny-padding-sides
+        margin-left: vars.$wrapper-tiny-padding-sides
 
     .bulletpoints
       grid-row-gap: 12px
       grid-template-columns: 1fr
 
-@media screen and (max-width: $screen-lilliput-width-breakpoint)
+@media screen and (max-width: vars.$screen-lilliput-width-breakpoint)
   #content
     .panes
       .content
         &.content--padded
-          padding-left: $wrapper-lilliput-padding-sides
-          padding-right: $wrapper-lilliput-padding-sides
+          padding-left: vars.$wrapper-lilliput-padding-sides
+          padding-right: vars.$wrapper-lilliput-padding-sides
 
       .sidebar-toggler
-        margin-left: $wrapper-lilliput-padding-sides
+        margin-left: vars.$wrapper-lilliput-padding-sides

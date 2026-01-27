@@ -3,14 +3,17 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 .badge
   border: 1px solid var(--color-badge-black)
   color: var(--color-badge-black)
-  +font-size(10.5px)
+  +mixins.font-size(10.5px)
   user-select: none
   text-transform: uppercase
-  line-height: $badge-default-height
-  height: $badge-default-height
+  line-height: vars.$badge-default-height
+  height: vars.$badge-default-height
   padding: 0 5px
   display: inline-block
   border-radius: 1px
@@ -19,17 +22,17 @@
     background-color: var(--color-badge-special-background)
     border-color: var(--color-badge-special-border)
     color: var(--color-badge-special-text)
-    +font-size(11.5px)
+    +mixins.font-size(11.5px)
     user-select: text
     text-transform: lowercase
-    line-height: $badge-special-value-height
-    height: $badge-special-value-height
+    line-height: vars.$badge-special-value-height
+    height: vars.$badge-special-value-height
     border-radius: 2px
 
   &.badge--small
-    +font-size(10px)
-    line-height: $badge-small-height
-    height: $badge-small-height
+    +mixins.font-size(10px)
+    line-height: vars.$badge-small-height
+    height: vars.$badge-small-height
     padding: 0 3px
 
   &.badge--white

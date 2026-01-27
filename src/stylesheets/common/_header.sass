@@ -3,17 +3,20 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 #header
   background-color: var(--color-header-background)
-  border-bottom: $header-border-size solid var(--color-header-border)
-  height: $header-height
+  border-bottom: vars.$header-border-size solid var(--color-header-border)
+  height: vars.$header-height
   position: fixed
   top: 0
   left: 0
   right: 0
   z-index: 100
   box-shadow: 0 2px 6px 0 var(--color-header-shadow)
-  +backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
+  +mixins.backdrop-filter(blur(4px) saturate(160%) contrast(45%) brightness(140%))
 
   .wrapper
     &,
@@ -39,7 +42,7 @@
     margin-right: 60px
 
     .logo-image
-      +background-image-fill
+      +mixins.background-image-fill
       height: 24px
       display: none
 
@@ -99,7 +102,7 @@
 
     background-color: var(--color-white)
     border: 1px solid var(--color-header-dropdown-border)
-    padding: ($header-height - 15px) $dropdown-padding-edges $dropdown-padding-edges
+    padding: (vars.$header-height - 15px) $dropdown-padding-edges $dropdown-padding-edges
     display: none
     position: absolute
     z-index: 1
@@ -110,7 +113,7 @@
 
     .dropdown-link
       color: var(--color-black)
-      +font-size(13.5px)
+      +mixins.font-size(13.5px)
       line-height: 28px
       letter-spacing: -.1px
       text-overflow: ellipsis
@@ -154,7 +157,7 @@
 
           content: ""
           background-color: var(--color-black)
-          +mask-image-internal-fill("common/header/actions-dropdown-external.svg")
+          +mixins.mask-image-internal-fill("common/header/actions-dropdown-external.svg")
           width: $icon-size
           height: $icon-size
           margin-top: (-1 * ($icon-size * 0.5))
@@ -174,7 +177,7 @@
         display: block
 
       .dropdown-link-label
-        +font-size(13px)
+        +mixins.font-size(13px)
         opacity: .8
 
   .menu
@@ -191,7 +194,7 @@
 
       .menu-link
         color: var(--color-black)
-        +font-size(14px)
+        +mixins.font-size(14px)
 
         &.menu-link--dropdown
           position: relative
@@ -200,7 +203,7 @@
           &:after
             content: ""
             background-color: var(--color-black)
-            +mask-image-internal-fill("common/header/menu-arrow.svg")
+            +mixins.mask-image-internal-fill("common/header/menu-arrow.svg")
             width: 8px
             height: 5px
             margin-top: 1px
@@ -211,7 +214,7 @@
     .extras-item
       .extras-link
         color: var(--color-accent-base)
-        +font-size(13px)
+        +mixins.font-size(13px)
         letter-spacing: -.09px
 
   .search
@@ -236,13 +239,13 @@
 
     .search-placeholder
       color: var(--color-header-search-placeholder-text)
-      +font-size(13px)
+      +mixins.font-size(13px)
       letter-spacing: -.1px
 
       &:before
         content: ""
         background-color: var(--color-blue-grey-dark)
-        +mask-image-internal-fill("common/header/search-icon.svg")
+        +mixins.mask-image-internal-fill("common/header/search-icon.svg")
         width: 14px
         height: 14px
         margin-top: -2px
@@ -253,7 +256,7 @@
       background: var(--color-white)
       border: 1px solid var(--color-header-search-shortcut-border)
       color: var(--color-header-search-shortcut-text)
-      +font-size(12px)
+      +mixins.font-size(12px)
       letter-spacing: -.2px
       text-align: center
       height: 20px
@@ -292,7 +295,7 @@
 
         &:before
           background-color: var(--color-header-coloring-toggle-icon-light-background)
-          +mask-image-internal("common/header/coloring-mode-light-icon.svg")
+          +mixins.mask-image-internal("common/header/coloring-mode-light-icon.svg")
           width: 14px
           height: 14px
 
@@ -302,7 +305,7 @@
 
         &:before
           background-color: var(--color-header-coloring-toggle-icon-dark-background)
-          +mask-image-internal("common/header/coloring-mode-dark-icon.svg")
+          +mixins.mask-image-internal("common/header/coloring-mode-dark-icon.svg")
           width: 12px
           height: 12px
 
@@ -325,7 +328,7 @@
 
       &:before
         content: ""
-        +mask-image-fill
+        +mixins.mask-image-fill
 
   .actions
     .action
@@ -360,7 +363,7 @@
         &:after
           content: ""
           background-color: var(--color-white)
-          +mask-image-internal-fill("common/header/actions-arrow.svg")
+          +mixins.mask-image-internal-fill("common/header/actions-arrow.svg")
           width: 8px
           height: 5px
           margin-left: 7px
@@ -374,7 +377,7 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
+@media screen and (max-width: vars.$screen-medium-width-breakpoint)
   #header
     .logo
       margin-right: 42px
@@ -382,7 +385,7 @@
     .coloring
       margin: 0 20px
 
-@media screen and (max-width: $screen-small-width-breakpoint)
+@media screen and (max-width: vars.$screen-small-width-breakpoint)
   #header
     .logo
       margin-right: 32px
@@ -412,7 +415,7 @@
     .actions
       margin-left: 10px
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   #header
     .logo
       margin-top: 1px

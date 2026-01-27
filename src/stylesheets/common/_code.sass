@@ -3,6 +3,8 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+
 .code
   border: 1px solid transparent
   margin: 24px
@@ -16,7 +18,7 @@
       .code-actions
         .code-action
           &.code-action--copy
-            +mask-image-internal("common/code/header-action-copied.svg")
+            +mixins.mask-image-internal("common/code/header-action-copied.svg")
             width: 13px
             height: 16px
             margin-top: 1px
@@ -56,7 +58,7 @@
 
     .code-language
       color: var(--color-code-language-text)
-      +font-size(12.5px)
+      +mixins.font-size(12.5px)
       flex: 1
 
     .code-actions
@@ -64,7 +66,7 @@
       padding-left: 8px
 
       .code-action
-        +mask-image-fill
+        +mixins.mask-image-fill
         margin-right: 15px
         opacity: .65
         cursor: pointer
@@ -81,7 +83,7 @@
 
         &.code-action--copy
           background-color: var(--color-code-action-background)
-          +mask-image-internal("common/code/header-action-copy.svg")
+          +mixins.mask-image-internal("common/code/header-action-copy.svg")
           width: 13px
           height: 15px
 
@@ -101,7 +103,7 @@
 
       .code-meta-name,
       .code-meta-type
-        +font-size(12.5px)
+        +mixins.font-size(12.5px)
         letter-spacing: .1px
         min-width: 80px
         flex: 0 0 auto
@@ -128,7 +130,7 @@
     .code-content
       background-color: var(--color-code-content-background)
       color: var(--color-code-content-text)
-      +font-size(11px)
+      +mixins.font-size(11px)
       line-height: 16px
       white-space: pre
       user-select: none
@@ -141,7 +143,7 @@
         color: var(--color-white)
         user-select: text
 
-    +selection
+    +mixins.selection
       background-color: var(--color-code-selection)
 
   select
@@ -150,11 +152,11 @@
     background: transparent
     color: var(--color-code-select-text-default)
     border: 1px solid var(--color-code-select-border-default)
-    +background-image-internal("common/code/select-arrow.svg")
+    +mixins.background-image-internal("common/code/select-arrow.svg")
     background-repeat: no-repeat
     background-position-x: calc(100% - 8px)
     background-position-y: 50%
-    +font-size(13px)
+    +mixins.font-size(13px)
     line-height: 23px
     text-overflow: ellipsis
     white-space: nowrap
@@ -165,7 +167,7 @@
     outline: none
     cursor: pointer
     border-radius: 3px
-    +appearance(none)
+    +mixins.appearance(none)
     transition: all linear 75ms
     transition-property: color, border-color
 

@@ -3,6 +3,9 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 .markdown
   font-family: "Chappe Proxima Nova Regular", sans-serif
 
@@ -52,31 +55,31 @@
     color: var(--color-black)
 
   h1
-    +font-size(20px)
+    +mixins.font-size(20px)
     margin-top: 42px
     margin-bottom: 20px
 
   h2
-    +font-size(18px)
+    +mixins.font-size(18px)
 
   h3
-    +font-size(17.5px)
+    +mixins.font-size(17.5px)
 
   h4
-    +font-size(17px)
+    +mixins.font-size(17px)
 
   h5
-    +font-size(16.5px)
+    +mixins.font-size(16.5px)
 
   h6
-    +font-size(16px)
+    +mixins.font-size(16px)
 
   p,
   ul,
   ol,
   blockquote,
   .emphasis
-    +font-size(14.5px)
+    +mixins.font-size(14.5px)
     line-height: 22px
 
   p
@@ -173,7 +176,7 @@
 
   figure figcaption,
   .embed .embed-caption
-    +font-size(14px)
+    +mixins.font-size(14px)
     color: var(--color-markdown-figure-text)
     text-align: center
     line-height: 18px
@@ -216,7 +219,7 @@
 
           &:after
             background-color: var(--color-markdown-code-block-clipboard-icon-background-copied)
-            +mask-image-internal("common/markdown/code-clipboard-copied.svg")
+            +mixins.mask-image-internal("common/markdown/code-clipboard-copied.svg")
             width: 16px
             height: 12px
 
@@ -257,7 +260,7 @@
       &:after
         content: ""
         background-color: var(--color-markdown-code-block-clipboard-icon-background-default)
-        +mask-image-internal("common/markdown/code-clipboard-copy.svg")
+        +mixins.mask-image-internal("common/markdown/code-clipboard-copy.svg")
         width: 13px
         height: 15px
         transition: background-color linear 75ms
@@ -280,12 +283,12 @@
       overflow-y: hidden
       display: block
 
-    +selection
+    +mixins.selection
       background-color: var(--color-markdown-code-selection)
 
   table
     border-collapse: collapse
-    +font-size(13px)
+    +mixins.font-size(13px)
     text-align: left
     width: 100%
     margin: 26px 0 34px
@@ -390,7 +393,7 @@
         transition: opacity ease-in-out 600ms
 
       .embed-preview
-        +background-image-fill($display: false)
+        +mixins.background-image-fill($display: false)
         cursor: pointer
         opacity: 1
         position: relative
@@ -408,7 +411,7 @@
           $icon-size: 68px
 
           content: ""
-          +background-image-internal-fill("common/markdown/embed-preview-play.svg")
+          +mixins.background-image-internal-fill("common/markdown/embed-preview-play.svg")
           width: $icon-size
           height: $icon-size
           position: absolute
@@ -433,7 +436,7 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-small-width-breakpoint)
+@media screen and (max-width: vars.$screen-small-width-breakpoint)
   .markdown
     figure
       max-width: 80%
@@ -442,7 +445,7 @@
       .embed-wrap
         height: 380px
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   .markdown
     figure
       max-width: none

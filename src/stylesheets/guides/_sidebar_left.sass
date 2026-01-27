@@ -3,6 +3,9 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 #guides
   .panes
     .sidebar
@@ -10,20 +13,20 @@
         .nest
           .nest-category
             .nest-icon
-              +background-image-fill
+              +mixins.background-image-fill
 
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-small-width-breakpoint)
+@media screen and (max-width: vars.$screen-small-width-breakpoint)
   #guides
     .panes
       .sidebar-toggler
         margin-top: 24px
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   #guides
     .panes
       .sidebar-toggler

@@ -3,6 +3,9 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 #search
   display: none
   position: fixed
@@ -81,7 +84,7 @@
 
       &:before
         background-color: var(--color-blue-grey-dark)
-        +mask-image-internal-fill("common/search/field-icon.svg")
+        +mixins.mask-image-internal-fill("common/search/field-icon.svg")
         width: $spotlight-field-icon-size
         height: $spotlight-field-icon-size
         margin-top: (-1 * ($spotlight-field-icon-size * 0.5))
@@ -110,19 +113,19 @@
         border: 0 none
         outline: 0 none
         color: var(--color-black)
-        +font-size(15px)
+        +mixins.font-size(15px)
         letter-spacing: .1px
         padding-left: ($spotlight-padding-sides + $spotlight-field-icon-size + 14px)
         height: 100%
         width: 100%
-        +appearance(none)
+        +mixins.appearance(none)
 
-        +input-placeholder
+        +mixins.input-placeholder
           color: var(--color-search-spotlight-field-placeholder)
           opacity: 1
 
-        +input-search
-          +appearance(none)
+        +mixins.input-search
+          +mixins.appearance(none)
           display: none
 
     .spotlight-results
@@ -167,12 +170,12 @@
           &.spotlight-entry--page
             .spotlight-entry-link
               &:after
-                +mask-image-internal("common/search/result-type-page.svg")
+                +mixins.mask-image-internal("common/search/result-type-page.svg")
 
           &.spotlight-entry--anchor
             .spotlight-entry-link
               &:after
-                +mask-image-internal("common/search/result-type-anchor.svg")
+                +mixins.mask-image-internal("common/search/result-type-anchor.svg")
                 width: ($spotlight-entry-type-icon-size - 2px)
                 height: ($spotlight-entry-type-icon-size - 2px)
 
@@ -190,7 +193,7 @@
             &:after
               content: ""
               background-color: var(--color-black)
-              +mask-image-fill
+              +mixins.mask-image-fill
               width: $spotlight-entry-type-icon-size
               height: $spotlight-entry-type-icon-size
               opacity: .25
@@ -207,17 +210,17 @@
               display: block
 
             .spotlight-entry-path
-              +font-size(12.5px)
+              +mixins.font-size(12.5px)
               line-height: 14px
               opacity: .85
 
             .spotlight-entry-title
-              +font-size(15px)
+              +mixins.font-size(15px)
               line-height: 16px
               margin-top: 6px
 
             .spotlight-entry-preview
-              +font-size(13.5px)
+              +mixins.font-size(13.5px)
               line-height: 18px
               margin-top: 6px
               margin-bottom: -1px
@@ -225,7 +228,7 @@
 
             .spotlight-entry-separator
               background-color: var(--color-black)
-              +mask-image-internal-fill("common/search/result-separator.svg")
+              +mixins.mask-image-internal-fill("common/search/result-separator.svg")
               vertical-align: middle
               width: 4px
               height: 8px
@@ -248,7 +251,7 @@
 
         .spotlight-shortcut
           color: var(--color-search-spotlight-shortcut-text)
-          +font-size(11px)
+          +mixins.font-size(11px)
           letter-spacing: .1px
           margin-top: -1px
           margin-right: 18px
@@ -259,33 +262,33 @@
 
           &.spotlight-shortcut--navigate
             &:before
-              +mask-image-internal("common/search/legend-icon-navigate.svg")
+              +mixins.mask-image-internal("common/search/legend-icon-navigate.svg")
               width: 10px
               height: 13px
 
           &.spotlight-shortcut--go
             &:before
-              +mask-image-internal("common/search/legend-icon-go.svg")
+              +mixins.mask-image-internal("common/search/legend-icon-go.svg")
               width: 10px
               height: 10px
 
           &.spotlight-shortcut--close
             &:before
-              +mask-image-internal("common/search/legend-icon-close.svg")
+              +mixins.mask-image-internal("common/search/legend-icon-close.svg")
               width: 14px
               height: 10px
 
           &:before
             content: ""
             background-color: var(--color-search-spotlight-shortcut-text)
-            +mask-image-fill
+            +mixins.mask-image-fill
             vertical-align: middle
             margin-top: -2px
             margin-right: 4px
 
       .spotlight-error
         color: var(--color-red)
-        +font-size(12px)
+        +mixins.font-size(12px)
         text-align: right
         margin-top: -2px
         padding-left: 10px
@@ -305,15 +308,15 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
+@media screen and (max-width: vars.$screen-medium-width-breakpoint)
   #search
     .spotlight
       padding-top: 76px
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   #search
     .spotlight
-      padding-top: $header-height
+      padding-top: vars.$header-height
 
 // For screens below defined heights
 
@@ -331,14 +334,14 @@
 
 //- Keyframes
 
-+keyframes-fix(search-lock-animation)
++mixins.keyframes-fix(search-lock-animation)
   0%
     opacity: 0
 
   100%
     opacity: 1
 
-+keyframes-fix(search-spotlight-animation)
++mixins.keyframes-fix(search-spotlight-animation)
   0%
     opacity: 0
     transform: scale3d(.99, .99, .99) translate3d(0, 1%, 0)
@@ -346,7 +349,7 @@
   50%
     opacity: 1
 
-+keyframes-fix(search-spotlight-field-spinner-animation)
++mixins.keyframes-fix(search-spotlight-field-spinner-animation)
   0%
     transform: rotate(0deg)
 

@@ -3,8 +3,10 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+
 #guides
   .nest .nest-category .nest-icon,
   .details .details-category .details-icon
     background-color: var(--color-accent-base)
-    +mask-image-internal-fill("guides/common/category-icon-others.svg")
+    +mixins.mask-image-internal-fill("guides/common/category-icon-others.svg")

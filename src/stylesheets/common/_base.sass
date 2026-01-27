@@ -3,25 +3,28 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 body
   font-family: "Chappe Proxima Nova Regular", "Helvetica Neue", Helvetica, Arial, sans-serif
-  font-size: $font-size-base
+  font-size: vars.$font-size-base
   background: var(--color-base-background) !important
   color: var(--color-black)
 
 *
   font-weight: normal !important
-  +font-smoothing(subpixel-antialiased)
+  +mixins.font-smoothing(subpixel-antialiased)
   margin: 0
   padding: 0
 
 .wrapper
-  padding: 0 $wrapper-default-padding-sides
+  padding: 0 vars.$wrapper-default-padding-sides
 
 a
   text-decoration: none
 
-+selection
++mixins.selection
   background-color: var(--color-selection-default)
 
 .text-ellipsis
@@ -39,22 +42,22 @@ a
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
+@media screen and (max-width: vars.$screen-medium-width-breakpoint)
   .wrapper
-    padding-left: $wrapper-medium-padding-sides
-    padding-right: $wrapper-medium-padding-sides
+    padding-left: vars.$wrapper-medium-padding-sides
+    padding-right: vars.$wrapper-medium-padding-sides
 
-@media screen and (max-width: $screen-small-width-breakpoint)
+@media screen and (max-width: vars.$screen-small-width-breakpoint)
   .wrapper
-    padding-left: $wrapper-small-padding-sides
-    padding-right: $wrapper-small-padding-sides
+    padding-left: vars.$wrapper-small-padding-sides
+    padding-right: vars.$wrapper-small-padding-sides
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   .wrapper
-    padding-left: $wrapper-tiny-padding-sides
-    padding-right: $wrapper-tiny-padding-sides
+    padding-left: vars.$wrapper-tiny-padding-sides
+    padding-right: vars.$wrapper-tiny-padding-sides
 
-@media screen and (max-width: $screen-lilliput-width-breakpoint)
+@media screen and (max-width: vars.$screen-lilliput-width-breakpoint)
   .wrapper
-    padding-left: $wrapper-lilliput-padding-sides
-    padding-right: $wrapper-lilliput-padding-sides
+    padding-left: vars.$wrapper-lilliput-padding-sides
+    padding-right: vars.$wrapper-lilliput-padding-sides

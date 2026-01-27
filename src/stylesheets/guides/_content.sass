@@ -3,6 +3,9 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 #guides
   .details
     border-bottom: 1px solid var(--color-guides-details-border)
@@ -20,7 +23,7 @@
 
     .details-upper .details-feedback,
     .details-lower .details-updated
-      +font-size(13.5px)
+      +mixins.font-size(13.5px)
       flex: 0 0 auto
       padding-left: 8px
 
@@ -30,12 +33,12 @@
 
     .details-upper
       .details-category
-        +font-size(16px)
+        +mixins.font-size(16px)
         line-height: 18px
         margin-left: -2px
 
         .details-icon
-          +background-image-fill
+          +mixins.background-image-fill
           width: 19px
           height: 19px
           margin-top: -3px
@@ -54,7 +57,7 @@
 
       .details-title
         color: var(--color-black)
-        +font-size(23px)
+        +mixins.font-size(23px)
         line-height: 24px
 
   .article
@@ -65,13 +68,13 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-small-width-breakpoint)
+@media screen and (max-width: vars.$screen-small-width-breakpoint)
   #guides
     .details
       .details-upper
         padding-left: 48px
 
-@media screen and (max-width: $screen-tiny-width-breakpoint)
+@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
   #guides
     .details
       padding-left: 40px

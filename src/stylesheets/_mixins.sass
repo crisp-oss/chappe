@@ -3,8 +3,14 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "_functions" as functions
+
+// TODO: global variables are not passed anymore at build time
+$cache-buster-hash: "default" !default
+$with-inline-images: false !default
+
 @mixin font-size($font-size)
-  font-size: +font-size-calculate-px($font-size)
+  font-size: +functions.font-size-calculate-px($font-size)
 
 
 @mixin font-face-include($font-family, $font-path, $font-weight, $font-style)

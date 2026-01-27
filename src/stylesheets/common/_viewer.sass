@@ -3,19 +3,21 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_variables" as vars
+
 .viewer
   &[data-viewer-panes="2"],
   &[data-viewer-panes="3"]
     #content
       .panes
         .content
-          margin-left: $content-sidebar-left-width
+          margin-left: vars.$content-sidebar-left-width
 
     #footer
       &:before
         content: ""
         background-color: var(--color-white)
-        width: $content-sidebar-left-width
+        width: vars.$content-sidebar-left-width
         flex: 0 0 auto
 
       .inner
@@ -41,7 +43,7 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: $screen-medium-width-breakpoint)
+@media screen and (max-width: vars.$screen-medium-width-breakpoint)
   .viewer
     &[data-viewer-panes="3"]
       #header
@@ -58,7 +60,7 @@
         .coloring
           background-color: var(--color-header-coloring-background-default)
 
-@media screen and (max-width: $screen-small-width-breakpoint)
+@media screen and (max-width: vars.$screen-small-width-breakpoint)
   .viewer
     &[data-viewer-panes="2"],
     &[data-viewer-panes="3"]

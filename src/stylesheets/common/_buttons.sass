@@ -3,13 +3,16 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "../_mixins" as mixins
+@use "../_variables" as vars
+
 .button
   color: var(--color-white)
   background-color: var(--color-button-default)
-  +font-size(13px)
+  +mixins.font-size(13px)
   user-select: none
-  line-height: $button-default-height
-  height: $button-default-height
+  line-height: vars.$button-default-height
+  height: vars.$button-default-height
   padding: 0 20px
   display: inline-block
   box-shadow: 0 1px 0 0 var(--color-button-shadow)
@@ -50,11 +53,11 @@
       border-width: 1.5px
 
   &.button--small
-    line-height: $button-small-height
-    height: $button-small-height
+    line-height: vars.$button-small-height
+    height: vars.$button-small-height
 
   &.button--large
-    +font-size(14px)
+    +mixins.font-size(14px)
     padding: 0 24px
 
   &,
