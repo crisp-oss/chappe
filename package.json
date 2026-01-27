@@ -51,7 +51,7 @@
     "gulp-file": "0.4.x",
     "gulp-jade": "1.1.x",
     "gulp-babel": "6.1.x",
-    "gulp-sass": "5.1.x",
+    "gulp-sass": "6.0.x",
     "gulp-sass-variables": "1.2.x",
     "gulp-sitemap": "8.0.x",
     "gulp-inline-image": "1.0.x",
