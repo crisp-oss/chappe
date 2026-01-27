@@ -44,7 +44,6 @@
     "ora": "5.4.x",
     "del": "6.0.x",
     "glob": "7.2.x",
-    "compass-importer": "0.4.x",
     "sass": "1.89.x",
     "gulp": "4.0.x",
     "gulp-connect": "5.7.x",

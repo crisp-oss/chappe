@@ -13,7 +13,6 @@ var lodash               = require("lodash");
 var del                  = require("del");
 var glob                 = require("glob");
 var merge                = require("merge-stream");
-var compass_importer     = require("compass-importer");
 var marked               = require("marked").marked;
 var remove_markdown      = require("@tommoor/remove-markdown");
 var MiniSearch           = require("minisearch");
@@ -780,7 +779,6 @@ var sass = function() {
     .pipe(
       gulp_sass({
         outputStyle         : "expanded",
-        importer            : compass_importer,
         quietDeps           : true,
 
         silenceDeprecations : [

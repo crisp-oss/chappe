@@ -27,10 +27,10 @@
 
     padding-top: 90px
     z-index: 2
-    +animation-name(search-spotlight-animation)
-    +animation-delay(.1s)
-    +animation-duration(.2s)
-    +animation-fill-mode(both)
+    animation-name: search-spotlight-animation
+    animation-delay: .1s
+    animation-duration: .2s
+    animation-fill-mode: both
 
     &[data-has-results="false"]
       .spotlight-results
@@ -99,11 +99,11 @@
         opacity: .75
         border-radius: 100%
         display: none
-        +animation-name(search-spotlight-field-spinner-animation)
-        +animation-duration(1s)
-        +animation-timing-function(linear)
-        +animation-fill-mode(both)
-        +animation-iteration-count(infinite)
+        animation-name: search-spotlight-field-spinner-animation
+        animation-duration: 1s
+        animation-timing-function: linear
+        animation-fill-mode: both
+        animation-iteration-count: infinite
 
       .spotlight-input
         background: transparent
@@ -296,9 +296,9 @@
     content: ""
     background-color: var(--color-search-lock-background)
     z-index: 1
-    +animation-name(search-lock-animation)
-    +animation-duration(.1s)
-    +animation-fill-mode(both)
+    animation-name: search-lock-animation
+    animation-duration: .1s
+    animation-fill-mode: both
 
 
 //- Media Queries
