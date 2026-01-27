@@ -335,7 +335,7 @@ $part-chunk-padding-sides: 24px;
 
             .markdown {
               hyphens: auto;
-              word-break: break-word;
+              word-break: break-word; /* stylelint-disable-line declaration-property-value-keyword-no-deprecated */
 
               p {
                 line-height: 20px;
@@ -622,7 +622,7 @@ $part-chunk-padding-sides: 24px;
             .examples-detail-value {
               color: var(--color-references-examples-detail-value-text);
               line-height: 16px;
-              word-break: break-word;
+              word-break: break-word; /* stylelint-disable-line declaration-property-value-keyword-no-deprecated */
               margin-left: 12px;
               flex: 1;
 

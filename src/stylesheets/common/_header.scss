@@ -78,10 +78,7 @@
     align-items: center;
     flex-direction: row;
     position: relative;
-  }
 
-  .menu .menu-item,
-  .extras .extras-item {
     &::after {
       content: "";
       background-color: var(--color-grey);

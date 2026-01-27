@@ -372,7 +372,7 @@
     td {
       border: 1px solid var(--color-markdown-table-cell-border);
       line-height: 18px;
-      word-break: break-word;
+      word-break: break-word; /* stylelint-disable-line declaration-property-value-keyword-no-deprecated */
       hyphens: auto;
       padding: 6px 10px 6px 16px;
     }
