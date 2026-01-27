@@ -63,7 +63,6 @@
     "gulp-rename": "2.0.x",
     "gulp-replace": "1.1.x",
     "gulp-pug-lint": "0.1.x",
-    "gulp-sass-lint": "1.4.x",
     "gulp-jshint": "2.1.x",
     "gulp-jscs": "4.1.x",
     "gulp-sizereport": "1.2.x",
