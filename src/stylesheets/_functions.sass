@@ -3,6 +3,8 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "sass:math"
+
 @function background-image-width($image)
   $image-width: image-width("1x/#{$image}")
 
@@ -22,18 +24,18 @@
 
 
 @function font-size-calculate-percent($font-size)
-  $calculated-font-size: ($font-resize-ratio * ($font-size / $font-size-base)) * 100%
+  $calculated-font-size: ($font-resize-ratio * math.div($font-size, $font-size-base)) * 100%
 
   @return $calculated-font-size
 
 
 @function font-size-calculate-em($font-size)
-  $calculated-font-size: ($font-resize-ratio * ($font-size / $font-size-base)) * 1em
+  $calculated-font-size: ($font-resize-ratio * math.div($font-size, $font-size-base)) * 1em
 
   @return $calculated-font-size
 
 
 @function font-size-calculate-rem($font-size, $relative-font-size)
-  $calculated-font-size: ($font-resize-ratio * ($font-size / $relative-font-size)) * 1rem
+  $calculated-font-size: ($font-resize-ratio * math.div($font-size, $relative-font-size)) * 1rem
 
   @return $calculated-font-size

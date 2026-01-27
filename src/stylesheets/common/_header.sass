@@ -157,7 +157,7 @@
           +mask-image-internal-fill("common/header/actions-dropdown-external.svg")
           width: $icon-size
           height: $icon-size
-          margin-top: (-1 * ($icon-size / 2))
+          margin-top: (-1 * ($icon-size * 0.5))
           opacity: .3
           position: absolute
           right: ($dropdown-link-padding-sides + 1px)
@@ -274,7 +274,7 @@
     margin: 0 32px
     cursor: pointer
     position: relative
-    border-radius: ($coloring-height / 2)
+    border-radius: ($coloring-height * 0.5)
 
     &:hover
       .toggle
@@ -288,7 +288,7 @@
 
     &[data-mode="light"]
       .toggle
-        margin-left: (-1 * ($coloring-toggle-size / 4))
+        margin-left: (-1 * ($coloring-toggle-size * 0.25))
 
         &:before
           background-color: var(--color-header-coloring-toggle-icon-light-background)
@@ -298,7 +298,7 @@
 
     &[data-mode="dark"]
       .toggle
-        margin-left: ($coloring-width - (($coloring-toggle-size + 2px) - ($coloring-toggle-size / 4)))
+        margin-left: ($coloring-width - (($coloring-toggle-size + 2px) - ($coloring-toggle-size * 0.25)))
 
         &:before
           background-color: var(--color-header-coloring-toggle-icon-dark-background)
@@ -311,7 +311,7 @@
       border: 1px solid var(--color-header-coloring-toggle-border-default)
       height: $coloring-toggle-size
       width: $coloring-toggle-size
-      margin-top: (-1 * (($coloring-toggle-size / 2) - ($coloring-height / 2) + 1px))
+      margin-top: (-1 * (($coloring-toggle-size * 0.5) - ($coloring-height * 0.5) + 1px))
       top: 0
       left: 0
       display: flex
