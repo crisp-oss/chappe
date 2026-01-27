@@ -484,7 +484,7 @@ class ChappeCLI {
     // Setup process events
     process.once("exit", (code) => {
       if (code > 0) {
-        // Self-kill, because apparently event if calling process.exit(1), the \
+        // Self-kill, because apparently even if calling process.exit(1), the \
         //   process stays active and sticky in certain cases (due to \
         //   registered listeners and file descriptors in some Gulp libraries).
         // Warning: this is a bit hacky!
