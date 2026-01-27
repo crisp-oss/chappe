@@ -36,7 +36,7 @@ var gulp_rename          = require("gulp-rename");
 var gulp_replace         = require("gulp-replace");
 var gulp_header          = require("gulp-header");
 var gulp_pug_lint        = require("gulp-pug-lint");
-var gulp_sass_lint       = require("gulp-sass-lint");
+var gulp_stylelint       = require("gulp-stylelint-esm").default;
 var gulp_jshint          = require("gulp-jshint");
 var gulp_jscs            = require("gulp-jscs");
 var gulp_sizereport      = require("gulp-sizereport");
@@ -1668,17 +1668,20 @@ var lint_sass_stylesheets = function() {
     CONTEXT.PATH_SOURCES + "/stylesheets/**/*.sass"
   )
     .pipe(
-      gulp_sass_lint({
-        configFile : path.join(
-          CONTEXT.PATH_CHAPPE, ".sass-lint.yml"
-        )
+      gulp_stylelint({
+        failAfterError : true,
+
+        configFile     : path.join(
+          CONTEXT.PATH_CHAPPE, ".stylelintrc.yml"
+        ),
+
+        reporters      : [
+          {
+            formatter : "verbose",
+            console   : true
+          }
+        ]
       })
-    )
-    .pipe(
-      gulp_sass_lint.format()
-    )
-    .pipe(
-      gulp_sass_lint.failOnError()
     );
 };
 
