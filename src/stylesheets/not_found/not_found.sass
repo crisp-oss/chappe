@@ -3,8 +3,11 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_mixins" as mixins
-@use "../_variables" as vars
+@use "../_config" with (
+  $inlining: $use-inline-images
+)
+
+@use "../_globals" as *
 
 #not_found
   text-align: center
@@ -12,7 +15,7 @@
   padding-bottom: 86px
 
   .illustration
-    +mixins.background-image-fill
+    +background-image-fill
     max-width: 468px
     width: 100%
     height: 320px
@@ -29,7 +32,7 @@
       &:before
         content: ""
         background-color: var(--color-white)
-        +mixins.mask-image-internal-fill("not_found/action-home-icon.svg")
+        +mask-image-internal-fill("not_found/action-home-icon.svg")
         width: 20px
         height: 16px
         margin-top: -2px
@@ -43,11 +46,11 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: vars.$screen-small-width-breakpoint)
+@media screen and (max-width: $screen-small-width-breakpoint)
   #not_found
     padding-top: 52px
 
-@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
+@media screen and (max-width: $screen-tiny-width-breakpoint)
   #not_found
     padding-top: 42px
     padding-bottom: 64px
@@ -55,7 +58,7 @@
     .illustration
       height: 260px
 
-@media screen and (max-width: vars.$screen-lilliput-width-breakpoint)
+@media screen and (max-width: $screen-lilliput-width-breakpoint)
   #not_found
     .actions
       .button

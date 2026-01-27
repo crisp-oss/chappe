@@ -3,8 +3,11 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_mixins" as mixins
-@use "../_variables" as vars
+@use "../_config" with (
+  $inlining: $use-inline-images
+)
+
+@use "../_globals" as *
 
 #home
   text-align: center
@@ -12,7 +15,7 @@
   padding-bottom: 100px
 
   .illustration
-    +mixins.background-image-fill
+    +background-image-fill
     max-width: 560px
     width: 100%
     height: 280px
@@ -34,7 +37,7 @@
       &:after
         content: ""
         background-color: var(--color-accent-base)
-        +mixins.mask-image-internal-fill("home/action-quickstart-icon.svg")
+        +mask-image-internal-fill("home/action-quickstart-icon.svg")
         width: 6px
         height: 9px
         margin-left: 17px
@@ -48,15 +51,15 @@
     .bulletpoint
       &.bulletpoint--quickstart
         &:before
-          +mixins.mask-image-internal("home/bulletpoint-icon-quickstart.svg")
+          +mask-image-internal("home/bulletpoint-icon-quickstart.svg")
 
       &.bulletpoint--guides
         &:before
-          +mixins.mask-image-internal("home/bulletpoint-icon-guides.svg")
+          +mask-image-internal("home/bulletpoint-icon-guides.svg")
 
       &.bulletpoint--references
         &:before
-          +mixins.mask-image-internal("home/bulletpoint-icon-references.svg")
+          +mask-image-internal("home/bulletpoint-icon-references.svg")
 
   .support
     margin-top: 62px
@@ -72,13 +75,13 @@
 
       .support-question
         color: var(--color-black)
-        +mixins.font-size(15.5px)
+        +font-size(15.5px)
         line-height: 20px
         margin-top: -2px
 
       .support-label
         color: var(--color-blue-grey)
-        +mixins.font-size(14.5px)
+        +font-size(14.5px)
         line-height: 18px
         margin-top: 5px
 
@@ -93,7 +96,7 @@
         &:before
           content: ""
           background-color: var(--color-white)
-          +mixins.mask-image-internal-fill("home/support-chat-icon.svg")
+          +mask-image-internal-fill("home/support-chat-icon.svg")
           width: 20px
           height: 18px
           margin-top: -1px
@@ -107,7 +110,7 @@
 
 // For screens below defined widths
 
-@media screen and (max-width: vars.$screen-small-width-breakpoint)
+@media screen and (max-width: $screen-small-width-breakpoint)
   #home
     padding-top: 52px
 
@@ -117,7 +120,7 @@
     .bulletpoints
       margin-top: 60px
 
-@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
+@media screen and (max-width: $screen-tiny-width-breakpoint)
   #home
     padding-top: 42px
     padding-bottom: 80px
@@ -136,7 +139,7 @@
           margin-left: 0
           margin-top: 18px
 
-@media screen and (max-width: vars.$screen-lilliput-width-breakpoint)
+@media screen and (max-width: $screen-lilliput-width-breakpoint)
   #home
     .actions .button,
     .support .support-action .button

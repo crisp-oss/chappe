@@ -3,8 +3,7 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_mixins" as mixins
-@use "../_variables" as vars
+@use "../_globals" as *
 
 #references
   .panes
@@ -13,25 +12,25 @@
         .context .context-name .context-icon,
         .nest .nest-category .nest-icon
           background-color: var(--color-accent-base)
-          +mixins.mask-image-fill
+          +mask-image-fill
 
         .nest
           .nest-category
             .nest-icon
-              +mixins.mask-image-internal("references/sidebar/category-icon-default.svg")
+              +mask-image-internal("references/sidebar/category-icon-default.svg")
 
 
 //- Media Queries
 
 // For screens below defined widths
 
-@media screen and (max-width: vars.$screen-small-width-breakpoint)
+@media screen and (max-width: $screen-small-width-breakpoint)
   #references
     .panes
       .sidebar-toggler
         margin-top: 26px
 
-@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
+@media screen and (max-width: $screen-tiny-width-breakpoint)
   #references
     .panes
       .sidebar-toggler

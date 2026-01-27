@@ -3,8 +3,7 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_mixins" as mixins
-@use "../_variables" as vars
+@use "../_globals" as *
 
 $part-chunk-padding-sides: 24px
 
@@ -40,14 +39,14 @@ $part-chunk-padding-sides: 24px
 
       .details-title
         color: var(--color-black)
-        +mixins.font-size(21px)
+        +font-size(21px)
         line-height: 22px
         margin: 0
         flex: 1
 
       .details-updated
         color: var(--color-references-details-updated-text)
-        +mixins.font-size(13.5px)
+        +font-size(13.5px)
         flex: 0 0 auto
         padding-left: 8px
 
@@ -59,7 +58,7 @@ $part-chunk-padding-sides: 24px
   .group,
   .introduction,
   .details.details--with-sidebar-right
-    padding-right: (vars.$content-sidebar-right-default-width + $part-chunk-padding-sides)
+    padding-right: ($content-sidebar-right-default-width + $part-chunk-padding-sides)
 
   .group
     margin-bottom: 26px
@@ -67,7 +66,7 @@ $part-chunk-padding-sides: 24px
     &,
     .group-anchor
       color: var(--color-black)
-      +mixins.font-size(19px)
+      +font-size(19px)
       line-height: 20px
 
     .group-anchor
@@ -158,15 +157,15 @@ $part-chunk-padding-sides: 24px
       &:before
         background-color: var(--color-references-separator-content)
         left: $part-chunk-padding-sides
-        right: vars.$content-sidebar-right-default-width
+        right: $content-sidebar-right-default-width
 
       &:after
         background-color: var(--color-references-separator-sidebar)
-        width: vars.$content-sidebar-right-default-width
+        width: $content-sidebar-right-default-width
         right: 0
 
       .specification
-        $specification-max-width-outer-offset: (vars.$content-sidebar-right-default-width + (2 * $part-chunk-padding-sides))
+        $specification-max-width-outer-offset: ($content-sidebar-right-default-width + (2 * $part-chunk-padding-sides))
 
         max-width: calc(100% - #{$specification-max-width-outer-offset})
         flex: 1
@@ -177,7 +176,7 @@ $part-chunk-padding-sides: 24px
           &,
           .request-title-anchor
             color: var(--color-black)
-            +mixins.font-size(17.5px)
+            +font-size(17.5px)
 
         .request-specification
           border: 1px solid var(--color-grey)
@@ -201,7 +200,7 @@ $part-chunk-padding-sides: 24px
             .request-target-method
               background-color: var(--color-black)
               color: var(--color-white)
-              +mixins.font-size(13px)
+              +font-size(13px)
               letter-spacing: -.1px
               user-select: none
               padding: 0 10px
@@ -224,7 +223,7 @@ $part-chunk-padding-sides: 24px
               &[data-copy-state="copied"]
                 .request-target-copy
                   background-color: var(--color-green)
-                  +mixins.mask-image-internal("references/content/request-target-copied.svg")
+                  +mask-image-internal("references/content/request-target-copied.svg")
                   width: 14px
                   height: 11px
                   margin-right: -1px
@@ -244,7 +243,7 @@ $part-chunk-padding-sides: 24px
               .request-target-copy
                 content: ""
                 background-color: var(--color-black)
-                +mixins.mask-image-internal-fill("references/content/request-target-copy.svg")
+                +mask-image-internal-fill("references/content/request-target-copy.svg")
                 width: 11px
                 height: 12px
                 margin-left: 5px
@@ -254,7 +253,7 @@ $part-chunk-padding-sides: 24px
 
             .request-target-path
               color: var(--color-black)
-              +mixins.font-size(12px)
+              +font-size(12px)
               text-overflow: ellipsis
               white-space: nowrap
               overflow: hidden
@@ -288,14 +287,14 @@ $part-chunk-padding-sides: 24px
             .request-format-title
               border-bottom: 1px solid var(--color-references-separator-content)
               color: var(--color-black)
-              +mixins.font-size(15px)
+              +font-size(15px)
               user-select: none
               margin-top: 18px
               margin-bottom: 11px
               padding-bottom: 6px
 
             .request-format-keys
-              +mixins.font-size(13.5px)
+              +font-size(13.5px)
 
               .request-format-key
                 margin-bottom: 6px
@@ -371,7 +370,7 @@ $part-chunk-padding-sides: 24px
                     line-height: inherit
 
                   code
-                    +mixins.font-size(11.5px)
+                    +font-size(11.5px)
                     padding: 1px 4px
 
                   p
@@ -381,7 +380,7 @@ $part-chunk-padding-sides: 24px
                       margin-bottom: 0
 
                   ul
-                    +mixins.font-size(12px)
+                    +font-size(12px)
                     line-height: 14px
                     margin-top: 6px !important
                     margin-bottom: 12px !important
@@ -425,7 +424,7 @@ $part-chunk-padding-sides: 24px
               &:before
                 content: ""
                 background-color: var(--color-black)
-                +mixins.mask-image-internal-fill("references/content/request-format-toggle-button-arrow.svg")
+                +mask-image-internal-fill("references/content/request-format-toggle-button-arrow.svg")
                 width: 8px
                 height: 6px
                 margin-right: 9px
@@ -445,7 +444,7 @@ $part-chunk-padding-sides: 24px
 
                 color: var(--color-references-request-format-toggle-count-text)
                 background-color: var(--color-references-request-format-toggle-count-background)
-                +mixins.font-size(10px)
+                +font-size(10px)
                 text-align: center
                 line-height: $toggle-count-footprint
                 min-width: $toggle-count-footprint
@@ -470,7 +469,7 @@ $part-chunk-padding-sides: 24px
               animation-fill-mode: both
 
       .examples
-        width: vars.$content-sidebar-right-default-width
+        width: $content-sidebar-right-default-width
         flex: 0 0 auto
 
         .examples-wrap
@@ -486,7 +485,7 @@ $part-chunk-padding-sides: 24px
             &:last-of-type
               margin-bottom: 0
 
-            +mixins.selection
+            +selection
               background-color: var(--color-references-examples-selection)
               color: var(--color-white)
 
@@ -497,7 +496,7 @@ $part-chunk-padding-sides: 24px
 
             .examples-detail-value
               color: var(--color-references-examples-detail-value-text)
-              +mixins.font-size(13.5px)
+              +font-size(13.5px)
               line-height: 16px
               word-break: break-word
               margin-left: 12px
@@ -523,30 +522,30 @@ $part-chunk-padding-sides: 24px
 
 // For screens below defined widths
 
-@media screen and (max-width: vars.$screen-large-width-breakpoint)
+@media screen and (max-width: $screen-large-width-breakpoint)
   #content
     .group,
     .introduction,
     .details.details--with-sidebar-right
-      padding-right: (vars.$content-sidebar-right-large-width + $part-chunk-padding-sides)
+      padding-right: ($content-sidebar-right-large-width + $part-chunk-padding-sides)
 
     .parts
       .part
         .specification
-          $specification-max-width-outer-offset: (vars.$content-sidebar-right-large-width + (2 * $part-chunk-padding-sides))
+          $specification-max-width-outer-offset: ($content-sidebar-right-large-width + (2 * $part-chunk-padding-sides))
 
           max-width: calc(100% - #{$specification-max-width-outer-offset})
 
         .examples
-          width: vars.$content-sidebar-right-large-width
+          width: $content-sidebar-right-large-width
 
         &:before
-          right: vars.$content-sidebar-right-large-width
+          right: $content-sidebar-right-large-width
 
         &:after
-          width: vars.$content-sidebar-right-large-width
+          width: $content-sidebar-right-large-width
 
-@media screen and (max-width: vars.$screen-medium-width-breakpoint)
+@media screen and (max-width: $screen-medium-width-breakpoint)
   #content
     .group,
     .introduction,
@@ -567,7 +566,7 @@ $part-chunk-padding-sides: 24px
         &:before
           right: $part-chunk-padding-sides
 
-@media screen and (max-width: vars.$screen-small-width-breakpoint)
+@media screen and (max-width: $screen-small-width-breakpoint)
   #content
     .details
       .details-inner
@@ -577,20 +576,20 @@ $part-chunk-padding-sides: 24px
     .introduction,
     .details.details--with-sidebar-right,
     .parts .specification
-      padding: 0 vars.$wrapper-small-padding-sides
+      padding: 0 $wrapper-small-padding-sides
 
     .parts
       .part
         &:before
-          left: vars.$wrapper-small-padding-sides
-          right: vars.$wrapper-small-padding-sides
+          left: $wrapper-small-padding-sides
+          right: $wrapper-small-padding-sides
 
         .specification
-          $specification-max-width-outer-offset: (2 * vars.$wrapper-small-padding-sides)
+          $specification-max-width-outer-offset: (2 * $wrapper-small-padding-sides)
 
           max-width: calc(100% - #{$specification-max-width-outer-offset})
 
-@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
+@media screen and (max-width: $screen-tiny-width-breakpoint)
   #content
     .details
       .details-inner
@@ -615,7 +614,7 @@ $part-chunk-padding-sides: 24px
 
 //- Keyframes
 
-+mixins.keyframes-fix(references-content-request-format-keys-animation)
++keyframes-fix(references-content-request-format-keys-animation)
   0%
     opacity: 0
 

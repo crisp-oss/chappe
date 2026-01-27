@@ -3,8 +3,11 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
-@use "../_mixins" as mixins
-@use "../_variables" as vars
+@use "../_config" with (
+  $inlining: $use-inline-images
+)
+
+@use "../_globals" as *
 
 #changes
   position: relative
@@ -48,7 +51,7 @@
       .navigate-link
         background-color: transparent
         color: var(--color-black)
-        +mixins.font-size(14px)
+        +font-size(14px)
         letter-spacing: -.12px
         text-align: left
         line-height: 24px
@@ -75,7 +78,7 @@
 
     .title
       color: var(--color-black)
-      +mixins.font-size(22px)
+      +font-size(22px)
 
     .notice
       background: var(--color-changes-notice-background)
@@ -100,7 +103,7 @@
 
         .month-name
           color: var(--color-black)
-          +mixins.font-size(22px)
+          +font-size(22px)
 
         .month-events
           margin-top: 25px
@@ -134,7 +137,7 @@
 
             .month-event-group,
             .month-event-text
-              +mixins.font-size(14px)
+              +font-size(14px)
               line-height: 20px
 
             .month-event-group
@@ -163,7 +166,7 @@
       .content-aside
         padding-right: 80px
 
-@media screen and (max-width: vars.$screen-tiny-width-breakpoint)
+@media screen and (max-width: $screen-tiny-width-breakpoint)
   #changes
     .navigate
       text-align: center

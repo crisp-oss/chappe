@@ -3,11 +3,9 @@
 // Copyright 2021, Crisp IM SAS
 // Author: Valerian Saliou <valerian@valeriansaliou.name>
 
+@use "_config" as config
 @use "_functions" as functions
-
-// TODO: global variables are not passed anymore at build time
-$cache-buster-hash: "default" !default
-$with-inline-images: false !default
+@use "_variables" as vars
 
 @mixin font-size($font-size)
   font-size: +functions.font-size-calculate-px($font-size)
@@ -16,17 +14,17 @@ $with-inline-images: false !default
 @mixin font-face-include($font-family, $font-path, $font-weight, $font-style)
   @font-face
     font-family: $font-family
-    src: url('/static/fonts/#{$font-path}.woff2?#{$cache-buster-hash}') format('woff2'), url('/static/fonts/#{$font-path}.woff?#{$cache-buster-hash}') format('woff')
+    src: url('/static/fonts/#{$font-path}.woff2?#{vars.$cache-buster-hash}') format('woff2'), url('/static/fonts/#{$font-path}.woff?#{vars.$cache-buster-hash}') format('woff')
     font-weight: $font-weight
     font-style: $font-style
     font-display: swap
 
 
 @mixin background-image-internal($image)
-  @if $with-inline-images == true
+  @if config.$inlining == true
     background-image: inline-image($image)
   @else
-    background-image: url('/static/images/#{$image}?#{$cache-buster-hash}')
+    background-image: url('/static/images/#{$image}?#{vars.$cache-buster-hash}')
 
 
 @mixin background-image-fill($display: true)
@@ -39,7 +37,7 @@ $with-inline-images: false !default
 
 
 @mixin background-image-external($image)
-  background-image: url('/static/images/#{$image}?#{$cache-buster-hash}')
+  background-image: url('/static/images/#{$image}?#{vars.$cache-buster-hash}')
 
 @mixin background-image-internal-fill($image, $display: true)
   +background-image-internal($image)
@@ -52,10 +50,10 @@ $with-inline-images: false !default
 
 
 @mixin mask-image-internal($image)
-  @if $with-inline-images == true
+  @if config.$inlining == true
     +mask-image(inline-image($image))
   @else
-    +mask-image(url('/static/images/#{$image}?#{$cache-buster-hash}'))
+    +mask-image(url('/static/images/#{$image}?#{vars.$cache-buster-hash}'))
 
 
 @mixin mask-image-fill($display: true)

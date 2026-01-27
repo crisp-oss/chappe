@@ -772,8 +772,7 @@ var sass = function() {
   )
     .pipe(
       gulp_sass_variables({
-        "$with-inline-images" : CONTEXT.IS_PRODUCTION,
-        "$cache-buster-hash"  : CONTEXT.CONFIG.REVISION
+        "$use-inline-images" : CONTEXT.IS_PRODUCTION
       })
     )
     .pipe(
@@ -960,6 +959,27 @@ var replace_javascripts = function() {
     )
     .pipe(
       gulp_connect.reload()
+    );
+};
+
+
+/*
+  Replaces values from stylesheet files
+*/
+const replace_stylesheets = function() {
+  return gulp.src(
+    CONTEXT.PATH_BUILD_ASSETS + "/stylesheets/**/*.css"
+  )
+    .pipe(
+      gulp_replace(
+        "@@revision",
+        CONTEXT.CONFIG.REVISION
+      )
+    )
+    .pipe(
+      gulp.dest(
+        CONTEXT.PATH_BUILD_ASSETS + "/stylesheets"
+      )
     );
 };
 
@@ -1453,6 +1473,7 @@ var build_resources = function() {
         ),
 
         sass,
+        replace_stylesheets,
         css_inline_images
       ),
 
@@ -1570,6 +1591,7 @@ var watch_resources = function(next) {
 
       gulp.series(
         sass,
+        replace_stylesheets,
         css_inline_images
       )
     );

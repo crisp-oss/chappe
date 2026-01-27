@@ -5,368 +5,368 @@
 
 @use "sass:color"
 
-@use "../_colors" as colors
+@use "../_globals" as *
 
 .appearance
   // Palette
-  --color-white: #{colors.$white}
-  --color-black: #{colors.$black}
-  --color-grey: #{colors.$grey}
-  --color-grey-light: #{colors.$grey-light}
-  --color-grey-dark: #{colors.$grey-dark}
-  --color-blue-black: #{colors.$blue-black}
-  --color-blue-grey: #{colors.$blue-grey}
-  --color-blue-grey-light: #{colors.$blue-grey-light}
-  --color-blue-grey-dark: #{colors.$blue-grey-dark}
-  --color-green: #{colors.$green}
-  --color-red: #{colors.$red}
+  --color-white: #{$color-white}
+  --color-black: #{$color-black}
+  --color-grey: #{$color-grey}
+  --color-grey-light: #{$color-grey-light}
+  --color-grey-dark: #{$color-grey-dark}
+  --color-blue-black: #{$color-blue-black}
+  --color-blue-grey: #{$color-blue-grey}
+  --color-blue-grey-light: #{$color-blue-grey-light}
+  --color-blue-grey-dark: #{$color-blue-grey-dark}
+  --color-green: #{$color-green}
+  --color-red: #{$color-red}
 
   // Base
-  --color-base: #{colors.$base}
-  --color-base-background: #{colors.$base-background}
+  --color-base: #{$color-base}
+  --color-base-background: #{$color-base-background}
 
   // Selection
-  --color-selection-default: #{colors.$selection-default}
+  --color-selection-default: #{$color-selection-default}
 
   // Buttons
   --color-button-default: var(--color-accent-base)
   --color-button-active: var(--color-accent-active)
-  --color-button-shadow: #{rgba(colors.$black, .1)}
+  --color-button-shadow: #{rgba($color-black, .1)}
 
   // Badges
-  --color-badge-black: #{colors.$badge-black}
-  --color-badge-white: #{colors.$badge-white}
-  --color-badge-blue: #{colors.$badge-blue}
-  --color-badge-green: #{colors.$badge-green}
-  --color-badge-yellow: #{colors.$badge-yellow}
-  --color-badge-red: #{colors.$badge-red}
-  --color-badge-special-background: #{rgba(colors.$badge-special-dark, .15)}
-  --color-badge-special-border: #{rgba(colors.$white, .25)}
-  --color-badge-special-text: #{colors.$badge-special-light}
+  --color-badge-black: #{$color-badge-black}
+  --color-badge-white: #{$color-badge-white}
+  --color-badge-blue: #{$color-badge-blue}
+  --color-badge-green: #{$color-badge-green}
+  --color-badge-yellow: #{$color-badge-yellow}
+  --color-badge-red: #{$color-badge-red}
+  --color-badge-special-background: #{rgba($color-badge-special-dark, .15)}
+  --color-badge-special-border: #{rgba($color-white, .25)}
+  --color-badge-special-text: #{$color-badge-special-light}
 
   // Methods
-  --color-method-get-head-light: #{colors.$method-get-head-light}
-  --color-method-get-head-dark: #{colors.$method-get-head-dark}
-  --color-method-post-light: #{colors.$method-post-light}
-  --color-method-post-dark: #{colors.$method-post-dark}
-  --color-method-put-patch-light: #{colors.$method-put-patch-light}
-  --color-method-put-patch-dark: #{colors.$method-put-patch-dark}
-  --color-method-delete-light: #{colors.$method-delete-light}
-  --color-method-delete-dark: #{colors.$method-delete-dark}
+  --color-method-get-head-light: #{$color-method-get-head-light}
+  --color-method-get-head-dark: #{$color-method-get-head-dark}
+  --color-method-post-light: #{$color-method-post-light}
+  --color-method-post-dark: #{$color-method-post-dark}
+  --color-method-put-patch-light: #{$color-method-put-patch-light}
+  --color-method-put-patch-dark: #{$color-method-put-patch-dark}
+  --color-method-delete-light: #{$color-method-delete-light}
+  --color-method-delete-dark: #{$color-method-delete-dark}
 
   // Status
-  --color-status-default-text: #{colors.$status-default}
-  --color-status-healthy-text: #{colors.$status-healthy}
-  --color-status-sick-text: #{colors.$status-sick}
-  --color-status-dead-text: #{colors.$status-dead}
+  --color-status-default-text: #{$color-status-default}
+  --color-status-healthy-text: #{$color-status-healthy}
+  --color-status-sick-text: #{$color-status-sick}
+  --color-status-dead-text: #{$color-status-dead}
 
   // Viewer
-  --color-viewer-panes-footer-border: #{rgba(colors.$grey, .5)}
+  --color-viewer-panes-footer-border: #{rgba($color-grey, .5)}
 
   // Markdown
   --color-markdown-title-small-text: var(--color-blue-black)
   --color-markdown-list-item-bullet: var(--color-blue-black)
-  --color-markdown-code-inline-background: #{colors.$markdown-code-inline-light}
-  --color-markdown-code-inline-border: #{colors.$markdown-code-inline}
-  --color-markdown-code-inline-text: #{colors.$markdown-code-inline-dark}
-  --color-markdown-code-block-background: #{colors.$markdown-code-block}
-  --color-markdown-code-block-text: #{colors.$white}
-  --color-markdown-code-block-clipboard-background-default: #{color.adjust(colors.$markdown-code-block, $lightness: 3%)}
-  --color-markdown-code-block-clipboard-background-hover: #{color.adjust(colors.$markdown-code-block, $lightness: 7%)}
-  --color-markdown-code-block-clipboard-background-active: #{color.adjust(colors.$markdown-code-block, $lightness: 5%)}
-  --color-markdown-code-block-clipboard-border-default: #{rgba(colors.$blue-grey-light, .25)}
-  --color-markdown-code-block-clipboard-border-hover: #{rgba(colors.$blue-grey-light, .5)}
-  --color-markdown-code-block-clipboard-border-active: #{rgba(colors.$blue-grey-light, .35)}
-  --color-markdown-code-block-clipboard-border-copied: #{color.adjust(colors.$green, $lightness: 7%)}
-  --color-markdown-code-block-clipboard-icon-background-default: #{colors.$blue-grey-light}
+  --color-markdown-code-inline-background: #{$color-markdown-code-inline-light}
+  --color-markdown-code-inline-border: #{$color-markdown-code-inline}
+  --color-markdown-code-inline-text: #{$color-markdown-code-inline-dark}
+  --color-markdown-code-block-background: #{$color-markdown-code-block}
+  --color-markdown-code-block-text: #{$color-white}
+  --color-markdown-code-block-clipboard-background-default: #{color.adjust($color-markdown-code-block, $lightness: 3%)}
+  --color-markdown-code-block-clipboard-background-hover: #{color.adjust($color-markdown-code-block, $lightness: 7%)}
+  --color-markdown-code-block-clipboard-background-active: #{color.adjust($color-markdown-code-block, $lightness: 5%)}
+  --color-markdown-code-block-clipboard-border-default: #{rgba($color-blue-grey-light, .25)}
+  --color-markdown-code-block-clipboard-border-hover: #{rgba($color-blue-grey-light, .5)}
+  --color-markdown-code-block-clipboard-border-active: #{rgba($color-blue-grey-light, .35)}
+  --color-markdown-code-block-clipboard-border-copied: #{color.adjust($color-green, $lightness: 7%)}
+  --color-markdown-code-block-clipboard-icon-background-default: #{$color-blue-grey-light}
   --color-markdown-code-block-clipboard-icon-background-copied: var(--color-markdown-code-block-clipboard-border-copied)
-  --color-markdown-code-selection: #{rgba(colors.$selection-code, .25)}
+  --color-markdown-code-selection: #{rgba($color-selection-code, .25)}
   --color-markdown-figure-text: var(--color-blue-grey)
-  --color-markdown-figure-border: #{rgba(colors.$grey, .9)}
+  --color-markdown-figure-border: #{rgba($color-grey, .9)}
   --color-markdown-table-head-background: var(--color-base)
   --color-markdown-table-head-text: var(--color-blue-black)
-  --color-markdown-table-body-row-background-hover: #{rgba(colors.$blue-grey-light, .08)}
-  --color-markdown-table-cell-border: #{rgba(colors.$blue-grey-light, .65)}
+  --color-markdown-table-body-row-background-hover: #{rgba($color-blue-grey-light, .08)}
+  --color-markdown-table-cell-border: #{rgba($color-blue-grey-light, .65)}
   --color-markdown-blockquote-background: var(--color-base)
   --color-markdown-blockquote-text: var(--color-blue-black)
-  --color-markdown-blockquote-border: #{colors.$markdown-blockquote}
-  --color-markdown-embed-wrap-background: #{colors.$black}
-  --color-markdown-emphasis-warning-background: #{colors.$markdown-emphasis-warning-light}
-  --color-markdown-emphasis-warning-border: #{colors.$markdown-emphasis-warning-dark}
-  --color-markdown-emphasis-info-background: #{colors.$markdown-emphasis-info-light}
-  --color-markdown-emphasis-info-border: #{colors.$markdown-emphasis-info-dark}
-  --color-markdown-emphasis-notice-background: #{colors.$markdown-emphasis-notice-light}
-  --color-markdown-emphasis-notice-border: #{colors.$markdown-emphasis-notice-dark}
+  --color-markdown-blockquote-border: #{$color-markdown-blockquote}
+  --color-markdown-embed-wrap-background: #{$color-black}
+  --color-markdown-emphasis-warning-background: #{$color-markdown-emphasis-warning-light}
+  --color-markdown-emphasis-warning-border: #{$color-markdown-emphasis-warning-dark}
+  --color-markdown-emphasis-info-background: #{$color-markdown-emphasis-info-light}
+  --color-markdown-emphasis-info-border: #{$color-markdown-emphasis-info-dark}
+  --color-markdown-emphasis-notice-background: #{$color-markdown-emphasis-notice-light}
+  --color-markdown-emphasis-notice-border: #{$color-markdown-emphasis-notice-dark}
 
   // Code
-  --color-code-selection: #{rgba(colors.$selection-code, .3)}
-  --color-code-border-hover: #{rgba(colors.$white, .25)}
-  --color-code-header-default: #{colors.$code-header-light}
-  --color-code-header-hover: #{colors.$code-header-dark}
-  --color-code-language-text: #{rgba(colors.$white, .6)}
-  --color-code-action-background: #{colors.$white}
-  --color-code-metas-background: #{colors.$code-metas}
-  --color-code-meta-name-border: #{rgba(colors.$white, .06)}
-  --color-code-meta-name-text: #{rgba(colors.$white, .8)}
-  --color-code-meta-type-text: #{rgba(colors.$white, .4)}
-  --color-code-content-background: #{colors.$code-content}
-  --color-code-content-text: #{rgba(colors.$white, .4)}
-  --color-code-select-text-default: #{rgba(colors.$white, .5)}
-  --color-code-select-text-hover: #{rgba(colors.$white, .8)}
-  --color-code-select-border-default: #{rgba(colors.$white, .075)}
-  --color-code-select-border-hover: #{rgba(colors.$white, .15)}
+  --color-code-selection: #{rgba($color-selection-code, .3)}
+  --color-code-border-hover: #{rgba($color-white, .25)}
+  --color-code-header-default: #{$color-code-header-light}
+  --color-code-header-hover: #{$color-code-header-dark}
+  --color-code-language-text: #{rgba($color-white, .6)}
+  --color-code-action-background: #{$color-white}
+  --color-code-metas-background: #{$color-code-metas}
+  --color-code-meta-name-border: #{rgba($color-white, .06)}
+  --color-code-meta-name-text: #{rgba($color-white, .8)}
+  --color-code-meta-type-text: #{rgba($color-white, .4)}
+  --color-code-content-background: #{$color-code-content}
+  --color-code-content-text: #{rgba($color-white, .4)}
+  --color-code-select-text-default: #{rgba($color-white, .5)}
+  --color-code-select-text-hover: #{rgba($color-white, .8)}
+  --color-code-select-border-default: #{rgba($color-white, .075)}
+  --color-code-select-border-hover: #{rgba($color-white, .15)}
 
   // Highlight
-  --color-highlight-main: #{colors.$highlight-main}
-  --color-highlight-entity-light: #{colors.$highlight-entity-light}
-  --color-highlight-entity-dark: #{colors.$highlight-entity-dark}
-  --color-highlight-comment: #{colors.$highlight-comment}
-  --color-highlight-punctuation: #{colors.$highlight-punctuation}
-  --color-highlight-variable: #{colors.$highlight-variable}
-  --color-highlight-number: #{colors.$highlight-number}
-  --color-highlight-class: #{colors.$highlight-class}
-  --color-highlight-property: #{colors.$highlight-property}
-  --color-highlight-regex: #{colors.$highlight-regex}
-  --color-highlight-function: #{colors.$highlight-function}
-  --color-highlight-keyword: #{colors.$highlight-keyword}
-  --color-highlight-doctype: #{colors.$highlight-doctype}
+  --color-highlight-main: #{$color-highlight-main}
+  --color-highlight-entity-light: #{$color-highlight-entity-light}
+  --color-highlight-entity-dark: #{$color-highlight-entity-dark}
+  --color-highlight-comment: #{$color-highlight-comment}
+  --color-highlight-punctuation: #{$color-highlight-punctuation}
+  --color-highlight-variable: #{$color-highlight-variable}
+  --color-highlight-number: #{$color-highlight-number}
+  --color-highlight-class: #{$color-highlight-class}
+  --color-highlight-property: #{$color-highlight-property}
+  --color-highlight-regex: #{$color-highlight-regex}
+  --color-highlight-function: #{$color-highlight-function}
+  --color-highlight-keyword: #{$color-highlight-keyword}
+  --color-highlight-doctype: #{$color-highlight-doctype}
 
   // Search
-  --color-search-lock-background: #{rgba(colors.$search-lock, .45)}
-  --color-search-spotlight-shadow: #{rgba(colors.$black, .1)}
-  --color-search-spotlight-shortcut-text: #{colors.$search-spotlight-shortcut}
-  --color-search-spotlight-field-background: #{rgba(colors.$base, .65)}
+  --color-search-lock-background: #{rgba($color-search-lock, .45)}
+  --color-search-spotlight-shadow: #{rgba($color-black, .1)}
+  --color-search-spotlight-shortcut-text: #{$color-search-spotlight-shortcut}
+  --color-search-spotlight-field-background: #{rgba($color-base, .65)}
   --color-search-spotlight-field-placeholder: var(--color-blue-grey-dark)
   --color-search-spotlight-field-spinner-border: var(--color-blue-grey-dark)
   --color-search-spotlight-entry-link-background-default: var(--color-accent-base)
   --color-search-spotlight-entry-link-background-active: var(--color-accent-active)
 
   // Header
-  --color-header-background: #{rgba(colors.$white, .85)}
-  --color-header-border: #{rgba(colors.$grey, .65)}
-  --color-header-shadow: #{rgba(colors.$black, .06)}
-  --color-header-dropdown-border: #{rgba(colors.$grey, .65)}
-  --color-header-dropdown-shadow: #{rgba(colors.$black, .05)}
+  --color-header-background: #{rgba($color-white, .85)}
+  --color-header-border: #{rgba($color-grey, .65)}
+  --color-header-shadow: #{rgba($color-black, .06)}
+  --color-header-dropdown-border: #{rgba($color-grey, .65)}
+  --color-header-dropdown-shadow: #{rgba($color-black, .05)}
   --color-header-dropdown-link-background-hover: var(--color-accent-base)
   --color-header-dropdown-link-background-active: var(--color-accent-active)
   --color-header-search-background-default: var(--color-base)
   --color-header-search-background-clear: var(--color-white)
   --color-header-search-border-default: var(--color-grey-dark)
-  --color-header-search-border-hover: #{color.adjust(colors.$grey-dark, $lightness: -10%)}
-  --color-header-search-border-active: #{color.adjust(colors.$grey-dark, $lightness: -14%)}
-  --color-header-search-border-clear-default: #{colors.$header-search-border-clear}
-  --color-header-search-border-clear-hover: #{color.adjust(colors.$header-search-border-clear, $lightness: -6%)}
-  --color-header-search-border-clear-active: #{color.adjust(colors.$header-search-border-clear, $lightness: -9%)}
-  --color-header-search-shadow: #{rgba(colors.$grey-dark, .25)}
+  --color-header-search-border-hover: #{color.adjust($color-grey-dark, $lightness: -10%)}
+  --color-header-search-border-active: #{color.adjust($color-grey-dark, $lightness: -14%)}
+  --color-header-search-border-clear-default: #{$color-header-search-border-clear}
+  --color-header-search-border-clear-hover: #{color.adjust($color-header-search-border-clear, $lightness: -6%)}
+  --color-header-search-border-clear-active: #{color.adjust($color-header-search-border-clear, $lightness: -9%)}
+  --color-header-search-shadow: #{rgba($color-grey-dark, .25)}
   --color-header-search-placeholder-text: var(--color-blue-grey-dark)
-  --color-header-search-shortcut-text: #{colors.$header-search-shortcut-text-dark}
-  --color-header-search-shortcut-border: #{colors.$header-search-border-clear}
-  --color-header-search-shortcut-shadow: #{colors.$header-search-shortcut-text-light}
-  --color-header-coloring-background-default: #{color.adjust(colors.$grey-light, $lightness: 1%)}
-  --color-header-coloring-background-clear: #{rgba(colors.$white, .7)}
-  --color-header-coloring-toggle-border-default: #{rgba(color.adjust(colors.$grey-dark, $lightness: -50%), .2)}
-  --color-header-coloring-toggle-border-hover: #{rgba(color.adjust(colors.$grey-dark, $lightness: -50%), .225)}
-  --color-header-coloring-toggle-border-active: #{rgba(color.adjust(colors.$grey-dark, $lightness: -50%), .175)}
-  --color-header-coloring-toggle-shadow-default: #{rgba(colors.$black, .04)}
-  --color-header-coloring-toggle-shadow-hover: #{rgba(colors.$black, .06)}
-  --color-header-coloring-toggle-shadow-active: #{rgba(colors.$black, .02)}
-  --color-header-coloring-toggle-icon-light-background: #{colors.$header-coloring-toggle-icon-light}
-  --color-header-coloring-toggle-icon-dark-background: #{colors.$header-coloring-toggle-icon-dark}
+  --color-header-search-shortcut-text: #{$color-header-search-shortcut-text-dark}
+  --color-header-search-shortcut-border: #{$color-header-search-border-clear}
+  --color-header-search-shortcut-shadow: #{$color-header-search-shortcut-text-light}
+  --color-header-coloring-background-default: #{color.adjust($color-grey-light, $lightness: 1%)}
+  --color-header-coloring-background-clear: #{rgba($color-white, .7)}
+  --color-header-coloring-toggle-border-default: #{rgba(color.adjust($color-grey-dark, $lightness: -50%), .2)}
+  --color-header-coloring-toggle-border-hover: #{rgba(color.adjust($color-grey-dark, $lightness: -50%), .225)}
+  --color-header-coloring-toggle-border-active: #{rgba(color.adjust($color-grey-dark, $lightness: -50%), .175)}
+  --color-header-coloring-toggle-shadow-default: #{rgba($color-black, .04)}
+  --color-header-coloring-toggle-shadow-hover: #{rgba($color-black, .06)}
+  --color-header-coloring-toggle-shadow-active: #{rgba($color-black, .02)}
+  --color-header-coloring-toggle-icon-light-background: #{$color-header-coloring-toggle-icon-light}
+  --color-header-coloring-toggle-icon-dark-background: #{$color-header-coloring-toggle-icon-dark}
 
   // Content
-  --color-content-navigation-background: #{rgba(colors.$base, .25)}
+  --color-content-navigation-background: #{rgba($color-base, .25)}
   --color-content-navigation-border-default: var(--color-blue-grey-light)
-  --color-content-navigation-border-active: #{color.adjust(colors.$blue-grey-light, $lightness: -5%)}
-  --color-content-navigation-shadow-outset: #{rgba(colors.$blue-grey-light, .25)}
-  --color-content-navigation-shadow-inset: #{rgba(colors.$white, .75)}
-  --color-content-navigation-shadow-active: #{rgba(colors.$blue-grey-light, .4)}
+  --color-content-navigation-border-active: #{color.adjust($color-blue-grey-light, $lightness: -5%)}
+  --color-content-navigation-shadow-outset: #{rgba($color-blue-grey-light, .25)}
+  --color-content-navigation-shadow-inset: #{rgba($color-white, .75)}
+  --color-content-navigation-shadow-active: #{rgba($color-blue-grey-light, .4)}
   --color-content-navigation-label-text: var(--color-blue-grey)
   --color-content-bulletpoint-label-text: var(--color-blue-grey)
-  --color-content-sidebar-left-background-default: #{rgba(colors.$base, .65)}
-  --color-content-sidebar-left-background-small: #{rgba(colors.$base, .9)}
+  --color-content-sidebar-left-background-default: #{rgba($color-base, .65)}
+  --color-content-sidebar-left-background-small: #{rgba($color-base, .9)}
   --color-content-sidebar-left-background-tiny: var(--color-base)
-  --color-content-sidebar-left-shadow-small: #{rgba(colors.$black, .04)}
-  --color-content-sidebar-right-background: #{colors.$content-sidebar-right}
-  --color-content-sidebar-toggler-background: #{rgba(colors.$white, .85)}
-  --color-content-sidebar-toggler-shadow-default: #{rgba(colors.$black, .1)}
-  --color-content-sidebar-toggler-shadow-hover: #{rgba(colors.$black, .125)}
-  --color-content-sidebar-toggler-shadow-active: #{rgba(colors.$black, .2)}
+  --color-content-sidebar-left-shadow-small: #{rgba($color-black, .04)}
+  --color-content-sidebar-right-background: #{$color-content-sidebar-right}
+  --color-content-sidebar-toggler-background: #{rgba($color-white, .85)}
+  --color-content-sidebar-toggler-shadow-default: #{rgba($color-black, .1)}
+  --color-content-sidebar-toggler-shadow-hover: #{rgba($color-black, .125)}
+  --color-content-sidebar-toggler-shadow-active: #{rgba($color-black, .2)}
   --color-content-sidebar-toggler-icon-background: var(--color-blue-black)
-  --color-content-sidebar-nest-navigate-link-background-hover: #{color.adjust(colors.$grey-light, $lightness: 3%)}
-  --color-content-sidebar-nest-navigate-link-background-active: #{color.adjust(colors.$grey-light, $lightness: 1%)}
-  --color-content-sidebar-nest-navigate-link-default-toggle-background-hover: #{color.adjust(colors.$grey-light, $lightness: -3%)}
-  --color-content-sidebar-nest-navigate-link-default-toggle-background-active: #{color.adjust(colors.$grey-light, $lightness: -7%)}
-  --color-content-sidebar-nest-navigate-link-active-toggle-background-hover: #{rgba(colors.$white, .15)}
-  --color-content-sidebar-nest-navigate-link-active-toggle-background-active: #{rgba(colors.$white, .2)}
+  --color-content-sidebar-nest-navigate-link-background-hover: #{color.adjust($color-grey-light, $lightness: 3%)}
+  --color-content-sidebar-nest-navigate-link-background-active: #{color.adjust($color-grey-light, $lightness: 1%)}
+  --color-content-sidebar-nest-navigate-link-default-toggle-background-hover: #{color.adjust($color-grey-light, $lightness: -3%)}
+  --color-content-sidebar-nest-navigate-link-default-toggle-background-active: #{color.adjust($color-grey-light, $lightness: -7%)}
+  --color-content-sidebar-nest-navigate-link-active-toggle-background-hover: #{rgba($color-white, .15)}
+  --color-content-sidebar-nest-navigate-link-active-toggle-background-active: #{rgba($color-white, .2)}
   --color-content-sidebar-nest-navigate-slice-text: var(--color-blue-black)
   --color-content-sidebar-nest-navigate-slice-icon-background-default: var(--color-blue-black)
   --color-content-sidebar-nest-navigate-slice-icon-background-active: var(--color-white)
 
   // Footer
-  --color-footer-brand-separator: #{rgba(colors.$footer-text, .3)}
-  --color-footer-link-target-text: #{colors.$footer-link-target}
-  --color-footer-copyright-text: #{colors.$footer-copyright}
-  --color-footer-engine-text: #{colors.$footer-text}
-  --color-footer-status-border-default: #{rgba(colors.$footer-text, .45)}
-  --color-footer-status-border-hover: #{rgba(colors.$footer-text, .65)}
-  --color-footer-status-time-text: #{colors.$footer-status-time}
+  --color-footer-brand-separator: #{rgba($color-footer-text, .3)}
+  --color-footer-link-target-text: #{$color-footer-link-target}
+  --color-footer-copyright-text: #{$color-footer-copyright}
+  --color-footer-engine-text: #{$color-footer-text}
+  --color-footer-status-border-default: #{rgba($color-footer-text, .45)}
+  --color-footer-status-border-hover: #{rgba($color-footer-text, .65)}
+  --color-footer-status-time-text: #{$color-footer-status-time}
 
   // Guides
-  --color-guides-details-border: #{rgba(colors.$grey, .65)}
+  --color-guides-details-border: #{rgba($color-grey, .65)}
   --color-guides-details-inner-text: var(--color-blue-black)
 
   // References
-  --color-references-separator-content: #{rgba(colors.$grey, .65)}
-  --color-references-separator-sidebar: #{rgba(colors.$grey, .15)}
+  --color-references-separator-content: #{rgba($color-grey, .65)}
+  --color-references-separator-sidebar: #{rgba($color-grey, .15)}
   --color-references-details-updated-text: var(--color-blue-black)
   --color-references-group-origin-text: var(--color-blue-black)
   --color-references-request-target-url-background: var(--color-base)
-  --color-references-request-target-url-border-default: #{color.adjust(colors.$grey-light, $lightness: -8%)}
-  --color-references-request-target-url-border-hover: #{color.adjust(colors.$grey, $lightness: -16%)}
-  --color-references-request-target-url-border-active: #{color.adjust(colors.$grey, $lightness: -24%)}
+  --color-references-request-target-url-border-default: #{color.adjust($color-grey-light, $lightness: -8%)}
+  --color-references-request-target-url-border-hover: #{color.adjust($color-grey, $lightness: -16%)}
+  --color-references-request-target-url-border-active: #{color.adjust($color-grey, $lightness: -24%)}
   --color-references-request-format-type-text: var(--color-blue-black)
-  --color-references-request-format-required-text: #{colors.$references-request-format-required}
-  --color-references-request-format-optional-text: #{colors.$references-request-format-optional}
-  --color-references-request-format-label-text: #{colors.$references-request-format-label}
-  --color-references-request-format-keys-depth-border-zero: #{color.adjust(colors.$grey-light, $lightness: 10%)}
-  --color-references-request-format-keys-depth-border-one: #{color.adjust(colors.$grey-light, $lightness: 5%)}
+  --color-references-request-format-required-text: #{$color-references-request-format-required}
+  --color-references-request-format-optional-text: #{$color-references-request-format-optional}
+  --color-references-request-format-label-text: #{$color-references-request-format-label}
+  --color-references-request-format-keys-depth-border-zero: #{color.adjust($color-grey-light, $lightness: 10%)}
+  --color-references-request-format-keys-depth-border-one: #{color.adjust($color-grey-light, $lightness: 5%)}
   --color-references-request-format-keys-depth-border-two: var(--color-grey-light)
-  --color-references-request-format-keys-depth-border-three: #{color.adjust(colors.$grey-light, $lightness: -5%)}
-  --color-references-request-format-keys-depth-border-four: #{color.adjust(colors.$grey-light, $lightness: -10%)}
-  --color-references-request-format-keys-depth-border-infinity: #{color.adjust(colors.$grey-light, $lightness: -15%)}
-  --color-references-request-format-toggle-count-text: #{color.adjust(colors.$black, $lightness: 12.5%)}
-  --color-references-request-format-toggle-count-background: #{color.adjust(colors.$grey-light, $lightness: 2%)}
-  --color-references-request-format-toggle-button-border: #{color.adjust(colors.$grey-dark, $lightness: -8%)}
-  --color-references-request-format-toggle-button-shadow: #{rgba(colors.$grey-dark, .25)}
-  --color-references-examples-selection: #{rgba(colors.$selection-code, .2)}
-  --color-references-examples-detail-value-text: #{colors.$references-examples-detail-value}
-  --color-references-examples-detail-segment-text: #{colors.$references-examples-detail-segment}
-  --color-references-examples-detail-parameter-text: #{colors.$references-examples-detail-parameter}
+  --color-references-request-format-keys-depth-border-three: #{color.adjust($color-grey-light, $lightness: -5%)}
+  --color-references-request-format-keys-depth-border-four: #{color.adjust($color-grey-light, $lightness: -10%)}
+  --color-references-request-format-keys-depth-border-infinity: #{color.adjust($color-grey-light, $lightness: -15%)}
+  --color-references-request-format-toggle-count-text: #{color.adjust($color-black, $lightness: 12.5%)}
+  --color-references-request-format-toggle-count-background: #{color.adjust($color-grey-light, $lightness: 2%)}
+  --color-references-request-format-toggle-button-border: #{color.adjust($color-grey-dark, $lightness: -8%)}
+  --color-references-request-format-toggle-button-shadow: #{rgba($color-grey-dark, .25)}
+  --color-references-examples-selection: #{rgba($color-selection-code, .2)}
+  --color-references-examples-detail-value-text: #{$color-references-examples-detail-value}
+  --color-references-examples-detail-segment-text: #{$color-references-examples-detail-segment}
+  --color-references-examples-detail-parameter-text: #{$color-references-examples-detail-parameter}
 
   // Changes
   --color-changes-notice-background: var(--color-base)
-  --color-changes-navigate-link-background-hover: #{color.adjust(colors.$grey-light, $lightness: 6%)}
-  --color-changes-navigate-link-background-active: #{color.adjust(colors.$grey-light, $lightness: 4%)}
-  --color-changes-month-event-border: #{rgba(colors.$grey, .65)}
+  --color-changes-navigate-link-background-hover: #{color.adjust($color-grey-light, $lightness: 6%)}
+  --color-changes-navigate-link-background-active: #{color.adjust($color-grey-light, $lightness: 4%)}
+  --color-changes-month-event-border: #{rgba($color-grey, .65)}
   --color-changes-month-event-group-text: var(--color-blue-grey-dark)
-  --color-changes-month-event-deprecated-background: #{colors.$changes-month-event-deprecated}
+  --color-changes-month-event-deprecated-background: #{$color-changes-month-event-deprecated}
 
   &[data-appearance="dark"]
     // Overrides (Dark Mode)
-    $dark-color-white: #10131c
-    $dark-color-black: #ffffff
-    $dark-color-grey: #474b5e
-    $dark-color-grey-light: #4c4f62
-    $dark-color-grey-dark: #3e4255
-    $dark-color-blue-black: #cdd3db
-    $dark-color-blue-grey: #a3a5ae
-    $dark-color-blue-grey-light: $dark-color-grey
-    $dark-color-blue-grey-dark: #71757d
-    $dark-color-green: #21fb52
-    $dark-color-red: #ff7e7e
+    $color-white: #10131c
+    $color-black: #ffffff
+    $color-grey: #474b5e
+    $color-grey-light: #4c4f62
+    $color-grey-dark: #3e4255
+    $color-blue-black: #cdd3db
+    $color-blue-grey: #a3a5ae
+    $color-blue-grey-light: $color-grey
+    $color-blue-grey-dark: #71757d
+    $color-green: #21fb52
+    $color-red: #ff7e7e
 
-    $dark-color-base: #1e202b
-    $dark-color-base-background: #191c25
+    $color-base: #1e202b
+    $color-base-background: #191c25
 
-    $dark-color-markdown-code-block: #2a2d39
-    $dark-color-markdown-blockquote: #516071
-    $dark-color-markdown-emphasis-warning-light: #ffb300
-    $dark-color-markdown-emphasis-warning-dark: #c87c00
-    $dark-color-markdown-emphasis-info-light: #ffef00
-    $dark-color-markdown-emphasis-info-dark: #c4b500
-    $dark-color-markdown-emphasis-notice-light: #87ff73
-    $dark-color-markdown-emphasis-notice-dark: #30bb17
+    $color-markdown-code-block: #2a2d39
+    $color-markdown-blockquote: #516071
+    $color-markdown-emphasis-warning-light: #ffb300
+    $color-markdown-emphasis-warning-dark: #c87c00
+    $color-markdown-emphasis-info-light: #ffef00
+    $color-markdown-emphasis-info-dark: #c4b500
+    $color-markdown-emphasis-notice-light: #87ff73
+    $color-markdown-emphasis-notice-dark: #30bb17
 
-    $dark-color-code-header-light: #16171c
-    $dark-color-code-header-dark: #121317
-    $dark-color-code-metas: #1e1f24
-    $dark-color-code-content: #24252b
+    $color-code-header-light: #16171c
+    $color-code-header-dark: #121317
+    $color-code-metas: #1e1f24
+    $color-code-content: #24252b
 
-    $dark-color-search-lock: #434959
+    $color-search-lock: #434959
 
-    $dark-color-header-coloring-background: #5161b7
-    $dark-color-header-coloring-toggle-border: $dark-color-header-coloring-background
+    $color-header-coloring-background: #5161b7
+    $color-header-coloring-toggle-border: $color-header-coloring-background
 
-    $dark-color-content-sidebar-right: #292a31
+    $color-content-sidebar-right: #292a31
 
-    $dark-color-references-request-format-required: #ff6d5a
-    $dark-color-references-request-format-optional: #8f99a6
-    $dark-color-references-request-format-label: #8d98a4
+    $color-references-request-format-required: #ff6d5a
+    $color-references-request-format-optional: #8f99a6
+    $color-references-request-format-label: #8d98a4
 
-    $dark-color-changes-month-event-deprecated: #ff7b98
+    $color-changes-month-event-deprecated: #ff7b98
 
     // Palette (Dark Mode)
-    --color-white: #{$dark-color-white}
-    --color-black: #{$dark-color-black}
-    --color-grey: #{$dark-color-grey}
-    --color-grey-light: #{$dark-color-grey-light}
-    --color-grey-dark: #{$dark-color-grey-dark}
-    --color-blue-black: #{$dark-color-blue-black}
-    --color-blue-grey: #{$dark-color-blue-grey}
-    --color-blue-grey-light: #{$dark-color-blue-grey-light}
-    --color-blue-grey-dark: #{$dark-color-blue-grey-dark}
-    --color-green: #{$dark-color-green}
-    --color-red: #{$dark-color-red}
+    --color-white: #{$color-white}
+    --color-black: #{$color-black}
+    --color-grey: #{$color-grey}
+    --color-grey-light: #{$color-grey-light}
+    --color-grey-dark: #{$color-grey-dark}
+    --color-blue-black: #{$color-blue-black}
+    --color-blue-grey: #{$color-blue-grey}
+    --color-blue-grey-light: #{$color-blue-grey-light}
+    --color-blue-grey-dark: #{$color-blue-grey-dark}
+    --color-green: #{$color-green}
+    --color-red: #{$color-red}
 
     // Base (Dark Mode)
-    --color-base: #{$dark-color-base}
-    --color-base-background: #{$dark-color-base-background}
+    --color-base: #{$color-base}
+    --color-base-background: #{$color-base-background}
 
     // Selection (Dark Mode)
-    --color-selection-default: #{rgba($dark-color-black, .25)}
+    --color-selection-default: #{rgba($color-black, .25)}
 
     // Badges (Dark Mode)
-    --color-badge-black: #{color.adjust(colors.$badge-black, $lightness: 10%)}
-    --color-badge-blue: #{color.adjust(colors.$badge-blue, $lightness: 10%)}
-    --color-badge-green: #{color.adjust(colors.$badge-green, $lightness: 10%)}
-    --color-badge-yellow: #{color.adjust(colors.$badge-yellow, $lightness: 10%)}
-    --color-badge-red: #{color.adjust(colors.$badge-red, $lightness: 10%)}
+    --color-badge-black: #{color.adjust($color-badge-black, $lightness: 10%)}
+    --color-badge-blue: #{color.adjust($color-badge-blue, $lightness: 10%)}
+    --color-badge-green: #{color.adjust($color-badge-green, $lightness: 10%)}
+    --color-badge-yellow: #{color.adjust($color-badge-yellow, $lightness: 10%)}
+    --color-badge-red: #{color.adjust($color-badge-red, $lightness: 10%)}
 
     // Methods (Dark Mode)
-    --color-method-get-head-light: #{rgba(colors.$method-get-head-light, .3)}
-    --color-method-get-head-dark: #{color.adjust(colors.$method-get-head-dark, $lightness: 6%)}
-    --color-method-post-light: #{rgba(colors.$method-post-light, .3)}
-    --color-method-post-dark: #{color.adjust(colors.$method-post-dark, $lightness: 6%)}
-    --color-method-put-patch-light: #{rgba(colors.$method-put-patch-light, .3)}
-    --color-method-put-patch-dark: #{color.adjust(colors.$method-put-patch-dark, $lightness: 6%)}
-    --color-method-delete-light: #{rgba(colors.$method-delete-light, .3)}
-    --color-method-delete-dark: #{color.adjust(colors.$method-delete-dark, $lightness: 6%)}
+    --color-method-get-head-light: #{rgba($color-method-get-head-light, .3)}
+    --color-method-get-head-dark: #{color.adjust($color-method-get-head-dark, $lightness: 6%)}
+    --color-method-post-light: #{rgba($color-method-post-light, .3)}
+    --color-method-post-dark: #{color.adjust($color-method-post-dark, $lightness: 6%)}
+    --color-method-put-patch-light: #{rgba($color-method-put-patch-light, .3)}
+    --color-method-put-patch-dark: #{color.adjust($color-method-put-patch-dark, $lightness: 6%)}
+    --color-method-delete-light: #{rgba($color-method-delete-light, .3)}
+    --color-method-delete-dark: #{color.adjust($color-method-delete-dark, $lightness: 6%)}
 
     // Viewer (Dark Mode)
-    --color-viewer-panes-footer-border: #{rgba($dark-color-black, .1)}
+    --color-viewer-panes-footer-border: #{rgba($color-black, .1)}
 
     // Markdown (Dark Mode)
-    --color-markdown-code-inline-background: #{rgba($dark-color-black, .15)}
-    --color-markdown-code-inline-border: #{rgba($dark-color-black, .35)}
-    --color-markdown-code-inline-text: #{$dark-color-black}
-    --color-markdown-figure-border: #{rgba($dark-color-grey, .9)}
-    --color-markdown-table-body-row-background-hover: #{rgba($dark-color-blue-grey-light, .12)}
+    --color-markdown-code-inline-background: #{rgba($color-black, .15)}
+    --color-markdown-code-inline-border: #{rgba($color-black, .35)}
+    --color-markdown-code-inline-text: #{$color-black}
+    --color-markdown-figure-border: #{rgba($color-grey, .9)}
+    --color-markdown-table-body-row-background-hover: #{rgba($color-blue-grey-light, .12)}
     --color-markdown-table-cell-border: var(--color-grey)
-    --color-markdown-blockquote-border: #{$dark-color-markdown-blockquote}
-    --color-markdown-emphasis-warning-background: #{rgba($dark-color-markdown-emphasis-warning-light, .25)}
-    --color-markdown-emphasis-warning-border: #{$dark-color-markdown-emphasis-warning-dark}
-    --color-markdown-emphasis-info-background: #{rgba($dark-color-markdown-emphasis-info-light, .25)}
-    --color-markdown-emphasis-info-border: #{$dark-color-markdown-emphasis-info-dark}
-    --color-markdown-emphasis-notice-background: #{rgba($dark-color-markdown-emphasis-notice-light, .25)}
-    --color-markdown-emphasis-notice-border: #{$dark-color-markdown-emphasis-notice-dark}
+    --color-markdown-blockquote-border: #{$color-markdown-blockquote}
+    --color-markdown-emphasis-warning-background: #{rgba($color-markdown-emphasis-warning-light, .25)}
+    --color-markdown-emphasis-warning-border: #{$color-markdown-emphasis-warning-dark}
+    --color-markdown-emphasis-info-background: #{rgba($color-markdown-emphasis-info-light, .25)}
+    --color-markdown-emphasis-info-border: #{$color-markdown-emphasis-info-dark}
+    --color-markdown-emphasis-notice-background: #{rgba($color-markdown-emphasis-notice-light, .25)}
+    --color-markdown-emphasis-notice-border: #{$color-markdown-emphasis-notice-dark}
 
     // Code (Dark Mode)
-    --color-code-header-default: #{$dark-color-code-header-light}
-    --color-code-header-hover: #{$dark-color-code-header-dark}
-    --color-code-metas-background: #{$dark-color-code-metas}
-    --color-code-content-background: #{$dark-color-code-content}
+    --color-code-header-default: #{$color-code-header-light}
+    --color-code-header-hover: #{$color-code-header-dark}
+    --color-code-metas-background: #{$color-code-metas}
+    --color-code-content-background: #{$color-code-content}
 
     // Search (Dark Mode)
-    --color-search-lock-background: #{rgba($dark-color-search-lock, .4)}
-    --color-search-spotlight-field-background: #{rgba($dark-color-base, .65)}
+    --color-search-lock-background: #{rgba($color-search-lock, .4)}
+    --color-search-spotlight-field-background: #{rgba($color-base, .65)}
 
     // Header (Dark Mode)
-    --color-header-background: #{rgba($dark-color-white, .9)}
-    --color-header-border: #{rgba($dark-color-black, .075)}
-    --color-header-dropdown-border: #{rgba($dark-color-grey, .65)}
+    --color-header-background: #{rgba($color-white, .9)}
+    --color-header-border: #{rgba($color-black, .075)}
+    --color-header-dropdown-border: #{rgba($color-grey, .65)}
     --color-header-search-background-clear: var(--color-header-search-background-default)
-    --color-header-search-border-hover: #{color.adjust($dark-color-grey-dark, $lightness: 10%)}
-    --color-header-search-border-active: #{color.adjust($dark-color-grey-dark, $lightness: 14%)}
+    --color-header-search-border-hover: #{color.adjust($color-grey-dark, $lightness: 10%)}
+    --color-header-search-border-active: #{color.adjust($color-grey-dark, $lightness: 14%)}
     --color-header-search-border-clear-default: var(--color-header-search-border-default)
     --color-header-search-border-clear-hover: var(--color-header-search-border-hover)
     --color-header-search-border-clear-active: var(--color-header-search-border-active)
@@ -374,55 +374,55 @@
     --color-header-search-shortcut-text: var(--color-blue-grey-dark)
     --color-header-search-shortcut-border: var(--color-blue-grey-dark)
     --color-header-search-shortcut-shadow: var(--color-white)
-    --color-header-coloring-background-default: #{color.adjust($dark-color-header-coloring-background, $lightness: -16%)}
+    --color-header-coloring-background-default: #{color.adjust($color-header-coloring-background, $lightness: -16%)}
     --color-header-coloring-background-clear: var(--color-header-coloring-background-default)
-    --color-header-coloring-toggle-border-default: #{rgba($dark-color-header-coloring-toggle-border, .85)}
-    --color-header-coloring-toggle-border-hover: #{$dark-color-header-coloring-toggle-border}
-    --color-header-coloring-toggle-border-active: #{rgba($dark-color-header-coloring-toggle-border, .95)}
+    --color-header-coloring-toggle-border-default: #{rgba($color-header-coloring-toggle-border, .85)}
+    --color-header-coloring-toggle-border-hover: #{$color-header-coloring-toggle-border}
+    --color-header-coloring-toggle-border-active: #{rgba($color-header-coloring-toggle-border, .95)}
 
     // Content (Dark Mode)
     --color-content-navigation-background: var(--color-base)
     --color-content-navigation-border-default: var(--color-grey)
-    --color-content-navigation-border-active: #{color.adjust($dark-color-grey, $lightness: 6%)}
-    --color-content-navigation-shadow-outset: #{rgba($dark-color-white, .25)}
-    --color-content-navigation-shadow-inset: #{rgba($dark-color-black, .05)}
-    --color-content-navigation-shadow-active: #{rgba($dark-color-white, .4)}
+    --color-content-navigation-border-active: #{color.adjust($color-grey, $lightness: 6%)}
+    --color-content-navigation-shadow-outset: #{rgba($color-white, .25)}
+    --color-content-navigation-shadow-inset: #{rgba($color-black, .05)}
+    --color-content-navigation-shadow-active: #{rgba($color-white, .4)}
     --color-content-sidebar-left-background-default: var(--color-base)
     --color-content-sidebar-left-background-small: var(--color-base)
-    --color-content-sidebar-right-background: #{$dark-color-content-sidebar-right}
-    --color-content-sidebar-toggler-background: #{rgba($dark-color-base, .9)}
-    --color-content-sidebar-nest-navigate-link-background-hover: #{color.adjust($dark-color-grey-light, $lightness: -3%)}
-    --color-content-sidebar-nest-navigate-link-background-active: #{color.adjust($dark-color-grey-light, $lightness: -1%)}
-    --color-content-sidebar-nest-navigate-link-default-toggle-background-hover: #{color.adjust($dark-color-grey-light, $lightness: 3%)}
-    --color-content-sidebar-nest-navigate-link-default-toggle-background-active: #{color.adjust($dark-color-grey-light, $lightness: 7%)}
+    --color-content-sidebar-right-background: #{$color-content-sidebar-right}
+    --color-content-sidebar-toggler-background: #{rgba($color-base, .9)}
+    --color-content-sidebar-nest-navigate-link-background-hover: #{color.adjust($color-grey-light, $lightness: -3%)}
+    --color-content-sidebar-nest-navigate-link-background-active: #{color.adjust($color-grey-light, $lightness: -1%)}
+    --color-content-sidebar-nest-navigate-link-default-toggle-background-hover: #{color.adjust($color-grey-light, $lightness: 3%)}
+    --color-content-sidebar-nest-navigate-link-default-toggle-background-active: #{color.adjust($color-grey-light, $lightness: 7%)}
 
     // Guides (Dark Mode)
-    --color-guides-details-border: #{rgba($dark-color-grey, .45)}
+    --color-guides-details-border: #{rgba($color-grey, .45)}
 
     // References (Dark Mode)
-    --color-references-separator-content: #{rgba($dark-color-grey, .45)}
-    --color-references-separator-sidebar: #{rgba($dark-color-grey, .35)}
+    --color-references-separator-content: #{rgba($color-grey, .45)}
+    --color-references-separator-sidebar: #{rgba($color-grey, .35)}
     --color-references-request-target-url-border-default: transparent
-    --color-references-request-target-url-border-hover: #{rgba($dark-color-black, .45)}
-    --color-references-request-target-url-border-active: #{rgba($dark-color-black, .6)}
-    --color-references-request-format-required-text: #{$dark-color-references-request-format-required}
-    --color-references-request-format-optional-text: #{$dark-color-references-request-format-optional}
-    --color-references-request-format-label-text: #{$dark-color-references-request-format-label}
-    --color-references-request-format-keys-depth-border-zero: #{color.adjust($dark-color-grey-light, $lightness: -10%)}
-    --color-references-request-format-keys-depth-border-one: #{color.adjust($dark-color-grey-light, $lightness: -5%)}
-    --color-references-request-format-keys-depth-border-three: #{color.adjust($dark-color-grey-light, $lightness: 5%)}
-    --color-references-request-format-keys-depth-border-four: #{color.adjust($dark-color-grey-light, $lightness: 10%)}
-    --color-references-request-format-keys-depth-border-infinity: #{color.adjust($dark-color-grey-light, $lightness: 15%)}
-    --color-references-request-format-toggle-count-text: #{color.adjust($dark-color-black, $lightness: -12.5%)}
-    --color-references-request-format-toggle-count-background: #{color.adjust($dark-color-grey-light, $lightness: -2%)}
-    --color-references-request-format-toggle-button-border: #{color.adjust($dark-color-grey-dark, $lightness: 8%)}
-    --color-references-request-format-toggle-button-shadow: #{rgba($dark-color-white, .25)}
+    --color-references-request-target-url-border-hover: #{rgba($color-black, .45)}
+    --color-references-request-target-url-border-active: #{rgba($color-black, .6)}
+    --color-references-request-format-required-text: #{$color-references-request-format-required}
+    --color-references-request-format-optional-text: #{$color-references-request-format-optional}
+    --color-references-request-format-label-text: #{$color-references-request-format-label}
+    --color-references-request-format-keys-depth-border-zero: #{color.adjust($color-grey-light, $lightness: -10%)}
+    --color-references-request-format-keys-depth-border-one: #{color.adjust($color-grey-light, $lightness: -5%)}
+    --color-references-request-format-keys-depth-border-three: #{color.adjust($color-grey-light, $lightness: 5%)}
+    --color-references-request-format-keys-depth-border-four: #{color.adjust($color-grey-light, $lightness: 10%)}
+    --color-references-request-format-keys-depth-border-infinity: #{color.adjust($color-grey-light, $lightness: 15%)}
+    --color-references-request-format-toggle-count-text: #{color.adjust($color-black, $lightness: -12.5%)}
+    --color-references-request-format-toggle-count-background: #{color.adjust($color-grey-light, $lightness: -2%)}
+    --color-references-request-format-toggle-button-border: #{color.adjust($color-grey-dark, $lightness: 8%)}
+    --color-references-request-format-toggle-button-shadow: #{rgba($color-white, .25)}
 
     // Changes (Dark Mode)
-    --color-changes-navigate-link-background-hover: #{color.adjust($dark-color-grey-light, $lightness: -6%)}
-    --color-changes-navigate-link-background-active: #{color.adjust($dark-color-grey-light, $lightness: -4%)}
-    --color-changes-month-event-border: #{rgba($dark-color-grey, .65)}
-    --color-changes-month-event-deprecated-background: #{rgba($dark-color-changes-month-event-deprecated, .3)}
+    --color-changes-navigate-link-background-hover: #{color.adjust($color-grey-light, $lightness: -6%)}
+    --color-changes-navigate-link-background-active: #{color.adjust($color-grey-light, $lightness: -4%)}
+    --color-changes-month-event-border: #{rgba($color-grey, .65)}
+    --color-changes-month-event-deprecated-background: #{rgba($color-changes-month-event-deprecated, .3)}
 
     // Images (Dark Mode)
     .logo
