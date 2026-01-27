@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.14.0 (2026-01-27)
+
+### Changes
+
+* Migrate `.sass` files to `.scss` syntax.
+* Re-instate linting of stylesheet files with `gulp-stylelint-esm`.
+
 ## 1.13.0 (2026-01-27)
 
 ### Changes
