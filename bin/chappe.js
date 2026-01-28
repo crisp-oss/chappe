@@ -11,6 +11,10 @@
 "use strict";
 
 
+// Suppress all warnings from Node, as this is a CLI script
+process.removeAllListeners("warning");
+
+
 var fs       = require("fs");
 var path     = require("path");
 
