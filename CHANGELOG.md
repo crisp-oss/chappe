@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.15.0 (2026-01-28)
+
+### Changes
+
+* Migrate `.jade` files to `.pug` syntax (and update the syntax to Pug 3).
+
 ## 1.14.0 (2026-01-27)
 
 ### Changes
