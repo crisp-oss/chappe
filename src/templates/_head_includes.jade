@@ -23,13 +23,13 @@ each script_inline in SITE.includes.scripts.inline
 each script_url in SITE.includes.scripts.urls
   if typeof script_url === "string"
     script(
-      src="#{script_url}",
+      src=script_url,
       defer
     )
 
   else
     script(
-      src="#{script_url.src}",
+      src=script_url.src,
       async=script_url.async,
       defer=script_url.defer
     )
@@ -41,6 +41,6 @@ each stylesheet_inline in SITE.includes.stylesheets.inline
 each stylesheet_url in SITE.includes.stylesheets.urls
   link(
     rel="stylesheet",
-    href="#{stylesheet_url}",
+    href=stylesheet_url,
     type="text/css"
   )

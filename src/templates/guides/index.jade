@@ -24,7 +24,7 @@ block vars
   - var page_title = guide.title;
 
   if parent_titles.length > 0
-    - page_title += (" (" + parent_titles.join(" → ") + ")");
+    - page_title += ` (${parent_titles.join(" → ")})`;
 
 block title
   | #{page_title}
@@ -33,7 +33,7 @@ block append stylesheets
   +head-stylesheet("/static/stylesheets/guides/guides")
 
 block head_metas
-  - var page_url = ("/guides/" + guide.segments.join("/") + ((guide.segments.length > 0) ? "/" : ""));
+  - var page_url = `/guides/${guide.segments.join("/")}${(guide.segments.length > 0) ? "/" : ""}`;
 
   //- Special: generate page description
   - var page_description = METHODS.truncate_text(METHODS.remove_markdown(guide.markdown), FORMAT.DESCRIPTION.TRUNCATE);

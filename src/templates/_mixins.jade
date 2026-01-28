@@ -10,8 +10,8 @@ mixin text-space
 
 mixin icon-user-override(icon_class, icon_image)
   span(
-    class="#{icon_class}",
-    style=((icon_image !== null) ? ("-webkit-mask-image: url('/static/user/" + icon_image + "'); mask-image: url('/static/user/" + icon_image + "');") : null)
+    class=icon_class,
+    style=((icon_image !== null) ? (`-webkit-mask-image: url('/static/user/${icon_image}'); mask-image: url('/static/user/${icon_image}');`) : null)
   )
 
 
@@ -24,22 +24,22 @@ mixin sidebar-toggler
 mixin head-metas-page(title, description, url_path)
   meta(
     property="og:url",
-    content="#{SITE.urls.base}#{url_path}"
+    content=`${SITE.urls.base}${url_path}`
   )
 
   meta(
     property="og:title",
-    content="#{title}"
+    content=title
   )
 
   meta(
     property="og:description",
-    content="#{description}"
+    content=description
   )
 
   meta(
     name="description",
-    content="#{description}"
+    content=description
   )
 
 
@@ -49,13 +49,13 @@ mixin nest(origin, category, parent_id)
       class=((category.id === subpage) ? "nest-category--active" : null)
     )
       - var link_icon_category = (SITE.images.categories[origin][category.id] || null);
-      - var link_url_category  = (category.segments ? ("/" + page + "/" + category.segments.join("/") + "/") : null);
+      - var link_url_category  = (category.segments ? (`/${page}/${category.segments.join("/")}/`) : null);
 
       +icon-user-override("nest-icon", link_icon_category)
 
       if link_url_category
         a.nest-category-link(
-          href="#{link_url_category}"
+          href=link_url_category
         )
           | #{category.title}
 
@@ -70,15 +70,15 @@ mixin nest(origin, category, parent_id)
         .nest-navigate-level.nest-navigate-level--first(
           data-expanded=(is_slice ? ((parent_id || "").startsWith(item.id) ? "true" : "false") : null)
         )
-          - var link_url_item = (item.segments ? ("/" + page + "/" + item.segments.join("/") + "/") : ("#" + item.id));
+          - var link_url_item = (item.segments ? (`/${page}/${item.segments.join("/")}/`) : `#${item.id}`);
 
           if is_slice
             .nest-navigate-link.nest-navigate-link--slice(
               data-active=((item.id === subpage) ? "true" : null),
-              data-anchor="#{link_url_item}"
+              data-anchor=link_url_item
             )
               a.nest-navigate-slice.font-sans-semibold(
-                href="#{link_url_item}"
+                href=link_url_item
               )
                 | #{item.title}
 
@@ -86,7 +86,7 @@ mixin nest(origin, category, parent_id)
 
             .nest-navigate-level.nest-navigate-level--second.font-sans-regular
               each slice in item.subtrees
-                - var link_url_slice = (slice.segments ? ("/" + page + "/" + slice.segments.join("/") + "/") : ("#" + slice.id));
+                - var link_url_slice = (slice.segments ? (`/${page}/${slice.segments.join("/")}/`) : `#${slice.id}`);
 
                 +nest-navigate-link(link_url_slice, slice.id, slice.title, slice.badge, subpage, false)
 
@@ -107,12 +107,12 @@ mixin nest-navigate-link(href, id, label, badge, id_active, is_external)
   - var is_active = ((id === id_active) ? true : false);
 
   a.nest-navigate-link(
-    href="#{href}",
+    href=href,
     target=(is_external ? "_blank" : null),
     class=(is_external ? "nest-navigate-link--external font-sans-semibold" : ""),
     data-active=(is_active ? "true" : null),
     data-starred=(label.startsWith("⭐") ? "true" : null),
-    data-anchor="#{href}"
+    data-anchor=href
   )
     span.nest-navigate-link-text
       | #{label}
@@ -120,13 +120,13 @@ mixin nest-navigate-link(href, id, label, badge, id_active, is_external)
     if badge && badge[0]
       span.nest-navigate-link-objects
         span.badge.badge--small.font-sans-bold(
-          class=("badge--" + (badge[1] || "black"))
+          class=`badge--${badge[1] || "black"}`
         )
           | #{badge[0]}
 
 
 mixin nest-navigate-links-external(link, index, item)
-  +nest-navigate-link(link.url, (item.id + "_link_" + index), link.name, null, null, true)
+  +nest-navigate-link(link.url, `${item.id}_link_${index}`, link.name, null, null, true)
 
 
 mixin code(language, flows, request_options, response_options)
@@ -137,7 +137,7 @@ mixin code(language, flows, request_options, response_options)
     input.code-data(
       name="data",
       type="hidden",
-      value="#{JSON.stringify(flows)}"
+      value=JSON.stringify(flows)
     )
 
     .code-header
@@ -147,7 +147,7 @@ mixin code(language, flows, request_options, response_options)
       .code-actions
         each action in ["copy"]
           span.code-action(
-            class=(("code-action--" + action) + ((action === "copy") ? " copy-button" : ""))
+            class=`code-action--${action}${(action === "copy") ? " copy-button" : ""}`
           )
 
     .code-section.code-section--request
@@ -177,12 +177,12 @@ mixin code-content
 
 mixin code-select(name, options, selected)
   select.font-sans-regular(
-    name="#{name}",
+    name=name,
     autocomplete="off"
   )
     each option in options
       option(
-        value="#{option[0]}",
+        value=option[0],
         selected=((selected && option[0] === selected) ? "" : null)
       )
         | #{option[1]}

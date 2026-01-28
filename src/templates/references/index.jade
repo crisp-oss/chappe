@@ -17,7 +17,7 @@ block append stylesheets
   +head-stylesheet("/static/stylesheets/references/references")
 
 block head_metas
-  - var page_url = ("/references/" + reference.segments.join("/") + ((reference.segments.length > 0) ? "/" : ""));
+  - var page_url = `/references/${reference.segments.join("/")}${(reference.segments.length > 0) ? "/" : ""}`;
 
   //- Special: generate page description
   - var page_description = ((typeof reference.data === "string") ? METHODS.truncate_text(METHODS.remove_markdown(reference.data), FORMAT.DESCRIPTION.TRUNCATE) : reference.title);

@@ -9,7 +9,7 @@ block vars
   - var page = "changes";
 
   //- Special: generate page title
-  - var page_title = ($_.CHANGES.PAGE + " | " + ($_.CHANGES.NAVIGATE[("" + changes.current).toUpperCase()] || changes.current));
+  - var page_title = `${$_.CHANGES.PAGE} | ${$_.CHANGES.NAVIGATE[("" + changes.current).toUpperCase()] || changes.current}`;
 
 block title
   | #{page_title}
@@ -18,10 +18,10 @@ block append stylesheets
   +head-stylesheet("/static/stylesheets/changes/changes")
 
 block head_metas
-  - var page_url = ("/changes/" + ((changes.current !== "latest") ? (changes.current + "/") : ""));
+  - var page_url = `/changes/${(changes.current !== "latest") ? `${changes.current}/` : ""}`;
 
   //- Special: generate page description
-  - var page_description = ((changes.current === "latest") ? (SITE.texts.changes.titles.latest || $_.CHANGES.TITLE_LATEST) : ((SITE.texts.changes.titles.year || $_.CHANGES.TITLE_YEAR) + " " + changes.year));
+  - var page_description = ((changes.current === "latest") ? (SITE.texts.changes.titles.latest || $_.CHANGES.TITLE_LATEST) : `${SITE.texts.changes.titles.year || $_.CHANGES.TITLE_YEAR} ${changes.year}`);
 
   +head-metas-page(page_title, page_description, page_url)
 
@@ -29,7 +29,7 @@ block append alternates
   link(
     rel="alternate",
     type="application/rss+xml",
-    title="#{(SITE.texts.changes.titles.feed || $_.CHANGES.TITLE_FEED)}",
+    title=(SITE.texts.changes.titles.feed || $_.CHANGES.TITLE_FEED),
     href="/changes.rss"
   )
 
@@ -44,7 +44,7 @@ block body_content
             class=((navigate_year === changes.current) ? "navigate-item--active" : null)
           )
             a.navigate-link(
-              href=("/changes/" + ((navigate_year === "latest") ? "" : (navigate_year + "/"))),
+              href=`/changes/${(navigate_year === "latest") ? "" : `${navigate_year}/`}`,
               class=((typeof navigate_year === "string" || navigate_year === changes.current) ? "font-sans-semibold" : null)
             )
               if typeof navigate_year === "string"
@@ -78,7 +78,7 @@ block body_content
                   each month_change in month_entry[1]
                     li.month-event(
                       class=((month_change.type === "deprecation") ? "month-event--deprecated" : null),
-                      data-group="#{month_change.group}"
+                      data-group=month_change.group
                     )
                       - var group_color = (((month_change.type !== "deprecation") ? SITE.colors.changes.groups[month_change.group] : null) || null);
 
@@ -86,6 +86,6 @@ block body_content
                         | #{(SITE.texts.changes.groups[month_change.group] || month_change.group)}
 
                       .month-event-text.markdown(
-                        style=((group_color !== null) ? ("border-color: " + group_color + ";") : null)
+                        style=((group_color !== null) ? `border-color: ${group_color};` : null)
                       )
                         != METHODS.marked(month_change.text)

@@ -5,17 +5,17 @@
 
 meta(
   name="generator",
-  content="Chappe v#{PACKAGE.version}"
+  content=`Chappe v${PACKAGE.version}`
 )
 
 meta(
   property="og:locale",
-  content="#{LOCALE.CODE}"
+  content=LOCALE.CODE
 )
 
 meta(
   property="og:site_name",
-  content="#{(SITE.identity.title || $_.COMMON.METAS.SITE_NAME)}"
+  content=(SITE.identity.title || $_.COMMON.METAS.SITE_NAME)
 )
 
 meta(
@@ -24,11 +24,11 @@ meta(
 )
 
 if SITE.images.metas.opengraph
-  - var opengraph_image = (SITE.urls.base + "/static/user/" + SITE.images.metas.opengraph);
+  - var opengraph_image = `${SITE.urls.base}/static/user/${SITE.images.metas.opengraph}`;
 
   meta(
     property="og:image",
-    content="#{opengraph_image}"
+    content=opengraph_image
   )
 
   meta(
@@ -38,5 +38,5 @@ if SITE.images.metas.opengraph
 
   meta(
     name="twitter:image:src",
-    content="#{opengraph_image}"
+    content=opengraph_image
   )

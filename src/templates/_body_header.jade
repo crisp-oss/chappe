@@ -12,8 +12,8 @@
         if SITE.images.logos.header_full && SITE.images.logos.header_short
           each variant in ["full", "short"]
             span.logo-image(
-              class="logo-image--#{variant}",
-              style="background-image: url('/static/user/#{SITE.images.logos['header_' + variant]}'); width: #{SITE.dimensions.logos['header_' + variant].width}px;"
+              class=`logo-image--${variant}`,
+              style=`background-image: url('/static/user/${SITE.images.logos['header_' + variant]}'); width: ${SITE.dimensions.logos['header_' + variant].width}px;`
             )
 
         else
@@ -25,7 +25,7 @@
             li.menu-item(
               class=((item.route[0] === page) ? "menu-item--active" : null)
             )
-              - var item_href = ("/" + item.route.join("/") + "/");
+              - var item_href = `/${item.route.join("/")}/`;
 
               if (item.dropdown || []).length > 0
                 span.menu-link.menu-link--dropdown.font-sans-semibold
@@ -34,13 +34,13 @@
                 .dropdown
                   each subitem in item.dropdown
                     a.dropdown-link(
-                      href="#{item_href}#{subitem.route.join('/')}/"
+                      href=`${item_href}${subitem.route.join("/")}/`
                     )
                       | #{subitem.label}
 
               else
                 a.menu-link.font-sans-semibold(
-                  href="#{item_href}"
+                  href=item_href
                 )
                   | #{item.label}
 
@@ -51,7 +51,7 @@
             class=((extra === page) ? "extras-item--active" : null)
           )
             a.extras-link(
-              href="/#{extra}/"
+              href=`/${extra}/`
             )
               | #{$_.COMMON.HEADER.EXTRAS[extra.toUpperCase()]}
 
@@ -79,7 +79,7 @@
               .dropdown
                 each subaction in action.dropdown
                   a.dropdown-link.dropdown-link--multiple.dropdown-link--external(
-                    href="#{subaction.target}",
+                    href=subaction.target,
                     target="_blank"
                   )
                     span.dropdown-link-title.font-sans-semibold

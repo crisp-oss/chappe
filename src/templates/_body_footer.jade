@@ -13,7 +13,7 @@
               each link in SITE.links.footer.navigation
                 li.link
                   a.link-target(
-                    href="#{link.target}",
+                    href=link.target,
                     rel="noopener"
                   )
                     | #{link.label}
@@ -30,7 +30,7 @@
           .brand
             if SITE.images.logos.footer
               span.logo(
-                style="background-image: url('/static/user/#{SITE.images.logos.footer}'); width: #{SITE.dimensions.logos.footer.width}px;"
+                style=`background-image: url('/static/user/${SITE.images.logos.footer}'); width: ${SITE.dimensions.logos.footer.width}px;`
               )
 
               span.separator
@@ -41,7 +41,7 @@
               +text-space
 
               a.font-sans-semibold(
-                href="#{PACKAGE.homepage}",
+                href=PACKAGE.homepage,
                 target="_blank"
               )
                 | Chappe
@@ -51,7 +51,7 @@
               +text-space
 
               a.font-sans-semibold(
-                href="#{URLS.CRISP_WEB}",
+                href=URLS.CRISP_WEB,
                 target="_blank"
               )
                 | Crisp
@@ -66,7 +66,7 @@
               data-status="none"
             )
               a.status-wrapped(
-                href="#{status_url}",
+                href=status_url,
                 target="_blank"
               )
                 span.status-icon

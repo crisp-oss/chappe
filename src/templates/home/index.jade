@@ -61,20 +61,20 @@ block body_content
         .actions
           each action in SITE.actions.home
             a.button.button--large.button--reverse.button--icon.font-sans-semibold(
-              href="/#{action.route.join('/')}/"
+              href=`/${action.route.join("/")}/`
             )
               span.button-text
                 | #{action.label}
 
       if SITE.images.illustrations.home
         .illustration(
-          style="background-image: url('/static/user/#{SITE.images.illustrations.home}');"
+          style=`background-image: url('/static/user/${SITE.images.illustrations.home}');`
         )
 
       ul.bulletpoints
         each bulletpoint in bulletpoints
           li.bulletpoint(
-            class="bulletpoint--#{bulletpoint[0]}"
+            class=`bulletpoint--${bulletpoint[0]}`
           )
             h6.bulletpoint-title.font-sans-semibold
               | #{$_.HOME.BULLETPOINTS[bulletpoint[0].toUpperCase()]}
@@ -87,7 +87,7 @@ block body_content
               .bulletpoint-actions
                 each action in bulletpoint[2]
                   a.bulletpoint-action.font-sans-semibold(
-                    href="/#{action.route.join('/')}/",
+                    href=`/${action.route.join("/")}/`,
                     class=((bulletpoint[2].length === 1) ? "bulletpoint-action--single" : null)
                   )
                     | #{action.label}

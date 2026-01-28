@@ -12,21 +12,21 @@ block vars
 mixin head-stylesheet(href)
   link(
     rel="stylesheet",
-    href="#{href}.css?#{REVISION}",
+    href=`${href}.css?${REVISION}`,
     type="text/css"
   )
 
 mixin head-javascript(src)
   script(
-    src="#{src}.js?#{REVISION}"
+    src=`${src}.js?${REVISION}`
   )
 
 doctype html
 
 html(
-  lang="#{LOCALE.CODE}",
-  dir="#{LOCALE.DIRECTION}",
-  data-environment="#{ENVIRONMENT}"
+  lang=LOCALE.CODE,
+  dir=LOCALE.DIRECTION,
+  data-environment=ENVIRONMENT
 )
   head
     include _head_http
@@ -53,7 +53,7 @@ html(
       +head-javascript("/static/javascripts/common/common")
 
   body.viewer.appearance(
-    data-viewer-panes="#{(panes || 1)}",
+    data-viewer-panes=(panes || 1),
     data-appearance="light"
   )
     include _body_header

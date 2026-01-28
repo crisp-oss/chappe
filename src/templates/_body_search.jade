@@ -12,7 +12,7 @@
         input.spotlight-input.font-sans-regular(
           name="search",
           type="search",
-          placeholder="#{$_.COMMON.SEARCH.FIELD.INPUT_PLACEHOLDER}"
+          placeholder=$_.COMMON.SEARCH.FIELD.INPUT_PLACEHOLDER
         )
 
       .spotlight-results
@@ -24,7 +24,7 @@
 
           each shortcut in shortcuts
             .spotlight-shortcut(
-              class="spotlight-shortcut--#{shortcut[0]}"
+              class=`spotlight-shortcut--${shortcut[0]}`
             )
               | #{shortcut[1]}
 

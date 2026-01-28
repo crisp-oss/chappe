@@ -7,7 +7,7 @@ if SITE.favicons.sizes
   each href, size in SITE.favicons.sizes
     link(
       rel="icon",
-      href="/static/user/#{href}",
+      href=`/static/user/${href}`,
       sizes=((size !== "default") ? size : null),
       type="image/png"
     )
@@ -15,6 +15,6 @@ if SITE.favicons.sizes
 if SITE.favicons.main
   link(
     rel="shortcut icon",
-    href="/static/user/#{SITE.favicons.main}",
+    href=`/static/user/${SITE.favicons.main}`,
     type="image/x-icon"
   )

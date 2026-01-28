@@ -25,13 +25,13 @@ mixin references-blueprint-group-title(meta, origin_meta, origin_id)
     - var id = METHODS.slug(meta.title.content);
 
     if origin_id
-      - id = (origin_id + "-" + id);
+      - id = `${origin_id}-${id}`;
 
     h1.group.font-sans-bold(
-      id="#{id}"
+      id=id
     )
       a.group-anchor.title-group-anchor(
-        href="\##{id}"
+        href=`#${id}`
       )
         span.title-anchor
           | #{meta.title.content}
@@ -51,15 +51,15 @@ mixin references-blueprint-part(content, meta, attrs, examples, baseline)
   - var http_method = ((examples[id] || {}).method || "none");
 
   .part(
-    class="part--method-#{http_method}"
+    class=`part--method-${http_method}`
   )
     .specification
       if meta.title
         h2.request-title.font-sans-bold(
-          id="#{id}"
+          id=id
         )
           a.request-title-anchor.title-anchor(
-            href="\##{id}"
+            href=`#${id}`
           )
             | #{meta.title.content}
 
@@ -78,7 +78,7 @@ mixin references-blueprint-part-specification(id, content, meta, attrs, baseline
 
       .request-target-url.copy.copy-button
         span.request-target-path.copy-value.font-code-regular
-          | #{(attrs.href ? (baseline.host.path + attrs.href.content) : "--")}
+          | #{(attrs.href ? `${baseline.host.path}${attrs.href.content}` : "--")}
 
         span.request-target-copy
 
@@ -99,7 +99,7 @@ mixin references-blueprint-part-specification(id, content, meta, attrs, baseline
 
       if attrs.data && attrs.data.content && attrs.data.content.content
         .request-format-title.font-sans-bold
-          | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_TITLES["DATA_" + data_source.toUpperCase()]}
+          | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_TITLES[`DATA_${data_source.toUpperCase()}`]}
 
         +references-blueprint-request-format-keys(id, http_method, 0, attrs.data.content.content, collapse_depth, true)
 
@@ -121,7 +121,7 @@ mixin references-blueprint-part-examples(id, examples, baseline)
 
               each part in example.url.parts
                 span(
-                  class="examples-detail-#{part.type}"
+                  class=`examples-detail-${part.type}`
                 )
                   | #{part.value}
 
@@ -162,7 +162,7 @@ mixin references-blueprint-part-examples(id, examples, baseline)
 mixin references-blueprint-request-format-keys(id, http_method, depth, content, collapse_depth, with_children)
   //- Generate keys tree from API Blueprint 'data' object
   .request-format-keys(
-    data-depth="#{depth}"
+    data-depth=depth
   )
     each data_level in content
       if data_level.element === "member"
@@ -178,7 +178,7 @@ mixin references-blueprint-request-format-keys(id, http_method, depth, content, 
 
         //- Begin array content type?
         if data_level.content.value.element === "array" && data_level.content.value.content
-          - key.type += ("[" + ((data_level.content.value.content[0] || {}).element || ""));
+          - key.type += `[${((data_level.content.value.content[0] || {}).element || "")}`;
 
         //- Parse enumeration members?
         - var enumeration_attributes = data_level.content.value.attributes;
@@ -188,22 +188,22 @@ mixin references-blueprint-request-format-keys(id, http_method, depth, content, 
           - enumeration_attributes = (data_level.content.value.content[0] || {}).attributes;
 
         if enumeration_attributes && enumeration_attributes.enumerations && enumeration_attributes.enumerations.content && enumeration_attributes.enumerations.content.length > 0
-          - key.type += ("[" + enumeration_attributes.enumerations.content[0].element + "]");
+          - key.type += `[${enumeration_attributes.enumerations.content[0].element}]`;
 
           //- Append all enumeration member values to label (using Markdown)
           - var members = "";
 
           each enumeration in enumeration_attributes.enumerations.content
             if enumeration.content !== undefined
-              - members += ("* `" + enumeration.content + "`");
+              - members += `* \`${enumeration.content}\``;
 
               if enumeration.meta && enumeration.meta.description && enumeration.meta.description.content
-                - members += (" " + enumeration.meta.description.content);
+                - members += ` ${enumeration.meta.description.content}`;
 
               - members += "\n";
 
           if members
-            - key.label = ((key.label || "") + "\n\n**" + $_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_MEMBERS + "**\n" + members.trim());
+            - key.label = `${key.label || ""}\n\n**${$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_MEMBERS}**\n${members.trim()}`;
 
         //- End array content type?
         if data_level.content.value.element === "array" && data_level.content.value.content
@@ -257,17 +257,17 @@ mixin references-blueprint-request-format-parts(key_name, type, label, attribute
 
 
 mixin references-blueprint-request-format-toggle(id, http_method, key_name, children_count, depth)
-  - var toggle_parts = [http_method, id, ("z" + depth), key_name];
-  - var toggle_id    = ("toggle_" + toggle_parts.join("-").toLowerCase());
+  - var toggle_parts = [http_method, id, `z${depth}`, key_name];
+  - var toggle_id    = `toggle_${toggle_parts.join("-").toLowerCase()}`;
 
   input.request-format-toggle-checkbox(
     type="checkbox",
-    id="#{toggle_id}",
-    name="#{toggle_id}"
+    id=toggle_id,
+    name=toggle_id
   )
 
   label.request-format-toggle-button.button.button--small(
-    for="#{toggle_id}"
+    for=toggle_id
   )
     span.request-format-toggle-label.request-format-toggle-label--show
       | #{$_.REFERENCES.BLUEPRINT.SPECIFICATION.REQUEST_FORMAT_TOGGLE_SHOW}
