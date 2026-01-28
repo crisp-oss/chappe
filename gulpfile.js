@@ -23,7 +23,7 @@ var gulp                 = require("gulp");
 var gulp_connect         = require("gulp-connect");
 var gulp_file            = require("gulp-file");
 var gulp_bower           = require("gulp-bower");
-var gulp_jade            = require("gulp-jade");
+var gulp_pug             = require("gulp-pug");
 var gulp_sass            = require("gulp-sass")(require("sass"));
 var gulp_inline_image    = require("gulp-inline-image");
 var gulp_ogimage         = require("gulp-ogimage");
@@ -46,7 +46,7 @@ var gulp_noop            = require("gulp-noop");
 
 var package              = require("./package.json");
 
-var gulp_jade_templates  = require("./res/plugins/gulp/jade-templates");
+var gulp_pug_templates   = require("./res/plugins/gulp/pug-templates");
 var gulp_minisearch      = require("./res/plugins/gulp/minisearch");
 
 var marked_renderers     = {
@@ -373,15 +373,15 @@ var minisearch_consolidate = function() {
 
 
 /*
-  Compiles Jade templates (base templates)
+  Compiles Pug templates (base templates)
 */
-var jade_templates_base = function() {
+var pug_templates_base = function() {
   var _stream = merge();
 
-  gulp_jade_templates.list_config_locales(CONTEXT, package, marked)
-    .forEach(function(jade_data) {
+  gulp_pug_templates.list_config_locales(CONTEXT, package, marked)
+    .forEach(function(pug_data) {
       _stream.add(
-        gulp_jade_templates.pipe_commons(CONTEXT, jade_data.locale, function() {
+        gulp_pug_templates.pipe_commons(CONTEXT, pug_data.locale, function() {
           return gulp.src(
             CONTEXT.CONFIG.SOURCES.TEMPLATES.map(function(template) {
               return (CONTEXT.PATH_SOURCES + "/templates/" + template);
@@ -392,7 +392,7 @@ var jade_templates_base = function() {
             }
           )
             .pipe(
-              gulp_jade(jade_data.config)
+              gulp_pug(pug_data.config)
             );
         })
           .pipe(
@@ -411,9 +411,9 @@ var jade_templates_base = function() {
 
 
 /*
-  Compiles Jade templates (guides templates)
+  Compiles Pug templates (guides templates)
 */
-var jade_templates_guides = function() {
+var pug_templates_guides = function() {
   var _stream = merge();
 
   // Acquire the guides meta-data
@@ -423,7 +423,7 @@ var jade_templates_guides = function() {
   // }
   // Output: [tree<array>, linear<array>]
   var _guide_meta_data = (
-    gulp_jade_templates.traverse_guides_tree(CONTEXT.PATH_DATA + "/guides")
+    gulp_pug_templates.traverse_guides_tree(CONTEXT.PATH_DATA + "/guides")
   );
 
   var _guide_meta_tree   = _guide_meta_data[0],
@@ -439,14 +439,14 @@ var jade_templates_guides = function() {
   }
 
   // Compile all guide pages
-  gulp_jade_templates.list_config_locales(CONTEXT, package, marked)
-    .forEach(function(jade_data) {
+  gulp_pug_templates.list_config_locales(CONTEXT, package, marked)
+    .forEach(function(pug_data) {
       _guide_meta_linear.forEach(function(guide_level) {
         // Generate current guide data (for locale)
-        var jade_level_config = lodash.cloneDeep(jade_data.config);
+        var pug_level_config = lodash.cloneDeep(pug_data.config);
 
-        jade_level_config.data.guides = _guide_meta_tree;
-        jade_level_config.data.guide  = guide_level;
+        pug_level_config.data.guides = _guide_meta_tree;
+        pug_level_config.data.guide  = guide_level;
 
         // Forbid indexing? (if any entry segment starts with an underscore)
         var _segment_private_index = guide_level.segments.findIndex(
@@ -456,21 +456,21 @@ var jade_templates_guides = function() {
         );
 
         if (_segment_private_index !== -1) {
-          jade_level_config.data.INDEXING = false;
+          pug_level_config.data.INDEXING = false;
         }
 
         _stream.add(
-          gulp_jade_templates.pipe_commons(
-            CONTEXT, jade_data.locale, function() {
+          gulp_pug_templates.pipe_commons(
+            CONTEXT, pug_data.locale, function() {
               return gulp.src(
-                (CONTEXT.PATH_SOURCES + "/templates/guides/index.jade"),
+                (CONTEXT.PATH_SOURCES + "/templates/guides/index.pug"),
 
                 {
                   base : (CONTEXT.PATH_SOURCES + "/templates")
                 }
               )
                 .pipe(
-                  gulp_jade(jade_level_config)
+                  gulp_pug(pug_level_config)
                 )
                 .pipe(
                   gulp_rename(function(file_path) {
@@ -495,27 +495,27 @@ var jade_templates_guides = function() {
 
 
 /*
-  Compiles Jade templates (references templates)
+  Compiles Pug templates (references templates)
 */
-var jade_templates_references = function() {
+var pug_templates_references = function() {
   var _stream = merge();
 
   // Acquire the parsed references content
   // Format: {segments<array>, type<string>, data<object>}
   // Output: linear<array>
   var _reference_meta_data = (
-    gulp_jade_templates.traverse_references_linear(
+    gulp_pug_templates.traverse_references_linear(
       CONTEXT, (CONTEXT.PATH_DATA + "/references")
     )
   );
 
-  gulp_jade_templates.list_config_locales(CONTEXT, package, marked)
-    .forEach(function(jade_data) {
+  gulp_pug_templates.list_config_locales(CONTEXT, package, marked)
+    .forEach(function(pug_data) {
       _reference_meta_data.forEach(function(reference_entry) {
         // Generate current reference data (for locale)
-        var jade_entry_config = lodash.cloneDeep(jade_data.config);
+        var pug_entry_config = lodash.cloneDeep(pug_data.config);
 
-        jade_entry_config.data.reference = reference_entry;
+        pug_entry_config.data.reference = reference_entry;
 
         // Forbid indexing? (if any entry segment starts with an underscore)
         var _segment_private_index = reference_entry.segments.findIndex(
@@ -525,13 +525,13 @@ var jade_templates_references = function() {
         );
 
         if (_segment_private_index !== -1) {
-          jade_entry_config.data.INDEXING = false;
+          pug_entry_config.data.INDEXING = false;
         }
 
         // Append all reference anchors to search index
         // Important: only if reference indexing is not forbidden
         if (reference_entry.categories  &&
-              jade_entry_config.data.INDEXING !== false) {
+              pug_entry_config.data.INDEXING !== false) {
           // Acquire reference path, as well as reference path title (with \
           //   its common suffix extracted)
           // Notice: 'REST API Reference (V1)' becomes 'REST API' + 'V1'
@@ -561,17 +561,17 @@ var jade_templates_references = function() {
         }
 
         _stream.add(
-          gulp_jade_templates.pipe_commons(
-            CONTEXT, jade_data.locale, function() {
+          gulp_pug_templates.pipe_commons(
+            CONTEXT, pug_data.locale, function() {
               return gulp.src(
-                (CONTEXT.PATH_SOURCES + "/templates/references/index.jade"),
+                (CONTEXT.PATH_SOURCES + "/templates/references/index.pug"),
 
                 {
                   base : (CONTEXT.PATH_SOURCES + "/templates")
                 }
               )
                 .pipe(
-                  gulp_jade(jade_entry_config)
+                  gulp_pug(pug_entry_config)
                 )
                 .pipe(
                   gulp_rename(function(file_path) {
@@ -599,9 +599,9 @@ var jade_templates_references = function() {
 
 
 /*
-  Compiles Jade templates (changes templates)
+  Compiles Pug templates (changes templates)
 */
-var jade_templates_changes = function() {
+var pug_templates_changes = function() {
   var _stream = merge();
 
   // Acquire the change years data
@@ -686,15 +686,15 @@ var jade_templates_changes = function() {
     "index"
   ]);
 
-  gulp_jade_templates.list_config_locales(CONTEXT, package, marked)
-    .forEach(function(jade_data) {
+  gulp_pug_templates.list_config_locales(CONTEXT, package, marked)
+    .forEach(function(pug_data) {
       _change_years.forEach(function(change_year) {
         // Generate current year data (for locale)
-        var jade_year_config = lodash.cloneDeep(jade_data.config);
+        var pug_year_config = lodash.cloneDeep(pug_data.config);
 
-        jade_year_config.data.years   = _available_bare_years;
+        pug_year_config.data.years   = _available_bare_years;
 
-        jade_year_config.data.changes = {
+        pug_year_config.data.changes = {
           year     : change_year[0],
 
           current  : (
@@ -705,17 +705,17 @@ var jade_templates_changes = function() {
         };
 
         _stream.add(
-          gulp_jade_templates.pipe_commons(
-            CONTEXT, jade_data.locale, function() {
+          gulp_pug_templates.pipe_commons(
+            CONTEXT, pug_data.locale, function() {
               return gulp.src(
-                (CONTEXT.PATH_SOURCES + "/templates/changes/index.jade"),
+                (CONTEXT.PATH_SOURCES + "/templates/changes/index.pug"),
 
                 {
                   base : (CONTEXT.PATH_SOURCES + "/templates")
                 }
               )
                 .pipe(
-                  gulp_jade(jade_year_config)
+                  gulp_pug(pug_year_config)
                 )
                 .pipe(
                   gulp_rename(function(file_path) {
@@ -745,14 +745,14 @@ var jade_templates_changes = function() {
 
 
 /*
-  Compiles all Jade templates (shell task to aggregate sub-tasks)
+  Compiles all Pug templates (shell task to aggregate sub-tasks)
 */
-var jade_templates_all = function() {
+var pug_templates_all = function() {
   return gulp.parallel(
-    jade_templates_base,
-    jade_templates_guides,
-    jade_templates_references,
-    jade_templates_changes
+    pug_templates_base,
+    pug_templates_guides,
+    pug_templates_references,
+    pug_templates_changes
   );
 }();
 
@@ -1478,7 +1478,7 @@ var build_resources = function() {
       ),
 
       gulp.series(
-        jade_templates_all,
+        pug_templates_all,
 
         gulp.parallel(
           replace_templates_guides,
@@ -1568,7 +1568,7 @@ var watch_resources = function(next) {
       "src/locales/**/*",
 
       gulp.series(
-        jade_templates_all,
+        pug_templates_all,
         replace_templates_guides
       )
     );
@@ -1577,7 +1577,7 @@ var watch_resources = function(next) {
       "src/templates/**/*",
 
       gulp.series(
-        jade_templates_all,
+        pug_templates_all,
 
         gulp.parallel(
           replace_templates_guides,
@@ -1620,21 +1620,21 @@ var watch_resources = function(next) {
     (CONTEXT.PATH_DATA + "/guides/**/*.md"),
 
     gulp.series(
-      jade_templates_guides,
+      pug_templates_guides,
       replace_templates_guides
     )
   );
 
   gulp.watch(
     (CONTEXT.PATH_DATA + "/references/**/*.md"),
-    jade_templates_references
+    pug_templates_references
   );
 
   gulp.watch(
     (CONTEXT.PATH_DATA + "/changes/**/*.json"),
 
     gulp.parallel(
-      jade_templates_changes,
+      pug_templates_changes,
       feed_changes
     )
   );
@@ -1644,11 +1644,11 @@ var watch_resources = function(next) {
 
 
 /*
-  Lints Jade templates
+  Lints Pug templates
 */
-var lint_jade_templates = function() {
+var lint_pug_templates = function() {
   return gulp.src(
-    CONTEXT.PATH_SOURCES + "/templates/**/*.jade"
+    CONTEXT.PATH_SOURCES + "/templates/**/*.pug"
   )
     .pipe(
       gulp_pug_lint({
@@ -1736,7 +1736,7 @@ var lint = function() {
     get_configuration,
 
     gulp.parallel(
-      lint_jade_templates,
+      lint_pug_templates,
       lint_scss_stylesheets,
       lint_js_scripts_jshint,
       lint_js_scripts_jscs

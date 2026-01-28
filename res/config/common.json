@@ -23,8 +23,8 @@
 
   "SOURCES" : {
     "TEMPLATES" : [
-      "home/index.jade",
-      "not_found/index.jade"
+      "home/index.pug",
+      "not_found/index.pug"
     ],
 
     "JAVASCRIPTS" : [

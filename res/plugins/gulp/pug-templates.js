@@ -25,7 +25,7 @@ var gulp_rename        = require("gulp-rename");
 
 module.exports = {
   list_config_locales : function(context, package, marked) {
-    var jade_config = {
+    var pug_config = {
       data : lodash.merge(
         lodash.clone(context.CONFIG),
 
@@ -47,28 +47,28 @@ module.exports = {
     };
 
     if (context.IS_PRODUCTION) {
-      jade_config.pretty = false;
+      pug_config.pretty = false;
     } else {
-      jade_config.pretty = true;
+      pug_config.pretty = true;
     }
 
     return context.CONFIG.LANGS.map(function(lang) {
-      var jade_config_lang = lodash.cloneDeep(jade_config);
+      var pug_config_lang = lodash.cloneDeep(pug_config);
 
       // Assign locale code
-      jade_config_lang.data.LOCALE = {
+      pug_config_lang.data.LOCALE = {
         CODE      : lang,
         DIRECTION : "ltr"
       };
 
       // Assign locale strings
-      jade_config_lang.data.$_ = JSON.parse(
+      pug_config_lang.data.$_ = JSON.parse(
         fs.readFileSync(context.PATH_SOURCES + "/locales/" + lang + ".json")
       );
 
       return {
         locale : lang,
-        config : jade_config_lang
+        config : pug_config_lang
       };
     });
   },
@@ -76,7 +76,7 @@ module.exports = {
   pipe_commons : function(context, locale, fn_pipeline) {
     return fn_pipeline()
       .on("error", gulp_notify.onError({
-        title     : "jade_templates_base",
+        title     : "pug_templates_base",
         message   : "Error compiling",
         emitError : true
       }))

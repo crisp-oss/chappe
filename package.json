@@ -49,7 +49,7 @@
     "gulp-connect": "5.7.x",
     "gulp-bower": "0.0.15",
     "gulp-file": "0.4.x",
-    "gulp-jade": "1.1.x",
+    "gulp-pug": "5.0.x",
     "gulp-babel": "6.1.x",
     "gulp-sass": "6.0.x",
     "gulp-sass-variables": "1.2.x",
