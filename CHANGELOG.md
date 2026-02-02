@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.15.1 (2026-02-02)
+
+### Bug Fixes
+
+* Fixed generated slug for anchor links in Markdown articles (in some cases).
+
 ## 1.15.0 (2026-01-28)
 
 ### Changes
