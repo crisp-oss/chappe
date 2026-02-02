@@ -719,7 +719,7 @@ module.exports = {
         // Start a new current entry?
         if (_item !== null) {
           _current_entry = {
-            id       : _item.slug,
+            id       : slug(_item.content),
             title    : _item.content,
             subtrees : []
           };
