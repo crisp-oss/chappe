@@ -39,6 +39,7 @@
       .details-category {
         line-height: 18px;
         margin-left: -2px;
+        overflow: visible;
 
         @include font-size(16px);
 
