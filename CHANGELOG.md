@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.15.2 (2026-03-31)
+
+### Bug Fixes
+
+* Fixed category icon overflow in guides details section.
+
 ## 1.15.1 (2026-02-02)
 
 ### Bug Fixes
