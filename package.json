@@ -75,7 +75,7 @@
     "jshint": "2.13.x",
     "lodash": "4.17.x",
     "markdown-toc": "1.2.x",
-    "marked": "4.0.x",
+    "marked": "5.0.x",
     "merge-stream": "2.0.x",
     "minisearch": "3.1.x",
     "ora": "5.4.x",
