@@ -14,6 +14,7 @@ var del                  = require("del");
 var glob                 = require("glob");
 var merge                = require("merge-stream");
 var marked               = require("marked").marked;
+var markedFootnote       = require("marked-footnote");
 var markedGfmHeadingId         = require("marked-gfm-heading-id").gfmHeadingId;
 var markedMangle               = require("marked-mangle").mangle;
 var remove_markdown      = require("@tommoor/remove-markdown");
@@ -116,6 +117,7 @@ marked.use({
     marked_extensions.embed
   ]
 });
+marked.use(markedFootnote());
 marked.use(markedGfmHeadingId());
 marked.use(markedMangle());
 
