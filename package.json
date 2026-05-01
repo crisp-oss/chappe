@@ -75,7 +75,7 @@
     "jshint": "2.13.x",
     "lodash": "4.17.x",
     "markdown-toc": "1.2.x",
-    "marked": "6.0.x",
+    "marked": "7.0.x",
     "marked-gfm-heading-id": "3.2.x",
     "marked-mangle": "1.1.x",
     "merge-stream": "2.0.x",
