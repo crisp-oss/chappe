@@ -527,6 +527,29 @@
       }
     }
   }
+
+  sup:has([data-footnote-ref]) {
+    display: inline-block;
+    vertical-align: baseline;
+    font-size: smaller;
+    position: relative;
+    top: -0.4em;
+  }
+  
+  .footnotes {
+    ol {
+      list-style: none;
+
+      li {
+        counter-increment: footnote-counter;
+
+        &::before {
+          content: counter(footnote-counter) ".";
+          top: 1px;
+        }
+      }
+    }
+  }
 }
 
 

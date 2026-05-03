@@ -133,3 +133,16 @@ Ac tortor vitae purus faucibus ornare suspendisse. Egestas sed tempus urna et ph
 ##### Level 5 Title
 
 ###### Level 6 Title
+
+---
+
+# Footnote Sample
+
+This sentence has two[^foo] footnotes[^bar].
+
+[^foo]: This is an example footnote.
+[^bar]: Note that it has to be defined **on a single line**, but using `<br/>`<br/>you can still make it multiline if needed.
+
+---
+
+\[End of document\]

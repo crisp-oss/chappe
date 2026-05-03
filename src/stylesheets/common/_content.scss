@@ -73,7 +73,7 @@
         }
       }
 
-      [id] {
+      [id]:not([data-footnote-ref], .footnotes *) {
         $anchor-offset-top: ($header-height-outer + 16px);
 
         pointer-events: none;
