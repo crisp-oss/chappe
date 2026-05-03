@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.16.0 (2026-05-03)
+
+### New Features
+
+* Added support for footnotes in guides.
+
 ## 1.15.2 (2026-03-31)
 
 ### Bug Fixes
