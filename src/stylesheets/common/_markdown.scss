@@ -528,12 +528,14 @@
     }
   }
 
-  sup:has([data-footnote-ref]) {
-    display: inline-block;
-    vertical-align: baseline;
-    font-size: smaller;
-    position: relative;
-    top: -0.4em;
+  sup {
+    &:has([data-footnote-ref]) {
+      display: inline-block;
+      vertical-align: baseline;
+      font-size: smaller;
+      position: relative;
+      top: -0.4em;
+    }
   }
   
   .footnotes {

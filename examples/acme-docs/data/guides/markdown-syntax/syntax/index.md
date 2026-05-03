@@ -39,6 +39,12 @@ In tellus integer feugiat scelerisque varius morbi enim nunc:
 
 ---
 
+# Footnote Samples
+
+This sentence has two[^foo] footnotes[^bar].
+
+---
+
 # List Samples
 
 Nunc lobortis mattis aliquam faucibus purus in massa. Risus feugiat in ante metus dictum at tempor. Felis eget velit aliquet sagittis id consectetur.
@@ -136,13 +142,5 @@ Ac tortor vitae purus faucibus ornare suspendisse. Egestas sed tempus urna et ph
 
 ---
 
-# Footnote Sample
-
-This sentence has two[^foo] footnotes[^bar].
-
 [^foo]: This is an example footnote.
 [^bar]: Note that it has to be defined **on a single line**, but using `<br/>`<br/>you can still make it multiline if needed.
-
----
-
-\[End of document\]

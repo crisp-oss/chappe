@@ -73,23 +73,25 @@
         }
       }
 
-      [id]:not([data-footnote-ref], .footnotes *) {
-        $anchor-offset-top: ($header-height-outer + 16px);
+      [id] {
+        &:not([data-footnote-ref], .footnotes *) {
+          $anchor-offset-top: ($header-height-outer + 16px);
 
-        pointer-events: none;
+          pointer-events: none;
 
-        &::before {
-          content: "";
-          width: 0;
-          height: $anchor-offset-top;
-          margin-top: (-1 * $anchor-offset-top);
-          display: block;
-          position: relative;
-        }
+          &::before {
+            content: "";
+            width: 0;
+            height: $anchor-offset-top;
+            margin-top: (-1 * $anchor-offset-top);
+            display: block;
+            position: relative;
+          }
 
-        a {
-          &[href^="#"] {
-            pointer-events: all;
+          a {
+            &[href^="#"] {
+              pointer-events: all;
+            }
           }
         }
       }

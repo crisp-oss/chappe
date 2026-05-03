@@ -6,58 +6,58 @@
  */
 
 
-var fs                   = require("fs");
-var path                 = require("path");
+var fs                     = require("fs");
+var path                   = require("path");
 
-var lodash               = require("lodash");
-var del                  = require("del");
-var glob                 = require("glob");
-var merge                = require("merge-stream");
-var marked               = require("marked").marked;
-var markedFootnote       = require("marked-footnote");
-var markedGfmHeadingId         = require("marked-gfm-heading-id").gfmHeadingId;
-var markedMangle               = require("marked-mangle").mangle;
-var remove_markdown      = require("@tommoor/remove-markdown");
-var MiniSearch           = require("minisearch");
-var Feed                 = require("feed").Feed;
+var lodash                 = require("lodash");
+var del                    = require("del");
+var glob                   = require("glob");
+var merge                  = require("merge-stream");
+var marked                 = require("marked").marked;
+var marked_footnote        = require("marked-footnote");
+var marked_gfm_heading_id  = require("marked-gfm-heading-id").gfmHeadingId;
+var marked_mangle          = require("marked-mangle").mangle;
+var remove_markdown        = require("@tommoor/remove-markdown");
+var MiniSearch             = require("minisearch");
+var Feed                   = require("feed").Feed;
 
-var gulp                 = require("gulp");
+var gulp                   = require("gulp");
 
-var gulp_connect         = require("gulp-connect");
-var gulp_file            = require("gulp-file");
-var gulp_bower           = require("gulp-bower");
-var gulp_pug             = require("gulp-pug");
-var gulp_sass            = require("gulp-sass")(require("sass"));
-var gulp_inline_image    = require("gulp-inline-image");
-var gulp_ogimage         = require("gulp-ogimage");
-var gulp_sass_variables  = require("gulp-sass-variables");
-var gulp_concat          = require("gulp-concat");
-var gulp_babel           = require("gulp-babel");
-var gulp_clean_css       = require("gulp-clean-css");
-var gulp_uglify          = require("gulp-uglify");
-var gulp_rename          = require("gulp-rename");
-var gulp_replace         = require("gulp-replace");
-var gulp_header          = require("gulp-header");
-var gulp_pug_lint        = require("gulp-pug-lint");
-var gulp_stylelint       = require("gulp-stylelint-esm").default;
-var gulp_jshint          = require("gulp-jshint");
-var gulp_jscs            = require("gulp-jscs");
-var gulp_sizereport      = require("gulp-sizereport");
-var gulp_sitemap         = require("gulp-sitemap");
-var gulp_notify          = require("gulp-notify");
-var gulp_noop            = require("gulp-noop");
+var gulp_connect           = require("gulp-connect");
+var gulp_file              = require("gulp-file");
+var gulp_bower             = require("gulp-bower");
+var gulp_pug               = require("gulp-pug");
+var gulp_sass              = require("gulp-sass")(require("sass"));
+var gulp_inline_image      = require("gulp-inline-image");
+var gulp_ogimage           = require("gulp-ogimage");
+var gulp_sass_variables    = require("gulp-sass-variables");
+var gulp_concat            = require("gulp-concat");
+var gulp_babel             = require("gulp-babel");
+var gulp_clean_css         = require("gulp-clean-css");
+var gulp_uglify            = require("gulp-uglify");
+var gulp_rename            = require("gulp-rename");
+var gulp_replace           = require("gulp-replace");
+var gulp_header            = require("gulp-header");
+var gulp_pug_lint          = require("gulp-pug-lint");
+var gulp_stylelint         = require("gulp-stylelint-esm").default;
+var gulp_jshint            = require("gulp-jshint");
+var gulp_jscs              = require("gulp-jscs");
+var gulp_sizereport        = require("gulp-sizereport");
+var gulp_sitemap           = require("gulp-sitemap");
+var gulp_notify            = require("gulp-notify");
+var gulp_noop              = require("gulp-noop");
 
-var package              = require("./package.json");
+var package                = require("./package.json");
 
-var gulp_pug_templates   = require("./res/plugins/gulp/pug-templates");
-var gulp_minisearch      = require("./res/plugins/gulp/minisearch");
+var gulp_pug_templates     = require("./res/plugins/gulp/pug-templates");
+var gulp_minisearch        = require("./res/plugins/gulp/minisearch");
 
-var marked_renderers     = {
+var marked_renderers       = {
   heading : require("./res/plugins/marked/renderers/heading"),
   code    : require("./res/plugins/marked/renderers/code")
 };
 
-var marked_extensions    = {
+var marked_extensions      = {
   navigation      : require("./res/plugins/marked/extensions/navigation"),
   navigation_item : require("./res/plugins/marked/extensions/navigation-item"),
   emphasis        : require("./res/plugins/marked/extensions/emphasis"),
@@ -117,9 +117,12 @@ marked.use({
     marked_extensions.embed
   ]
 });
-marked.use(markedFootnote());
-marked.use(markedGfmHeadingId());
-marked.use(markedMangle());
+
+marked.use(
+  marked_footnote(),
+  marked_gfm_heading_id(),
+  marked_mangle()
+);
 
 
 // Tasks
